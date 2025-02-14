@@ -1,0 +1,517 @@
+{
+
+  "nodes": {
+
+    "battery": {
+      "id": "battery",
+      "type": "power",
+      "name": "Battery",
+      "material_num": "NA"
+    },
+    
+    "cdb": {
+      "id": "cdb",
+      "type": "board",
+      "name": "Cable Distribution Board",
+      "material_num": "BC.AG.SS000556"
+    },
+    "pdb": {
+      "id": "pdb",
+      "type": "board",
+      "name": "Power Distribution Board",
+      "material_num": "BC.AG.SS000558"
+    },    
+
+    "avionics": {
+      "id": "avionics",
+      "type": "board",
+      "name": "Avionics Board",
+      "material_num": "BC.AG.SS000617"
+    },
+    "rf_board": {
+      "id": "rf_board",
+      "type": "board",
+      "name": "RF Board",
+      "material_num": "BC.AG.SS000552"
+    },
+    "spray_board": {
+      "id": "spray_board",
+      "type": "board",
+      "name": "Spraying Board",
+      "material_num": "BC.AG.SS000554"
+    },
+    "spray_adapter": {
+      "id": "spray_adapter",
+      "type": "board",
+      "name": "Spraying Adapter",
+      "material_num": "BC.AG.SS000546"
+    },
+
+    "m1_pos": {
+        "id": "m1_pos",
+        "type": "sensor",
+        "name": "M1 Arm In-position Detector",
+        "material_num": "BC.AG.SS000547"
+    },
+    "m2_pos": {
+        "id": "m2_pos",
+        "type": "sensor",
+        "name": "M2 Arm In-position Detector",
+        "material_num": "BC.AG.SS000547"
+    },
+    "m3_pos": {
+        "id": "m3_pos",
+        "type": "sensor",
+        "name": "M3 Arm In-position Detector",
+        "material_num": "BC.AG.SS000547"
+    },
+    "m4_pos": {
+        "id": "m4_pos",
+        "type": "sensor",
+        "name": "M4 Arm In-position Detector",
+        "material_num": "BC.AG.SS000547"
+    },
+
+    "esc1": {
+      "id": "esc1",
+      "type": "esc",
+      "name": "ESC 1",
+      "material_num": "BC.AG.SS000563"
+    },
+    "esc2": {
+      "id": "esc2",
+      "type": "esc",
+      "name": "ESC 2",
+      "material_num": "BC.AG.SS000563"
+    },
+    "esc3": {
+      "id": "esc3",
+      "type": "esc",
+      "name": "ESC 3",
+      "material_num": "BC.AG.SS000563"
+    },
+    "esc4": {
+      "id": "esc4",
+      "type": "esc",
+      "name": "ESC 4",
+      "material_num": "BC.AG.SS000563"
+    },
+    "esc5": {
+      "id": "esc5",
+      "type": "esc",
+      "name": "ESC 5",
+      "material_num": "BC.AG.SS000563"
+    },
+    "esc6": {
+      "id": "esc6",
+      "type": "esc",
+      "name": "ESC 6",
+      "material_num": "BC.AG.SS000563"
+    },
+    "esc7": {
+      "id": "esc7",
+      "type": "esc",
+      "name": "ESC 7",
+      "material_num": "BC.AG.SS000563"
+    },
+    "esc8": {
+      "id": "esc8",
+      "type": "esc",
+      "name": "ESC 8",
+      "material_num": "BC.AG.SS000563"
+    },
+
+    "motor1": {
+      "id": "motor1",
+      "type": "motor",
+      "name": "Motor 1",
+      "material_num": "BC.AG.SS000668"
+    },
+    "motor2": {
+      "id": "motor2",
+      "type": "motor",
+      "name": "Motor 2",
+      "material_num": "BC.AG.SS000668"
+    },
+    "motor3": {
+      "id": "motor3",
+      "type": "motor",
+      "name": "Motor 3",
+      "material_num": "BC.AG.SS000668"
+    },
+    "motor4": {
+      "id": "motor4",
+      "type": "motor",
+      "name": "Motor 4",
+      "material_num": "BC.AG.SS000668"
+    },
+    "motor5": {
+      "id": "motor5",
+      "type": "motor",
+      "name": "Motor 5",
+      "material_num": "BC.AG.SS000668"
+    },
+    "motor6": {
+      "id": "motor6",
+      "type": "motor",
+      "name": "Motor 6",
+      "material_num": "BC.AG.SS000668"
+    },
+    "motor7": {
+      "id": "motor7",
+      "type": "motor",
+      "name": "Motor 7",
+      "material_num": "BC.AG.SS000668"
+    },
+    "motor8": {
+      "id": "motor8",
+      "type": "motor",
+      "name": "Motor 8",
+      "material_num": "BC.AG.SS000668"
+    },
+
+    "fwd_vision": {
+        "id": "fwd_vision",
+        "type": "sensor",
+        "name": "Forward Vision Sensors",
+        "material_num": "BC.AG.SS000562"
+    },
+    "fpv_camera": {
+        "id": "fpv_camera",
+        "type": "sensor",
+        "name": "FPV Camera",
+        "material_num": "BC.AG.SS000549"
+    },
+    "barometer": {
+        "id": "barometer",
+        "type": "sensor",
+        "name": "Barometer",
+        "material_num": "NA"
+    },
+
+    "sdr_ant_l": {
+        "id": "sdr_ant_l",
+        "type": "antenna",
+        "name": "SDR Antenna (L)",
+        "material_num": "YC.DZ.AA000275"
+    },
+    "sdr_ant_r": {
+        "id": "sdr_ant_r",
+        "type": "antenna",
+        "name": "SDR Antenna (R)",
+        "material_num": "YC.DZ.AA000275"
+    },
+    "rtk_ant_l": {
+        "id": "rtk_ant_l",
+        "type": "antenna",
+        "name": "RTK Antenna (L)",
+        "material_num": "BC.AG.SS000560"
+    },
+    "rtk_ant_r": {
+        "id": "rtk_ant_r",
+        "type": "antenna",
+        "name": "RTK Antenna (R)",
+        "material_num": "BC.AG.SS000560"
+    },
+
+    "omni_radar": {
+        "id": "omni_radar",
+        "type": "sensor",
+        "name": "Omnidirectional Radar",
+        "material_num": "BC.AG.SS000551"
+    },
+    "bwd_radar": {
+        "id": "bwd_radar",
+        "type": "sensor",
+        "name": "Backward Vision Radar",
+        "material_num": "BC.AG.SS000655"
+    },
+
+    "load_sensor": {
+        "id": "load_sensor",
+        "type": "sensor",
+        "name": "Load Sensor",
+        "material_num": "BC.AG.SS000550"
+    },
+    "flow_meter": {
+        "id": "flow_meter",
+        "type": "sensor",
+        "name": "Flow Meter",
+        "material_num": "BC.AG.SS000545"
+    },
+    "liquid_level": {
+        "id": "liquid_level",
+        "type": "sensor",
+        "name": "Liquid Level Meter",
+        "material_num": "BC.AG.SS000547"
+    },
+    "pump1": {
+        "id": "pump1",
+        "type": "motor",
+        "name": "Impeller Pump Motor 1",
+        "material_num": "BC.AG.SS000543"
+    },
+    "pump2": {
+        "id": "pump2",
+        "type": "motor",
+        "name": "Impeller Pump Motor 2",
+        "material_num": "BC.AG.SS000543"
+    },
+    "cent_motor1": {
+        "id": "cent_motor1",
+        "type": "motor",
+        "name": "Centrifugal Motor 1",
+        "material_num": "BC.AG.SS000565"
+    },
+    "cent_motor2": {
+        "id": "cent_motor2",
+        "type": "motor",
+        "name": "Centrifugal Motor 2",
+        "material_num": "BC.AG.SS000565"
+    },
+
+    "aux_light_l": {
+        "id": "aux_light_l",
+        "type": "light",
+        "name": "Auxiliary Bottom Light (L)",
+        "material_num": "BC.AG.SS000548"
+    },
+    "aux_light_r": {
+        "id": "aux_light_r",
+        "type": "light",
+        "name": "Auxiliary Bottom Light (R)",
+        "material_num": "BC.AG.SS000548"
+    },
+    
+    "rtk_cable_l": {
+      "id": "rtk_cable_l",
+      "type": "cable",
+      "name": "RTK Coaxial Cable (L)",
+      "category": "signal",
+      "material_num": "YC.XC.TT000104"
+    },
+    "rtk_cable_r": {
+      "id": "rtk_cable_r", 
+      "type": "cable",
+      "name": "RTK Coaxial Cable (R)",
+      "category": "signal",
+      "material_num": "YC.XC.TT000104"
+    },
+
+    "aux_light_cable_l": {
+      "id": "aux_light_cable_l",
+      "type": "cable", 
+      "name": "Auxiliary Bottom Light Signal Cable (L)",
+      "category": "signal",
+      "material_num": "YC.XC.XX000853"
+    },
+    "aux_light_cable_r": {
+      "id": "aux_light_cable_r",
+      "type": "cable",
+      "name": "Auxiliary Bottom Light Signal Cable (R)", 
+      "category": "signal",
+      "material_num": "YC.XC.XX000853"
+    },
+
+    "omni_radar_cable": {
+      "id": "omni_radar_cable",
+      "type": "cable",
+      "name": "Omnidirectional Radar Signal Cable",
+      "category": "signal",
+      "material_num": "YC.XC.XX000844"
+    },
+    "bwd_radar_cable": {
+      "id": "bwd_radar_cable",
+      "type": "cable",
+      "name": "Backward Vision Radar Signal Cable",
+      "category": "signal",
+      "material_num": "YC.XC.XX000845"
+    },
+
+    "signal_cable_l": {
+      "id": "signal_cable_l",
+      "type": "cable",
+      "name": "Signal Cable (L)",
+      "category": "signal",
+      "material_num": "YC.XC.XX000840"
+    },
+    "signal_cable_r": {
+      "id": "signal_cable_r",
+      "type": "cable",
+      "name": "Signal Cable (R)",
+      "category": "signal",
+      "material_num": "YC.XC.XX000840"
+    },
+    "front_esc_cable_l": {
+      "id": "front_esc_cable_l",
+      "type": "cable",
+      "name": "Front Aircraft Arm ESC Power Adapter Cable (L)",
+      "category": "power",
+      "material_num": "YC.XC.DD000501"
+    },
+    "front_esc_cable_r": {
+      "id": "front_esc_cable_r",
+      "type": "cable",
+      "name": "Front Aircraft Arm ESC Power Adapter Cable (R)",
+      "category": "power",
+      "material_num": "YC.XC.DD000501"
+    },
+
+    "m1_esc_cable": {
+      "id": "m1_esc_cable",
+      "type": "cable",
+      "name": "M1 Aircraft Arm ESC Composite Cable",
+      "category": "power",
+      "material_num": "YC.XC.XS000011"
+    },
+    "m2_esc_cable": {
+      "id": "m2_esc_cable",
+      "type": "cable",
+      "name": "M2 Aircraft Arm ESC Composite Cable",
+      "category": "power",
+      "material_num": "YC.XC.XS000011"
+    },
+    "m3_esc_cable": {
+      "id": "m3_esc_cable",
+      "type": "cable",
+      "name": "M3 Aircraft Arm ESC Composite Cable",
+      "category": "power",
+      "material_num": "YC.XC.XS000012"
+    },
+    "m4_esc_cable": {
+      "id": "m4_esc_cable",
+      "type": "cable",
+      "name": "M4 Aircraft Arm ESC Composite Cable",
+      "category": "power",
+      "material_num": "YC.XC.XS000012"
+    },
+
+    "spray_adapt_cable": {
+      "id": "spray_adapt_cable",
+      "type": "cable",
+      "name": "Spraying Adaptive Cable",
+      "category": "signal",
+      "material_num": "YC.XC.XX000842"
+    },
+    "spray_signal_cable": {
+      "id": "spray_signal_cable",
+      "type": "cable",
+      "name": "Spraying Signal Cable",
+      "category": "signal",
+      "material_num": "YC.XC.XX000835"
+    },
+    "flow_meter_cable": {
+      "id": "flow_meter_cable",
+      "type": "cable",
+      "name": "Flow Meter Signal Cable",
+      "category": "signal",
+      "material_num": "YC.XC.XX000839"
+    },
+    "impeller_pump_cable": {
+      "id": "impeller_pump_cable",
+      "type": "cable",
+      "name": "Impeller Pump Signal Cable",
+      "category": "signal",
+      "material_num": "YC.XC.XX000857"
+    },
+    
+    "cent_sprinkler_cable_l": {
+      "id": "cent_sprinkler_cable_l",
+      "type": "cable",
+      "name": "Centrifugal Sprinkler Signal Cable (L)",
+      "category": "signal",
+      "material_num": "YC.XC.XX000841"
+    },
+    "cent_sprinkler_cable_r": {
+      "id": "cent_sprinkler_cable_r",
+      "type": "cable",
+      "name": "Centrifugal Sprinkler Signal Cable (R)",
+      "category": "signal",
+      "material_num": "YC.XC.XX000841"
+    }
+  
+  },
+
+  "edges": [
+
+    {"from": "battery", "to": "pdb"},
+
+    {"from": "signal_cable_l", "to": "cdb"},
+    {"from": "signal_cable_l", "to": "pdb"},
+    {"from": "signal_cable_r", "to": "cdb"},
+    {"from": "signal_cable_r", "to": "pdb"},
+
+    {"from": "avionics", "to": "cdb"},
+    {"from": "avionics", "to": "fpv_camera"},
+    {"from": "avionics", "to": "fwd_vision"},
+    {"from": "avionics", "to": "barometer"},
+
+    {"from": "rf_board", "to": "cdb"},
+    {"from": "rf_board", "to": "sdr_ant_l"},
+    {"from": "rf_board", "to": "sdr_ant_r"},
+    {"from": "rf_board", "to": "rtk_cable_l"},
+    {"from": "rf_board", "to": "rtk_cable_r"},
+    {"from": "rtk_cable_l", "to": "rtk_ant_l"},
+    {"from": "rtk_cable_r", "to": "rtk_ant_r"},
+
+    {"from": "omni_radar_cable", "to": "omni_radar"},
+    {"from": "omni_radar_cable", "to": "cdb"},
+    {"from": "bwd_radar_cable", "to": "bwd_radar"},
+    {"from": "bwd_radar_cable", "to": "cdb"},
+
+    {"from": "aux_light_cable_l", "to": "aux_light_l"},
+    {"from": "aux_light_cable_l", "to": "cdb"},
+    {"from": "aux_light_cable_r", "to": "aux_light_r"},
+    {"from": "aux_light_cable_r", "to": "cdb"},
+
+    {"from": "spray_board", "to": "cdb"},
+    {"from": "spray_adapt_cable", "to": "cdb"},
+    {"from": "spray_adapt_cable", "to": "spray_signal_cable"},
+    {"from": "spray_signal_cable", "to": "spray_adapter"},
+    {"from": "load_sensor", "to": "cdb"},
+    {"from": "flow_meter_cable", "to": "flow_meter"},
+    {"from": "flow_meter_cable", "to": "spray_adapter"},
+    {"from": "liquid_level", "to": "spray_adapter"},
+    {"from": "impeller_pump_cable", "to": "spray_adapter"},
+    {"from": "impeller_pump_cable", "to": "pump1"},
+    {"from": "impeller_pump_cable", "to": "pump2"},
+
+    {"from": "m1_pos", "to": "cdb"},
+    {"from": "m2_pos", "to": "cdb"},
+    {"from": "m3_pos", "to": "pdb"},
+    {"from": "m4_pos", "to": "pdb"},
+
+    {"from": "front_esc_cable_r", "to": "m1_esc_cable"},
+    {"from": "front_esc_cable_r", "to": "pdb"},
+    {"from": "front_esc_cable_l", "to": "m2_esc_cable"},
+    {"from": "front_esc_cable_l", "to": "pdb"},
+
+    {"from": "m1_esc_cable", "to": "esc1"},
+    {"from": "m1_esc_cable", "to": "esc5"},
+    {"from": "m1_esc_cable", "to": "cdb"},
+    {"from": "m2_esc_cable", "to": "esc2"},
+    {"from": "m2_esc_cable", "to": "esc6"},
+    {"from": "m2_esc_cable", "to": "cdb"},
+    {"from": "m3_esc_cable", "to": "esc3"},
+    {"from": "m3_esc_cable", "to": "esc7"},
+    {"from": "m3_esc_cable", "to": "pdb"},
+    {"from": "m4_esc_cable", "to": "esc4"},
+    {"from": "m4_esc_cable", "to": "esc8"},
+    {"from": "m4_esc_cable", "to": "pdb"},
+    
+    {"from": "motor1", "to": "esc1"},
+    {"from": "motor2", "to": "esc2"},
+    {"from": "motor3", "to": "esc3"},
+    {"from": "motor4", "to": "esc4"},
+    {"from": "motor5", "to": "esc5"},
+    {"from": "motor6", "to": "esc6"},
+    {"from": "motor7", "to": "esc7"},
+    {"from": "motor8", "to": "esc8"},    
+
+    {"from": "cent_sprinkler_cable_l", "to": "m3_esc_cable"},
+    {"from": "cent_sprinkler_cable_l", "to": "cent_motor1"},
+    {"from": "cent_sprinkler_cable_r", "to": "m4_esc_cable"},
+    {"from": "cent_sprinkler_cable_r", "to": "cent_motor2"}
+    
+  ]
+}
