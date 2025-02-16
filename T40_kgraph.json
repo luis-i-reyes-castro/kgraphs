@@ -564,10 +564,94 @@
       "category": "signal",
       "material_num": "YC.XC.XX000841",
       "material_name": "Centrifugal Sprinkler Signal Cable"
-    }
-  
-  },
+    },
 
+    "error_single_point_hall_sensor": {
+      "id": "error_single_point_hall_sensor",
+      "type": "error",
+      "name": "Single-point Hall Sensor Error",
+      "name_spanish": "Error en Sensor de Nivel de Líquido Hall de Punto Único"
+    },
+
+    "error_single_point_hall_sensor_disconnected": {
+      "id": "error_single_point_hall_sensor_disconnected",
+      "type": "error",
+      "name": "Single-point Hall Sensor Disconnected",
+      "name_spanish": "Sensor de Nivel de Líquido Hall de Punto Único Desconectado"
+    },
+
+    "error_load_sensor_cable_broken": {
+      "id": "error_load_sensor_cable_broken",
+      "type": "error",
+      "name": "Load Sensor Cable Broken",
+      "name_spanish": "Cable de Conexión del Sensor de Peso Roto"
+    },
+
+    "error_pump_1_flow_calculation": {
+      "id": "error_pump_1_flow_calculation",
+      "type": "error",
+      "name": "Pump 1 Flow Calculation Error",
+      "name_spanish": "Error de Cálculo de Caudal de la Bomba 1"
+    },
+
+    "error_pump_2_flow_calculation": {
+      "id": "error_pump_2_flow_calculation",
+      "type": "error",
+      "name": "Pump 2 Flow Calculation Error",
+      "name_spanish": "Error de Cálculo de Caudal de la Bomba 2"
+    },
+
+    "pc_thick_mixture": {
+      "id": "pc_thick_mixture",
+      "type": "problem cause",
+      "name": "Pesticide Mixture is Too Thick",
+      "name_spanish": "Mezcla de Pesticidas es Demasiado Espesa"
+    },
+
+    "error_pump_1_self_check": {
+      "id": "error_pump_1_self_check",
+      "type": "error",
+      "name": "Pump 1 Self-Check Error",
+      "name_spanish": "Error de Autocomprobación de la Bomba 1"
+    },
+
+    "error_pump_2_self_check": {
+      "id": "error_pump_2_self_check",
+      "type": "error",
+      "name": "Pump 2 Self-Check Error",
+      "name_spanish": "Error de Autocomprobación de la Bomba 2"
+    },
+
+    "error_pump_1_esc_timeout": {
+      "id": "error_pump_1_esc_timeout",
+      "type": "error",
+      "name": "Pump 1 ESC Timeout",
+      "name_spanish": "Excepción de Tiempo de Funcionamiento del ESC de la Bomba 1"
+    },
+
+    "error_pump_2_esc_timeout": {
+      "id": "error_pump_2_esc_timeout",
+      "type": "error",
+      "name": "Pump 2 ESC Timeout",
+      "name_spanish": "Excepción de Tiempo de Funcionamiento del ESC de la Bomba 2"
+    },
+
+    "error_pump_1_voltage_low": {
+      "id": "error_pump_1_voltage_low",
+      "type": "error",
+      "name": "Pump 1 Voltage Too Low",
+      "name_spanish": "Voltage de la Bomba 1 Demasiado Bajo"
+    },
+
+    "error_pump_2_voltage_low": {
+      "id": "error_pump_2_voltage_low",
+      "type": "error",
+      "name": "Pump 2 Voltage Too Low",
+      "name_spanish": "Voltage de la Bomba 2 Demasiado Bajo"
+    }
+
+  },
+  
   "edges": [
 
     {"from": "battery", "to": "pdb"},
@@ -647,7 +731,187 @@
     {"from": "cent_sprinkler_cable_l", "to": "m3_esc_cable"},
     {"from": "cent_sprinkler_cable_l", "to": "cent_motor1"},
     {"from": "cent_sprinkler_cable_r", "to": "m4_esc_cable"},
-    {"from": "cent_sprinkler_cable_r", "to": "cent_motor2"}
+    {"from": "cent_sprinkler_cable_r", "to": "cent_motor2"},
+
+    {
+      "from": "error_single_point_hall_sensor",
+      "to": "liquid_level",
+      "probability": "medium"
+    },
+    {
+      "from": "error_single_point_hall_sensor",
+      "to": "spray_adapter",
+      "probability": "medium"
+    },
+    {
+      "from": "error_single_point_hall_sensor",
+      "to": "spray_signal_cable",
+      "probability": "medium"
+    },
+    {
+      "from": "error_single_point_hall_sensor",
+      "to": "spray_adapt_cable",
+      "probability": "medium"
+    },
+    {
+      "from": "error_single_point_hall_sensor",
+      "to": "cdb",
+      "probability": "low"
+    },
+    {
+      "from": "error_single_point_hall_sensor",
+      "to": "spray_board",
+      "probability": "medium"
+    },
+    
+    {
+      "from": "error_single_point_hall_sensor_disconnected",
+      "to": "liquid_level",
+      "probability": "medium"
+    },
+    {
+      "from": "error_single_point_hall_sensor_disconnected",
+      "to": "spray_adapter",
+      "probability": "medium"
+    },
+    {
+      "from": "error_single_point_hall_sensor_disconnected",
+      "to": "spray_signal_cable",
+      "probability": "medium"
+    },
+    {
+      "from": "error_single_point_hall_sensor_disconnected",
+      "to": "spray_adapt_cable",
+      "probability": "medium"
+    },
+    {
+      "from": "error_single_point_hall_sensor_disconnected",
+      "to": "cdb",
+      "probability": "low"
+    },
+    {
+      "from": "error_single_point_hall_sensor_disconnected",
+      "to": "spray_board",
+      "probability": "medium"
+    },
+
+    {
+      "from": "error_load_sensor_cable_broken",
+      "to": "load_sensor",
+      "probability": "high"
+    },
+    {
+      "from": "error_load_sensor_cable_broken",
+      "to": "cdb",
+      "probability": "low"
+    },
+    {
+      "from": "error_load_sensor_cable_broken",
+      "to": "spray_board",
+      "probability": "medium"
+    },
+
+    {
+      "from": "error_pump_1_flow_calculation",
+      "to": "pump1",
+      "probability": "high"
+    },
+    {
+      "from": "error_pump_1_flow_calculation",
+      "to": "pump_signal_cable",
+      "probability": "high"
+    },
+    {
+      "from": "error_pump_1_flow_calculation",
+      "to": "spray_adapter",
+      "probability": "low"
+    },
+    {
+      "from": "error_pump_1_flow_calculation",
+      "to": "spray_signal_cable",
+      "probability": "high"
+    },
+    {
+      "from": "error_pump_1_flow_calculation",
+      "to": "spray_adapt_cable",
+      "probability": "medium"
+    },
+    {
+      "from": "error_pump_1_flow_calculation",
+      "to": "cdb",
+      "probability": "low"
+    },
+    {
+      "from": "error_pump_1_flow_calculation",
+      "to": "spray_board",
+      "probability": "low"
+    },
+    {
+      "from": "error_pump_1_flow_calculation",
+      "to": "flow_meter",
+      "probability": "low"
+    },
+    {
+      "from": "error_pump_1_flow_calculation",
+      "to": "flow_meter_cable",
+      "probability": "low"
+    },
+    {
+      "from": "error_pump_1_flow_calculation",
+      "to": "pc_thick_mixture",
+      "probability": "high"
+    },
+
+    {
+      "from": "error_pump_2_flow_calculation",
+      "to": "pump2",
+      "probability": "high"
+    },
+    {
+      "from": "error_pump_2_flow_calculation",
+      "to": "pump_signal_cable",
+      "probability": "high"
+    },
+    {
+      "from": "error_pump_2_flow_calculation",
+      "to": "spray_adapter",
+      "probability": "low"
+    },
+    {
+      "from": "error_pump_2_flow_calculation",
+      "to": "spray_signal_cable",
+      "probability": "high"
+    },
+    {
+      "from": "error_pump_2_flow_calculation",
+      "to": "spray_adapt_cable",
+      "probability": "medium"
+    },
+    {
+      "from": "error_pump_2_flow_calculation",
+      "to": "cdb",
+      "probability": "low"
+    },
+    {
+      "from": "error_pump_2_flow_calculation",
+      "to": "spray_board",
+      "probability": "low"
+    },
+    {
+      "from": "error_pump_2_flow_calculation",
+      "to": "flow_meter",
+      "probability": "low"
+    },
+    {
+      "from": "error_pump_2_flow_calculation",
+      "to": "flow_meter_cable",
+      "probability": "low"
+    },
+    {
+      "from": "error_pump_2_flow_calculation",
+      "to": "pc_thick_mixture",
+      "probability": "high"
+    }
     
   ]
 }
