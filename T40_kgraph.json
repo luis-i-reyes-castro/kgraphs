@@ -6,6 +6,7 @@
       "id": "battery",
       "type": "power",
       "name": "Battery",
+      "name_spanish": "Batería",
       "material_num": "NA",
       "material_name": "Battery"
     },
@@ -14,6 +15,7 @@
       "id": "cdb",
       "type": "board",
       "name": "Cable Distribution Board",
+      "name_spanish": "Tarjeta de Distribución de Cables",
       "material_num": "BC.AG.SS000556",
       "material_name": "Cable Distribution Board"
     },
@@ -21,6 +23,7 @@
       "id": "pdb",
       "type": "board",
       "name": "Power Distribution Board",
+      "name_spanish": "Tarjeta de Distribución de Potencia",
       "material_num": "BC.AG.SS000558",
       "material_name": "Power Distribution Board"
     },    
@@ -29,6 +32,7 @@
       "id": "avionics",
       "type": "board",
       "name": "Avionics Board",
+      "name_spanish": "Tarjeta de Aviónica",
       "material_num": "BC.AG.SS000617",
       "material_name": "Aerial-electronics Board (FCC)"
     },
@@ -36,6 +40,7 @@
       "id": "rf_board",
       "type": "board",
       "name": "RF Board",
+      "name_spanish": "Tarjeta RF",
       "material_num": "BC.AG.SS000552",
       "material_name": "RF Board"
     },
@@ -43,6 +48,7 @@
       "id": "spray_board",
       "type": "board",
       "name": "Spraying Board",
+      "name_spanish": "Tarjeta de Rociado",
       "material_num": "BC.AG.SS000554",
       "material_name": "Spraying Board"
     },
@@ -50,6 +56,7 @@
       "id": "spray_adapter",
       "type": "board",
       "name": "Spraying Adapter",
+      "name_spanish": "Tarjeta Adaptadora de Rociado",
       "material_num": "BC.AG.SS000546",
       "material_name": "Spraying Adapter Module"
     },
@@ -58,6 +65,8 @@
         "id": "m1_pos",
         "type": "sensor",
         "name": "M1 Arm In-position Detector",
+        "alt_name": "M1 Folding Sensor",
+        "name_spanish": "Sensor de Plegado del Brazo M1",
         "material_num": "BC.AG.SS000547",
         "material_name": "Aircraft Arm In-position Detector Signal Cable"
     },
@@ -65,6 +74,8 @@
         "id": "m2_pos",
         "type": "sensor",
         "name": "M2 Arm In-position Detector",
+        "alt_name": "M2 Folding Sensor",
+        "name_spanish": "Sensor de Plegado del Brazo M2",
         "material_num": "BC.AG.SS000547",
         "material_name": "Aircraft Arm In-position Detector Signal Cable"
     },
@@ -72,6 +83,8 @@
         "id": "m3_pos",
         "type": "sensor",
         "name": "M3 Arm In-position Detector",
+        "alt_name": "M3 Folding Sensor",
+        "name_spanish": "Sensor de Plegado del Brazo M3",
         "material_num": "BC.AG.SS000547",
         "material_name": "Aircraft Arm In-position Detector Signal Cable"
     },
@@ -79,6 +92,8 @@
         "id": "m4_pos",
         "type": "sensor",
         "name": "M4 Arm In-position Detector",
+        "alt_name": "M4 Folding Sensor",
+        "name_spanish": "Sensor de Plegado del Brazo M4",
         "material_num": "BC.AG.SS000547",
         "material_name": "Aircraft Arm In-position Detector Signal Cable"
     },
@@ -87,6 +102,7 @@
       "id": "esc1",
       "type": "esc",
       "name": "ESC 1",
+      "name_spanish": "ESC 1",
       "material_num": "BC.AG.SS000563",
       "material_name": "ESC Module"
     },
@@ -94,6 +110,7 @@
       "id": "esc2",
       "type": "esc",
       "name": "ESC 2",
+      "name_spanish": "ESC 2",
       "material_num": "BC.AG.SS000563",
       "material_name": "ESC Module"
     },
@@ -101,6 +118,7 @@
       "id": "esc3",
       "type": "esc",
       "name": "ESC 3",
+      "name_spanish": "ESC 3",
       "material_num": "BC.AG.SS000563",
       "material_name": "ESC Module"
     },
@@ -108,6 +126,7 @@
       "id": "esc4",
       "type": "esc",
       "name": "ESC 4",
+      "name_spanish": "ESC 4",
       "material_num": "BC.AG.SS000563",
       "material_name": "ESC Module"
     },
@@ -115,6 +134,7 @@
       "id": "esc5",
       "type": "esc",
       "name": "ESC 5",
+      "name_spanish": "ESC 5",
       "material_num": "BC.AG.SS000563",
       "material_name": "ESC Module"
     },
@@ -122,6 +142,7 @@
       "id": "esc6",
       "type": "esc",
       "name": "ESC 6",
+      "name_spanish": "ESC 6",
       "material_num": "BC.AG.SS000563",
       "material_name": "ESC Module"
     },
@@ -129,6 +150,7 @@
       "id": "esc7",
       "type": "esc",
       "name": "ESC 7",
+      "name_spanish": "ESC 7",
       "material_num": "BC.AG.SS000563",
       "material_name": "ESC Module"
     },
@@ -136,6 +158,7 @@
       "id": "esc8",
       "type": "esc",
       "name": "ESC 8",
+      "name_spanish": "ESC 8",
       "material_num": "BC.AG.SS000563",
       "material_name": "ESC Module"
     },
@@ -144,6 +167,7 @@
       "id": "motor1",
       "type": "motor",
       "name": "Motor 1",
+      "name_spanish": "Motor 1",
       "material_num": "BC.AG.SS000668",
       "material_name": "Propulsion Motor 10033"
     },
@@ -151,6 +175,7 @@
       "id": "motor2",
       "type": "motor",
       "name": "Motor 2",
+      "name_spanish": "Motor 2",
       "material_num": "BC.AG.SS000668",
       "material_name": "Propulsion Motor 10033"
     },
@@ -158,6 +183,7 @@
       "id": "motor3",
       "type": "motor",
       "name": "Motor 3",
+      "name_spanish": "Motor 3",
       "material_num": "BC.AG.SS000668",
       "material_name": "Propulsion Motor 10033"
     },
@@ -165,6 +191,7 @@
       "id": "motor4",
       "type": "motor",
       "name": "Motor 4",
+      "name_spanish": "Motor 4",
       "material_num": "BC.AG.SS000668",
       "material_name": "Propulsion Motor 10033"
     },
@@ -172,6 +199,7 @@
       "id": "motor5",
       "type": "motor",
       "name": "Motor 5",
+      "name_spanish": "Motor 5",
       "material_num": "BC.AG.SS000668",
       "material_name": "Propulsion Motor 10033"
     },
@@ -179,6 +207,7 @@
       "id": "motor6",
       "type": "motor",
       "name": "Motor 6",
+      "name_spanish": "Motor 6",
       "material_num": "BC.AG.SS000668",
       "material_name": "Propulsion Motor 10033"
     },
@@ -186,6 +215,7 @@
       "id": "motor7",
       "type": "motor",
       "name": "Motor 7",
+      "name_spanish": "Motor 7",
       "material_num": "BC.AG.SS000668",
       "material_name": "Propulsion Motor 10033"
     },
@@ -193,6 +223,7 @@
       "id": "motor8",
       "type": "motor",
       "name": "Motor 8",
+      "name_spanish": "Motor 8",
       "material_num": "BC.AG.SS000668",
       "material_name": "Propulsion Motor 10033"
     },
@@ -201,6 +232,7 @@
         "id": "fwd_vision",
         "type": "sensor",
         "name": "Forward Vision Sensors",
+        "name_spanish": "Sensores de Visión Frontal",
         "material_num": "BC.AG.SS000562",
         "material_name": "Forward Vision Sensor Module"
     },
@@ -208,6 +240,7 @@
         "id": "fpv_camera",
         "type": "sensor",
         "name": "FPV Camera",
+        "name_spanish": "Cámara FPV",
         "material_num": "BC.AG.SS000549",
         "material_name": "FPV Module"
     },
@@ -215,6 +248,7 @@
         "id": "barometer",
         "type": "sensor",
         "name": "Barometer",
+        "name_spanish": "Barómetro",
         "material_num": "NA",
         "material_name": "Barometer Module"
     },
@@ -223,6 +257,7 @@
         "id": "sdr_ant_l",
         "type": "antenna",
         "name": "SDR Antenna (L)",
+        "name_spanish": "Antena SDR (Izquierda)",
         "material_num": "YC.DZ.AA000275",
         "material_name": "SDR Antenna"
     },
@@ -230,6 +265,7 @@
         "id": "sdr_ant_r",
         "type": "antenna",
         "name": "SDR Antenna (R)",
+        "name_spanish": "Antena SDR (Derecha)",
         "material_num": "YC.DZ.AA000275",
         "material_name": "SDR Antenna"
     },
@@ -237,6 +273,7 @@
         "id": "rtk_ant_l",
         "type": "antenna",
         "name": "RTK Antenna (L)",
+        "name_spanish": "Antena RTK (Izquierda)",
         "material_num": "BC.AG.SS000560",
         "material_name": "RTK Antenna Module"
     },
@@ -244,6 +281,7 @@
         "id": "rtk_ant_r",
         "type": "antenna",
         "name": "RTK Antenna (R)",
+        "name_spanish": "Antena RTK (Derecha)",
         "material_num": "BC.AG.SS000560",
         "material_name": "RTK Antenna Module"
     },
@@ -252,6 +290,7 @@
         "id": "omni_radar",
         "type": "sensor",
         "name": "Omnidirectional Radar",
+        "name_spanish": "Radar Omnidireccional",
         "material_num": "BC.AG.SS000551",
         "material_name": "Omnidirectional Radar Module"
     },
@@ -259,6 +298,7 @@
         "id": "bwd_radar",
         "type": "sensor",
         "name": "Backward Vision Radar",
+        "name_spanish": "Radar de Visión Trasera",
         "material_num": "BC.AG.SS000655",
         "material_name": "Backward Vision Radar Module"
     },
@@ -267,6 +307,7 @@
         "id": "load_sensor",
         "type": "sensor",
         "name": "Load Sensor",
+        "name_spanish": "Sensor de Peso",
         "material_num": "BC.AG.SS000550",
         "material_name": "Load Sensor Module"
     },
@@ -274,6 +315,7 @@
         "id": "flow_meter",
         "type": "sensor",
         "name": "Flow Meter",
+        "name_spanish": "Medidor de Caudal",
         "material_num": "BC.AG.SS000545",
         "material_name": "Flow Meter Module"
     },
@@ -281,6 +323,7 @@
         "id": "liquid_level",
         "type": "sensor",
         "name": "Liquid Level Meter",
+        "name_spanish": "Medidor de Nivel de Líquido",
         "material_num": "BC.AG.SS000547",
         "material_name": "Liquid Level Meter Module"
     },
@@ -288,6 +331,7 @@
         "id": "pump1",
         "type": "motor",
         "name": "Impeller Pump Motor 1",
+        "name_spanish": "Motor de Bomba 1",
         "material_num": "BC.AG.SS000543",
         "material_name": "Impeller Pump Motor"
     },
@@ -295,6 +339,7 @@
         "id": "pump2",
         "type": "motor",
         "name": "Impeller Pump Motor 2",
+        "name_spanish": "Motor de Bomba 2",
         "material_num": "BC.AG.SS000543",
         "material_name": "Impeller Pump Motor"
     },
@@ -302,6 +347,8 @@
         "id": "cent_motor1",
         "type": "motor",
         "name": "Centrifugal Motor 1",
+        "alt_name": "Centrifugal Nozzle 1",
+        "name_spanish": "Motor de Boquilla Centrífuga 1",
         "material_num": "BC.AG.SS000565",
         "material_name": "Centrifugal Motor"
     },
@@ -309,6 +356,8 @@
         "id": "cent_motor2",
         "type": "motor",
         "name": "Centrifugal Motor 2",
+        "alt_name": "Centrifugal Nozzle 2",
+        "name_spanish": "Motor de Boquilla Centrífuga 2",
         "material_num": "BC.AG.SS000565",
         "material_name": "Centrifugal Motor"
     },
@@ -317,6 +366,7 @@
         "id": "aux_light_l",
         "type": "light",
         "name": "Auxiliary Bottom Light (L)",
+        "name_spanish": "Luz Auxiliar Inferior (Izquierda)",
         "material_num": "BC.AG.SS000548",
         "material_name": "Auxiliary Bottom Light Module"
     },
@@ -324,6 +374,7 @@
         "id": "aux_light_r",
         "type": "light",
         "name": "Auxiliary Bottom Light (R)",
+        "name_spanish": "Luz Auxiliar Inferior (Derecha)",
         "material_num": "BC.AG.SS000548",
         "material_name": "Auxiliary Bottom Light Module"
     },
@@ -332,6 +383,7 @@
       "id": "rtk_cable_l",
       "type": "cable",
       "name": "RTK Coaxial Cable (L)",
+      "name_spanish": "Cable Coaxial RTK (Izquierdo)",
       "category": "signal",
       "material_num": "YC.XC.TT000104",
       "material_name": "RTK Coaxial Cable"
@@ -340,6 +392,7 @@
       "id": "rtk_cable_r", 
       "type": "cable",
       "name": "RTK Coaxial Cable (R)",
+      "name_spanish": "Cable Coaxial RTK (Derecho)",
       "category": "signal",
       "material_num": "YC.XC.TT000104",
       "material_name": "RTK Coaxial Cable"
@@ -349,6 +402,7 @@
       "id": "aux_light_cable_l",
       "type": "cable", 
       "name": "Auxiliary Bottom Light Signal Cable (L)",
+      "name_spanish": "Cable de Luz Auxiliar (Izquierdo)",
       "category": "signal",
       "material_num": "YC.XC.XX000853",
       "material_name": "Auxiliary Bottom Light Signal Cable"
@@ -357,6 +411,7 @@
       "id": "aux_light_cable_r",
       "type": "cable",
       "name": "Auxiliary Bottom Light Signal Cable (R)", 
+      "name_spanish": "Cable de Luz Auxiliar (Derecho)",
       "category": "signal",
       "material_num": "YC.XC.XX000853",
       "material_name": "Auxiliary Bottom Light Signal Cable"
@@ -366,6 +421,7 @@
       "id": "omni_radar_cable",
       "type": "cable",
       "name": "Omnidirectional Radar Signal Cable",
+      "name_spanish": "Cable de Radar Omnidireccional",
       "category": "signal",
       "material_num": "YC.XC.XX000844",
       "material_name": "Omnidirectional Radar Signal Cable"
@@ -374,6 +430,7 @@
       "id": "bwd_radar_cable",
       "type": "cable",
       "name": "Backward Vision Radar Signal Cable",
+      "name_spanish": "Cable de Radar de Visión Trasera",
       "category": "signal",
       "material_num": "YC.XC.XX000845",
       "material_name": "Backward Vision Radar Signal Cable"
@@ -383,6 +440,7 @@
       "id": "signal_cable_l",
       "type": "cable",
       "name": "Signal Cable (L)",
+      "name_spanish": "Cable de Señal (Izquierdo)",
       "category": "signal",
       "material_num": "YC.XC.XX000840",
       "material_name": "Signal Cable"
@@ -391,6 +449,7 @@
       "id": "signal_cable_r",
       "type": "cable",
       "name": "Signal Cable (R)",
+      "name_spanish": "Cable de Señal (Derecho)",
       "category": "signal",
       "material_num": "YC.XC.XX000840",
       "material_name": "Signal Cable"
@@ -399,6 +458,7 @@
       "id": "front_esc_cable_l",
       "type": "cable",
       "name": "Front Aircraft Arm ESC Power Adapter Cable (L)",
+      "name_spanish": "Cable Adaptador de Potencia del Brazo Delantero (Izquierdo)",
       "category": "power",
       "material_num": "YC.XC.DD000501",
       "material_name": "Front Aircraft Arm ESC Power Adapter Cable"
@@ -407,6 +467,7 @@
       "id": "front_esc_cable_r",
       "type": "cable",
       "name": "Front Aircraft Arm ESC Power Adapter Cable (R)",
+      "name_spanish": "Cable Adaptador de Potencia del Brazo Delantero (Derecho)",
       "category": "power",
       "material_num": "YC.XC.DD000501",
       "material_name": "Front Aircraft Arm ESC Power Adapter Cable"
@@ -416,6 +477,7 @@
       "id": "m1_esc_cable",
       "type": "cable",
       "name": "M1 Aircraft Arm ESC Composite Cable",
+      "name_spanish": "Cable de ESC del Brazo M1",
       "category": "power",
       "material_num": "YC.XC.XS000011",
       "material_name": "M1 & M2 Aircraft Arm ESC Composite Cable"
@@ -424,6 +486,7 @@
       "id": "m2_esc_cable",
       "type": "cable",
       "name": "M2 Aircraft Arm ESC Composite Cable",
+      "name_spanish": "Cable de ESC del Brazo M2",
       "category": "power",
       "material_num": "YC.XC.XS000011",
       "material_name": "M1 & M2 Aircraft Arm ESC Composite Cable"
@@ -432,6 +495,7 @@
       "id": "m3_esc_cable",
       "type": "cable",
       "name": "M3 Aircraft Arm ESC Composite Cable",
+      "name_spanish": "Cable de ESC del Brazo M3",
       "category": "power",
       "material_num": "YC.XC.XS000012",
       "material_name": "M3 & M4 Aircraft Arm ESC Composite Cable"
@@ -440,6 +504,7 @@
       "id": "m4_esc_cable",
       "type": "cable",
       "name": "M4 Aircraft Arm ESC Composite Cable",
+      "name_spanish": "Cable de ESC del Brazo M4",
       "category": "power",
       "material_num": "YC.XC.XS000012",
       "material_name": "M3 & M4 Aircraft Arm ESC Composite Cable"
@@ -449,6 +514,7 @@
       "id": "spray_adapt_cable",
       "type": "cable",
       "name": "Spraying Adaptive Cable",
+      "name_spanish": "Cable Adaptativo de Rociado",
       "category": "signal",
       "material_num": "YC.XC.XX000842",
       "material_name": "Spraying Adaptive Cable"
@@ -457,6 +523,7 @@
       "id": "spray_signal_cable",
       "type": "cable",
       "name": "Spraying Signal Cable",
+      "name_spanish": "Cable de Señal de Rociado",
       "category": "signal",
       "material_num": "YC.XC.XX000835",
       "material_name": "Spraying Signal Cable"
@@ -465,6 +532,7 @@
       "id": "flow_meter_cable",
       "type": "cable",
       "name": "Flow Meter Signal Cable",
+      "name_spanish": "Cable del Medidor de Caudal",
       "category": "signal",
       "material_num": "YC.XC.XX000839",
       "material_name": "Flow Meter Signal Cable"
@@ -473,6 +541,7 @@
       "id": "impeller_pump_cable",
       "type": "cable",
       "name": "Impeller Pump Signal Cable",
+      "name_spanish": "Cable de Bombas",
       "category": "signal",
       "material_num": "YC.XC.XX000857",
       "material_name": "Impeller Pump Signal Cable"
@@ -482,6 +551,7 @@
       "id": "cent_sprinkler_cable_l",
       "type": "cable",
       "name": "Centrifugal Sprinkler Signal Cable (L)",
+      "name_spanish": "Cable de Boquilla Centrífuga (Izquierdo)",
       "category": "signal",
       "material_num": "YC.XC.XX000841",
       "material_name": "Centrifugal Sprinkler Signal Cable"
@@ -490,6 +560,7 @@
       "id": "cent_sprinkler_cable_r",
       "type": "cable",
       "name": "Centrifugal Sprinkler Signal Cable (R)",
+      "name_spanish": "Cable de Boquilla Centrífuga (Derecho)",
       "category": "signal",
       "material_num": "YC.XC.XX000841",
       "material_name": "Centrifugal Sprinkler Signal Cable"
