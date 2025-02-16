@@ -6,281 +6,326 @@
       "id": "battery",
       "type": "power",
       "name": "Battery",
-      "material_num": "NA"
+      "material_num": "NA",
+      "material_name": "Battery"
     },
     
     "cdb": {
       "id": "cdb",
       "type": "board",
       "name": "Cable Distribution Board",
-      "material_num": "BC.AG.SS000556"
+      "material_num": "BC.AG.SS000556",
+      "material_name": "Cable Distribution Board"
     },
     "pdb": {
       "id": "pdb",
       "type": "board",
       "name": "Power Distribution Board",
-      "material_num": "BC.AG.SS000558"
+      "material_num": "BC.AG.SS000558",
+      "material_name": "Power Distribution Board"
     },    
 
     "avionics": {
       "id": "avionics",
       "type": "board",
       "name": "Avionics Board",
-      "material_num": "BC.AG.SS000617"
+      "material_num": "BC.AG.SS000617",
+      "material_name": "Aerial-electronics Board (FCC)"
     },
     "rf_board": {
       "id": "rf_board",
       "type": "board",
       "name": "RF Board",
-      "material_num": "BC.AG.SS000552"
+      "material_num": "BC.AG.SS000552",
+      "material_name": "RF Board"
     },
     "spray_board": {
       "id": "spray_board",
       "type": "board",
       "name": "Spraying Board",
-      "material_num": "BC.AG.SS000554"
+      "material_num": "BC.AG.SS000554",
+      "material_name": "Spraying Board"
     },
     "spray_adapter": {
       "id": "spray_adapter",
       "type": "board",
       "name": "Spraying Adapter",
-      "material_num": "BC.AG.SS000546"
+      "material_num": "BC.AG.SS000546",
+      "material_name": "Spraying Adapter Module"
     },
 
     "m1_pos": {
         "id": "m1_pos",
         "type": "sensor",
         "name": "M1 Arm In-position Detector",
-        "material_num": "BC.AG.SS000547"
+        "material_num": "BC.AG.SS000547",
+        "material_name": "Aircraft Arm In-position Detector Signal Cable"
     },
     "m2_pos": {
         "id": "m2_pos",
         "type": "sensor",
         "name": "M2 Arm In-position Detector",
-        "material_num": "BC.AG.SS000547"
+        "material_num": "BC.AG.SS000547",
+        "material_name": "Aircraft Arm In-position Detector Signal Cable"
     },
     "m3_pos": {
         "id": "m3_pos",
         "type": "sensor",
         "name": "M3 Arm In-position Detector",
-        "material_num": "BC.AG.SS000547"
+        "material_num": "BC.AG.SS000547",
+        "material_name": "Aircraft Arm In-position Detector Signal Cable"
     },
     "m4_pos": {
         "id": "m4_pos",
         "type": "sensor",
         "name": "M4 Arm In-position Detector",
-        "material_num": "BC.AG.SS000547"
+        "material_num": "BC.AG.SS000547",
+        "material_name": "Aircraft Arm In-position Detector Signal Cable"
     },
 
     "esc1": {
       "id": "esc1",
       "type": "esc",
       "name": "ESC 1",
-      "material_num": "BC.AG.SS000563"
+      "material_num": "BC.AG.SS000563",
+      "material_name": "ESC Module"
     },
     "esc2": {
       "id": "esc2",
       "type": "esc",
       "name": "ESC 2",
-      "material_num": "BC.AG.SS000563"
+      "material_num": "BC.AG.SS000563",
+      "material_name": "ESC Module"
     },
     "esc3": {
       "id": "esc3",
       "type": "esc",
       "name": "ESC 3",
-      "material_num": "BC.AG.SS000563"
+      "material_num": "BC.AG.SS000563",
+      "material_name": "ESC Module"
     },
     "esc4": {
       "id": "esc4",
       "type": "esc",
       "name": "ESC 4",
-      "material_num": "BC.AG.SS000563"
+      "material_num": "BC.AG.SS000563",
+      "material_name": "ESC Module"
     },
     "esc5": {
       "id": "esc5",
       "type": "esc",
       "name": "ESC 5",
-      "material_num": "BC.AG.SS000563"
+      "material_num": "BC.AG.SS000563",
+      "material_name": "ESC Module"
     },
     "esc6": {
       "id": "esc6",
       "type": "esc",
       "name": "ESC 6",
-      "material_num": "BC.AG.SS000563"
+      "material_num": "BC.AG.SS000563",
+      "material_name": "ESC Module"
     },
     "esc7": {
       "id": "esc7",
       "type": "esc",
       "name": "ESC 7",
-      "material_num": "BC.AG.SS000563"
+      "material_num": "BC.AG.SS000563",
+      "material_name": "ESC Module"
     },
     "esc8": {
       "id": "esc8",
       "type": "esc",
       "name": "ESC 8",
-      "material_num": "BC.AG.SS000563"
+      "material_num": "BC.AG.SS000563",
+      "material_name": "ESC Module"
     },
 
     "motor1": {
       "id": "motor1",
       "type": "motor",
       "name": "Motor 1",
-      "material_num": "BC.AG.SS000668"
+      "material_num": "BC.AG.SS000668",
+      "material_name": "Propulsion Motor 10033"
     },
     "motor2": {
       "id": "motor2",
       "type": "motor",
       "name": "Motor 2",
-      "material_num": "BC.AG.SS000668"
+      "material_num": "BC.AG.SS000668",
+      "material_name": "Propulsion Motor 10033"
     },
     "motor3": {
       "id": "motor3",
       "type": "motor",
       "name": "Motor 3",
-      "material_num": "BC.AG.SS000668"
+      "material_num": "BC.AG.SS000668",
+      "material_name": "Propulsion Motor 10033"
     },
     "motor4": {
       "id": "motor4",
       "type": "motor",
       "name": "Motor 4",
-      "material_num": "BC.AG.SS000668"
+      "material_num": "BC.AG.SS000668",
+      "material_name": "Propulsion Motor 10033"
     },
     "motor5": {
       "id": "motor5",
       "type": "motor",
       "name": "Motor 5",
-      "material_num": "BC.AG.SS000668"
+      "material_num": "BC.AG.SS000668",
+      "material_name": "Propulsion Motor 10033"
     },
     "motor6": {
       "id": "motor6",
       "type": "motor",
       "name": "Motor 6",
-      "material_num": "BC.AG.SS000668"
+      "material_num": "BC.AG.SS000668",
+      "material_name": "Propulsion Motor 10033"
     },
     "motor7": {
       "id": "motor7",
       "type": "motor",
       "name": "Motor 7",
-      "material_num": "BC.AG.SS000668"
+      "material_num": "BC.AG.SS000668",
+      "material_name": "Propulsion Motor 10033"
     },
     "motor8": {
       "id": "motor8",
       "type": "motor",
       "name": "Motor 8",
-      "material_num": "BC.AG.SS000668"
+      "material_num": "BC.AG.SS000668",
+      "material_name": "Propulsion Motor 10033"
     },
 
     "fwd_vision": {
         "id": "fwd_vision",
         "type": "sensor",
         "name": "Forward Vision Sensors",
-        "material_num": "BC.AG.SS000562"
+        "material_num": "BC.AG.SS000562",
+        "material_name": "Forward Vision Sensor Module"
     },
     "fpv_camera": {
         "id": "fpv_camera",
         "type": "sensor",
         "name": "FPV Camera",
-        "material_num": "BC.AG.SS000549"
+        "material_num": "BC.AG.SS000549",
+        "material_name": "FPV Module"
     },
     "barometer": {
         "id": "barometer",
         "type": "sensor",
         "name": "Barometer",
-        "material_num": "NA"
+        "material_num": "NA",
+        "material_name": "Barometer Module"
     },
 
     "sdr_ant_l": {
         "id": "sdr_ant_l",
         "type": "antenna",
         "name": "SDR Antenna (L)",
-        "material_num": "YC.DZ.AA000275"
+        "material_num": "YC.DZ.AA000275",
+        "material_name": "SDR Antenna"
     },
     "sdr_ant_r": {
         "id": "sdr_ant_r",
         "type": "antenna",
         "name": "SDR Antenna (R)",
-        "material_num": "YC.DZ.AA000275"
+        "material_num": "YC.DZ.AA000275",
+        "material_name": "SDR Antenna"
     },
     "rtk_ant_l": {
         "id": "rtk_ant_l",
         "type": "antenna",
         "name": "RTK Antenna (L)",
-        "material_num": "BC.AG.SS000560"
+        "material_num": "BC.AG.SS000560",
+        "material_name": "RTK Antenna Module"
     },
     "rtk_ant_r": {
         "id": "rtk_ant_r",
         "type": "antenna",
         "name": "RTK Antenna (R)",
-        "material_num": "BC.AG.SS000560"
+        "material_num": "BC.AG.SS000560",
+        "material_name": "RTK Antenna Module"
     },
 
     "omni_radar": {
         "id": "omni_radar",
         "type": "sensor",
         "name": "Omnidirectional Radar",
-        "material_num": "BC.AG.SS000551"
+        "material_num": "BC.AG.SS000551",
+        "material_name": "Omnidirectional Radar Module"
     },
     "bwd_radar": {
         "id": "bwd_radar",
         "type": "sensor",
         "name": "Backward Vision Radar",
-        "material_num": "BC.AG.SS000655"
+        "material_num": "BC.AG.SS000655",
+        "material_name": "Backward Vision Radar Module"
     },
 
     "load_sensor": {
         "id": "load_sensor",
         "type": "sensor",
         "name": "Load Sensor",
-        "material_num": "BC.AG.SS000550"
+        "material_num": "BC.AG.SS000550",
+        "material_name": "Load Sensor Module"
     },
     "flow_meter": {
         "id": "flow_meter",
         "type": "sensor",
         "name": "Flow Meter",
-        "material_num": "BC.AG.SS000545"
+        "material_num": "BC.AG.SS000545",
+        "material_name": "Flow Meter Module"
     },
     "liquid_level": {
         "id": "liquid_level",
         "type": "sensor",
         "name": "Liquid Level Meter",
-        "material_num": "BC.AG.SS000547"
+        "material_num": "BC.AG.SS000547",
+        "material_name": "Liquid Level Meter Module"
     },
     "pump1": {
         "id": "pump1",
         "type": "motor",
         "name": "Impeller Pump Motor 1",
-        "material_num": "BC.AG.SS000543"
+        "material_num": "BC.AG.SS000543",
+        "material_name": "Impeller Pump Motor"
     },
     "pump2": {
         "id": "pump2",
         "type": "motor",
         "name": "Impeller Pump Motor 2",
-        "material_num": "BC.AG.SS000543"
+        "material_num": "BC.AG.SS000543",
+        "material_name": "Impeller Pump Motor"
     },
     "cent_motor1": {
         "id": "cent_motor1",
         "type": "motor",
         "name": "Centrifugal Motor 1",
-        "material_num": "BC.AG.SS000565"
+        "material_num": "BC.AG.SS000565",
+        "material_name": "Centrifugal Motor"
     },
     "cent_motor2": {
         "id": "cent_motor2",
         "type": "motor",
         "name": "Centrifugal Motor 2",
-        "material_num": "BC.AG.SS000565"
+        "material_num": "BC.AG.SS000565",
+        "material_name": "Centrifugal Motor"
     },
 
     "aux_light_l": {
         "id": "aux_light_l",
         "type": "light",
         "name": "Auxiliary Bottom Light (L)",
-        "material_num": "BC.AG.SS000548"
+        "material_num": "BC.AG.SS000548",
+        "material_name": "Auxiliary Bottom Light Module"
     },
     "aux_light_r": {
         "id": "aux_light_r",
         "type": "light",
         "name": "Auxiliary Bottom Light (R)",
-        "material_num": "BC.AG.SS000548"
+        "material_num": "BC.AG.SS000548",
+        "material_name": "Auxiliary Bottom Light Module"
     },
     
     "rtk_cable_l": {
@@ -288,14 +333,16 @@
       "type": "cable",
       "name": "RTK Coaxial Cable (L)",
       "category": "signal",
-      "material_num": "YC.XC.TT000104"
+      "material_num": "YC.XC.TT000104",
+      "material_name": "RTK Coaxial Cable"
     },
     "rtk_cable_r": {
       "id": "rtk_cable_r", 
       "type": "cable",
       "name": "RTK Coaxial Cable (R)",
       "category": "signal",
-      "material_num": "YC.XC.TT000104"
+      "material_num": "YC.XC.TT000104",
+      "material_name": "RTK Coaxial Cable"
     },
 
     "aux_light_cable_l": {
@@ -303,14 +350,16 @@
       "type": "cable", 
       "name": "Auxiliary Bottom Light Signal Cable (L)",
       "category": "signal",
-      "material_num": "YC.XC.XX000853"
+      "material_num": "YC.XC.XX000853",
+      "material_name": "Auxiliary Bottom Light Signal Cable"
     },
     "aux_light_cable_r": {
       "id": "aux_light_cable_r",
       "type": "cable",
       "name": "Auxiliary Bottom Light Signal Cable (R)", 
       "category": "signal",
-      "material_num": "YC.XC.XX000853"
+      "material_num": "YC.XC.XX000853",
+      "material_name": "Auxiliary Bottom Light Signal Cable"
     },
 
     "omni_radar_cable": {
@@ -318,14 +367,16 @@
       "type": "cable",
       "name": "Omnidirectional Radar Signal Cable",
       "category": "signal",
-      "material_num": "YC.XC.XX000844"
+      "material_num": "YC.XC.XX000844",
+      "material_name": "Omnidirectional Radar Signal Cable"
     },
     "bwd_radar_cable": {
       "id": "bwd_radar_cable",
       "type": "cable",
       "name": "Backward Vision Radar Signal Cable",
       "category": "signal",
-      "material_num": "YC.XC.XX000845"
+      "material_num": "YC.XC.XX000845",
+      "material_name": "Backward Vision Radar Signal Cable"
     },
 
     "signal_cable_l": {
@@ -333,28 +384,32 @@
       "type": "cable",
       "name": "Signal Cable (L)",
       "category": "signal",
-      "material_num": "YC.XC.XX000840"
+      "material_num": "YC.XC.XX000840",
+      "material_name": "Signal Cable"
     },
     "signal_cable_r": {
       "id": "signal_cable_r",
       "type": "cable",
       "name": "Signal Cable (R)",
       "category": "signal",
-      "material_num": "YC.XC.XX000840"
+      "material_num": "YC.XC.XX000840",
+      "material_name": "Signal Cable"
     },
     "front_esc_cable_l": {
       "id": "front_esc_cable_l",
       "type": "cable",
       "name": "Front Aircraft Arm ESC Power Adapter Cable (L)",
       "category": "power",
-      "material_num": "YC.XC.DD000501"
+      "material_num": "YC.XC.DD000501",
+      "material_name": "Front Aircraft Arm ESC Power Adapter Cable"
     },
     "front_esc_cable_r": {
       "id": "front_esc_cable_r",
       "type": "cable",
       "name": "Front Aircraft Arm ESC Power Adapter Cable (R)",
       "category": "power",
-      "material_num": "YC.XC.DD000501"
+      "material_num": "YC.XC.DD000501",
+      "material_name": "Front Aircraft Arm ESC Power Adapter Cable"
     },
 
     "m1_esc_cable": {
@@ -362,28 +417,32 @@
       "type": "cable",
       "name": "M1 Aircraft Arm ESC Composite Cable",
       "category": "power",
-      "material_num": "YC.XC.XS000011"
+      "material_num": "YC.XC.XS000011",
+      "material_name": "M1 & M2 Aircraft Arm ESC Composite Cable"
     },
     "m2_esc_cable": {
       "id": "m2_esc_cable",
       "type": "cable",
       "name": "M2 Aircraft Arm ESC Composite Cable",
       "category": "power",
-      "material_num": "YC.XC.XS000011"
+      "material_num": "YC.XC.XS000011",
+      "material_name": "M1 & M2 Aircraft Arm ESC Composite Cable"
     },
     "m3_esc_cable": {
       "id": "m3_esc_cable",
       "type": "cable",
       "name": "M3 Aircraft Arm ESC Composite Cable",
       "category": "power",
-      "material_num": "YC.XC.XS000012"
+      "material_num": "YC.XC.XS000012",
+      "material_name": "M3 & M4 Aircraft Arm ESC Composite Cable"
     },
     "m4_esc_cable": {
       "id": "m4_esc_cable",
       "type": "cable",
       "name": "M4 Aircraft Arm ESC Composite Cable",
       "category": "power",
-      "material_num": "YC.XC.XS000012"
+      "material_num": "YC.XC.XS000012",
+      "material_name": "M3 & M4 Aircraft Arm ESC Composite Cable"
     },
 
     "spray_adapt_cable": {
@@ -391,28 +450,32 @@
       "type": "cable",
       "name": "Spraying Adaptive Cable",
       "category": "signal",
-      "material_num": "YC.XC.XX000842"
+      "material_num": "YC.XC.XX000842",
+      "material_name": "Spraying Adaptive Cable"
     },
     "spray_signal_cable": {
       "id": "spray_signal_cable",
       "type": "cable",
       "name": "Spraying Signal Cable",
       "category": "signal",
-      "material_num": "YC.XC.XX000835"
+      "material_num": "YC.XC.XX000835",
+      "material_name": "Spraying Signal Cable"
     },
     "flow_meter_cable": {
       "id": "flow_meter_cable",
       "type": "cable",
       "name": "Flow Meter Signal Cable",
       "category": "signal",
-      "material_num": "YC.XC.XX000839"
+      "material_num": "YC.XC.XX000839",
+      "material_name": "Flow Meter Signal Cable"
     },
     "impeller_pump_cable": {
       "id": "impeller_pump_cable",
       "type": "cable",
       "name": "Impeller Pump Signal Cable",
       "category": "signal",
-      "material_num": "YC.XC.XX000857"
+      "material_num": "YC.XC.XX000857",
+      "material_name": "Impeller Pump Signal Cable"
     },
     
     "cent_sprinkler_cable_l": {
@@ -420,14 +483,16 @@
       "type": "cable",
       "name": "Centrifugal Sprinkler Signal Cable (L)",
       "category": "signal",
-      "material_num": "YC.XC.XX000841"
+      "material_num": "YC.XC.XX000841",
+      "material_name": "Centrifugal Sprinkler Signal Cable"
     },
     "cent_sprinkler_cable_r": {
       "id": "cent_sprinkler_cable_r",
       "type": "cable",
       "name": "Centrifugal Sprinkler Signal Cable (R)",
       "category": "signal",
-      "material_num": "YC.XC.XX000841"
+      "material_num": "YC.XC.XX000841",
+      "material_name": "Centrifugal Sprinkler Signal Cable"
     }
   
   },
