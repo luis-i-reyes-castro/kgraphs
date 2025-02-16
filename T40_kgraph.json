@@ -4,7 +4,7 @@
 
     "battery": {
       "id": "battery",
-      "type": "power",
+      "type": "battery",
       "name": "Battery",
       "name_spanish": "Batería",
       "material_num": "NA",
@@ -343,8 +343,8 @@
         "material_num": "BC.AG.SS000543",
         "material_name": "Impeller Pump Motor"
     },
-    "cent_motor1": {
-        "id": "cent_motor1",
+    "centrifugal_motor1": {
+        "id": "centrifugal_motor1",
         "type": "motor",
         "name": "Centrifugal Motor 1",
         "alt_name": "Centrifugal Nozzle 1",
@@ -352,8 +352,8 @@
         "material_num": "BC.AG.SS000565",
         "material_name": "Centrifugal Motor"
     },
-    "cent_motor2": {
-        "id": "cent_motor2",
+    "centrifugal_motor2": {
+        "id": "centrifugal_motor2",
         "type": "motor",
         "name": "Centrifugal Motor 2",
         "alt_name": "Centrifugal Nozzle 2",
@@ -547,21 +547,21 @@
       "material_name": "Impeller Pump Signal Cable"
     },
     
-    "cent_sprinkler_cable_l": {
-      "id": "cent_sprinkler_cable_l",
+    "centrifugal_cable_l": {
+      "id": "centrifugal_cable_l",
       "type": "cable",
       "name": "Centrifugal Sprinkler Signal Cable (L)",
       "name_spanish": "Cable de Boquilla Centrífuga (Izquierdo)",
-      "category": "signal",
+      "category": "cable",
       "material_num": "YC.XC.XX000841",
       "material_name": "Centrifugal Sprinkler Signal Cable"
     },
-    "cent_sprinkler_cable_r": {
-      "id": "cent_sprinkler_cable_r",
+    "centrifugal_cable_r": {
+      "id": "centrifugal_cable_r",
       "type": "cable",
       "name": "Centrifugal Sprinkler Signal Cable (R)",
       "name_spanish": "Cable de Boquilla Centrífuga (Derecho)",
-      "category": "signal",
+      "category": "cable",
       "material_num": "YC.XC.XX000841",
       "material_name": "Centrifugal Sprinkler Signal Cable"
     },
@@ -572,7 +572,6 @@
       "name": "Single-point Hall Sensor Error",
       "name_spanish": "Error en Sensor de Nivel de Líquido Hall de Punto Único"
     },
-
     "error_single_point_hall_sensor_disconnected": {
       "id": "error_single_point_hall_sensor_disconnected",
       "type": "error",
@@ -593,19 +592,11 @@
       "name": "Pump 1 Flow Calculation Error",
       "name_spanish": "Error de Cálculo de Caudal de la Bomba 1"
     },
-
     "error_pump_2_flow_calculation": {
       "id": "error_pump_2_flow_calculation",
       "type": "error",
       "name": "Pump 2 Flow Calculation Error",
       "name_spanish": "Error de Cálculo de Caudal de la Bomba 2"
-    },
-
-    "pc_thick_mixture": {
-      "id": "pc_thick_mixture",
-      "type": "problem cause",
-      "name": "Pesticide Mixture is Too Thick",
-      "name_spanish": "Mezcla de Pesticidas es Demasiado Espesa"
     },
 
     "error_pump_1_self_check": {
@@ -614,7 +605,6 @@
       "name": "Pump 1 Self-Check Error",
       "name_spanish": "Error de Autocomprobación de la Bomba 1"
     },
-
     "error_pump_2_self_check": {
       "id": "error_pump_2_self_check",
       "type": "error",
@@ -628,7 +618,6 @@
       "name": "Pump 1 ESC Timeout",
       "name_spanish": "Excepción de Tiempo de Funcionamiento del ESC de la Bomba 1"
     },
-
     "error_pump_2_esc_timeout": {
       "id": "error_pump_2_esc_timeout",
       "type": "error",
@@ -642,12 +631,109 @@
       "name": "Pump 1 Voltage Too Low",
       "name_spanish": "Voltage de la Bomba 1 Demasiado Bajo"
     },
-
     "error_pump_2_voltage_low": {
       "id": "error_pump_2_voltage_low",
       "type": "error",
       "name": "Pump 2 Voltage Too Low",
       "name_spanish": "Voltage de la Bomba 2 Demasiado Bajo"
+    },
+
+    "error_pump_1_disconnected": {
+
+    },
+    "error_pump_2_disconnected": {
+
+    },
+
+    "calibration_result_pump_1_fail": {
+
+    },
+    "calibration_result_pump_2_fail": {
+
+    },
+
+    "error_centrifugal_nozzle_1_worn_out": {
+
+    },
+    "error_centrifugal_nozzle_2_worn_out": {
+
+    },
+
+    "error_centrifugal_nozzle_1_stuck": {
+
+    },
+    "error_centrifugal_nozzle_2_stuck": {
+
+    },
+
+    "error_centrifugal_nozzle_1_self_check": {
+
+    },
+    "error_centrifugal_nozzle_2_self_check": {
+
+    },
+
+    "error_centrifugal_nozzle_1_esc_timeout": {
+
+    },
+    "error_centrifugal_nozzle_2_esc_timeout": {
+
+    },
+
+    "error_centrifugal_nozzle_1_voltage_low": {
+
+    },
+    "error_centrifugal_nozzle_2_voltage_low": {
+
+    },
+
+    "error_centrifugal_nozzle_1_disconnected": {
+
+    },
+    "error_centrifugal_nozzle_2_disconnected": {
+
+    },
+
+    "error_flow_meter_voltage_low": {
+
+    },
+    "error_flow_meter_disconnected": {
+
+    },
+
+    "error_motor_1_esc_self_check": {
+
+    },
+    "error_motor_1_esc_disconnected": {
+
+    },
+    "error_motor_1_backup_throttle_lost": {
+
+    },
+
+    "problem_cause_thick_mixture": {
+      "id": "problem_cause_thick_mixture",
+      "type": "problem cause",
+      "name": "Pesticide Mixture is Too Thick",
+      "name_spanish": "Mezcla de Pesticidas es Demasiado Espesa"
+    },
+    "problem_cause_impeller_1_stuck": {
+
+    },
+    "problem_cause_impeller_2_stuck": {
+
+    },
+    "problem_cause_pump_1_magnet_loose": {
+
+    },
+    "problem_cause_pump_2_magnet_loose": {
+
+    },
+    "problem_cause_check_valve_1_stuck": {
+
+    },
+    "problem_cause_check_valve_2_stuck": {
+
     }
 
   },
@@ -728,69 +814,56 @@
     {"from": "motor7", "to": "esc7"},
     {"from": "motor8", "to": "esc8"},    
 
-    {"from": "cent_sprinkler_cable_l", "to": "m3_esc_cable"},
-    {"from": "cent_sprinkler_cable_l", "to": "cent_motor1"},
-    {"from": "cent_sprinkler_cable_r", "to": "m4_esc_cable"},
-    {"from": "cent_sprinkler_cable_r", "to": "cent_motor2"},
+    {"from": "centrifugal_cable_l", "to": "m3_esc_cable"},
+    {"from": "centrifugal_cable_l", "to": "centrifugal_motor1"},
+    {"from": "centrifugal_cable_r", "to": "m4_esc_cable"},
+    {"from": "centrifugal_cable_r", "to": "centrifugal_motor2"},
 
     {
-      "from": "error_single_point_hall_sensor",
+      "from": [
+        "error_single_point_hall_sensor",
+        "error_single_point_hall_sensor_disconnected"
+      ],
       "to": "liquid_level",
-      "probability": "medium"
+      "probability": "high"
     },
     {
-      "from": "error_single_point_hall_sensor",
+      "from": [
+        "error_single_point_hall_sensor",
+        "error_single_point_hall_sensor_disconnected"
+      ],
       "to": "spray_adapter",
       "probability": "medium"
     },
     {
-      "from": "error_single_point_hall_sensor",
+      "from": [
+        "error_single_point_hall_sensor",
+        "error_single_point_hall_sensor_disconnected"
+      ],
       "to": "spray_signal_cable",
       "probability": "medium"
     },
     {
-      "from": "error_single_point_hall_sensor",
+      "from": [
+        "error_single_point_hall_sensor",
+        "error_single_point_hall_sensor_disconnected"
+      ],
       "to": "spray_adapt_cable",
       "probability": "medium"
     },
     {
-      "from": "error_single_point_hall_sensor",
+      "from": [
+        "error_single_point_hall_sensor",
+        "error_single_point_hall_sensor_disconnected"
+      ],
       "to": "cdb",
       "probability": "low"
     },
     {
-      "from": "error_single_point_hall_sensor",
-      "to": "spray_board",
-      "probability": "medium"
-    },
-    
-    {
-      "from": "error_single_point_hall_sensor_disconnected",
-      "to": "liquid_level",
-      "probability": "medium"
-    },
-    {
-      "from": "error_single_point_hall_sensor_disconnected",
-      "to": "spray_adapter",
-      "probability": "medium"
-    },
-    {
-      "from": "error_single_point_hall_sensor_disconnected",
-      "to": "spray_signal_cable",
-      "probability": "medium"
-    },
-    {
-      "from": "error_single_point_hall_sensor_disconnected",
-      "to": "spray_adapt_cable",
-      "probability": "medium"
-    },
-    {
-      "from": "error_single_point_hall_sensor_disconnected",
-      "to": "cdb",
-      "probability": "low"
-    },
-    {
-      "from": "error_single_point_hall_sensor_disconnected",
+      "from": [
+        "error_single_point_hall_sensor",
+        "error_single_point_hall_sensor_disconnected"
+      ],
       "to": "spray_board",
       "probability": "medium"
     },
@@ -812,7 +885,13 @@
     },
 
     {
-      "from": "error_pump_1_flow_calculation",
+      "from": [
+        "error_pump_1_flow_calculation",
+        "error_pump_1_self_check",
+        "error_pump_1_esc_timeout",
+        "error_pump_1_voltage_low",
+        "error_pump_1_disconnected"
+      ],
       "to": "pump1",
       "probability": "high"
     },
@@ -858,7 +937,12 @@
     },
     {
       "from": "error_pump_1_flow_calculation",
-      "to": "pc_thick_mixture",
+      "to": "problem_cause_thick_mixture",
+      "probability": "high"
+    },
+    {
+      "from": "error_pump_1_flow_calculation",
+      "to": "problem_cause_check_valve_stuck",
       "probability": "high"
     },
 
@@ -909,9 +993,51 @@
     },
     {
       "from": "error_pump_2_flow_calculation",
-      "to": "pc_thick_mixture",
+      "to": "problem_cause_thick_mixture",
       "probability": "high"
+    },
+    {
+      "from": "error_pump_2_flow_calculation",
+      "to": "problem_cause_check_valve_stuck",
+      "probability": "high"
+    },
+
+    {
+      "from": "error_pump_1_self_check",
+      "to": "pump1",
+      "probability": "high"
+    },
+    {
+      "from": "error_pump_1_self_check",
+      "to": "pump_signal_cable",
+      "probability": "high"
+    },
+    {
+      "from": "error_pump_1_self_check",
+      "to": "spray_adapter",
+      "probability": "medium"
+    },
+    {
+      "from": "error_pump_1_self_check",
+      "to": "spray_signal_cable",
+      "probability": "medium"
+    },
+    {
+      "from": "error_pump_1_self_check",
+      "to": "spray_adapt_cable",
+      "probability": "medium"
+    },
+    {
+      "from": "error_pump_1_self_check",
+      "to": "cdb",
+      "probability": "low"
+    },
+    {
+      "from": "error_pump_1_self_check",
+      "to": "spray_board",
+      "probability": "low"
     }
     
   ]
+
 }
