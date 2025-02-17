@@ -1,0 +1,46 @@
+{
+"table_of_contents": [
+    {
+        "id": "T40_components_core",
+        "type": "components",
+        "name": "T40 Components Core",
+        "name_spanish": "T40 Componentes Centrales"
+    },
+    {
+        "id": "T40_components_propulsion",
+        "type": "components",
+        "name": "T40 Components Propulsion",
+        "name_spanish": "T40 Componentes Propulsión"
+    },
+    {
+        "id": "T40_components_spraying",
+        "type": "components",
+        "name": "T40 Components Spraying",
+        "name_spanish": "T40 Componentes Rociado"
+    },
+    {
+        "id": "T40_connections  ",
+        "type": "connections",
+        "name": "T40 Connections",
+        "name_spanish": "T40 Conexiones"
+    },
+    {
+        "id": "T40_errors_propulsion",
+        "type": "errors",
+        "name": "T40 Errors Propulsion",
+        "name_spanish": "T40 Errores Propulsión"
+    },
+    {
+        "id": "T40_errors_spraying",
+        "type": "errors",
+        "name": "T40 Errors Spraying",
+        "name_spanish": "T40 Errores Rociado"
+    },
+    {
+        "id": "T40_error_causes_spraying",
+        "type": "error_causes",
+        "name": "T40 Error Causes Spraying",
+        "name_spanish": "T40 Causas de Errores Rociado"
+    }
+]
+}

@@ -1,0 +1,222 @@
+{
+"T40_error_causes_spraying": [
+    {
+    "from": [
+        "error_single_point_hall_sensor",
+        "error_single_point_hall_sensor_disconnected"
+    ],
+    "to": "liquid_level",
+    "probability": "high"
+    },
+    {
+    "from": [
+        "error_single_point_hall_sensor",
+        "error_single_point_hall_sensor_disconnected"
+    ],
+    "to": "spray_adapter",
+    "probability": "medium"
+    },
+    {
+    "from": [
+        "error_single_point_hall_sensor",
+        "error_single_point_hall_sensor_disconnected"
+    ],
+    "to": "spray_signal_cable",
+    "probability": "medium"
+    },
+    {
+    "from": [
+        "error_single_point_hall_sensor",
+        "error_single_point_hall_sensor_disconnected"
+    ],
+    "to": "spray_adapt_cable",
+    "probability": "medium"
+    },
+    {
+    "from": [
+        "error_single_point_hall_sensor",
+        "error_single_point_hall_sensor_disconnected"
+    ],
+    "to": "cdb",
+    "probability": "low"
+    },
+    {
+    "from": [
+        "error_single_point_hall_sensor",
+        "error_single_point_hall_sensor_disconnected"
+    ],
+    "to": "spray_board",
+    "probability": "medium"
+    },
+
+    {
+    "from": "error_load_sensor_cable_broken",
+    "to": "load_sensor",
+    "probability": "high"
+    },
+    {
+    "from": "error_load_sensor_cable_broken",
+    "to": "cdb",
+    "probability": "low"
+    },
+    {
+    "from": "error_load_sensor_cable_broken",
+    "to": "spray_board",
+    "probability": "medium"
+    },
+
+    {
+    "from": [
+        "error_pump_1_flow_calculation",
+        "error_pump_1_self_check",
+        "error_pump_1_esc_timeout",
+        "error_pump_1_voltage_low",
+        "error_pump_1_disconnected"
+    ],
+    "to": "pump1",
+    "probability": "high"
+    },
+    {
+    "from": "error_pump_1_flow_calculation",
+    "to": "pump_signal_cable",
+    "probability": "high"
+    },
+    {
+    "from": "error_pump_1_flow_calculation",
+    "to": "spray_adapter",
+    "probability": "low"
+    },
+    {
+    "from": "error_pump_1_flow_calculation",
+    "to": "spray_signal_cable",
+    "probability": "high"
+    },
+    {
+    "from": "error_pump_1_flow_calculation",
+    "to": "spray_adapt_cable",
+    "probability": "medium"
+    },
+    {
+    "from": "error_pump_1_flow_calculation",
+    "to": "cdb",
+    "probability": "low"
+    },
+    {
+    "from": "error_pump_1_flow_calculation",
+    "to": "spray_board",
+    "probability": "low"
+    },
+    {
+    "from": "error_pump_1_flow_calculation",
+    "to": "flow_meter",
+    "probability": "low"
+    },
+    {
+    "from": "error_pump_1_flow_calculation",
+    "to": "flow_meter_cable",
+    "probability": "low"
+    },
+    {
+    "from": "error_pump_1_flow_calculation",
+    "to": "problem_cause_thick_mixture",
+    "probability": "high"
+    },
+    {
+    "from": "error_pump_1_flow_calculation",
+    "to": "problem_cause_check_valve_stuck",
+    "probability": "high"
+    },
+
+    {
+    "from": "error_pump_2_flow_calculation",
+    "to": "pump2",
+    "probability": "high"
+    },
+    {
+    "from": "error_pump_2_flow_calculation",
+    "to": "pump_signal_cable",
+    "probability": "high"
+    },
+    {
+    "from": "error_pump_2_flow_calculation",
+    "to": "spray_adapter",
+    "probability": "low"
+    },
+    {
+    "from": "error_pump_2_flow_calculation",
+    "to": "spray_signal_cable",
+    "probability": "high"
+    },
+    {
+    "from": "error_pump_2_flow_calculation",
+    "to": "spray_adapt_cable",
+    "probability": "medium"
+    },
+    {
+    "from": "error_pump_2_flow_calculation",
+    "to": "cdb",
+    "probability": "low"
+    },
+    {
+    "from": "error_pump_2_flow_calculation",
+    "to": "spray_board",
+    "probability": "low"
+    },
+    {
+    "from": "error_pump_2_flow_calculation",
+    "to": "flow_meter",
+    "probability": "low"
+    },
+    {
+    "from": "error_pump_2_flow_calculation",
+    "to": "flow_meter_cable",
+    "probability": "low"
+    },
+    {
+    "from": "error_pump_2_flow_calculation",
+    "to": "problem_cause_thick_mixture",
+    "probability": "high"
+    },
+    {
+    "from": "error_pump_2_flow_calculation",
+    "to": "problem_cause_check_valve_stuck",
+    "probability": "high"
+    },
+
+    {
+    "from": "error_pump_1_self_check",
+    "to": "pump1",
+    "probability": "high"
+    },
+    {
+    "from": "error_pump_1_self_check",
+    "to": "pump_signal_cable",
+    "probability": "high"
+    },
+    {
+    "from": "error_pump_1_self_check",
+    "to": "spray_adapter",
+    "probability": "medium"
+    },
+    {
+    "from": "error_pump_1_self_check",
+    "to": "spray_signal_cable",
+    "probability": "medium"
+    },
+    {
+    "from": "error_pump_1_self_check",
+    "to": "spray_adapt_cable",
+    "probability": "medium"
+    },
+    {
+    "from": "error_pump_1_self_check",
+    "to": "cdb",
+    "probability": "low"
+    },
+    {
+    "from": "error_pump_1_self_check",
+    "to": "spray_board",
+    "probability": "low"
+    }
+]
+}

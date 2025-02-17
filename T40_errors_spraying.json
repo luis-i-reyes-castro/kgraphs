@@ -1,0 +1,159 @@
+{
+"T40_errors_spraying": {
+    "error_single_point_hall_sensor": {
+      "type": "error",
+      "name": "Single-point Hall Sensor Error",
+      "name_spanish": "Error en Sensor de Nivel de Líquido Hall de Punto Único"
+    },
+    "error_single_point_hall_sensor_disconnected": {
+      "type": "error",
+      "name": "Single-point Hall Sensor Disconnected",
+      "name_spanish": "Sensor de Nivel de Líquido Hall de Punto Único Desconectado"
+    },
+    "error_load_sensor_cable_broken": {
+      "type": "error",
+      "name": "Load Sensor Cable Broken",
+      "name_spanish": "Cable de Conexión del Sensor de Peso Roto"
+    },
+    "error_pump_1_flow_calculation": {
+      "type": "error",
+      "name": "Pump 1 Flow Calculation Error",
+      "name_spanish": "Error de Cálculo de Caudal de la Bomba 1"
+    },
+    "error_pump_2_flow_calculation": {
+      "type": "error",
+      "name": "Pump 2 Flow Calculation Error",
+      "name_spanish": "Error de Cálculo de Caudal de la Bomba 2"
+    },
+    "error_pump_1_self_check": {
+      "type": "error",
+      "name": "Pump 1 Self-Check Error",
+      "name_spanish": "Error de Autocomprobación de la Bomba 1"
+    },
+    "error_pump_2_self_check": {
+      "type": "error",
+      "name": "Pump 2 Self-Check Error",
+      "name_spanish": "Error de Autocomprobación de la Bomba 2"
+    },
+    "error_pump_1_esc_timeout_exception": {
+      "type": "error",
+      "name": "Pump 1 ESC Timeout Exception",
+      "name_spanish": "Excepción de Tiempo de Funcionamiento del ESC de la Bomba 1"
+    },
+    "error_pump_2_esc_timeout_exception": {
+      "type": "error",
+      "name": "Pump 2 ESC Timeout Exception",
+      "name_spanish": "Excepción de Tiempo de Funcionamiento del ESC de la Bomba 2"
+    },
+    "error_pump_1_voltage_low": {
+      "type": "error",
+      "name": "Pump 1 Voltage Too Low",
+      "name_spanish": "Voltage de la Bomba 1 Demasiado Bajo"
+    },
+    "error_pump_2_voltage_low": {
+      "type": "error",
+      "name": "Pump 2 Voltage Too Low",
+      "name_spanish": "Voltage de la Bomba 2 Demasiado Bajo"
+    },
+    "error_pump_1_disconnected": {
+      "type": "error",
+      "name": "Pump 1 Disconnected",
+      "name_spanish": "Bomba 1 Desconectada"
+    },
+    "error_pump_2_disconnected": {
+      "type": "error",
+      "name": "Pump 2 Disconnected",
+      "name_spanish": "Bomba 2 Desconectada"
+    },
+    "calibration_result_pump_1_fail": {
+      "type": "error",
+      "name": "Calibration Result Pump 1 Fail",
+      "name_spanish": "Resultado de Calibración de la Bomba 1 Fallido"
+    },
+    "calibration_result_pump_2_fail": {
+      "type": "error",
+      "name": "Calibration Result Pump 2 Fail",
+      "name_spanish": "Resultado de Calibración de la Bomba 2 Fallido"
+    },
+    "error_centrifugal_nozzle_1_worn_out": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 1 Worn Out",
+      "name_spanish": "Boquilla Centrífuga 1 Desgastada"
+    },
+    "error_centrifugal_nozzle_2_worn_out": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 2 Worn Out",
+      "name_spanish": "Boquilla Centrífuga 2 Desgastada"
+    },
+    "error_centrifugal_nozzle_1_stuck": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 1 Stuck",
+      "name_spanish": "Boquilla Centrífuga 1 Atascada"
+    },
+    "error_centrifugal_nozzle_2_stuck": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 2 Stuck",
+      "name_spanish": "Boquilla Centrífuga 2 Atascada"
+    },
+    "error_centrifugal_nozzle_1_self_check": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 1 Self-Check Error",
+      "name_spanish": "Error de Autocomprobación de la Boquilla Centrífuga 1"
+    },
+    "error_centrifugal_nozzle_2_self_check": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 2 Self-Check Error",
+      "name_spanish": "Error de Autocomprobación de la Boquilla Centrífuga 2"
+    },
+    "error_centrifugal_nozzle_1_esc_timeout_exception": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 1 ESC Timeout Exception",
+      "name_spanish": "Excepción de Tiempo de Funcionamiento del ESC de la Boquilla Centrífuga 1"
+    },
+    "error_centrifugal_nozzle_2_esc_timeout_exception": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 2 ESC Timeout Exception",
+      "name_spanish": "Excepción de Tiempo de Funcionamiento del ESC de la Boquilla Centrífuga 2"
+    },
+    "error_centrifugal_nozzle_1_voltage_low": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 1 Voltage Too Low",
+      "name_spanish": "Voltage de la Boquilla Centrífuga 1 Demasiado Bajo"
+    },
+    "error_centrifugal_nozzle_2_voltage_low": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 2 Voltage Too Low",
+      "name_spanish": "Voltage de la Boquilla Centrífuga 2 Demasiado Bajo"
+    },
+    "error_centrifugal_nozzle_1_disconnected": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 1 Disconnected",
+      "name_spanish": "Boquilla Centrífuga 1 Desconectada"
+    },
+    "error_centrifugal_nozzle_2_disconnected": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 2 Disconnected",
+      "name_spanish": "Boquilla Centrífuga 2 Desconectada"
+    },
+    "error_centrifugal_nozzle_1_self_check_fail": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 1 Self-Check Fail",
+      "name_spanish": "Error de Autocomprobación de la Boquilla Centrífuga 1"
+    },
+    "error_centrifugal_nozzle_2_self_check_fail": {
+      "type": "error",
+      "name": "Centrifugal Nozzle 2 Self-Check Fail",
+      "name_spanish": "Error de Autocomprobación de la Boquilla Centrífuga 2"
+    },
+    "error_flow_meter_voltage_low": {
+      "type": "error",
+      "name": "Flow Meter Voltage Too Low",
+      "name_spanish": "Voltage del Medidor de Caudal Demasiado Bajo"
+    },
+    "error_flow_meter_disconnected": {
+      "type": "error",
+      "name": "Flow Meter Disconnected",
+      "name_spanish": "Medidor de Caudal Desconectado"
+    }
+}
+}
