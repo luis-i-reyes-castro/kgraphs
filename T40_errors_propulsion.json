@@ -1,13 +1,11 @@
 {
-"T40_errors_propulsion": {
-    "error_motor_1_esc_self_check": {
+"error_motor_1_esc_self_check": {
 
-    },
-    "error_motor_1_esc_disconnected": {
+},
+"error_motor_1_esc_disconnected": {
 
-    },
-    "error_motor_1_backup_throttle_lost": {
+},
+"error_motor_1_backup_throttle_lost": {
 
-    }
 }
 }

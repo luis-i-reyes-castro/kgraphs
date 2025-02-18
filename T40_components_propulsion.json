@@ -1,190 +1,188 @@
 {
-"T40_components_propulsion": {
-    "m1_pos": {
-        "type": "sensor",
-        "name": "M1 Arm In-position Detector",
-        "alt_name": "M1 Folding Sensor",
-        "name_spanish": "Sensor de Plegado del Brazo M1",
-        "material_num": "BC.AG.SS000547",
-        "material_name": "Aircraft Arm In-position Detector Signal Cable"
-    },
-    "m2_pos": {
-        "type": "sensor",
-        "name": "M2 Arm In-position Detector",
-        "alt_name": "M2 Folding Sensor",
-        "name_spanish": "Sensor de Plegado del Brazo M2",
-        "material_num": "BC.AG.SS000547",
-        "material_name": "Aircraft Arm In-position Detector Signal Cable"
-    },
-    "m3_pos": {
-        "type": "sensor",
-        "name": "M3 Arm In-position Detector",
-        "alt_name": "M3 Folding Sensor",
-        "name_spanish": "Sensor de Plegado del Brazo M3",
-        "material_num": "BC.AG.SS000547",
-        "material_name": "Aircraft Arm In-position Detector Signal Cable"
-    },
-    "m4_pos": {
-        "type": "sensor",
-        "name": "M4 Arm In-position Detector",
-        "alt_name": "M4 Folding Sensor",
-        "name_spanish": "Sensor de Plegado del Brazo M4",
-        "material_num": "BC.AG.SS000547",
-        "material_name": "Aircraft Arm In-position Detector Signal Cable"
-    },
-    "esc1": {
-      "type": "esc",
-      "name": "ESC 1",
-      "name_spanish": "ESC 1",
-      "material_num": "BC.AG.SS000563",
-      "material_name": "ESC Module"
-    },
-    "esc2": {
-      "type": "esc",
-      "name": "ESC 2",
-      "name_spanish": "ESC 2",
-      "material_num": "BC.AG.SS000563",
-      "material_name": "ESC Module"
-    },
-    "esc3": {
-      "type": "esc",
-      "name": "ESC 3",
-      "name_spanish": "ESC 3",
-      "material_num": "BC.AG.SS000563",
-      "material_name": "ESC Module"
-    },
-    "esc4": {
-      "type": "esc",
-      "name": "ESC 4",
-      "name_spanish": "ESC 4",
-      "material_num": "BC.AG.SS000563",
-      "material_name": "ESC Module"
-    },
-    "esc5": {
-      "type": "esc",
-      "name": "ESC 5",
-      "name_spanish": "ESC 5",
-      "material_num": "BC.AG.SS000563",
-      "material_name": "ESC Module"
-    },
-    "esc6": {
-      "type": "esc",
-      "name": "ESC 6",
-      "name_spanish": "ESC 6",
-      "material_num": "BC.AG.SS000563",
-      "material_name": "ESC Module"
-    },
-    "esc7": {
-      "type": "esc",
-      "name": "ESC 7",
-      "name_spanish": "ESC 7",
-      "material_num": "BC.AG.SS000563",
-      "material_name": "ESC Module"
-    },
-    "esc8": {
-      "type": "esc",
-      "name": "ESC 8",
-      "name_spanish": "ESC 8",
-      "material_num": "BC.AG.SS000563",
-      "material_name": "ESC Module"
-    },
-    "motor1": {
-      "type": "motor",
-      "name": "Motor 1",
-      "name_spanish": "Motor 1",
-      "material_num": "BC.AG.SS000668",
-      "material_name": "Propulsion Motor 10033"
-    },
-    "motor2": {
-      "type": "motor",
-      "name": "Motor 2",
-      "name_spanish": "Motor 2",
-      "material_num": "BC.AG.SS000668",
-      "material_name": "Propulsion Motor 10033"
-    },
-    "motor3": {
-      "type": "motor",
-      "name": "Motor 3",
-      "name_spanish": "Motor 3",
-      "material_num": "BC.AG.SS000668",
-      "material_name": "Propulsion Motor 10033"
-    },
-    "motor4": {
-      "type": "motor",
-      "name": "Motor 4",
-      "name_spanish": "Motor 4",
-      "material_num": "BC.AG.SS000668",
-      "material_name": "Propulsion Motor 10033"
-    },
-    "motor5": {
-      "type": "motor",
-      "name": "Motor 5",
-      "name_spanish": "Motor 5",
-      "material_num": "BC.AG.SS000668",
-      "material_name": "Propulsion Motor 10033"
-    },
-    "motor6": {
-      "type": "motor",
-      "name": "Motor 6",
-      "name_spanish": "Motor 6",
-      "material_num": "BC.AG.SS000668",
-      "material_name": "Propulsion Motor 10033"
-    },
-    "motor7": {
-      "type": "motor",
-      "name": "Motor 7",
-      "name_spanish": "Motor 7",
-      "material_num": "BC.AG.SS000668",
-      "material_name": "Propulsion Motor 10033"
-    },
-    "motor8": {
-      "type": "motor",
-      "name": "Motor 8",
-      "name_spanish": "Motor 8",
-      "material_num": "BC.AG.SS000668",
-      "material_name": "Propulsion Motor 10033"
-    },
-    "front_esc_cable_l": {
-      "type": "cable",
-      "name": "Front Aircraft Arm ESC Power Adapter Cable (L)",
-      "name_spanish": "Cable Adaptador de Potencia del Brazo Delantero (Izquierdo)",
-      "material_num": "YC.XC.DD000501",
-      "material_name": "Front Aircraft Arm ESC Power Adapter Cable"
-    },
-    "front_esc_cable_r": {
-      "type": "cable",
-      "name": "Front Aircraft Arm ESC Power Adapter Cable (R)",
-      "name_spanish": "Cable Adaptador de Potencia del Brazo Delantero (Derecho)",
-      "material_num": "YC.XC.DD000501",
-      "material_name": "Front Aircraft Arm ESC Power Adapter Cable"
-    },
-    "m1_esc_cable": {
-      "type": "cable",
-      "name": "M1 Aircraft Arm ESC Composite Cable",
-      "name_spanish": "Cable de ESC del Brazo M1",
-      "material_num": "YC.XC.XS000011",
-      "material_name": "M1 & M2 Aircraft Arm ESC Composite Cable"
-    },
-    "m2_esc_cable": {
-      "type": "cable",
-      "name": "M2 Aircraft Arm ESC Composite Cable",
-      "name_spanish": "Cable de ESC del Brazo M2",
-      "material_num": "YC.XC.XS000011",
-      "material_name": "M1 & M2 Aircraft Arm ESC Composite Cable"
-    },
-    "m3_esc_cable": {
-      "type": "cable",
-      "name": "M3 Aircraft Arm ESC Composite Cable",
-      "name_spanish": "Cable de ESC del Brazo M3",
-      "material_num": "YC.XC.XS000012",
-      "material_name": "M3 & M4 Aircraft Arm ESC Composite Cable"
-    },
-    "m4_esc_cable": {
-      "type": "cable",
-      "name": "M4 Aircraft Arm ESC Composite Cable",
-      "name_spanish": "Cable de ESC del Brazo M4",
-      "material_num": "YC.XC.XS000012",
-      "material_name": "M3 & M4 Aircraft Arm ESC Composite Cable"
-    }
+"m1_pos": {
+    "type": "sensor",
+    "name": "M1 Arm In-position Detector",
+    "alt_name": "M1 Folding Sensor",
+    "name_spanish": "Sensor de Plegado del Brazo M1",
+    "material_num": "BC.AG.SS000547",
+    "material_name": "Aircraft Arm In-position Detector Signal Cable"
+},
+"m2_pos": {
+    "type": "sensor",
+    "name": "M2 Arm In-position Detector",
+    "alt_name": "M2 Folding Sensor",
+    "name_spanish": "Sensor de Plegado del Brazo M2",
+    "material_num": "BC.AG.SS000547",
+    "material_name": "Aircraft Arm In-position Detector Signal Cable"
+},
+"m3_pos": {
+    "type": "sensor",
+    "name": "M3 Arm In-position Detector",
+    "alt_name": "M3 Folding Sensor",
+    "name_spanish": "Sensor de Plegado del Brazo M3",
+    "material_num": "BC.AG.SS000547",
+    "material_name": "Aircraft Arm In-position Detector Signal Cable"
+},
+"m4_pos": {
+    "type": "sensor",
+    "name": "M4 Arm In-position Detector",
+    "alt_name": "M4 Folding Sensor",
+    "name_spanish": "Sensor de Plegado del Brazo M4",
+    "material_num": "BC.AG.SS000547",
+    "material_name": "Aircraft Arm In-position Detector Signal Cable"
+},
+"esc1": {
+  "type": "esc",
+  "name": "ESC 1",
+  "name_spanish": "ESC 1",
+  "material_num": "BC.AG.SS000563",
+  "material_name": "ESC Module"
+},
+"esc2": {
+  "type": "esc",
+  "name": "ESC 2",
+  "name_spanish": "ESC 2",
+  "material_num": "BC.AG.SS000563",
+  "material_name": "ESC Module"
+},
+"esc3": {
+  "type": "esc",
+  "name": "ESC 3",
+  "name_spanish": "ESC 3",
+  "material_num": "BC.AG.SS000563",
+  "material_name": "ESC Module"
+},
+"esc4": {
+  "type": "esc",
+  "name": "ESC 4",
+  "name_spanish": "ESC 4",
+  "material_num": "BC.AG.SS000563",
+  "material_name": "ESC Module"
+},
+"esc5": {
+  "type": "esc",
+  "name": "ESC 5",
+  "name_spanish": "ESC 5",
+  "material_num": "BC.AG.SS000563",
+  "material_name": "ESC Module"
+},
+"esc6": {
+  "type": "esc",
+  "name": "ESC 6",
+  "name_spanish": "ESC 6",
+  "material_num": "BC.AG.SS000563",
+  "material_name": "ESC Module"
+},
+"esc7": {
+  "type": "esc",
+  "name": "ESC 7",
+  "name_spanish": "ESC 7",
+  "material_num": "BC.AG.SS000563",
+  "material_name": "ESC Module"
+},
+"esc8": {
+  "type": "esc",
+  "name": "ESC 8",
+  "name_spanish": "ESC 8",
+  "material_num": "BC.AG.SS000563",
+  "material_name": "ESC Module"
+},
+"motor1": {
+  "type": "motor",
+  "name": "Motor 1",
+  "name_spanish": "Motor 1",
+  "material_num": "BC.AG.SS000668",
+  "material_name": "Propulsion Motor 10033"
+},
+"motor2": {
+  "type": "motor",
+  "name": "Motor 2",
+  "name_spanish": "Motor 2",
+  "material_num": "BC.AG.SS000668",
+  "material_name": "Propulsion Motor 10033"
+},
+"motor3": {
+  "type": "motor",
+  "name": "Motor 3",
+  "name_spanish": "Motor 3",
+  "material_num": "BC.AG.SS000668",
+  "material_name": "Propulsion Motor 10033"
+},
+"motor4": {
+  "type": "motor",
+  "name": "Motor 4",
+  "name_spanish": "Motor 4",
+  "material_num": "BC.AG.SS000668",
+  "material_name": "Propulsion Motor 10033"
+},
+"motor5": {
+  "type": "motor",
+  "name": "Motor 5",
+  "name_spanish": "Motor 5",
+  "material_num": "BC.AG.SS000668",
+  "material_name": "Propulsion Motor 10033"
+},
+"motor6": {
+  "type": "motor",
+  "name": "Motor 6",
+  "name_spanish": "Motor 6",
+  "material_num": "BC.AG.SS000668",
+  "material_name": "Propulsion Motor 10033"
+},
+"motor7": {
+  "type": "motor",
+  "name": "Motor 7",
+  "name_spanish": "Motor 7",
+  "material_num": "BC.AG.SS000668",
+  "material_name": "Propulsion Motor 10033"
+},
+"motor8": {
+  "type": "motor",
+  "name": "Motor 8",
+  "name_spanish": "Motor 8",
+  "material_num": "BC.AG.SS000668",
+  "material_name": "Propulsion Motor 10033"
+},
+"front_esc_cable_l": {
+  "type": "cable",
+  "name": "Front Aircraft Arm ESC Power Adapter Cable (L)",
+  "name_spanish": "Cable Adaptador de Potencia del Brazo Delantero (Izquierdo)",
+  "material_num": "YC.XC.DD000501",
+  "material_name": "Front Aircraft Arm ESC Power Adapter Cable"
+},
+"front_esc_cable_r": {
+  "type": "cable",
+  "name": "Front Aircraft Arm ESC Power Adapter Cable (R)",
+  "name_spanish": "Cable Adaptador de Potencia del Brazo Delantero (Derecho)",
+  "material_num": "YC.XC.DD000501",
+  "material_name": "Front Aircraft Arm ESC Power Adapter Cable"
+},
+"m1_esc_cable": {
+  "type": "cable",
+  "name": "M1 Aircraft Arm ESC Composite Cable",
+  "name_spanish": "Cable de ESC del Brazo M1",
+  "material_num": "YC.XC.XS000011",
+  "material_name": "M1 & M2 Aircraft Arm ESC Composite Cable"
+},
+"m2_esc_cable": {
+  "type": "cable",
+  "name": "M2 Aircraft Arm ESC Composite Cable",
+  "name_spanish": "Cable de ESC del Brazo M2",
+  "material_num": "YC.XC.XS000011",
+  "material_name": "M1 & M2 Aircraft Arm ESC Composite Cable"
+},
+"m3_esc_cable": {
+  "type": "cable",
+  "name": "M3 Aircraft Arm ESC Composite Cable",
+  "name_spanish": "Cable de ESC del Brazo M3",
+  "material_num": "YC.XC.XS000012",
+  "material_name": "M3 & M4 Aircraft Arm ESC Composite Cable"
+},
+"m4_esc_cable": {
+  "type": "cable",
+  "name": "M4 Aircraft Arm ESC Composite Cable",
+  "name_spanish": "Cable de ESC del Brazo M4",
+  "material_num": "YC.XC.XS000012",
+  "material_name": "M3 & M4 Aircraft Arm ESC Composite Cable"
 }
 }

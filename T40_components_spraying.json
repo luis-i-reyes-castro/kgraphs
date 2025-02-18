@@ -1,128 +1,126 @@
 {
-"T40_components_spraying": {
-    "spray_board": {
-      "file": "T40_components_core.json",
-      "id": "spray_board"
-    },
-    "cdb": {
-      "file": "T40_components_core.json",
-      "id": "cdb"
-    },
-    "signal_cable_l": {
-      "file": "T40_components_core.json",
-      "id": "signal_cable_l"
-    },
-    "pdb": {
-      "file": "T40_components_core.json",
-      "id": "pdb"
-    },
-    "spray_adapter": {
-      "type": "board",
-      "name": "Spraying Adapter",
-      "name_spanish": "Tarjeta Adaptadora de Rociado",
-      "material_num": "BC.AG.SS000546",
-      "material_name": "Spraying Adapter Module"
-    },
-    "load_sensor": {
-        "type": "sensor",
-        "name": "Load Sensor",
-        "name_spanish": "Sensor de Peso",
-        "material_num": "BC.AG.SS000550",
-        "material_name": "Load Sensor Module"
-    },
-    "flow_meter": {
-        "type": "sensor",
-        "name": "Flow Meter",
-        "name_spanish": "Medidor de Caudal",
-        "material_num": "BC.AG.SS000545",
-        "material_name": "Flow Meter Module"
-    },
-    "liquid_level": {
-        "type": "sensor",
-        "name": "Liquid Level Meter",
-        "name_spanish": "Medidor de Nivel de Líquido",
-        "material_num": "BC.AG.SS000547",
-        "material_name": "Liquid Level Meter Module"
-    },
-    "pump1": {
-        "type": "motor",
-        "name": "Impeller Pump Motor 1",
-        "name_spanish": "Motor de Bomba 1",
-        "material_num": "BC.AG.SS000543",
-        "material_name": "Impeller Pump Motor"
-    },
-    "pump2": {
-        "type": "motor",
-        "name": "Impeller Pump Motor 2",
-        "name_spanish": "Motor de Bomba 2",
-        "material_num": "BC.AG.SS000543",
-        "material_name": "Impeller Pump Motor"
-    },
-    "centrifugal_motor1": {
-        "type": "motor",
-        "name": "Centrifugal Motor 1",
-        "alt_name": "Centrifugal Nozzle 1",
-        "name_spanish": "Motor de Boquilla Centrífuga 1",
-        "material_num": "BC.AG.SS000565",
-        "material_name": "Centrifugal Motor"
-    },
-    "centrifugal_motor2": {
-        "type": "motor",
-        "name": "Centrifugal Motor 2",
-        "alt_name": "Centrifugal Nozzle 2",
-        "name_spanish": "Motor de Boquilla Centrífuga 2",
-        "material_num": "BC.AG.SS000565",
-        "material_name": "Centrifugal Motor"
-    },
-    "spray_adapt_cable": {
-      "type": "cable",
-      "name": "Spraying Adaptive Cable",
-      "name_spanish": "Cable Adaptativo de Rociado",
-      "material_num": "YC.XC.XX000842",
-      "material_name": "Spraying Adaptive Cable"
-    },
-    "spray_signal_cable": {
-      "type": "cable",
-      "name": "Spraying Signal Cable",
-      "name_spanish": "Cable de Señal de Rociado",
-      "material_num": "YC.XC.XX000835",
-      "material_name": "Spraying Signal Cable"
-    },
-    "flow_meter_cable": {
-      "type": "cable",
-      "name": "Flow Meter Signal Cable",
-      "name_spanish": "Cable del Medidor de Caudal",
-      "material_num": "YC.XC.XX000839",
-      "material_name": "Flow Meter Signal Cable"
-    },
-    "impeller_pump_cable": {
-      "type": "cable",
-      "name": "Impeller Pump Signal Cable",
-      "name_spanish": "Cable de Bombas",
-      "material_num": "YC.XC.XX000857",
-      "material_name": "Impeller Pump Signal Cable"
-    },
-    "m3_esc_cable": {
-      "file": "T40_components_propulsion.json",
-      "id": "m3_esc_cable"
-    },
-    "m4_esc_cable": {
-      "file": "T40_components_propulsion.json",
-      "id": "m4_esc_cable"
-    },
-    "centrifugal_cable_l": {
-      "type": "cable",
-      "name": "Centrifugal Sprinkler Signal Cable (L)",
-      "name_spanish": "Cable de Boquilla Centrífuga (Izquierdo)",
-      "material_num": "YC.XC.XX000841",
-      "material_name": "Centrifugal Sprinkler Signal Cable"
-    },
-    "centrifugal_cable_r": {
-      "type": "cable",
-      "name": "Centrifugal Sprinkler Signal Cable (R)",
-      "name_spanish": "Cable de Boquilla Centrífuga (Derecho)",
-      "material_num": "YC.XC.XX000841",
-      "material_name": "Centrifugal Sprinkler Signal Cable"
-    }
+"spray_board": {
+  "file": "T40_components_core.json",
+  "id": "spray_board"
+},
+"cdb": {
+  "file": "T40_components_core.json",
+  "id": "cdb"
+},
+"signal_cable_l": {
+  "file": "T40_components_core.json",
+  "id": "signal_cable_l"
+},
+"pdb": {
+  "file": "T40_components_core.json",
+  "id": "pdb"
+},
+"spray_adapter": {
+  "type": "board",
+  "name": "Spraying Adapter",
+  "name_spanish": "Tarjeta Adaptadora de Rociado",
+  "material_num": "BC.AG.SS000546",
+  "material_name": "Spraying Adapter Module"
+},
+"load_sensor": {
+    "type": "sensor",
+    "name": "Load Sensor",
+    "name_spanish": "Sensor de Peso",
+    "material_num": "BC.AG.SS000550",
+    "material_name": "Load Sensor Module"
+},
+"flow_meter": {
+    "type": "sensor",
+    "name": "Flow Meter",
+    "name_spanish": "Medidor de Caudal",
+    "material_num": "BC.AG.SS000545",
+    "material_name": "Flow Meter Module"
+},
+"liquid_level": {
+    "type": "sensor",
+    "name": "Liquid Level Meter",
+    "name_spanish": "Medidor de Nivel de Líquido",
+    "material_num": "BC.AG.SS000547",
+    "material_name": "Liquid Level Meter Module"
+},
+"pump1": {
+    "type": "motor",
+    "name": "Impeller Pump Motor 1",
+    "name_spanish": "Motor de Bomba 1",
+    "material_num": "BC.AG.SS000543",
+    "material_name": "Impeller Pump Motor"
+},
+"pump2": {
+    "type": "motor",
+    "name": "Impeller Pump Motor 2",
+    "name_spanish": "Motor de Bomba 2",
+    "material_num": "BC.AG.SS000543",
+    "material_name": "Impeller Pump Motor"
+},
+"centrifugal_motor1": {
+    "type": "motor",
+    "name": "Centrifugal Motor 1",
+    "alt_name": "Centrifugal Nozzle 1",
+    "name_spanish": "Motor de Boquilla Centrífuga 1",
+    "material_num": "BC.AG.SS000565",
+    "material_name": "Centrifugal Motor"
+},
+"centrifugal_motor2": {
+    "type": "motor",
+    "name": "Centrifugal Motor 2",
+    "alt_name": "Centrifugal Nozzle 2",
+    "name_spanish": "Motor de Boquilla Centrífuga 2",
+    "material_num": "BC.AG.SS000565",
+    "material_name": "Centrifugal Motor"
+},
+"spray_adapt_cable": {
+  "type": "cable",
+  "name": "Spraying Adaptive Cable",
+  "name_spanish": "Cable Adaptativo de Rociado",
+  "material_num": "YC.XC.XX000842",
+  "material_name": "Spraying Adaptive Cable"
+},
+"spray_signal_cable": {
+  "type": "cable",
+  "name": "Spraying Signal Cable",
+  "name_spanish": "Cable de Señal de Rociado",
+  "material_num": "YC.XC.XX000835",
+  "material_name": "Spraying Signal Cable"
+},
+"flow_meter_cable": {
+  "type": "cable",
+  "name": "Flow Meter Signal Cable",
+  "name_spanish": "Cable del Medidor de Caudal",
+  "material_num": "YC.XC.XX000839",
+  "material_name": "Flow Meter Signal Cable"
+},
+"impeller_pump_cable": {
+  "type": "cable",
+  "name": "Impeller Pump Signal Cable",
+  "name_spanish": "Cable de Bombas",
+  "material_num": "YC.XC.XX000857",
+  "material_name": "Impeller Pump Signal Cable"
+},
+"m3_esc_cable": {
+  "file": "T40_components_propulsion.json",
+  "id": "m3_esc_cable"
+},
+"m4_esc_cable": {
+  "file": "T40_components_propulsion.json",
+  "id": "m4_esc_cable"
+},
+"centrifugal_cable_l": {
+  "type": "cable",
+  "name": "Centrifugal Sprinkler Signal Cable (L)",
+  "name_spanish": "Cable de Boquilla Centrífuga (Izquierdo)",
+  "material_num": "YC.XC.XX000841",
+  "material_name": "Centrifugal Sprinkler Signal Cable"
+},
+"centrifugal_cable_r": {
+  "type": "cable",
+  "name": "Centrifugal Sprinkler Signal Cable (R)",
+  "name_spanish": "Cable de Boquilla Centrífuga (Derecho)",
+  "material_num": "YC.XC.XX000841",
+  "material_name": "Centrifugal Sprinkler Signal Cable"
 }
 }

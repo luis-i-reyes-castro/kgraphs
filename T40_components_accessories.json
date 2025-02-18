@@ -1,36 +1,34 @@
 {
-"T40_components_accessories": {
-    "aux_light_l": {
-        "id": "aux_light_l",
-        "type": "light",
-        "name": "Auxiliary Bottom Light (L)",
-        "name_spanish": "Luz Auxiliar Inferior (Izquierda)",
-        "material_num": "BC.AG.SS000548",
-        "material_name": "Auxiliary Bottom Light Module"
-    },
-    "aux_light_r": {
-        "id": "aux_light_r",
-        "type": "light",
-        "name": "Auxiliary Bottom Light (R)",
-        "name_spanish": "Luz Auxiliar Inferior (Derecha)",
-        "material_num": "BC.AG.SS000548",
-        "material_name": "Auxiliary Bottom Light Module"
-    },
-    "aux_light_cable_l": {
-      "id": "aux_light_cable_l",
-      "type": "cable", 
-      "name": "Auxiliary Bottom Light Signal Cable (L)",
-      "name_spanish": "Cable de Luz Auxiliar (Izquierdo)",
-      "material_num": "YC.XC.XX000853",
-      "material_name": "Auxiliary Bottom Light Signal Cable"
-    },
-    "aux_light_cable_r": {
-      "id": "aux_light_cable_r",
-      "type": "cable",
-      "name": "Auxiliary Bottom Light Signal Cable (R)", 
-      "name_spanish": "Cable de Luz Auxiliar (Derecho)",
-      "material_num": "YC.XC.XX000853",
-      "material_name": "Auxiliary Bottom Light Signal Cable"
-    }
+"aux_light_l": {
+    "id": "aux_light_l",
+    "type": "light",
+    "name": "Auxiliary Bottom Light (L)",
+    "name_spanish": "Luz Auxiliar Inferior (Izquierda)",
+    "material_num": "BC.AG.SS000548",
+    "material_name": "Auxiliary Bottom Light Module"
+},
+"aux_light_r": {
+    "id": "aux_light_r",
+    "type": "light",
+    "name": "Auxiliary Bottom Light (R)",
+    "name_spanish": "Luz Auxiliar Inferior (Derecha)",
+    "material_num": "BC.AG.SS000548",
+    "material_name": "Auxiliary Bottom Light Module"
+},
+"aux_light_cable_l": {
+  "id": "aux_light_cable_l",
+  "type": "cable", 
+  "name": "Auxiliary Bottom Light Signal Cable (L)",
+  "name_spanish": "Cable de Luz Auxiliar (Izquierdo)",
+  "material_num": "YC.XC.XX000853",
+  "material_name": "Auxiliary Bottom Light Signal Cable"
+},
+"aux_light_cable_r": {
+  "id": "aux_light_cable_r",
+  "type": "cable",
+  "name": "Auxiliary Bottom Light Signal Cable (R)", 
+  "name_spanish": "Cable de Luz Auxiliar (Derecho)",
+  "material_num": "YC.XC.XX000853",
+  "material_name": "Auxiliary Bottom Light Signal Cable"
 }
 }

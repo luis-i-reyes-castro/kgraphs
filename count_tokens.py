@@ -33,6 +33,10 @@ def analyze_json_files(directory: str) -> dict:
     
     return token_counts
 
+def print_separator():
+    print( "-" * ( 48 + len(' tokens') ) )
+    return
+
 def main():
     # Get the current directory
     current_dir = os.getcwd()
@@ -42,17 +46,17 @@ def main():
     
     # Print results
     print("\nToken counts per file:")
-    print("-" * 50)
+    print_separator()
     total_tokens = 0
     
     # Sort alphabetically by filename
     for filename, count in sorted(token_counts.items()):
-        print(f"{filename:<40} {count:>8} tokens")
+        print(f"{filename:<40}{count:>8} tokens")
         total_tokens += count
     
-    print("-" * 50)
+    print_separator()
     msg = "Total tokens across all files:"
-    print(f"{msg:<40}{total_tokens:>9}")
+    print(f"{msg:<40}{total_tokens:>8}")
 
 if __name__ == "__main__":
     main()
