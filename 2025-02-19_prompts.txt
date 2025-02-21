@@ -1,0 +1,54 @@
+-----------------------------------------------------------------------
+Please write a Python script to do the following:
+- Create directory `/home/luis/DAL`, if it does not exist.
+- In the aforementioned directory, create subdirectories `JPG` AND `PNG`, if they do not exist.
+- Go to `/media/luis/FAA47057A47017F9/DJI_AGRAS_LATINO`.
+- Create a text file named `copied.txt`, if it does not exist. If the list exists, read it to avoid re-copying files.
+- Copy all JPG and PNG files from `/media/luis/FAA47057A47017F9/DJI_AGRAS_LATINO` to the corresponding subdirectory in `/home/luis/DAL` in filename order.
+- As the code copies the files, it adds the names of the files already copied to `copied.txt`. The code also provides a status bar and an ETA. The ETA is calculated using a moving average window of size 20. Finally, in case the user makes a KeyboardInterrupt, the code should elegantly handle the exception and stop. 
+
+-----------------------------------------------------------------------
+Amazing job! Before continuing, let me give you some context. The images you just copied to `/home/luis/DAL/JPG` come from a WhatsApp group of crop spraying drone pilots. Now:
+- I am interested in selecting the images that show remote control errors. The crop sprayer drone remote controls look like small-sized Android tablets, with control sticks either above the screen or to the the sides of the screen.
+- I am attaching some examples. Something important to notice is that 30-60% of the time pilots upload photos without the proper rotation, i.e., the photo may be in portrait mode but needs to be rotated left so that it can be read.
+- In order to select the photos I am interested in, we could use readability as a proxy. In other words, we run some OCR and if the OCR is successful in extracting text then we assume that the photo belongs to a remote control error.
+
+-----------------------------------------------------------------------
+The script will probably take a long time to run because there are thousands of images to filter. As before, make a `copied.txt` file that you can use to save progress in case I need to pause the scanning process via KeyboardInterrupt.
+
+-----------------------------------------------------------------------
+Cool, thanks. Would it be feasible to add multithreading support to make the scanning process run faster? If so, please begin by counting the number of threads or processors, say N, and then choose to use N-1 threads or processors.
+
+-----------------------------------------------------------------------
+Good job, I'm running the script. There are 6524 images to process so it will take a while. How do I avoid Ubuntu from sleeping or shuting down during this process?
+
+-----------------------------------------------------------------------
+I have a 1000+ image database from a WhatsApp group of crop sprayer drone pilots. I need to select images that correspond to remote control errors. The crop sprayer drone remote controls look like small-sized Android tablets, with control sticks either above the screen or to the the sides of the screen. I am attaching some examples. By the way, a few years ago I lent an NVIDIA GeForce GTX 1080Ti graphics card to a friend. He told me I can go pick it up whenever I want. We could use it to run or fine-tune open-source models in pytorch, keras or tensorflow.
+
+-----------------------------------------------------------------------
+Ok so I ran the code. Not bad at all considering we managed to process almost everything. It processed all but the two last images, i.e. it gets stuck at 6522/6524 and I had to interrupt. I tried twice but it kept getting stuck. Could you please write a shell script to scan the filenames in JPG_DIR for problems that may cause the code to get stuck? There are some Chinese vendors in the chat so maybe they used some characters from their language while attaching photos of their inventories. 
+
+-----------------------------------------------------------------------
+Summary:
+--------
+Total files scanned: 0
+Potential problems found: 0
+Ok now let's add code to select_error_screens.py to print the name of the file being processed. That way I can rerun it and I will know which filename causes the code to get stuck.
+
+-----------------------------------------------------------------------
+Using 7 processes
+Processing images:   0%|                             | 0/2 [00:00<?, ?it/s]
+Processing: 2025-01-06 17 32 12 - DJI AGRAS LATINO - 77b614eb-60e2-417d-96d1-93fcf0d41150.jpg
+
+Processing: 2025-01-06 17 25 33 - DJI AGRAS LATINO - 3bfdd1fe-bea3-48bd-8387-e86a5bad7a88.jpg
+^CProcess ForkPoolWorker-6:
+Process ForkPoolWorker-4:
+Process ForkPoolWorker-5:
+
+(it gets stuck here)
+
+-----------------------------------------------------------------------
+Understood. Now help me write a shell script. I have the JPG files in `/home/luis/DAL/JPG`. I need to copy them to `/home/luis/DJI_AGRAS_LATINO/raw`. The filenames follow this format: `YYYY-MM-DD HH MM SS - DJI AGRAS LATINO - (random_string).jpg` where (random_string) is literally a random string of characters unique to each file. During copying, rename the files with the following format: `YYYY-MM-DD_HH-MM-SS.jpg`. 
+
+
+
