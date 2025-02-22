@@ -13,56 +13,67 @@ class ImageLabelingApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Image Labeling Tool")
+        
+        # Set black background
+        self.root.configure(bg='black')
 
         # Load image list
         self.image_files = sorted([f for f in os.listdir(IMAGE_DIR) if f.lower().endswith(('png', 'jpg', 'jpeg'))])
         self.current_index = 0
 
         # Configure grid spacing
-        root.grid_rowconfigure(0, weight=1)  # Top spacing
-        root.grid_rowconfigure(10, weight=1)  # Bottom spacing
+        root.grid_rowconfigure(0, weight=10)  # Top spacing
+        root.grid_rowconfigure(10, weight=10)  # Bottom spacing
         root.grid_columnconfigure(0, minsize=20)  # Left spacing
         root.grid_columnconfigure(2, minsize=20)  # Spacing between canvas and buttons
-        root.grid_columnconfigure(4, minsize=20)  # Right spacing
+        root.grid_columnconfigure(5, minsize=20)  # Right spacing
 
         # UI Elements
-        self.canvas = tk.Canvas(root, width=800, height=600)
-        self.canvas.grid(row=1, column=1, rowspan=9)  # Moved to column 1
+        self.canvas = tk.Canvas(root, width=800, height=600, bg='black')
+        self.canvas.grid(row=1, column=1, rowspan=9)
 
+        # Navigation and rotation buttons (column 3)
         self.btn_prev = ttk.Button(root, text="PREV", command=self.previous_image)
-        self.btn_prev.grid(row=1, column=3)  # Moved to column 3
+        self.btn_prev.grid(row=1, column=3)
 
         self.btn_next = ttk.Button(root, text="NEXT", command=self.next_image)
-        self.btn_next.grid(row=2, column=3)  # Moved to column 3
+        self.btn_next.grid(row=1, column=4)
 
         self.btn_rotate_left = ttk.Button(root, text="LEFT", command=self.rotate_left)
-        self.btn_rotate_left.grid(row=3, column=3)  # Moved to column 3
+        self.btn_rotate_left.grid(row=2, column=3)
 
         self.btn_rotate_right = ttk.Button(root, text="RIGHT", command=self.rotate_right)
-        self.btn_rotate_right.grid(row=4, column=3)  # Moved to column 3
+        self.btn_rotate_right.grid(row=2, column=4)
 
         self.btn_last = ttk.Button(root, text="LAST", command=self.load_last_index)
-        self.btn_last.grid(row=5, column=3)  # Moved to column 3
+        self.btn_last.grid(row=3, column=3)
 
         self.label_buttons = {}
-        # Group A buttons (CR and DRONE)
-        for i, label in enumerate(["CR", "DRONE"]):
+        # Group A buttons (RC and DRONE)
+        for i, (label, col) in enumerate([("RC", 3), ("DRONE", 4)]):
             btn = tk.Button(root, text=label,
                           command=lambda l=label: self.label_image(l, "A"),
                           relief='raised',
                           bg='lightgray',
                           font=('TkDefaultFont', 9, 'bold'))
-            btn.grid(row=6 + i, column=3)
+            btn.grid(row=4, column=col)
             self.label_buttons[label] = btn
 
-        # Group B buttons (T40, T30, T50)
-        for i, label in enumerate(["T40", "T30", "T50"]):
+        # Group B buttons (T20, T30, T40, T50, T60)
+        button_layout = [
+            ("T40", 5, 3), ("CRASHED", 5, 4),  # row 5
+            ("T50", 6, 3), ("T30", 6, 4),      # row 6
+            ("T60", 7, 3), ("T20", 7, 4),      # row 7
+        ]
+        
+        for label, row, col in button_layout:
+            group = "C" if label == "CRASHED" else "B"
             btn = tk.Button(root, text=label,
-                          command=lambda l=label: self.label_image(l, "B"),
+                          command=lambda l=label, g=group: self.label_image(l, g),
                           relief='raised',
                           bg='lightgray',
                           font=('TkDefaultFont', 9, 'bold'))
-            btn.grid(row=8 + i, column=3)
+            btn.grid(row=row, column=col)
             self.label_buttons[label] = btn
 
         # Key bindings
@@ -72,11 +83,14 @@ class ImageLabelingApp:
         self.root.bind("<Shift-Right>", lambda e: self.rotate_right())
         
         # Bind numpad keys
-        self.root.bind("<KP_7>", lambda e: self.label_image("CR", "A"))
-        self.root.bind("<KP_9>", lambda e: self.label_image("DRONE", "A"))
-        self.root.bind("<KP_4>", lambda e: self.label_image("T40", "B"))
+        self.root.bind("<KP_7>", lambda e: self.label_image("RC", "A"))
+        self.root.bind("<KP_8>", lambda e: self.label_image("DRONE", "A"))
+        self.root.bind("<KP_9>", lambda e: self.label_image("CRASHED", "C"))
+        self.root.bind("<KP_2>", lambda e: self.label_image("T20", "B"))
         self.root.bind("<KP_3>", lambda e: self.label_image("T30", "B"))
+        self.root.bind("<KP_4>", lambda e: self.label_image("T40", "B"))
         self.root.bind("<KP_5>", lambda e: self.label_image("T50", "B"))
+        self.root.bind("<KP_6>", lambda e: self.label_image("T60", "B"))
 
         self.load_last_index()
     
@@ -146,7 +160,8 @@ class ImageLabelingApp:
 
             # Warn if only one group is labeled
             if (has_group_a and not has_group_b) or (not has_group_a and has_group_b):
-                tk.messagebox.showwarning("Warning", "You have only selected a label from one group. It's recommended to select both a type (CR/DRONE) and a size (T30/T40/T50).")
+                tk.messagebox.showwarning("Warning", "You have only selected a label from one group. It's recommended to select both a type (RC/DRONE) and a size (T20/T30/T40/T50/T60).")
+                return  # Stay on current image
             
             self.current_index += 1
             self.load_image()
@@ -172,6 +187,7 @@ class ImageLabelingApp:
         current_rotation = 0
         current_group_a = ""
         current_group_b = ""
+        current_group_c = ""
         
         # Read existing labels
         if os.path.exists(CSV_FILE):
@@ -182,22 +198,28 @@ class ImageLabelingApp:
                         current_rotation = int(row[1]) if row[1] else 0
                         current_group_a = row[2] if len(row) > 2 else ""
                         current_group_b = row[3] if len(row) > 3 else ""
+                        current_group_c = row[4] if len(row) > 4 else ""
                     else:
                         rows.append(row)
 
         # Reset buttons in the corresponding group
-        group_a_labels = ["CR", "DRONE"]
-        group_b_labels = ["T40", "T30", "T50"]
+        group_a_labels = ["RC", "DRONE"]
+        group_b_labels = ["T20", "T30", "T40", "T50", "T60"]
+        group_c_labels = ["CRASHED"]
         
         if group == "A":
             for btn_label in group_a_labels:
                 self.label_buttons[btn_label].configure(bg='lightgray')
             if current_group_a == label:  # Toggle off
                 current_group_a = ""
+                # If DRONE is deselected, also deselect CRASHED
+                if label == "DRONE":
+                    current_group_c = ""
+                    self.label_buttons["CRASHED"].configure(bg='lightgray')
             else:  # Toggle on
                 current_group_a = label
                 self.label_buttons[label].configure(bg='green')
-        else:  # group B
+        elif group == "B":
             for btn_label in group_b_labels:
                 self.label_buttons[btn_label].configure(bg='lightgray')
             if current_group_b == label:  # Toggle off
@@ -205,9 +227,21 @@ class ImageLabelingApp:
             else:  # Toggle on
                 current_group_b = label
                 self.label_buttons[label].configure(bg='green')
+        elif group == "C":
+            # Only allow CRASHED if DRONE is selected
+            if current_group_a == "DRONE":
+                if current_group_c == label:  # Toggle off
+                    current_group_c = ""
+                    self.label_buttons[label].configure(bg='lightgray')
+                else:  # Toggle on
+                    current_group_c = label
+                    self.label_buttons[label].configure(bg='green')
+            else:
+                tk.messagebox.showwarning("Warning", "CRASHED can only be selected when DRONE is selected.")
+                return  # Stay on current image and don't update CSV
 
-        # Write back with new format: filename, rotation, group A, group B
-        rows.append([img_name, str(current_rotation), current_group_a, current_group_b])
+        # Write back with new format: filename, rotation, group A, group B, group C
+        rows.append([img_name, str(current_rotation), current_group_a, current_group_b, current_group_c])
         
         with open(CSV_FILE, 'w', newline='') as f:
             writer = csv.writer(f)
@@ -242,6 +276,9 @@ class ImageLabelingApp:
                         # Check group B label
                         if len(row) > 3 and row[3] in self.label_buttons:
                             self.label_buttons[row[3]].configure(bg='green')
+                        # Check group C label
+                        if len(row) > 4 and row[4] in self.label_buttons:
+                            self.label_buttons[row[4]].configure(bg='green')
                         break
 
     def save_rotation(self, angle_change):
@@ -250,6 +287,7 @@ class ImageLabelingApp:
         current_rotation = 0
         current_group_a = ""
         current_group_b = ""
+        current_group_c = ""
         
         if os.path.exists(CSV_FILE):
             with open(CSV_FILE, newline='') as f:
@@ -262,12 +300,13 @@ class ImageLabelingApp:
                             current_rotation = 0
                         current_group_a = row[2] if len(row) > 2 else ""
                         current_group_b = row[3] if len(row) > 3 else ""
+                        current_group_c = row[4] if len(row) > 4 else ""
                     else:
                         rows.append(row)
         
         # Update rotation (normalize to 0-359)
         new_rotation = (current_rotation + angle_change) % 360
-        rows.append([img_name, str(new_rotation), current_group_a, current_group_b])
+        rows.append([img_name, str(new_rotation), current_group_a, current_group_b, current_group_c])
         
         with open(CSV_FILE, 'w', newline='') as f:
             writer = csv.writer(f)
