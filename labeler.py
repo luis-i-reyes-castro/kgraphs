@@ -26,13 +26,13 @@ class ImageLabelingApp:
         root.grid_rowconfigure(10, weight=10)  # Bottom spacing
         root.grid_columnconfigure(0, minsize=20)  # Left spacing
         root.grid_columnconfigure(2, minsize=20)  # Spacing between canvas and buttons
-        root.grid_columnconfigure(5, minsize=20)  # Right spacing
+        root.grid_columnconfigure(6, minsize=20)  # Right spacing
 
         # UI Elements
         self.canvas = tk.Canvas(root, width=800, height=600, bg='black')
         self.canvas.grid(row=1, column=1, rowspan=9)
 
-        # Navigation and rotation buttons (column 3)
+        # Navigation and rotation buttons
         self.btn_prev = ttk.Button(root, text="PREV", command=self.previous_image)
         self.btn_prev.grid(row=1, column=3)
 
@@ -49,30 +49,25 @@ class ImageLabelingApp:
         self.btn_last.grid(row=3, column=3)
 
         self.label_buttons = {}
-        # Group A buttons (RC and DRONE)
-        for i, (label, col) in enumerate([("RC", 3), ("DRONE", 4)]):
-            btn = tk.Button(root, text=label,
-                          command=lambda l=label: self.label_image(l, "A"),
-                          relief='raised',
-                          bg='lightgray',
-                          font=('TkDefaultFont', 9, 'bold'))
-            btn.grid(row=4, column=col)
-            self.label_buttons[label] = btn
-
-        # Group B buttons (T20, T30, T40, T50, T60)
+        # Group A buttons (RC and DRONE) and CRASHED
         button_layout = [
-            ("T40", 5, 3), ("CRASHED", 5, 4),  # row 5
-            ("T50", 6, 3), ("T30", 6, 4),      # row 6
-            ("T60", 7, 3), ("T20", 7, 4),      # row 7
+            ("RC", 4, 3), ("DRONE", 4, 4), ("CRASHED", 4, 5),    # row 4
+            ("T40", 5, 3), ("T50", 5, 4), ("T60", 5, 5),        # row 5
+            ("MG1", 6, 3), ("T20", 6, 4), ("T30", 6, 5),        # row 6
         ]
         
+        # Configure style for the buttons
+        self.style = ttk.Style()
+        self.style.configure('TButton', background='lightgray')
+        self.style.map('TButton',
+                      background=[('selected', 'orange')],
+                      relief=[('selected', 'sunken')])
+        
         for label, row, col in button_layout:
-            group = "C" if label == "CRASHED" else "B"
-            btn = tk.Button(root, text=label,
+            group = "A" if label in ["RC", "DRONE"] else ("C" if label == "CRASHED" else "B")
+            btn = ttk.Button(root, text=label,
                           command=lambda l=label, g=group: self.label_image(l, g),
-                          relief='raised',
-                          bg='lightgray',
-                          font=('TkDefaultFont', 9, 'bold'))
+                          style='TButton')  # Explicitly set the style
             btn.grid(row=row, column=col)
             self.label_buttons[label] = btn
 
@@ -86,6 +81,7 @@ class ImageLabelingApp:
         self.root.bind("<KP_7>", lambda e: self.label_image("RC", "A"))
         self.root.bind("<KP_8>", lambda e: self.label_image("DRONE", "A"))
         self.root.bind("<KP_9>", lambda e: self.label_image("CRASHED", "C"))
+        self.root.bind("<KP_1>", lambda e: self.label_image("MG1", "B"))
         self.root.bind("<KP_2>", lambda e: self.label_image("T20", "B"))
         self.root.bind("<KP_3>", lambda e: self.label_image("T30", "B"))
         self.root.bind("<KP_4>", lambda e: self.label_image("T40", "B"))
@@ -149,6 +145,9 @@ class ImageLabelingApp:
             has_group_a = False
             has_group_b = False
             
+            # Ensure current image is in CSV before moving on
+            self.ensure_image_in_csv(img_name)
+            
             if os.path.exists(CSV_FILE):
                 with open(CSV_FILE, newline='') as f:
                     reader = csv.reader(f)
@@ -160,7 +159,7 @@ class ImageLabelingApp:
 
             # Warn if only one group is labeled
             if (has_group_a and not has_group_b) or (not has_group_a and has_group_b):
-                tk.messagebox.showwarning("Warning", "You have only selected a label from one group. It's recommended to select both a type (RC/DRONE) and a size (T20/T30/T40/T50/T60).")
+                tk.messagebox.showwarning("Warning", "You have only selected a label from one group. It's recommended to select both a type (RC/DRONE) and a size (T40/T50/T60/T30/T20/MG1).")
                 return  # Stay on current image
             
             self.current_index += 1
@@ -204,41 +203,41 @@ class ImageLabelingApp:
 
         # Reset buttons in the corresponding group
         group_a_labels = ["RC", "DRONE"]
-        group_b_labels = ["T20", "T30", "T40", "T50", "T60"]
+        group_b_labels = ["T20", "T30", "T40", "T50", "T60", "MG1"]
         group_c_labels = ["CRASHED"]
         
         if group == "A":
             for btn_label in group_a_labels:
-                self.label_buttons[btn_label].configure(bg='lightgray')
+                self.label_buttons[btn_label].state(['!selected'])
             if current_group_a == label:  # Toggle off
                 current_group_a = ""
                 # If DRONE is deselected, also deselect CRASHED
                 if label == "DRONE":
                     current_group_c = ""
-                    self.label_buttons["CRASHED"].configure(bg='lightgray')
+                    self.label_buttons["CRASHED"].state(['!selected'])
             else:  # Toggle on
                 current_group_a = label
-                self.label_buttons[label].configure(bg='green')
+                self.label_buttons[label].state(['selected'])
         elif group == "B":
             for btn_label in group_b_labels:
-                self.label_buttons[btn_label].configure(bg='lightgray')
+                self.label_buttons[btn_label].state(['!selected'])
             if current_group_b == label:  # Toggle off
                 current_group_b = ""
             else:  # Toggle on
                 current_group_b = label
-                self.label_buttons[label].configure(bg='green')
+                self.label_buttons[label].state(['selected'])
         elif group == "C":
             # Only allow CRASHED if DRONE is selected
             if current_group_a == "DRONE":
                 if current_group_c == label:  # Toggle off
                     current_group_c = ""
-                    self.label_buttons[label].configure(bg='lightgray')
+                    self.label_buttons[label].state(['!selected'])
                 else:  # Toggle on
                     current_group_c = label
-                    self.label_buttons[label].configure(bg='green')
+                    self.label_buttons[label].state(['selected'])
             else:
                 tk.messagebox.showwarning("Warning", "CRASHED can only be selected when DRONE is selected.")
-                return  # Stay on current image and don't update CSV
+                return
 
         # Write back with new format: filename, rotation, group A, group B, group C
         rows.append([img_name, str(current_rotation), current_group_a, current_group_b, current_group_c])
@@ -261,7 +260,7 @@ class ImageLabelingApp:
     def update_button_states(self):
         # Reset all buttons
         for btn in self.label_buttons.values():
-            btn.configure(bg='lightgray')
+            btn.state(['!selected'])
             
         # Check current image label
         img_name = self.image_files[self.current_index]
@@ -272,13 +271,13 @@ class ImageLabelingApp:
                     if row[0] == img_name:
                         # Check group A label
                         if len(row) > 2 and row[2] in self.label_buttons:
-                            self.label_buttons[row[2]].configure(bg='green')
+                            self.label_buttons[row[2]].state(['selected'])
                         # Check group B label
                         if len(row) > 3 and row[3] in self.label_buttons:
-                            self.label_buttons[row[3]].configure(bg='green')
+                            self.label_buttons[row[3]].state(['selected'])
                         # Check group C label
                         if len(row) > 4 and row[4] in self.label_buttons:
-                            self.label_buttons[row[4]].configure(bg='green')
+                            self.label_buttons[row[4]].state(['selected'])
                         break
 
     def save_rotation(self, angle_change):
@@ -311,6 +310,30 @@ class ImageLabelingApp:
         with open(CSV_FILE, 'w', newline='') as f:
             writer = csv.writer(f)
             writer.writerows(rows)
+
+    def ensure_image_in_csv(self, img_name):
+        """Ensures the current image is in the CSV file with at least rotation data"""
+        if not os.path.exists(CSV_FILE):
+            with open(CSV_FILE, 'w', newline='') as f:
+                writer = csv.writer(f)
+                writer.writerow([img_name, "0", "", "", ""])
+            return
+
+        # Check if image exists in CSV
+        found = False
+        rows = []
+        with open(CSV_FILE, 'r', newline='') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                if row[0] == img_name:
+                    found = True
+                rows.append(row)
+        
+        # Add image if not found
+        if not found:
+            with open(CSV_FILE, 'a', newline='') as f:
+                writer = csv.writer(f)
+                writer.writerow([img_name, "0", "", "", ""])
 
 if __name__ == "__main__":
     root = tk.Tk()
