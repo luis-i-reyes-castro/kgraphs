@@ -5,10 +5,14 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter import messagebox
 
-# Configuration
+# Configuration for DJI_AGRAS_LATINO
 IMAGE_DIR = "/home/luis/DJI_AGRAS_LATINO/raw/"
-CSV_FILE = "/home/luis/kgraphs/labels.csv"
+CSV_FILE = "/home/luis/kgraphs/labels_DAL.csv"
+# Configuration for Latin_Drone
+# IMAGE_DIR = "/home/luis/Latin_Drone/raw/"
+# CSV_FILE = "/home/luis/kgraphs/labels_LD.csv"
 
+# Image Labeling App
 class ImageLabelingApp:
     def __init__(self, root):
         self.root = root
