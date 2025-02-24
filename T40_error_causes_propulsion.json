@@ -1,0 +1,19 @@
+{
+"T40_error_causes_propulsion": [
+
+{
+"errors": [
+    "error_esc_1",
+    "error_esc_1_self_check",
+    "error_esc_1_voltage_low",
+    "error_esc_1_disconnected"
+],
+"causes": [
+    {"component": "avionics", "probability": "low"},
+    {"component": "cdb", "probability": "low"},
+    {"component": "esc_1_cable", "probability": "high"},
+    {"component": "esc_1", "probability": "high"}
+]
+}
+]
+}

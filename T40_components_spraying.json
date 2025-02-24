@@ -43,21 +43,21 @@
     "material_num": "BC.AG.SS000547",
     "material_name": "Liquid Level Meter Module"
 },
-"pump1": {
+"pump_1": {
     "type": "motor",
     "name": "Impeller Pump Motor 1",
     "name_spanish": "Motor de Bomba 1",
     "material_num": "BC.AG.SS000543",
     "material_name": "Impeller Pump Motor"
 },
-"pump2": {
+"pump_2": {
     "type": "motor",
     "name": "Impeller Pump Motor 2",
     "name_spanish": "Motor de Bomba 2",
     "material_num": "BC.AG.SS000543",
     "material_name": "Impeller Pump Motor"
 },
-"centrifugal_motor1": {
+"centrifugal_motor_1": {
     "type": "motor",
     "name": "Centrifugal Motor 1",
     "alt_name": "Centrifugal Nozzle 1",
@@ -65,7 +65,7 @@
     "material_num": "BC.AG.SS000565",
     "material_name": "Centrifugal Motor"
 },
-"centrifugal_motor2": {
+"centrifugal_motor_2": {
     "type": "motor",
     "name": "Centrifugal Motor 2",
     "alt_name": "Centrifugal Nozzle 2",

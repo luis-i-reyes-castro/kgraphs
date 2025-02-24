@@ -1,28 +1,4 @@
 {
-"error_single_point_hall_sensor": {
-  "name": "Single-point hall sensor error",
-  "name_spanish": "Error en sensor de nivel de líquido Hall de punto único"
-},
-"error_single_point_hall_sensor_disconnected": {
-  "name": "Single-point hall sensor disconnected",
-  "name_spanish": "Sensor de nivel de líquido Hall de punto único desconectado"
-},
-"error_pump_1_flow_calculation": {
-  "name": "Pump 1 flow calculation error",
-  "name_spanish": "Error de cálculo de caudal de la bomba 1"
-},
-"error_pump_2_flow_calculation": {
-  "name": "Pump 2 flow calculation error",
-  "name_spanish": "Error de cálculo de caudal de la bomba 2"
-},
-"error_pump_1_stuck": {
-  "name": "Pump 1 stuck",
-  "name_spanish": "Bomba 1 atascada"
-},
-"error_pump_2_stuck": {
-  "name": "Pump 2 stuck",
-  "name_spanish": "Bomba 2 atascada"
-},
 "error_pump_1_esc": {
   "name": "Delivery pump 1 ESC error",
   "name_spanish": "Error del ESC de la bomba 1"
@@ -63,21 +39,21 @@
   "name": "Pump 2 disconnected",
   "name_spanish": "Bomba 2 desconectada"
 },
-"error_centrifugal_nozzle_1_worn_out_or_clogged": {
-  "name": "Centrifugal Nozzle 1 worn out or clogged",
-  "name_spanish": "Cabezal del Boquilla Desgastado o Boquilla Obstruida (Boquilla Centrífuga 1)"
+"error_pump_1_flow_calculation": {
+  "name": "Pump 1 flow calculation error",
+  "name_spanish": "Error de cálculo de caudal de la bomba 1"
 },
-"error_centrifugal_nozzle_2_worn_out_or_clogged": {
-  "name": "Centrifugal Nozzle 2 worn out or clogged",
-  "name_spanish": "Cabezal del Boquilla Desgastado o Boquilla Obstruida (Boquilla Centrífuga 2)"
+"error_pump_2_flow_calculation": {
+  "name": "Pump 2 flow calculation error",
+  "name_spanish": "Error de cálculo de caudal de la bomba 2"
 },
-"error_centrifugal_nozzle_1_stuck": {
-  "name": "Centrifugal Nozzle 1 stuck",
-  "name_spanish": "Boquilla Centrífuga 1 Motor Atascado"
+"error_pump_1_stuck": {
+  "name": "Pump 1 stuck",
+  "name_spanish": "Bomba 1 atascada"
 },
-"error_centrifugal_nozzle_2_stuck": {
-  "name": "Centrifugal Nozzle 2 stuck",
-  "name_spanish": "Boquilla Centrífuga 2 Motor Atascado"
+"error_pump_2_stuck": {
+  "name": "Pump 2 stuck",
+  "name_spanish": "Bomba 2 atascada"
 },
 "error_centrifugal_nozzle_1_esc": {
   "name": "Centrifugal nozzle 1 ESC error",
@@ -119,6 +95,30 @@
   "name": "Centrifugal nozzle 2 disconnected",
   "name_spanish": "Boquilla centrífuga 2 desconectada"
 },
+"error_centrifugal_nozzle_1_worn_out_or_clogged": {
+  "name": "Centrifugal Nozzle 1 worn out or clogged",
+  "name_spanish": "Cabezal del Boquilla Desgastado o Boquilla Obstruida (Boquilla Centrífuga 1)"
+},
+"error_centrifugal_nozzle_2_worn_out_or_clogged": {
+  "name": "Centrifugal Nozzle 2 worn out or clogged",
+  "name_spanish": "Cabezal del Boquilla Desgastado o Boquilla Obstruida (Boquilla Centrífuga 2)"
+},
+"error_centrifugal_nozzle_1_stuck": {
+  "name": "Centrifugal Nozzle 1 stuck",
+  "name_spanish": "Boquilla Centrífuga 1 Motor Atascado"
+},
+"error_centrifugal_nozzle_2_stuck": {
+  "name": "Centrifugal Nozzle 2 stuck",
+  "name_spanish": "Boquilla Centrífuga 2 Motor Atascado"
+},
+"error_single_point_hall_sensor": {
+  "name": "Single-point hall sensor error",
+  "name_spanish": "Error en sensor de nivel de líquido Hall de punto único"
+},
+"error_single_point_hall_sensor_disconnected": {
+  "name": "Single-point hall sensor disconnected",
+  "name_spanish": "Sensor de nivel de líquido Hall de punto único desconectado"
+},
 "error_flow_meter_zero_calibration_exception": {
   "name": "Flow meter zero calibration exception",
   "name_spanish": "Excepción de puesta a cero del caudímetro"
@@ -135,12 +135,12 @@
   "name": "Flow meter disconnected",
   "name_spanish": "Caudímetro desconectado"
 },
-"error_load_exceeded": {
-  "name": "Load exceeded. Ensure the load is within the specified limits.",
-  "name_spanish": "Se ha superado la capacidad de carga. Asegúrese de que la carga especificada se encuentra dentro..."
-},
 "error_load_sensor_cable_broken": {
   "name": "Load sensor cable broken",
   "name_spanish": "Cable de conexión del sensor de peso roto"
+},
+"error_load_exceeded": {
+  "name": "Load exceeded. Ensure the load is within the specified limits.",
+  "name_spanish": "Se ha superado la capacidad de carga. Asegúrese de que la carga especificada se encuentra dentro..."
 }
 }

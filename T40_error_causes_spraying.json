@@ -1,222 +1,238 @@
 {
 "T40_error_causes_spraying": [
-    {
-    "from": [
-        "error_single_point_hall_sensor",
-        "error_single_point_hall_sensor_disconnected"
-    ],
-    "to": "liquid_level",
-    "probability": "high"
-    },
-    {
-    "from": [
-        "error_single_point_hall_sensor",
-        "error_single_point_hall_sensor_disconnected"
-    ],
-    "to": "spray_adapter",
-    "probability": "medium"
-    },
-    {
-    "from": [
-        "error_single_point_hall_sensor",
-        "error_single_point_hall_sensor_disconnected"
-    ],
-    "to": "spray_signal_cable",
-    "probability": "medium"
-    },
-    {
-    "from": [
-        "error_single_point_hall_sensor",
-        "error_single_point_hall_sensor_disconnected"
-    ],
-    "to": "spray_adapt_cable",
-    "probability": "medium"
-    },
-    {
-    "from": [
-        "error_single_point_hall_sensor",
-        "error_single_point_hall_sensor_disconnected"
-    ],
-    "to": "cdb",
-    "probability": "low"
-    },
-    {
-    "from": [
-        "error_single_point_hall_sensor",
-        "error_single_point_hall_sensor_disconnected"
-    ],
-    "to": "spray_board",
-    "probability": "medium"
-    },
 
-    {
-    "from": "error_load_sensor_cable_broken",
-    "to": "load_sensor",
-    "probability": "high"
-    },
-    {
-    "from": "error_load_sensor_cable_broken",
-    "to": "cdb",
-    "probability": "low"
-    },
-    {
-    "from": "error_load_sensor_cable_broken",
-    "to": "spray_board",
-    "probability": "medium"
-    },
+{
+"errors": [
+    "error_pump_1_esc",
+    "error_pump_1_self_check",
+    "error_pump_1_esc_timeout_exception",
+    "error_pump_1_voltage_low",
+    "error_pump_1_disconnected"
+],
+"causes": [
+    {"component": "spray_board", "probability": "low"},
+    {"component": "cdb", "probability": "low"},
+    {"component": "spray_adapt_cable", "probability": "medium"},
+    {"component": "spray_signal_cable", "probability": "medium"},
+    {"component": "spray_adapter", "probability": "medium"},
+    {"component": "pump_signal_cable", "probability": "high"},
+    {"component": "pump_1", "probability": "high"}
+]
+},
 
-    {
-    "from": [
-        "error_pump_1_flow_calculation",
-        "error_pump_1_self_check",
-        "error_pump_1_esc_timeout",
-        "error_pump_1_voltage_low",
-        "error_pump_1_disconnected"
-    ],
-    "to": "pump1",
-    "probability": "high"
-    },
-    {
-    "from": "error_pump_1_flow_calculation",
-    "to": "pump_signal_cable",
-    "probability": "high"
-    },
-    {
-    "from": "error_pump_1_flow_calculation",
-    "to": "spray_adapter",
-    "probability": "low"
-    },
-    {
-    "from": "error_pump_1_flow_calculation",
-    "to": "spray_signal_cable",
-    "probability": "high"
-    },
-    {
-    "from": "error_pump_1_flow_calculation",
-    "to": "spray_adapt_cable",
-    "probability": "medium"
-    },
-    {
-    "from": "error_pump_1_flow_calculation",
-    "to": "cdb",
-    "probability": "low"
-    },
-    {
-    "from": "error_pump_1_flow_calculation",
-    "to": "spray_board",
-    "probability": "low"
-    },
-    {
-    "from": "error_pump_1_flow_calculation",
-    "to": "flow_meter",
-    "probability": "low"
-    },
-    {
-    "from": "error_pump_1_flow_calculation",
-    "to": "flow_meter_cable",
-    "probability": "low"
-    },
-    {
-    "from": "error_pump_1_flow_calculation",
-    "to": "problem_cause_thick_mixture",
-    "probability": "high"
-    },
-    {
-    "from": "error_pump_1_flow_calculation",
-    "to": "problem_cause_check_valve_stuck",
-    "probability": "high"
-    },
+{
+"errors": [
+    "error_pump_2_esc",
+    "error_pump_2_self_check",
+    "error_pump_2_esc_timeout_exception",
+    "error_pump_2_voltage_low",
+    "error_pump_2_disconnected"
+],
+"causes": [
+    {"component": "spray_board", "probability": "low"},
+    {"component": "cdb", "probability": "low"},
+    {"component": "spray_adapt_cable", "probability": "medium"},
+    {"component": "spray_signal_cable", "probability": "medium"},
+    {"component": "spray_adapter", "probability": "medium"},
+    {"component": "pump_signal_cable", "probability": "high"},
+    {"component": "pump_2", "probability": "high"}
+]
+},
 
-    {
-    "from": "error_pump_2_flow_calculation",
-    "to": "pump2",
-    "probability": "high"
-    },
-    {
-    "from": "error_pump_2_flow_calculation",
-    "to": "pump_signal_cable",
-    "probability": "high"
-    },
-    {
-    "from": "error_pump_2_flow_calculation",
-    "to": "spray_adapter",
-    "probability": "low"
-    },
-    {
-    "from": "error_pump_2_flow_calculation",
-    "to": "spray_signal_cable",
-    "probability": "high"
-    },
-    {
-    "from": "error_pump_2_flow_calculation",
-    "to": "spray_adapt_cable",
-    "probability": "medium"
-    },
-    {
-    "from": "error_pump_2_flow_calculation",
-    "to": "cdb",
-    "probability": "low"
-    },
-    {
-    "from": "error_pump_2_flow_calculation",
-    "to": "spray_board",
-    "probability": "low"
-    },
-    {
-    "from": "error_pump_2_flow_calculation",
-    "to": "flow_meter",
-    "probability": "low"
-    },
-    {
-    "from": "error_pump_2_flow_calculation",
-    "to": "flow_meter_cable",
-    "probability": "low"
-    },
-    {
-    "from": "error_pump_2_flow_calculation",
-    "to": "problem_cause_thick_mixture",
-    "probability": "high"
-    },
-    {
-    "from": "error_pump_2_flow_calculation",
-    "to": "problem_cause_check_valve_stuck",
-    "probability": "high"
-    },
+{
+"errors": [
+    "error_pump_1_flow_calculation"
+],
+"causes": [
+    {"component": "spray_board", "probability": "low"},
+    {"component": "cdb", "probability": "low"},
+    {"component": "spray_adapt_cable", "probability": "medium"},
+    {"component": "spray_signal_cable", "probability": "medium"},
+    {"component": "spray_adapter", "probability": "medium"},
+    {"component": "pump_signal_cable", "probability": "high"},
+    {"component": "pump_1", "probability": "high"},
+    {"component": "flow_meter_cable", "probability": "high"},
+    {"component": "flow_meter", "probability": "high"},
+    {"mech_prob": "thick_mixture", "probability": "high"},
+    {"mech_prob": "impeller_1_stuck", "probability": "high"},
+    {"mech_prob": "pump_1_magnet_loose", "probability": "high"},
+    {"mech_prob": "check_valve_1_stuck", "probability": "high"}
+]
+},
 
-    {
-    "from": "error_pump_1_self_check",
-    "to": "pump1",
-    "probability": "high"
-    },
-    {
-    "from": "error_pump_1_self_check",
-    "to": "pump_signal_cable",
-    "probability": "high"
-    },
-    {
-    "from": "error_pump_1_self_check",
-    "to": "spray_adapter",
-    "probability": "medium"
-    },
-    {
-    "from": "error_pump_1_self_check",
-    "to": "spray_signal_cable",
-    "probability": "medium"
-    },
-    {
-    "from": "error_pump_1_self_check",
-    "to": "spray_adapt_cable",
-    "probability": "medium"
-    },
-    {
-    "from": "error_pump_1_self_check",
-    "to": "cdb",
-    "probability": "low"
-    },
-    {
-    "from": "error_pump_1_self_check",
-    "to": "spray_board",
-    "probability": "low"
-    }
+{
+"errors": [
+    "error_pump_2_flow_calculation"
+],
+"causes": [
+    {"component": "spray_board", "probability": "low"},
+    {"component": "cdb", "probability": "low"},
+    {"component": "spray_adapt_cable", "probability": "medium"},
+    {"component": "spray_signal_cable", "probability": "medium"},
+    {"component": "spray_adapter", "probability": "medium"},
+    {"component": "pump_signal_cable", "probability": "high"},
+    {"component": "pump_2", "probability": "high"},
+    {"component": "flow_meter_cable", "probability": "high"},
+    {"component": "flow_meter", "probability": "high"},
+    {"mech_prob": "thick_mixture", "probability": "high"},
+    {"mech_prob": "impeller_2_stuck", "probability": "high"},
+    {"mech_prob": "pump_2_magnet_loose", "probability": "high"},
+    {"mech_prob": "check_valve_2_stuck", "probability": "high"}
+]
+},
+
+{
+"errors": [
+    "error_pump_1_stuck"
+],
+"causes": [
+    {"component": "pump_1", "probability": "medium"},
+    {"mech_prob": "thick_mixture", "probability": "high"},
+    {"mech_prob": "impeller_1_stuck", "probability": "high"},
+    {"mech_prob": "pump_1_magnet_loose", "probability": "high"},
+    {"mech_prob": "check_valve_1_stuck", "probability": "high"}
+]
+},
+
+{
+"errors": [
+    "error_pump_2_stuck"
+],
+"causes": [
+    {"component": "pump_2", "probability": "medium"},
+    {"mech_prob": "thick_mixture", "probability": "high"},
+    {"mech_prob": "impeller_2_stuck", "probability": "high"},
+    {"mech_prob": "pump_2_magnet_loose", "probability": "high"},
+    {"mech_prob": "check_valve_2_stuck", "probability": "high"}
+]
+},
+
+{
+"errors": [
+    "error_centrifugal_nozzle_1_esc",
+    "error_centrifugal_nozzle_1_esc_self_check",
+    "error_centrifugal_nozzle_1_esc_timeout_exception",
+    "error_centrifugal_nozzle_1_voltage_low",
+    "error_centrifugal_nozzle_1_disconnected"
+],
+"causes": [
+    {"component": "spray_board", "probability": "low"},
+    {"component": "cdb", "probability": "low"},
+    {"component": "signal_cable_l", "probability": "low"},
+    {"component": "pdb", "probability": "low"},
+    {"component": "m3_esc_cable", "probability": "low"},
+    {"component": "centrifugal_cable_l", "probability": "medium"},
+    {"component": "centrifugal_motor_1", "probability": "high"}
+]
+},
+
+{
+"errors": [
+    "error_centrifugal_nozzle_2_esc",
+    "error_centrifugal_nozzle_2_esc_self_check",
+    "error_centrifugal_nozzle_2_esc_timeout_exception",
+    "error_centrifugal_nozzle_2_voltage_low",
+    "error_centrifugal_nozzle_2_disconnected"
+],
+"causes": [
+    {"component": "spray_board", "probability": "low"},
+    {"component": "cdb", "probability": "low"},
+    {"component": "signal_cable_l", "probability": "low"},
+    {"component": "pdb", "probability": "low"},
+    {"component": "m4_esc_cable", "probability": "low"},
+    {"component": "centrifugal_cable_r", "probability": "medium"},
+    {"component": "centrifugal_motor_2", "probability": "high"}
+]
+},
+
+{
+"errors": [
+    "error_centrifugal_nozzle_1_worn_out_or_clogged",
+    "error_centrifugal_nozzle_1_stuck"
+],
+"causes": [
+    {"component": "pump_1", "probability": "medium"},
+    {"component": "centrifugal_motor_1", "probability": "medium"},
+    {"mech_prob": "thick_mixture", "probability": "high"},
+    {"mech_prob": "impeller_1_stuck", "probability": "high"},
+    {"mech_prob": "pump_1_magnet_loose", "probability": "medium"},
+    {"mech_prob": "check_valve_1_stuck", "probability": "medium"}
+]
+},
+
+{
+"errors": [
+    "error_centrifugal_nozzle_2_worn_out_or_clogged",
+    "error_centrifugal_nozzle_2_stuck"
+],
+"causes": [
+    {"component": "pump_2", "probability": "medium"},
+    {"component": "centrifugal_motor_2", "probability": "medium"},
+    {"mech_prob": "thick_mixture", "probability": "high"},
+    {"mech_prob": "impeller_2_stuck", "probability": "high"},
+    {"mech_prob": "pump_2_magnet_loose", "probability": "medium"},
+    {"mech_prob": "check_valve_2_stuck", "probability": "medium"}
+]
+},
+
+{
+"errors": [
+    "error_single_point_hall_sensor",
+    "error_single_point_hall_sensor_disconnected"
+],
+"causes": [
+    {"component": "spray_board", "probability": "low"},
+    {"component": "cdb", "probability": "low"},
+    {"component": "spray_adapt_cable", "probability": "medium"},
+    {"component": "spray_signal_cable", "probability": "medium"},
+    {"component": "spray_adapter", "probability": "medium"},
+    {"component": "liquid_level", "probability": "high"}
+]
+},
+
+{
+"errors": [
+    "error_flow_meter_zero_calibration_exception"
+],
+"causes": [
+    {"component": "spray_board", "probability": "high"},
+    {"component": "cdb", "probability": "low"},
+    {"component": "spray_adapt_cable", "probability": "low"},
+    {"component": "spray_signal_cable", "probability": "low"},
+    {"component": "spray_adapter", "probability": "low"},
+    {"component": "flow_meter_cable", "probability": "low"},
+    {"component": "flow_meter", "probability": "high"}
+]
+},
+
+{
+"errors": [
+    "error_flow_meter_voltage_low",
+    "error_flow_meter_voltage_high",
+    "error_flow_meter_disconnected"
+],
+"causes": [
+    {"component": "spray_board", "probability": "low"},
+    {"component": "cdb", "probability": "low"},
+    {"component": "spray_adapt_cable", "probability": "medium"},
+    {"component": "spray_signal_cable", "probability": "medium"},
+    {"component": "spray_adapter", "probability": "medium"},
+    {"component": "flow_meter_cable", "probability": "high"},
+    {"component": "flow_meter", "probability": "high"}
+]
+},
+
+{
+"errors": [
+    "error_load_sensor_cable_broken",
+    "error_load_exceeded"
+],
+"causes": [
+    {"component": "spray_board", "probability": "low"},
+    {"component": "cdb", "probability": "low"},
+    {"component": "load_sensor", "probability": "high"}
+]
+}
+
 ]
 }
