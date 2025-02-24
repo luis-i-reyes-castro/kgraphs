@@ -1,0 +1,418 @@
+{
+  "avionics_to_propulsion": {
+    "m1_pos": [
+      "avionics",
+      "cdb",
+      "m1_pos"
+    ],
+    "m2_pos": [
+      "avionics",
+      "cdb",
+      "m2_pos"
+    ],
+    "m3_pos": [
+      "avionics",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m3_pos"
+    ],
+    "m4_pos": [
+      "avionics",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m4_pos"
+    ],
+    "esc1": [
+      "avionics",
+      "cdb",
+      "m1_esc_cable",
+      "esc1"
+    ],
+    "esc2": [
+      "avionics",
+      "cdb",
+      "m2_esc_cable",
+      "esc2"
+    ],
+    "esc3": [
+      "avionics",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m3_esc_cable",
+      "esc3"
+    ],
+    "esc4": [
+      "avionics",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m4_esc_cable",
+      "esc4"
+    ],
+    "esc5": [
+      "avionics",
+      "cdb",
+      "m1_esc_cable",
+      "esc5"
+    ],
+    "esc6": [
+      "avionics",
+      "cdb",
+      "m2_esc_cable",
+      "esc6"
+    ],
+    "esc7": [
+      "avionics",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m3_esc_cable",
+      "esc7"
+    ],
+    "esc8": [
+      "avionics",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m4_esc_cable",
+      "esc8"
+    ],
+    "motor1": [
+      "avionics",
+      "cdb",
+      "m1_esc_cable",
+      "esc1",
+      "motor1"
+    ],
+    "motor2": [
+      "avionics",
+      "cdb",
+      "m2_esc_cable",
+      "esc2",
+      "motor2"
+    ],
+    "motor3": [
+      "avionics",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m3_esc_cable",
+      "esc3",
+      "motor3"
+    ],
+    "motor4": [
+      "avionics",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m4_esc_cable",
+      "esc4",
+      "motor4"
+    ],
+    "motor5": [
+      "avionics",
+      "cdb",
+      "m1_esc_cable",
+      "esc5",
+      "motor5"
+    ],
+    "motor6": [
+      "avionics",
+      "cdb",
+      "m2_esc_cable",
+      "esc6",
+      "motor6"
+    ],
+    "motor7": [
+      "avionics",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m3_esc_cable",
+      "esc7",
+      "motor7"
+    ],
+    "motor8": [
+      "avionics",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m4_esc_cable",
+      "esc8",
+      "motor8"
+    ],
+    "front_esc_cable_l": [
+      "avionics",
+      "cdb",
+      "m2_esc_cable",
+      "front_esc_cable_l"
+    ],
+    "front_esc_cable_r": [
+      "avionics",
+      "cdb",
+      "m1_esc_cable",
+      "front_esc_cable_r"
+    ],
+    "m1_esc_cable": [
+      "avionics",
+      "cdb",
+      "m1_esc_cable"
+    ],
+    "m2_esc_cable": [
+      "avionics",
+      "cdb",
+      "m2_esc_cable"
+    ],
+    "m3_esc_cable": [
+      "avionics",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m3_esc_cable"
+    ],
+    "m4_esc_cable": [
+      "avionics",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m4_esc_cable"
+    ]
+  },
+  "avionics_to_accessories": {
+    "aux_light_l": [
+      "avionics",
+      "cdb",
+      "aux_light_cable_l",
+      "aux_light_l"
+    ],
+    "aux_light_r": [
+      "avionics",
+      "cdb",
+      "aux_light_cable_r",
+      "aux_light_r"
+    ],
+    "aux_light_cable_l": [
+      "avionics",
+      "cdb",
+      "aux_light_cable_l"
+    ],
+    "aux_light_cable_r": [
+      "avionics",
+      "cdb",
+      "aux_light_cable_r"
+    ]
+  },
+  "avionics_to_sensors": {
+    "fwd_vision": [
+      "avionics",
+      "fwd_vision"
+    ],
+    "fpv_camera": [
+      "avionics",
+      "fpv_camera"
+    ],
+    "barometer": [
+      "avionics",
+      "barometer"
+    ],
+    "omni_radar": [
+      "avionics",
+      "cdb",
+      "omni_radar_cable",
+      "omni_radar"
+    ],
+    "bwd_radar": [
+      "avionics",
+      "cdb",
+      "bwd_radar_cable",
+      "bwd_radar"
+    ],
+    "rtk_cable_l": [
+      "avionics",
+      "cdb",
+      "rf_board",
+      "rtk_cable_l"
+    ],
+    "rtk_cable_r": [
+      "avionics",
+      "cdb",
+      "rf_board",
+      "rtk_cable_r"
+    ],
+    "omni_radar_cable": [
+      "avionics",
+      "cdb",
+      "omni_radar_cable"
+    ],
+    "bwd_radar_cable": [
+      "avionics",
+      "cdb",
+      "bwd_radar_cable"
+    ]
+  },
+  "rf_board_to_antennas": {
+    "sdr_ant_l": [
+      "rf_board",
+      "sdr_ant_l"
+    ],
+    "sdr_ant_r": [
+      "rf_board",
+      "sdr_ant_r"
+    ],
+    "rtk_ant_l": [
+      "rf_board",
+      "rtk_cable_l",
+      "rtk_ant_l"
+    ],
+    "rtk_ant_r": [
+      "rf_board",
+      "rtk_cable_r",
+      "rtk_ant_r"
+    ]
+  },
+  "spray_board_to_spraying": {
+    "spray_board": [
+      "spray_board"
+    ],
+    "cdb": [
+      "spray_board",
+      "cdb"
+    ],
+    "signal_cable_l": [
+      "spray_board",
+      "cdb",
+      "signal_cable_l"
+    ],
+    "pdb": [
+      "spray_board",
+      "cdb",
+      "signal_cable_l",
+      "pdb"
+    ],
+    "spray_adapter": [
+      "spray_board",
+      "cdb",
+      "spray_adapt_cable",
+      "spray_signal_cable",
+      "spray_adapter"
+    ],
+    "load_sensor": [
+      "spray_board",
+      "cdb",
+      "load_sensor"
+    ],
+    "flow_meter": [
+      "spray_board",
+      "cdb",
+      "spray_adapt_cable",
+      "spray_signal_cable",
+      "spray_adapter",
+      "flow_meter_cable",
+      "flow_meter"
+    ],
+    "liquid_level": [
+      "spray_board",
+      "cdb",
+      "spray_adapt_cable",
+      "spray_signal_cable",
+      "spray_adapter",
+      "liquid_level"
+    ],
+    "pump1": [
+      "spray_board",
+      "cdb",
+      "spray_adapt_cable",
+      "spray_signal_cable",
+      "spray_adapter",
+      "impeller_pump_cable",
+      "pump1"
+    ],
+    "pump2": [
+      "spray_board",
+      "cdb",
+      "spray_adapt_cable",
+      "spray_signal_cable",
+      "spray_adapter",
+      "impeller_pump_cable",
+      "pump2"
+    ],
+    "centrifugal_motor1": [
+      "spray_board",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m3_esc_cable",
+      "centrifugal_cable_l",
+      "centrifugal_motor1"
+    ],
+    "centrifugal_motor2": [
+      "spray_board",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m4_esc_cable",
+      "centrifugal_cable_r",
+      "centrifugal_motor2"
+    ],
+    "spray_adapt_cable": [
+      "spray_board",
+      "cdb",
+      "spray_adapt_cable"
+    ],
+    "spray_signal_cable": [
+      "spray_board",
+      "cdb",
+      "spray_adapt_cable",
+      "spray_signal_cable"
+    ],
+    "flow_meter_cable": [
+      "spray_board",
+      "cdb",
+      "spray_adapt_cable",
+      "spray_signal_cable",
+      "spray_adapter",
+      "flow_meter_cable"
+    ],
+    "impeller_pump_cable": [
+      "spray_board",
+      "cdb",
+      "spray_adapt_cable",
+      "spray_signal_cable",
+      "spray_adapter",
+      "impeller_pump_cable"
+    ],
+    "m3_esc_cable": [
+      "spray_board",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m3_esc_cable"
+    ],
+    "m4_esc_cable": [
+      "spray_board",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m4_esc_cable"
+    ],
+    "centrifugal_cable_l": [
+      "spray_board",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m3_esc_cable",
+      "centrifugal_cable_l"
+    ],
+    "centrifugal_cable_r": [
+      "spray_board",
+      "cdb",
+      "signal_cable_l",
+      "pdb",
+      "m4_esc_cable",
+      "centrifugal_cable_r"
+    ]
+  }
+}
