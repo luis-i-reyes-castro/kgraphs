@@ -49,8 +49,11 @@ class ImageLabelingApp:
         self.btn_rotate_right = ttk.Button(root, text="RIGHT", command=self.rotate_right)
         self.btn_rotate_right.grid(row=2, column=4)
 
+        self.btn_first = ttk.Button(root, text="FIRST", command=self.load_first_index)
+        self.btn_first.grid(row=3, column=3)
+
         self.btn_last = ttk.Button(root, text="LAST", command=self.load_last_index)
-        self.btn_last.grid(row=3, column=3)
+        self.btn_last.grid(row=3, column=4)
 
         self.label_buttons = {}
         # Group A buttons (RC and DRONE) and CRASHED
@@ -338,6 +341,13 @@ class ImageLabelingApp:
             with open(CSV_FILE, 'a', newline='') as f:
                 writer = csv.writer(f)
                 writer.writerow([img_name, "0", "", "", ""])
+
+    def load_first_index(self):
+        """Load the first image in the directory"""
+        if self.image_files:
+            self.current_index = 0
+            self.load_image()
+            self.update_button_states()
 
 if __name__ == "__main__":
     root = tk.Tk()
