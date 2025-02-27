@@ -4,12 +4,18 @@ import shutil
 from PIL import Image
 from tqdm import tqdm
 
-# Configuration
+# Configuration for DJI AGRAS LATINO
 SOURCE_DIR = "/home/luis/DJI_AGRAS_LATINO/raw"
 BASE_DIR = "/home/luis/DJI_AGRAS_LATINO"
 CSV_FILE = "/home/luis/kgraphs/labels_DAL.csv"
 EMPTY_CSV = os.path.join(BASE_DIR, "/home/luis/kgraphs/labels_DAL_empty.csv")
 POSITIVE_CSV = os.path.join(BASE_DIR, "/home/luis/kgraphs/labels_DAL_positive.csv")
+# Configuration for Latin Drone
+# SOURCE_DIR = "/home/luis/Latin_Drone/raw"
+# BASE_DIR = "/home/luis/Latin_Drone"
+# CSV_FILE = "/home/luis/kgraphs/labels_LD.csv"
+# EMPTY_CSV = os.path.join(BASE_DIR, "/home/luis/kgraphs/labels_LD_empty.csv")
+# POSITIVE_CSV = os.path.join(BASE_DIR, "/home/luis/kgraphs/labels_LD_positive.csv")
 
 def ensure_directories():
     """Create necessary directories if they don't exist"""
@@ -70,15 +76,17 @@ def main():
                 if process_image(filename, rotation, 'no_label'):
                     empty_labels.append([filename, rotation])
     
-    # Write empty labels CSV
+    # Write empty labels CSV with rotation reset to zero
     with open(EMPTY_CSV, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerows(empty_labels)
+        # For empty labels, only write [filename, "0"]
+        writer.writerows([[row[0], "0"] for row in empty_labels])
     
-    # Write positive labels CSV
+    # Write positive labels CSV with rotation reset to zero
     with open(POSITIVE_CSV, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerows(positive_labels)
+        # For positive labels, keep all columns but set rotation to "0"
+        writer.writerows([row[0:1] + ["0"] + row[2:] for row in positive_labels])
     
     # Print summary
     print(f"Processing complete:")
