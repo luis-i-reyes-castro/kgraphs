@@ -49,11 +49,11 @@
 },
 "error_pump_1_stuck": {
   "name": "Pump 1 stuck",
-  "name_spanish": "Bomba 1 atascada"
+  "name_spanish": "El rotor del motor 1 de la bomba de agua está bloqueado"
 },
 "error_pump_2_stuck": {
   "name": "Pump 2 stuck",
-  "name_spanish": "Bomba 2 atascada"
+  "name_spanish": "El rotor del motor 2 de la bomba de agua está bloqueado"
 },
 "error_centrifugal_nozzle_1_esc": {
   "name": "Centrifugal nozzle 1 ESC error",
