@@ -111,6 +111,14 @@
   "name": "Centrifugal Nozzle 2 stuck",
   "name_spanish": "Boquilla Centrífuga 2 Motor Atascado"
 },
+"error_centrifugal_nozzle_1_temperature_high": {
+  "name": "Centrifugal Nozzle 1 temperature too high",
+  "name_spanish": "Boquilla centrífuga 1 Temperatura demasiado alta"
+},
+"error_centrifugal_nozzle_2_temperature_high": {
+  "name": "Centrifugal Nozzle 2 temperature too high",
+  "name_spanish": "Boquilla centrífuga 2 Temperatura demasiado alta"
+},
 "error_single_point_hall_sensor": {
   "name": "Single-point hall sensor error",
   "name_spanish": "Error en sensor de nivel de líquido Hall de punto único"
