@@ -191,6 +191,38 @@
     "name": "Motor 8 throttle cycle exception",
     "name_spanish": "Excepción de ciclo de acelerador del motor 8"
 },
+"error_motor_1_jammed": {
+    "name": "Motor 1 jammed. Stop the flight immediately.",
+    "name_spanish": "Motor 1 atascado. Detenga el vuelo inmediatamente."
+},
+"error_motor_2_jammed": {
+    "name": "Motor 2 jammed. Stop the flight immediately.",
+    "name_spanish": "Motor 2 atascado. Detenga el vuelo inmediatamente."
+},
+"error_motor_3_jammed": {
+    "name": "Motor 3 jammed. Stop the flight immediately.",
+    "name_spanish": "Motor 3 atascado. Detenga el vuelo inmediatamente."
+},
+"error_motor_4_jammed": {
+    "name": "Motor 4 jammed. Stop the flight immediately.",
+    "name_spanish": "Motor 4 atascado. Detenga el vuelo inmediatamente."
+},
+"error_motor_5_jammed": {
+    "name": "Motor 5 jammed. Stop the flight immediately.",
+    "name_spanish": "Motor 5 atascado. Detenga el vuelo inmediatamente."
+},
+"error_motor_6_jammed": {
+    "name": "Motor 6 jammed. Stop the flight immediately.",
+    "name_spanish": "Motor 6 atascado. Detenga el vuelo inmediatamente."
+},
+"error_motor_7_jammed": {
+    "name": "Motor 7 jammed. Stop the flight immediately.",
+    "name_spanish": "Motor 7 atascado. Detenga el vuelo inmediatamente."
+},
+"error_motor_8_jammed": {
+    "name": "Motor 8 jammed. Stop the flight immediately.",
+    "name_spanish": "Motor 8 atascado. Detenga el vuelo inmediatamente."
+},
 "error_arm_1_not_securely_fastened": {
     "name": "Aircraft arm 1 not securely fastened",
     "name_spanish": "El brazo 1 no está bien sujeto"
