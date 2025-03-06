@@ -7,13 +7,6 @@ from tkinter import messagebox
 import argparse
 import sys
 
-# Configuration for DJI_AGRAS_LATINO
-# IMAGE_DIR = "/home/luis/DJI_AGRAS_LATINO/raw/"
-# CSV_FILE = "/home/luis/kgraphs/labels_DAL.csv"
-# Configuration for Latin_Drone
-# IMAGE_DIR = "/home/luis/Latin_Drone/raw/"
-# CSV_FILE = "/home/luis/kgraphs/labels_LD.csv"
-
 # Replace the hardcoded configuration with command line argument parsing
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Image Labeling Tool - Phase 2')
@@ -353,16 +346,27 @@ class ImageLabelingApp:
                     
                     # Update based on the group
                     original_line = line
-                    if group == "A" and group_a != label:
-                        group_a = label
+                    if group == "A":
+                        # Toggle label for group A
+                        if group_a == label:
+                            group_a = ""  # Remove label if it's already set
+                        else:
+                            group_a = label  # Set new label
                         modified = True
-                    elif group == "B" and group_b != label:
-                        group_b = label
+                    elif group == "B":
+                        # Toggle label for group B
+                        if group_b == label:
+                            group_b = ""  # Remove label if it's already set
+                        else:
+                            group_b = label  # Set new label
                         modified = True
                     elif group == "C" and group_a == "RC":
-                        if label not in group_c_labels:
-                            group_c_labels.append(label)
-                            modified = True
+                        # Toggle label for group C
+                        if label in group_c_labels:
+                            group_c_labels.remove(label)  # Remove label if it exists
+                        else:
+                            group_c_labels.append(label)  # Add label if it doesn't exist
+                        modified = True
                     
                     # Create new line only if modified
                     if modified:
