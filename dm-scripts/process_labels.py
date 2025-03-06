@@ -11,8 +11,6 @@ SOURCE_DIR = os.path.join( BASE_DIR, "raw")
 CSV_DIR = "/home/luis/kgraphs/labels"
 CSV_FILE = os.path.join(CSV_DIR, "labels_DAL.csv")
 LOG_FILE = os.path.join(CSV_DIR, "process_labels.log")
-
-# Output CSV files
 DRONE_T40_T50_CSV = os.path.join(CSV_DIR, "labels_DAL_drone_t40_t50.csv")
 DRONE_T20_T30_CSV = os.path.join(CSV_DIR, "labels_DAL_drone_t20_t30.csv")
 DRONE_OTHER_CSV = os.path.join(CSV_DIR, "labels_DAL_drone_other.csv")
@@ -20,15 +18,22 @@ RC_T40_T50_CSV = os.path.join(CSV_DIR, "labels_DAL_rc_t40_t50.csv")
 RC_T20_T30_CSV = os.path.join(CSV_DIR, "labels_DAL_rc_t20_t30.csv")
 RC_OTHER_CSV = os.path.join(CSV_DIR, "labels_DAL_rc_other.csv")
 EMPTY_CSV = os.path.join(CSV_DIR, "labels_DAL_empty.csv")
-
 ROTATE_IMAGES = False  # Set to True to enable image rotation
 
 # Configuration for Latin Drone
-# SOURCE_DIR = "/home/luis/Latin_Drone/raw"
 # BASE_DIR = "/home/luis/Latin_Drone"
-# CSV_FILE = "/home/luis/kgraphs/labels_LD.csv"
-# EMPTY_CSV = os.path.join(BASE_DIR, "/home/luis/kgraphs/labels_LD_empty.csv")
-# POSITIVE_CSV = os.path.join(BASE_DIR, "/home/luis/kgraphs/labels_LD_positive.csv")
+# SOURCE_DIR = os.path.join( BASE_DIR, "raw")
+# CSV_DIR = "/home/luis/kgraphs/labels"
+# CSV_FILE = os.path.join(CSV_DIR, "labels_LD.csv")
+# LOG_FILE = os.path.join(CSV_DIR, "process_labels.log")
+# DRONE_T40_T50_CSV = os.path.join(CSV_DIR, "labels_LD_drone_t40_t50.csv")
+# DRONE_T20_T30_CSV = os.path.join(CSV_DIR, "labels_LD_drone_t20_t30.csv")
+# DRONE_OTHER_CSV = os.path.join(CSV_DIR, "labels_LD_drone_other.csv")
+# RC_T40_T50_CSV = os.path.join(CSV_DIR, "labels_LD_rc_t40_t50.csv")
+# RC_T20_T30_CSV = os.path.join(CSV_DIR, "labels_LD_rc_t20_t30.csv")
+# RC_OTHER_CSV = os.path.join(CSV_DIR, "labels_LD_rc_other.csv")
+# EMPTY_CSV = os.path.join(CSV_DIR, "labels_LD_empty.csv")
+# ROTATE_IMAGES = False  # Set to True to enable image rotation
 
 def ensure_directories():
     """Create necessary directories if they don't exist"""
