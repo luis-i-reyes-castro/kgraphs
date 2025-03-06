@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter import messagebox
+import argparse
 
 # Configuration for DJI_AGRAS_LATINO
 IMAGE_DIR = "/home/luis/DJI_AGRAS_LATINO/raw/"
@@ -12,17 +13,28 @@ CSV_FILE = "/home/luis/kgraphs/labels_DAL.csv"
 # IMAGE_DIR = "/home/luis/Latin_Drone/raw/"
 # CSV_FILE = "/home/luis/kgraphs/labels_LD.csv"
 
+# Replace the hardcoded configuration with command line argument parsing
+def parse_arguments():
+    parser = argparse.ArgumentParser(description='Image Labeling Tool')
+    parser.add_argument('-img', '--image_dir', required=True,
+                      help='Directory containing the images to label')
+    parser.add_argument('-csv', '--csv_file', required=True,
+                      help='Path to the CSV file for storing labels')
+    return parser.parse_args()
+
 # Image Labeling App
 class ImageLabelingApp:
-    def __init__(self, root):
+    def __init__(self, root, image_dir, csv_file):
         self.root = root
         self.root.title("Image Labeling Tool")
-        
-        # Set black background
         self.root.configure(bg='black')
-
-        # Load image list
-        self.image_files = sorted([f for f in os.listdir(IMAGE_DIR) if f.lower().endswith(('png', 'jpg', 'jpeg'))])
+        
+        # Replace hardcoded paths with parameters
+        self.image_dir = image_dir
+        self.csv_file = csv_file
+        
+        # Update image loading to use the new path
+        self.image_files = sorted([f for f in os.listdir(self.image_dir) if f.lower().endswith(('png', 'jpg', 'jpeg'))])
         self.current_index = 0
 
         # Configure grid spacing
@@ -100,12 +112,12 @@ class ImageLabelingApp:
     def load_image(self):
         if not self.image_files:
             return
-        img_path = os.path.join(IMAGE_DIR, self.image_files[self.current_index])
+        img_path = os.path.join(self.image_dir, self.image_files[self.current_index])
         self.image = Image.open(img_path)
         
         # Apply saved rotation
-        if os.path.exists(CSV_FILE):
-            with open(CSV_FILE, newline='') as f:
+        if os.path.exists(self.csv_file):
+            with open(self.csv_file, newline='') as f:
                 reader = csv.reader(f)
                 for row in reader:
                     if row[0] == self.image_files[self.current_index]:
@@ -155,8 +167,8 @@ class ImageLabelingApp:
             # Ensure current image is in CSV before moving on
             self.ensure_image_in_csv(img_name)
             
-            if os.path.exists(CSV_FILE):
-                with open(CSV_FILE, newline='') as f:
+            if os.path.exists(self.csv_file):
+                with open(self.csv_file, newline='') as f:
                     reader = csv.reader(f)
                     for row in reader:
                         if row[0] == img_name:
@@ -196,8 +208,8 @@ class ImageLabelingApp:
         current_group_c = ""
         
         # Read existing labels
-        if os.path.exists(CSV_FILE):
-            with open(CSV_FILE, newline='') as f:
+        if os.path.exists(self.csv_file):
+            with open(self.csv_file, newline='') as f:
                 reader = csv.reader(f)
                 for row in reader:
                     if row[0] == img_name:
@@ -249,13 +261,13 @@ class ImageLabelingApp:
         # Write back with new format: filename, rotation, group A, group B, group C
         rows.append([img_name, str(current_rotation), current_group_a, current_group_b, current_group_c])
         
-        with open(CSV_FILE, 'w', newline='') as f:
+        with open(self.csv_file, 'w', newline='') as f:
             writer = csv.writer(f)
             writer.writerows(rows)
     
     def load_last_index(self):
-        if os.path.exists(CSV_FILE):
-            with open(CSV_FILE, newline='') as f:
+        if os.path.exists(self.csv_file):
+            with open(self.csv_file, newline='') as f:
                 reader = list(csv.reader(f))
                 if reader:
                     last_image = reader[-1][0]
@@ -271,8 +283,8 @@ class ImageLabelingApp:
             
         # Check current image label
         img_name = self.image_files[self.current_index]
-        if os.path.exists(CSV_FILE):
-            with open(CSV_FILE, newline='') as f:
+        if os.path.exists(self.csv_file):
+            with open(self.csv_file, newline='') as f:
                 reader = csv.reader(f)
                 for row in reader:
                     if row[0] == img_name:
@@ -295,8 +307,8 @@ class ImageLabelingApp:
         current_group_b = ""
         current_group_c = ""
         
-        if os.path.exists(CSV_FILE):
-            with open(CSV_FILE, newline='') as f:
+        if os.path.exists(self.csv_file):
+            with open(self.csv_file, newline='') as f:
                 reader = csv.reader(f)
                 for row in reader:
                     if row[0] == img_name:
@@ -314,14 +326,14 @@ class ImageLabelingApp:
         new_rotation = (current_rotation + angle_change) % 360
         rows.append([img_name, str(new_rotation), current_group_a, current_group_b, current_group_c])
         
-        with open(CSV_FILE, 'w', newline='') as f:
+        with open(self.csv_file, 'w', newline='') as f:
             writer = csv.writer(f)
             writer.writerows(rows)
 
     def ensure_image_in_csv(self, img_name):
         """Ensures the current image is in the CSV file with at least rotation data"""
-        if not os.path.exists(CSV_FILE):
-            with open(CSV_FILE, 'w', newline='') as f:
+        if not os.path.exists(self.csv_file):
+            with open(self.csv_file, 'w', newline='') as f:
                 writer = csv.writer(f)
                 writer.writerow([img_name, "0", "", "", ""])
             return
@@ -329,7 +341,7 @@ class ImageLabelingApp:
         # Check if image exists in CSV
         found = False
         rows = []
-        with open(CSV_FILE, 'r', newline='') as f:
+        with open(self.csv_file, 'r', newline='') as f:
             reader = csv.reader(f)
             for row in reader:
                 if row[0] == img_name:
@@ -338,7 +350,7 @@ class ImageLabelingApp:
         
         # Add image if not found
         if not found:
-            with open(CSV_FILE, 'a', newline='') as f:
+            with open(self.csv_file, 'a', newline='') as f:
                 writer = csv.writer(f)
                 writer.writerow([img_name, "0", "", "", ""])
 
@@ -350,6 +362,7 @@ class ImageLabelingApp:
             self.update_button_states()
 
 if __name__ == "__main__":
+    args = parse_arguments()
     root = tk.Tk()
-    app = ImageLabelingApp(root)
+    app = ImageLabelingApp(root, args.image_dir, args.csv_file)
     root.mainloop()
