@@ -322,75 +322,90 @@ class ImageLabelingApp:
 
     def label_image(self, label, group):
         """Label the image with the given label and group."""
-        print(f"Debug: label_image called with label={label}, group={group}")  # Debug print
+        print(f"Debug: label_image called with label={label}, group={group}")
         
-        img_name = self.image_files[self.current_index]
-        print(f"Debug: Current image name: {img_name}")  # Debug print
-        
-        # Read the current CSV file
-        found = False
-        temp_file = self.csv_file + '.temp'
+        img_name = self.get_current_image_name()
+        print(f"Debug: Current image name: {img_name}")
         
         try:
-            with open(self.csv_file, 'r', newline='') as infile, open(temp_file, 'w', newline='') as outfile:
-                reader = csv.reader(infile)
-                writer = csv.writer(outfile)
+            # Read the entire file into memory
+            with open(self.csv_file, 'r', newline='') as f:
+                lines = f.readlines()
+            
+            # Find the line for this image
+            found = False
+            modified = False
+            new_lines = []
+            
+            for line in lines:
+                line = line.rstrip('\r\n')  # Remove trailing newlines
+                parts = line.split(',')
                 
-                for row in reader:
-                    if row and row[0] == img_name:
-                        found = True
-                        print(f"Debug: Found image in CSV: {row}")  # Debug print
-                        
-                        # Get existing values
-                        rotation = row[1] if len(row) > 1 else "0"
-                        group_a = row[2] if len(row) > 2 else ""
-                        group_b = row[3] if len(row) > 3 else ""
-                        
-                        # Process group C labels (index 4 and beyond)
-                        group_c_labels = []
-                        for i in range(4, len(row)):
-                            if row[i].strip():  # Only add non-empty labels
-                                group_c_labels.append(row[i].strip())
-                        
-                        # Update the appropriate group with the new label
-                        if group == "A":
-                            group_a = label
-                        elif group == "B":
-                            group_b = label
-                        elif group == "C" and group_a == "RC":
-                            if label not in group_c_labels:
-                                group_c_labels.append(label)
-                        
-                        # Write the updated row
-                        new_row = [img_name, rotation, group_a, group_b] + group_c_labels
-                        writer.writerow(new_row)
-                        print(f"Debug: Updated row: {new_row}")  # Debug print
+                if parts and parts[0] == img_name:
+                    found = True
+                    # Get current values
+                    rotation = parts[1] if len(parts) > 1 else "0"
+                    group_a = parts[2] if len(parts) > 2 else ""
+                    group_b = parts[3] if len(parts) > 3 else ""
+                    
+                    # Get group C labels (all elements after index 3)
+                    group_c_labels = [p for p in parts[4:] if p.strip()]
+                    
+                    # Update based on the group
+                    original_line = line
+                    if group == "A" and group_a != label:
+                        group_a = label
+                        modified = True
+                    elif group == "B" and group_b != label:
+                        group_b = label
+                        modified = True
+                    elif group == "C" and group_a == "RC":
+                        if label not in group_c_labels:
+                            group_c_labels.append(label)
+                            modified = True
+                    
+                    # Create new line only if modified
+                    if modified:
+                        new_line = f"{img_name},{rotation},{group_a},{group_b}"
+                        if group_c_labels:
+                            for c_label in group_c_labels:
+                                if c_label.strip():
+                                    new_line += f",{c_label}"
+                        print(f"Debug: Original line: {original_line}")
+                        print(f"Debug: New line: {new_line}")
+                        new_lines.append(new_line)
                     else:
-                        # Write unchanged row
-                        writer.writerow(row)
+                        new_lines.append(line)
+                else:
+                    new_lines.append(line)
             
-            # If the image wasn't found, append it to the CSV
+            # If image not found, add a new line
             if not found:
-                print(f"Debug: Image not found in CSV, appending new row")  # Debug print
-                with open(temp_file, 'a', newline='') as f:
-                    writer = csv.writer(f)
-                    new_row = [img_name, "0"]
-                    if group == "A":
-                        new_row.extend([label, "", ""])
-                    elif group == "B":
-                        new_row.extend(["", label, ""])
-                    elif group == "C":
-                        new_row.extend(["RC", "", label])
-                    writer.writerow(new_row)
-                    print(f"Debug: Appended new row: {new_row}")  # Debug print
+                rotation = "0"
+                group_a = label if group == "A" else "RC" if group == "C" else ""
+                group_b = label if group == "B" else ""
+                group_c = label if group == "C" else ""
+                
+                new_line = f"{img_name},{rotation},{group_a},{group_b}"
+                if group_c:
+                    new_line += f",{group_c}"
+                
+                new_lines.append(new_line)
+                modified = True
             
-            # Replace the original file with the temp file
-            os.replace(temp_file, self.csv_file)
-            print(f"Debug: Replaced original file with temp file")  # Debug print
+            # Only write back if something changed
+            if modified:
+                with open(self.csv_file, 'w', newline='') as f:
+                    for line in new_lines:
+                        f.write(line + '\n')
+                
+                print(f"Debug: File updated")
+                print(f"Labeled {img_name} with {label} in group {group}")
+            else:
+                print(f"Debug: No changes needed")
             
             # Update the UI to reflect the changes
-            self.update_button_states()
-            print(f"Labeled {img_name} with {label} in group {group}")
+            self.update_label_buttons()
         
         except Exception as e:
             print(f"Error in label_image: {e}")
@@ -543,6 +558,45 @@ class ImageLabelingApp:
                         ]
         # Return default values if image not found in CSV
         return ["0", "", "", "", ""]
+
+    def get_current_image_name(self):
+        """Returns the current image name"""
+        if self.image_files:
+            return self.image_files[self.current_index]
+        return None
+
+    def update_label_buttons(self):
+        """Updates the button states based on the current image label"""
+        # Reset all buttons
+        for btn in self.label_buttons.values():
+            btn.state(['!selected'])
+            
+        # Check current image label
+        img_name = self.get_current_image_name()
+        if os.path.exists(self.csv_file):
+            with open(self.csv_file, 'r', newline='') as f:
+                reader = csv.reader(f)
+                for row in reader:
+                    if row and row[0] == img_name:
+                        # Check group A label
+                        if len(row) > 2 and row[2] in self.label_buttons:
+                            self.label_buttons[row[2]].state(['selected'])
+                        
+                        # Check group B label
+                        if len(row) > 3 and row[3] in self.label_buttons:
+                            self.label_buttons[row[3]].state(['selected'])
+                        
+                        # Check group C labels (may have multiple values)
+                        if len(row) > 4 and row[4]:
+                            group_c_labels = row[4].split(',')
+                            for label in group_c_labels:
+                                if label and label in self.label_buttons:
+                                    self.label_buttons[label].state(['selected'])
+                        
+                        # Check group D label (for backward compatibility)
+                        if len(row) > 5 and row[5] in self.label_buttons:
+                            self.label_buttons[row[5]].state(['selected'])
+                        break
 
 if __name__ == "__main__":
     args = parse_arguments()
