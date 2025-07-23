@@ -1,0 +1,21 @@
+{
+"T40_placeholders":
+[
+    {
+    "key" : "MOTOR_FRONT",
+    "values" : "1,2,5,6"
+    },
+    {
+    "key" : "MOTOR_BACK",
+    "values" : "3,4,7,8"
+    },
+    {
+    "key" : "PUMP",
+    "values" : "1,2"
+    },
+    {
+    "key" : "NOZZLE",
+    "values" : "1,2"
+    }
+]
+}
