@@ -2,19 +2,6 @@
 "T40_error_causes_propulsion":
 [
 {
-    "placeholders" :
-    [
-        {
-        "key" : "MOTOR_FRONT",
-        "values" : "1,2,5,6"
-        },
-        {
-        "key" : "MOTOR_BACK",
-        "values" : "3,4,7,8"
-        }
-    ]
-},
-{
 "errors":
 [
     "error_esc_(MOTOR_FRONT)",
@@ -59,11 +46,11 @@
     "probability": "high"
     },
     {
-    "component": "esc(MOTOR_FRONT)",
+    "component": "esc_(MOTOR_FRONT)",
     "probability": "high"
     },
     {
-    "component": "motor(MOTOR_FRONT)",
+    "component": "motor_(MOTOR_FRONT)",
     "probability": "medium"
     }
 ]
@@ -75,7 +62,6 @@
     "error_esc_(MOTOR_BACK)_self_check",
     "error_esc_(MOTOR_BACK)_voltage_low",
     "error_esc_(MOTOR_BACK)_disconnected",
-    "error_esc_(MOTOR_BACK)_backup_throttle_lost",
     "error_esc_(MOTOR_BACK)_throttle_cycle_exception"
 ],
 "causes":
@@ -109,11 +95,11 @@
     "probability": "high"
     },
     {
-    "component": "esc(MOTOR_BACK)",
+    "component": "esc_(MOTOR_BACK)",
     "probability": "high"
     },
     {
-    "component": "motor(MOTOR_BACK)",
+    "component": "motor_(MOTOR_BACK)",
     "probability": "medium"
     }
 ]
@@ -154,11 +140,11 @@
     "probability": "high"
     },
     {
-    "component": "esc(MOTOR_BACK)",
+    "component": "esc_(MOTOR_BACK)",
     "probability": "high"
     },
     {
-    "component": "motor(MOTOR_BACK)",
+    "component": "motor_(MOTOR_BACK)",
     "probability": "medium"
     }
 ]

@@ -31,112 +31,112 @@
     "material_num": "BC.AG.SS000547",
     "material_name": "Aircraft Arm In-position Detector Signal Cable"
 },
-"esc1": {
+"esc_1": {
   "type": "esc",
   "name": "ESC 1",
   "name_spanish": "ESC 1",
   "material_num": "BC.AG.SS000563",
   "material_name": "ESC Module"
 },
-"esc2": {
+"esc_2": {
   "type": "esc",
   "name": "ESC 2",
   "name_spanish": "ESC 2",
   "material_num": "BC.AG.SS000563",
   "material_name": "ESC Module"
 },
-"esc3": {
+"esc_3": {
   "type": "esc",
   "name": "ESC 3",
   "name_spanish": "ESC 3",
   "material_num": "BC.AG.SS000563",
   "material_name": "ESC Module"
 },
-"esc4": {
+"esc_4": {
   "type": "esc",
   "name": "ESC 4",
   "name_spanish": "ESC 4",
   "material_num": "BC.AG.SS000563",
   "material_name": "ESC Module"
 },
-"esc5": {
+"esc_5": {
   "type": "esc",
   "name": "ESC 5",
   "name_spanish": "ESC 5",
   "material_num": "BC.AG.SS000563",
   "material_name": "ESC Module"
 },
-"esc6": {
+"esc_6": {
   "type": "esc",
   "name": "ESC 6",
   "name_spanish": "ESC 6",
   "material_num": "BC.AG.SS000563",
   "material_name": "ESC Module"
 },
-"esc7": {
+"esc_7": {
   "type": "esc",
   "name": "ESC 7",
   "name_spanish": "ESC 7",
   "material_num": "BC.AG.SS000563",
   "material_name": "ESC Module"
 },
-"esc8": {
+"esc_8": {
   "type": "esc",
   "name": "ESC 8",
   "name_spanish": "ESC 8",
   "material_num": "BC.AG.SS000563",
   "material_name": "ESC Module"
 },
-"motor1": {
+"motor_1": {
   "type": "motor",
   "name": "Motor 1",
   "name_spanish": "Motor 1",
   "material_num": "BC.AG.SS000668",
   "material_name": "Propulsion Motor 10033"
 },
-"motor2": {
+"motor_2": {
   "type": "motor",
   "name": "Motor 2",
   "name_spanish": "Motor 2",
   "material_num": "BC.AG.SS000668",
   "material_name": "Propulsion Motor 10033"
 },
-"motor3": {
+"motor_3": {
   "type": "motor",
   "name": "Motor 3",
   "name_spanish": "Motor 3",
   "material_num": "BC.AG.SS000668",
   "material_name": "Propulsion Motor 10033"
 },
-"motor4": {
+"motor_4": {
   "type": "motor",
   "name": "Motor 4",
   "name_spanish": "Motor 4",
   "material_num": "BC.AG.SS000668",
   "material_name": "Propulsion Motor 10033"
 },
-"motor5": {
+"motor_5": {
   "type": "motor",
   "name": "Motor 5",
   "name_spanish": "Motor 5",
   "material_num": "BC.AG.SS000668",
   "material_name": "Propulsion Motor 10033"
 },
-"motor6": {
+"motor_6": {
   "type": "motor",
   "name": "Motor 6",
   "name_spanish": "Motor 6",
   "material_num": "BC.AG.SS000668",
   "material_name": "Propulsion Motor 10033"
 },
-"motor7": {
+"motor_7": {
   "type": "motor",
   "name": "Motor 7",
   "name_spanish": "Motor 7",
   "material_num": "BC.AG.SS000668",
   "material_name": "Propulsion Motor 10033"
 },
-"motor8": {
+"motor_8": {
   "type": "motor",
   "name": "Motor 8",
   "name_spanish": "Motor 8",

@@ -24,125 +24,125 @@
       "pdb",
       "m4_pos"
     ],
-    "esc1": [
+    "esc_1": [
       "avionics",
       "cdb",
       "m1_esc_cable",
-      "esc1"
+      "esc_1"
     ],
-    "esc2": [
+    "esc_2": [
       "avionics",
       "cdb",
       "m2_esc_cable",
-      "esc2"
+      "esc_2"
     ],
-    "esc3": [
+    "esc_3": [
       "avionics",
       "cdb",
       "signal_cable_l",
       "pdb",
       "m3_esc_cable",
-      "esc3"
+      "esc_3"
     ],
-    "esc4": [
+    "esc_4": [
       "avionics",
       "cdb",
       "signal_cable_l",
       "pdb",
       "m4_esc_cable",
-      "esc4"
+      "esc_4"
     ],
-    "esc5": [
+    "esc_5": [
       "avionics",
       "cdb",
       "m1_esc_cable",
-      "esc5"
+      "esc_5"
     ],
-    "esc6": [
+    "esc_6": [
       "avionics",
       "cdb",
       "m2_esc_cable",
-      "esc6"
+      "esc_6"
     ],
-    "esc7": [
+    "esc_7": [
       "avionics",
       "cdb",
       "signal_cable_l",
       "pdb",
       "m3_esc_cable",
-      "esc7"
+      "esc_7"
     ],
-    "esc8": [
+    "esc_8": [
       "avionics",
       "cdb",
       "signal_cable_l",
       "pdb",
       "m4_esc_cable",
-      "esc8"
+      "esc_8"
     ],
-    "motor1": [
+    "motor_1": [
       "avionics",
       "cdb",
       "m1_esc_cable",
-      "esc1",
-      "motor1"
+      "esc_1",
+      "motor_1"
     ],
-    "motor2": [
+    "motor_2": [
       "avionics",
       "cdb",
       "m2_esc_cable",
-      "esc2",
-      "motor2"
+      "esc_2",
+      "motor_2"
     ],
-    "motor3": [
+    "motor_3": [
       "avionics",
       "cdb",
       "signal_cable_l",
       "pdb",
       "m3_esc_cable",
-      "esc3",
-      "motor3"
+      "esc_3",
+      "motor_3"
     ],
-    "motor4": [
+    "motor_4": [
       "avionics",
       "cdb",
       "signal_cable_l",
       "pdb",
       "m4_esc_cable",
-      "esc4",
-      "motor4"
+      "esc_4",
+      "motor_4"
     ],
-    "motor5": [
+    "motor_5": [
       "avionics",
       "cdb",
       "m1_esc_cable",
-      "esc5",
-      "motor5"
+      "esc_5",
+      "motor_5"
     ],
-    "motor6": [
+    "motor_6": [
       "avionics",
       "cdb",
       "m2_esc_cable",
-      "esc6",
-      "motor6"
+      "esc_6",
+      "motor_6"
     ],
-    "motor7": [
+    "motor_7": [
       "avionics",
       "cdb",
       "signal_cable_l",
       "pdb",
       "m3_esc_cable",
-      "esc7",
-      "motor7"
+      "esc_7",
+      "motor_7"
     ],
-    "motor8": [
+    "motor_8": [
       "avionics",
       "cdb",
       "signal_cable_l",
       "pdb",
       "m4_esc_cable",
-      "esc8",
-      "motor8"
+      "esc_8",
+      "motor_8"
     ],
     "front_esc_cable_l": [
       "avionics",
@@ -321,41 +321,41 @@
       "spray_adapter",
       "liquid_level"
     ],
-    "pump1": [
+    "pump_1": [
       "spray_board",
       "cdb",
       "spray_adapt_cable",
       "spray_signal_cable",
       "spray_adapter",
       "impeller_pump_cable",
-      "pump1"
+      "pump_1"
     ],
-    "pump2": [
+    "pump_2": [
       "spray_board",
       "cdb",
       "spray_adapt_cable",
       "spray_signal_cable",
       "spray_adapter",
       "impeller_pump_cable",
-      "pump2"
+      "pump_2"
     ],
-    "centrifugal_motor1": [
+    "centrifugal_motor_1": [
       "spray_board",
       "cdb",
       "signal_cable_l",
       "pdb",
       "m3_esc_cable",
       "centrifugal_cable_l",
-      "centrifugal_motor1"
+      "centrifugal_motor_1"
     ],
-    "centrifugal_motor2": [
+    "centrifugal_motor_2": [
       "spray_board",
       "cdb",
       "signal_cable_l",
       "pdb",
       "m4_esc_cable",
       "centrifugal_cable_r",
-      "centrifugal_motor2"
+      "centrifugal_motor_2"
     ],
     "spray_adapt_cable": [
       "spray_board",
