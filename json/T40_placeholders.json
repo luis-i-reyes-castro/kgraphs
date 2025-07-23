@@ -14,8 +14,24 @@
     "values" : "1,2"
     },
     {
-    "key" : "NOZZLE",
-    "values" : "1,2"
+    "key" : "PUMP_ARM",
+    "values" :
+    {
+        "if" : "PUMP",
+        "is" : "1",
+        "then" : "3",
+        "else" : "4"
+    }
+    },
+    {
+    "key" : "PUMP_SIDE",
+    "values" :
+    {
+        "if" : "PUMP",
+        "is" : "1",
+        "then" : "l",
+        "else" : "r"
+    }
     }
 ]
 }
