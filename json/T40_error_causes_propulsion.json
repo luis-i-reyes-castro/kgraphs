@@ -1,205 +1,167 @@
 {
-"T40_error_causes_propulsion": [
-
+"T40_error_causes_propulsion":
+[
 {
-"errors": [
-    "error_esc_1",
-    "error_esc_1_self_check",
-    "error_esc_1_voltage_low",
-    "error_esc_1_disconnected",
-    "error_esc_1_backup_throttle_lost",
-    "error_esc_1_throttle_cycle_exception"
+    "placeholders" :
+    [
+        {
+        "key" : "MOTOR_FRONT",
+        "values" : "1,2,5,6"
+        },
+        {
+        "key" : "MOTOR_BACK",
+        "values" : "3,4,7,8"
+        }
+    ]
+},
+{
+"errors":
+[
+    "error_esc_(MOTOR_FRONT)",
+    "error_esc_(MOTOR_FRONT)_self_check",
+    "error_esc_(MOTOR_FRONT)_voltage_low",
+    "error_esc_(MOTOR_FRONT)_disconnected",
+    "error_esc_(MOTOR_FRONT)_backup_throttle_lost",
+    "error_esc_(MOTOR_FRONT)_throttle_cycle_exception"
 ],
-"causes": [
-    {"component": "avionics", "probability": "low"},
-    {"component": "cdb", "probability": "low"},
-    {"component": "front_esc_cable_l", "probability": "low"},
-    {"component": "esc_1_cable", "probability": "high"},
-    {"component": "esc_1", "probability": "high"}
+"causes":
+[
+    {
+    "component": "avionics",
+    "probability": "low"
+    },
+    {
+    "component": "cdb",
+    "probability": "low"
+    },
+    {
+    "component":
+    [
+        {"if" : "MOTOR_FRONT",
+         "is" : "1,5",
+         "then" : "front_esc_cable_l" },
+        {"if" : "MOTOR_FRONT",
+         "is" : "2,6",
+         "then" : "front_esc_cable_r" }
+    ],
+    "probability": "low"
+    },
+    {
+    "component":
+    [
+        {"if" : "MOTOR_FRONT",
+         "is" : "1,5",
+         "then" : "m1_esc_cable" },
+        {"if" : "MOTOR_FRONT",
+         "is" : "2,6",
+         "then" : "m2_esc_cable" }
+    ],
+    "probability": "high"
+    },
+    {
+    "component": "esc(MOTOR_FRONT)",
+    "probability": "high"
+    },
+    {
+    "component": "motor(MOTOR_FRONT)",
+    "probability": "medium"
+    }
 ]
 },
-
 {
-"errors": [
-    "error_esc_2",
-    "error_esc_2_self_check",
-    "error_esc_2_voltage_low",
-    "error_esc_2_disconnected",
-    "error_esc_2_backup_throttle_lost",
-    "error_esc_2_throttle_cycle_exception"
+"errors":
+[
+    "error_esc_(MOTOR_BACK)",
+    "error_esc_(MOTOR_BACK)_self_check",
+    "error_esc_(MOTOR_BACK)_voltage_low",
+    "error_esc_(MOTOR_BACK)_disconnected",
+    "error_esc_(MOTOR_BACK)_backup_throttle_lost",
+    "error_esc_(MOTOR_BACK)_throttle_cycle_exception"
 ],
-"causes": [
-    {"component": "avionics", "probability": "low"},
-    {"component": "cdb", "probability": "low"},
-    {"component": "front_esc_cable_r", "probability": "low"},
-    {"component": "esc_2_cable", "probability": "high"},
-    {"component": "esc_2", "probability": "high"}
+"causes":
+[
+    {
+    "component": "avionics",
+    "probability": "low"
+    },
+    {
+    "component": "cdb",
+    "probability": "low"
+    },
+    {
+    "component": "signal_cable_r",
+    "probability": "low"
+    },
+    {
+    "component": "pdb",
+    "probability": "medium"
+    },
+    {
+    "component":
+    [
+        {"if" : "MOTOR_BACK",
+         "is" : "3,7",
+         "then" : "m3_esc_cable" },
+        {"if" : "MOTOR_BACK",
+         "is" : "4,8",
+         "then" : "m4_esc_cable" }
+    ],
+    "probability": "high"
+    },
+    {
+    "component": "esc(MOTOR_BACK)",
+    "probability": "high"
+    },
+    {
+    "component": "motor(MOTOR_BACK)",
+    "probability": "medium"
+    }
 ]
 },
-
 {
-"errors": [
-    "error_esc_3",
-    "error_esc_3_self_check",
-    "error_esc_3_voltage_low",
-    "error_esc_3_disconnected",
-    "error_esc_3_throttle_cycle_exception"
+"errors":
+[
+    "error_esc_(MOTOR_BACK)_backup_throttle_lost"
 ],
-"causes": [
-    {"component": "avionics", "probability": "low"},
-    {"component": "cdb", "probability": "low"},
-    {"component": "signal_cable_r", "probability": "low"},
-    {"component": "pdb", "probability": "low"},
-    {"component": "esc_3_cable", "probability": "high"},
-    {"component": "esc_3", "probability": "high"}
-]
-},
-
-{
-"errors": [
-    "error_esc_3_backup_throttle_lost"
-],
-"causes": [
-    {"component": "avionics", "probability": "low"},
-    {"component": "cdb", "probability": "low"},
-    {"component": "signal_cable_l", "probability": "low"},
-    {"component": "pdb", "probability": "low"},
-    {"component": "esc_3_cable", "probability": "high"},
-    {"component": "esc_3", "probability": "high"}
-]
-},
-
-{
-"errors": [
-    "error_esc_4",
-    "error_esc_4_self_check",
-    "error_esc_4_voltage_low",
-    "error_esc_4_disconnected",
-    "error_esc_4_throttle_cycle_exception"
-],
-"causes": [
-    {"component": "avionics", "probability": "low"},
-    {"component": "cdb", "probability": "low"},
-    {"component": "signal_cable_r", "probability": "low"},
-    {"component": "pdb", "probability": "low"},
-    {"component": "esc_4_cable", "probability": "high"},
-    {"component": "esc_4", "probability": "high"}
-]
-},
-
-{
-"errors": [
-    "error_esc_4_backup_throttle_lost"
-],
-"causes": [
-    {"component": "avionics", "probability": "low"},
-    {"component": "cdb", "probability": "low"},
-    {"component": "signal_cable_l", "probability": "low"},
-    {"component": "pdb", "probability": "low"},
-    {"component": "esc_4_cable", "probability": "high"},
-    {"component": "esc_4", "probability": "high"}
-]
-},
-
-{
-"errors": [
-    "error_esc_5",
-    "error_esc_5_self_check",
-    "error_esc_5_voltage_low",
-    "error_esc_5_disconnected",
-    "error_esc_5_backup_throttle_lost",
-    "error_esc_5_throttle_cycle_exception"
-],
-"causes": [
-    {"component": "avionics", "probability": "low"},
-    {"component": "cdb", "probability": "low"},
-    {"component": "front_esc_cable_l", "probability": "low"},
-    {"component": "esc_1_cable", "probability": "high"},
-    {"component": "esc_5", "probability": "high"}
-]
-},
-
-{
-"errors": [
-    "error_esc_6",
-    "error_esc_6_self_check",
-    "error_esc_6_voltage_low",
-    "error_esc_6_disconnected",
-    "error_esc_6_backup_throttle_lost",
-    "error_esc_6_throttle_cycle_exception"
-],
-"causes": [
-    {"component": "avionics", "probability": "low"},
-    {"component": "cdb", "probability": "low"},
-    {"component": "front_esc_cable_r", "probability": "low"},
-    {"component": "esc_2_cable", "probability": "high"},
-    {"component": "esc_6", "probability": "high"}
-]
-},
-
-{
-"errors": [
-    "error_esc_7",
-    "error_esc_7_self_check",
-    "error_esc_7_voltage_low",
-    "error_esc_7_disconnected",
-    "error_esc_7_throttle_cycle_exception"
-],
-"causes": [
-    {"component": "avionics", "probability": "low"},
-    {"component": "cdb", "probability": "low"},
-    {"component": "signal_cable_r", "probability": "low"},
-    {"component": "pdb", "probability": "low"},
-    {"component": "esc_3_cable", "probability": "high"},
-    {"component": "esc_7", "probability": "high"}
-]
-},
-
-{
-"errors": [
-    "error_esc_7_backup_throttle_lost"
-],
-"causes": [
-    {"component": "avionics", "probability": "low"},
-    {"component": "cdb", "probability": "low"},
-    {"component": "signal_cable_l", "probability": "low"},
-    {"component": "pdb", "probability": "low"},
-    {"component": "esc_3_cable", "probability": "high"},
-    {"component": "esc_7", "probability": "high"}
-]
-},
-
-{
-"errors": [
-    "error_esc_8",
-    "error_esc_8_self_check",
-    "error_esc_8_voltage_low",
-    "error_esc_8_disconnected",
-    "error_esc_8_throttle_cycle_exception"
-],
-"causes": [
-    {"component": "avionics", "probability": "low"},
-    {"component": "cdb", "probability": "low"},
-    {"component": "signal_cable_r", "probability": "low"},
-    {"component": "pdb", "probability": "low"},
-    {"component": "esc_4_cable", "probability": "high"},
-    {"component": "esc_8", "probability": "high"}
-]
-},
-
-{
-"errors": [
-    "error_esc_8_backup_throttle_lost"
-],
-"causes": [
-    {"component": "avionics", "probability": "low"},
-    {"component": "cdb", "probability": "low"},
-    {"component": "signal_cable_l", "probability": "low"},
-    {"component": "pdb", "probability": "low"},
-    {"component": "esc_4_cable", "probability": "high"},
-    {"component": "esc_8", "probability": "high"}
+"causes":
+[
+    {
+    "component": "avionics",
+    "probability": "low"
+    },
+    {
+    "component": "cdb",
+    "probability": "low"
+    },
+    {
+    "component": "signal_cable_l",
+    "probability": "low"
+    },
+    {
+    "component": "pdb",
+    "probability": "medium"
+    },
+    {
+    "component":
+    [
+        {"if" : "MOTOR_BACK",
+         "is" : "3,7",
+         "then" : "m3_esc_cable" },
+        {"if" : "MOTOR_BACK",
+         "is" : "4,8",
+         "then" : "m4_esc_cable" }
+    ],
+    "probability": "high"
+    },
+    {
+    "component": "esc(MOTOR_BACK)",
+    "probability": "high"
+    },
+    {
+    "component": "motor(MOTOR_BACK)",
+    "probability": "medium"
+    }
 ]
 }
-
 ]
 }
