@@ -50,8 +50,8 @@
 "signal_cable_(SIDE)":
 {
   "type": "cable",
-  "name": "Signal Cable ((SIDE_ENG))",
-  "name_spanish": "Cable de Señal ((SIDE_SPA))",
+  "name": "Signal Cable ((ENG(SIDE)))",
+  "name_spanish": "Cable de Señal ((SPA(SIDE)))",
   "material_num": "YC.XC.XX000840",
   "material_name": "Signal Cable"
 }
