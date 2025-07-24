@@ -1,277 +1,86 @@
 {
-"error_esc_1": {
-    "name": "ESC 1 error",
-    "name_spanish": "Error del ESC 1"
+"error_esc_(MOTOR)":
+{
+    "name": "ESC (MOTOR) error",
+    "name_spanish": "Error del ESC (MOTOR)"
 },
-"error_esc_2": {
-    "name": "ESC 2 error",
-    "name_spanish": "Error del ESC 2"
+"error_esc_(MOTOR)_self_check":
+{
+    "name": "ESC (MOTOR) self-check error",
+    "name_spanish": "Error de autocomprobación del ESC (MOTOR)"
 },
-"error_esc_3": {
-    "name": "ESC 3 error",
-    "name_spanish": "Error del ESC 3"
+"error_esc_(MOTOR)_voltage_low":
+{
+    "name": "ESC (MOTOR) voltage too low",
+    "name_spanish": "Voltaje del ESC (MOTOR) demasiado bajo"
 },
-"error_esc_4": {
-    "name": "ESC 4 error",
-    "name_spanish": "Error del ESC 4"
+"error_esc_(MOTOR)_disconnected":
+{
+    "name": "ESC (MOTOR) disconnected",
+    "name_spanish": "ESC (MOTOR) desconectado"
 },
-"error_esc_5": {
-    "name": "ESC 5 error",
-    "name_spanish": "Error del ESC 5"
+"error_esc_(MOTOR)_backup_throttle_lost":
+{
+    "name": "Motor (MOTOR) backup throttle lost. Stop the flight immediately.",
+    "name_spanish": "Se ha perdido el acelerador de repuesto del motor (MOTOR). Detenga el vuelo inmediatamente."
 },
-"error_esc_6": {
-    "name": "ESC 6 error",
-    "name_spanish": "Error del ESC 6"
+"error_esc_(MOTOR)_throttle_cycle_exception":
+{
+    "name": "Motor (MOTOR) throttle cycle exception",
+    "name_spanish": "Excepción de ciclo de acelerador del motor (MOTOR)"
 },
-"error_esc_7": {
-    "name": "ESC 7 error",
-    "name_spanish": "Error del ESC 7"
+"error_motor_(MOTOR)_jammed":
+{
+    "name": "Motor (MOTOR) jammed. Stop the flight immediately.",
+    "name_spanish": "Motor (MOTOR) atascado. Detenga el vuelo inmediatamente."
 },
-"error_esc_8": {
-    "name": "ESC 8 error",
-    "name_spanish": "Error del ESC 8"
+"error_arm_(ARM)_not_securely_fastened":
+{
+    "name": "Aircraft arm (ARM) not securely fastened",
+    "name_spanish": "El brazo (ARM) no está bien sujeto"
 },
-"error_esc_1_self_check": {
-    "name": "ESC 1 self-check error",
-    "name_spanish": "Error de autocomprobación del ESC 1"
-},
-"error_esc_2_self_check": {
-    "name": "ESC 2 self-check error",
-    "name_spanish": "Error de autocomprobación del ESC 2"
-},
-"error_esc_3_self_check": {
-    "name": "ESC 3 self-check error",
-    "name_spanish": "Error de autocomprobación del ESC 3"
-},
-"error_esc_4_self_check": {
-    "name": "ESC 4 self-check error",
-    "name_spanish": "Error de autocomprobación del ESC 4"
-},
-"error_esc_5_self_check": {
-    "name": "ESC 5 self-check error",
-    "name_spanish": "Error de autocomprobación del ESC 5"
-},
-"error_esc_6_self_check": {
-    "name": "ESC 6 self-check error",
-    "name_spanish": "Error de autocomprobación del ESC 6"
-},
-"error_esc_7_self_check": {
-    "name": "ESC 7 self-check error",
-    "name_spanish": "Error de autocomprobación del ESC 7"
-},
-"error_esc_8_self_check": {
-    "name": "ESC 8 self-check error",
-    "name_spanish": "Error de autocomprobación del ESC 8"
-},
-"error_esc_1_voltage_low": {
-    "name": "ESC 1 voltage too low",
-    "name_spanish": "Voltaje del ESC 1 demasiado bajo"
-},
-"error_esc_2_voltage_low": {
-    "name": "ESC 2 voltage too low",
-    "name_spanish": "Voltaje del ESC 2 demasiado bajo"
-},
-"error_esc_3_voltage_low": {
-    "name": "ESC 3 voltage too low",
-    "name_spanish": "Voltaje del ESC 3 demasiado bajo"
-},
-"error_esc_4_voltage_low": {
-    "name": "ESC 4 voltage too low",
-    "name_spanish": "Voltaje del ESC 4 demasiado bajo"
-},
-"error_esc_5_voltage_low": {
-    "name": "ESC 5 voltage too low",
-    "name_spanish": "Voltaje del ESC 5 demasiado bajo"
-},
-"error_esc_6_voltage_low": {
-    "name": "ESC 6 voltage too low",
-    "name_spanish": "Voltaje del ESC 6 demasiado bajo"
-},
-"error_esc_7_voltage_low": {
-    "name": "ESC 7 voltage too low",
-    "name_spanish": "Voltaje del ESC 7 demasiado bajo"
-},
-"error_esc_8_voltage_low": {
-    "name": "ESC 8 voltage too low",
-    "name_spanish": "Voltaje del ESC 8 demasiado bajo"
-},
-"error_esc_1_disconnected": {
-    "name": "ESC 1 disconnected",
-    "name_spanish": "ESC 1 desconectado"
-},
-"error_esc_2_disconnected": {
-    "name": "ESC 2 disconnected",
-    "name_spanish": "ESC 2 desconectado"
-},
-"error_esc_3_disconnected": {
-    "name": "ESC 3 disconnected",
-    "name_spanish": "ESC 3 desconectado"
-},
-"error_esc_4_disconnected": {
-    "name": "ESC 4 disconnected",
-    "name_spanish": "ESC 4 desconectado"
-},
-"error_esc_5_disconnected": {
-    "name": "ESC 5 disconnected",
-    "name_spanish": "ESC 5 desconectado"
-},
-"error_esc_6_disconnected": {
-    "name": "ESC 6 disconnected",
-    "name_spanish": "ESC 6 desconectado"
-},
-"error_esc_7_disconnected": {
-    "name": "ESC 7 disconnected",
-    "name_spanish": "ESC 7 desconectado"
-},
-"error_esc_8_disconnected": {
-    "name": "ESC 8 disconnected",
-    "name_spanish": "ESC 8 desconectado"
-},
-"error_esc_1_backup_throttle_lost": {
-    "name": "Motor 1 backup throttle lost. Stop the flight immediately.",
-    "name_spanish": "Se ha perdido el acelerador de repuesto del motor 1. Detenga el vuelo inmediatamente."
-},
-"error_esc_2_backup_throttle_lost": {
-    "name": "Motor 2 backup throttle lost. Stop the flight immediately.",
-    "name_spanish": "Se ha perdido el acelerador de repuesto del motor 2. Detenga el vuelo inmediatamente."
-},
-"error_esc_3_backup_throttle_lost": {
-    "name": "Motor 3 backup throttle lost. Stop the flight immediately.",
-    "name_spanish": "Se ha perdido el acelerador de repuesto del motor 3. Detenga el vuelo inmediatamente."
-},
-"error_esc_4_backup_throttle_lost": {
-    "name": "Motor 4 backup throttle lost. Stop the flight immediately.",
-    "name_spanish": "Se ha perdido el acelerador de repuesto del motor 4. Detenga el vuelo inmediatamente."
-},
-"error_esc_5_backup_throttle_lost": {
-    "name": "Motor 5 backup throttle lost. Stop the flight immediately.",
-    "name_spanish": "Se ha perdido el acelerador de repuesto del motor 5. Detenga el vuelo inmediatamente."
-},
-"error_esc_6_backup_throttle_lost": {
-    "name": "Motor 6 backup throttle lost. Stop the flight immediately.",
-    "name_spanish": "Se ha perdido el acelerador de repuesto del motor 6. Detenga el vuelo inmediatamente."
-},
-"error_esc_7_backup_throttle_lost": {
-    "name": "Motor 7 backup throttle lost. Stop the flight immediately.",
-    "name_spanish": "Se ha perdido el acelerador de repuesto del motor 7. Detenga el vuelo inmediatamente."
-},
-"error_esc_8_backup_throttle_lost": {
-    "name": "Motor 8 backup throttle lost. Stop the flight immediately.",
-    "name_spanish": "Se ha perdido el acelerador de repuesto del motor 8. Detenga el vuelo inmediatamente."
-},
-"error_esc_1_throttle_cycle_exception": {
-    "name": "Motor 1 throttle cycle exception",
-    "name_spanish": "Excepción de ciclo de acelerador del motor 1"
-},
-"error_esc_2_throttle_cycle_exception": {
-    "name": "Motor 2 throttle cycle exception",
-    "name_spanish": "Excepción de ciclo de acelerador del motor 2"
-},
-"error_esc_3_throttle_cycle_exception": {
-    "name": "Motor 3 throttle cycle exception",
-    "name_spanish": "Excepción de ciclo de acelerador del motor 3"
-},
-"error_esc_4_throttle_cycle_exception": {
-    "name": "Motor 4 throttle cycle exception",
-    "name_spanish": "Excepción de ciclo de acelerador del motor 4"
-},
-"error_esc_5_throttle_cycle_exception": {
-    "name": "Motor 5 throttle cycle exception",
-    "name_spanish": "Excepción de ciclo de acelerador del motor 5"
-},
-"error_esc_6_throttle_cycle_exception": {
-    "name": "Motor 6 throttle cycle exception",
-    "name_spanish": "Excepción de ciclo de acelerador del motor 6"
-},
-"error_esc_7_throttle_cycle_exception": {
-    "name": "Motor 7 throttle cycle exception",
-    "name_spanish": "Excepción de ciclo de acelerador del motor 7"
-},
-"error_esc_8_throttle_cycle_exception": {
-    "name": "Motor 8 throttle cycle exception",
-    "name_spanish": "Excepción de ciclo de acelerador del motor 8"
-},
-"error_motor_1_jammed": {
-    "name": "Motor 1 jammed. Stop the flight immediately.",
-    "name_spanish": "Motor 1 atascado. Detenga el vuelo inmediatamente."
-},
-"error_motor_2_jammed": {
-    "name": "Motor 2 jammed. Stop the flight immediately.",
-    "name_spanish": "Motor 2 atascado. Detenga el vuelo inmediatamente."
-},
-"error_motor_3_jammed": {
-    "name": "Motor 3 jammed. Stop the flight immediately.",
-    "name_spanish": "Motor 3 atascado. Detenga el vuelo inmediatamente."
-},
-"error_motor_4_jammed": {
-    "name": "Motor 4 jammed. Stop the flight immediately.",
-    "name_spanish": "Motor 4 atascado. Detenga el vuelo inmediatamente."
-},
-"error_motor_5_jammed": {
-    "name": "Motor 5 jammed. Stop the flight immediately.",
-    "name_spanish": "Motor 5 atascado. Detenga el vuelo inmediatamente."
-},
-"error_motor_6_jammed": {
-    "name": "Motor 6 jammed. Stop the flight immediately.",
-    "name_spanish": "Motor 6 atascado. Detenga el vuelo inmediatamente."
-},
-"error_motor_7_jammed": {
-    "name": "Motor 7 jammed. Stop the flight immediately.",
-    "name_spanish": "Motor 7 atascado. Detenga el vuelo inmediatamente."
-},
-"error_motor_8_jammed": {
-    "name": "Motor 8 jammed. Stop the flight immediately.",
-    "name_spanish": "Motor 8 atascado. Detenga el vuelo inmediatamente."
-},
-"error_arm_1_not_securely_fastened": {
-    "name": "Aircraft arm 1 not securely fastened",
-    "name_spanish": "El brazo 1 no está bien sujeto"
-},
-"error_arm_2_not_securely_fastened": {
-    "name": "Aircraft arm 2 not securely fastened",
-    "name_spanish": "El brazo 2 no está bien sujeto"
-},
-"error_arm_3_not_securely_fastened": {
-    "name": "Aircraft arm 3 not securely fastened",
-    "name_spanish": "El brazo 3 no está bien sujeto"
-},
-"error_arm_4_not_securely_fastened": {
-    "name": "Aircraft arm 4 not securely fastened",
-    "name_spanish": "El brazo 4 no está bien sujeto"
-},
-"error_battery_flight_controller_communication_error": {
+"error_battery_flight_controller_communication_error":
+{
     "name": "Communication error between flight controller and battery",
     "name_spanish": "Error de comunicación entre el controlador de vuelo y la batería"
 },
-"error_battery_authentication_failed": {
+"error_battery_authentication_failed":
+{
     "name": "Battery authentication failed",
     "name_spanish": "Ha fallado la autenticación de la batería"
 },
-"error_battery_self_check": {
+"error_battery_self_check":
+{
     "name": "Battery self-check error. Do not take off.",
     "name_spanish": "Error de comprobación automática de la batería. No despegue."
 },
-"error_battery_voltage": {
+"error_battery_voltage":
+{
     "name": "Battery voltage error",
     "name_spanish": "Error de voltaje de la batería"
 },
-"error_battery_voltage_too_low": {
+"error_battery_voltage_too_low":
+{
     "name": "Battery voltage too low. Emergency landing in progress.",
     "name_spanish": "Salida de voltaje de la batería demasiado baja. Aterrizaje forzoso en curso."
 },
-"error_battery_voltage_too_high": {
+"error_battery_voltage_too_high":
+{
     "name": "Battery voltage too high. Emergency landing in progress.",
     "name_spanish": "Salida de voltaje de la batería demasiado alta. Aterrizaje forzoso en curso."
 },
-"error_battery_mos_overheating": {
+"error_battery_mos_overheating":
+{
     "name": "Battery MOS overheating",
     "name_spanish": "Sobrecalentamiento MOS de la batería"
 },
-"error_battery_maintenance_required": {
+"error_battery_maintenance_required":
+{
     "name": "Battery maintenance required",
     "name_spanish": "Se requiere mantenimiento de la batería"
 },
-"error_abnormal_vibration": {
+"error_abnormal_vibration":
+{
     "name": "Abnormal vibration on the aircraft arms. Crash risk. Immediate maintenance required.",
     "name_spanish": "Vibración anormal en los brazos del bastidor. Riesgo de choque. Se requiere mantenimiento inmediato."
 }
