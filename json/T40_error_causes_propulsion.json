@@ -22,27 +22,11 @@
     "probability": "low"
     },
     {
-    "component":
-    [
-        {"if" : "MOTOR_FRONT",
-         "is" : "1,5",
-         "then" : "front_esc_cable_l" },
-        {"if" : "MOTOR_FRONT",
-         "is" : "2,6",
-         "then" : "front_esc_cable_r" }
-    ],
+    "component": "front_esc_cable_(MOTOR_FRONT_POWER_CABLE_SIDE)",
     "probability": "low"
     },
     {
-    "component":
-    [
-        {"if" : "MOTOR_FRONT",
-         "is" : "1,5",
-         "then" : "m1_esc_cable" },
-        {"if" : "MOTOR_FRONT",
-         "is" : "2,6",
-         "then" : "m2_esc_cable" }
-    ],
+    "component": "m(MOTOR_FRONT_ARM)_esc_cable",
     "probability": "high"
     },
     {
@@ -83,15 +67,7 @@
     "probability": "medium"
     },
     {
-    "component":
-    [
-        {"if" : "MOTOR_BACK",
-         "is" : "3,7",
-         "then" : "m3_esc_cable" },
-        {"if" : "MOTOR_BACK",
-         "is" : "4,8",
-         "then" : "m4_esc_cable" }
-    ],
+    "component": "m(MOTOR_BACK_ARM)_esc_cable",
     "probability": "high"
     },
     {
@@ -121,22 +97,14 @@
     },
     {
     "component": "signal_cable_l",
-    "probability": "low"
+    "probability": "medium"
     },
     {
     "component": "pdb",
     "probability": "medium"
     },
     {
-    "component":
-    [
-        {"if" : "MOTOR_BACK",
-         "is" : "3,7",
-         "then" : "m3_esc_cable" },
-        {"if" : "MOTOR_BACK",
-         "is" : "4,8",
-         "then" : "m4_esc_cable" }
-    ],
+    "component": "m(MOTOR_BACK_ARM)_esc_cable",
     "probability": "high"
     },
     {
