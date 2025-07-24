@@ -30,6 +30,14 @@
     "values" : "1,2,3,4"
     },
     {
+    "key" : "ARM_FRONT",
+    "values" : "1,2"
+    },
+    {
+    "key" : "ARM_BACK",
+    "values" : "3,4"
+    },
+    {
     "key" : "MOTOR",
     "values" : "1,2,3,4,5,6,7,8"
     },
@@ -94,6 +102,10 @@
         "then" : "l",
         "else" : "r"
     }
+    },
+    {
+    "key" : "NOZZLE",
+    "values" : "1,2"
     }
 ]
 }

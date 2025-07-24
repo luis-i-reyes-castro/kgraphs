@@ -1,5 +1,6 @@
 {
-"fwd_vision": {
+"fwd_vision":
+{
     "id": "fwd_vision",
     "type": "sensor",
     "name": "Forward Vision Sensors",
@@ -7,7 +8,8 @@
     "material_num": "BC.AG.SS000562",
     "material_name": "Forward Vision Sensor Module"
 },
-"fpv_camera": {
+"fpv_camera":
+{
     "id": "fpv_camera",
     "type": "sensor",
     "name": "FPV Camera",
@@ -15,7 +17,8 @@
     "material_num": "BC.AG.SS000549",
     "material_name": "FPV Module"
 },
-"barometer": {
+"barometer":
+{
     "id": "barometer",
     "type": "sensor",
     "name": "Barometer",
@@ -23,39 +26,26 @@
     "material_num": "NA",
     "material_name": "Barometer Module"
 },
-"sdr_ant_l": {
-    "id": "sdr_ant_l",
+"sdr_ant_(SIDE)":
+{
+    "id": "sdr_ant_(SIDE)",
     "type": "antenna",
-    "name": "SDR Antenna (L)",
-    "name_spanish": "Antena SDR (Izquierda)",
+    "name": "SDR Antenna ((SIDE_ENG))",
+    "name_spanish": "Antena SDR ((SIDE_SPA))",
     "material_num": "YC.DZ.AA000275",
     "material_name": "SDR Antenna"
 },
-"sdr_ant_r": {
-    "id": "sdr_ant_r",
+"rtk_ant_(SIDE)":
+{
+    "id": "rtk_ant_(SIDE)",
     "type": "antenna",
-    "name": "SDR Antenna (R)",
-    "name_spanish": "Antena SDR (Derecha)",
-    "material_num": "YC.DZ.AA000275",
-    "material_name": "SDR Antenna"
-},
-"rtk_ant_l": {
-    "id": "rtk_ant_l",
-    "type": "antenna",
-    "name": "RTK Antenna (L)",
-    "name_spanish": "Antena RTK (Izquierda)",
+    "name": "RTK Antenna ((SIDE_ENG))",
+    "name_spanish": "Antena RTK ((SIDE_SPA))",
     "material_num": "BC.AG.SS000560",
     "material_name": "RTK Antenna Module"
 },
-"rtk_ant_r": {
-    "id": "rtk_ant_r",
-    "type": "antenna",
-    "name": "RTK Antenna (R)",
-    "name_spanish": "Antena RTK (Derecha)",
-    "material_num": "BC.AG.SS000560",
-    "material_name": "RTK Antenna Module"
-},
-"omni_radar": {
+"omni_radar":
+{
     "id": "omni_radar",
     "type": "sensor",
     "name": "Omnidirectional Radar",
@@ -63,7 +53,8 @@
     "material_num": "BC.AG.SS000551",
     "material_name": "Omnidirectional Radar Module"
 },
-"bwd_radar": {
+"bwd_radar":
+{
     "id": "bwd_radar",
     "type": "sensor",
     "name": "Backward Vision Radar",
@@ -71,23 +62,17 @@
     "material_num": "BC.AG.SS000655",
     "material_name": "Backward Vision Radar Module"
 },
-"rtk_cable_l": {
-    "id": "rtk_cable_l",
+"rtk_cable_(SIDE)":
+{
+    "id": "rtk_cable_(SIDE)",
     "type": "cable",
-    "name": "RTK Coaxial Cable (L)",
-    "name_spanish": "Cable Coaxial RTK (Izquierdo)",
+    "name": "RTK Coaxial Cable ((SIDE_ENG))",
+    "name_spanish": "Cable Coaxial RTK ((SIDE_SPA))",
     "material_num": "YC.XC.TT000104",
     "material_name": "RTK Coaxial Cable"
 },
-"rtk_cable_r": {
-    "id": "rtk_cable_r", 
-    "type": "cable",
-    "name": "RTK Coaxial Cable (R)",
-    "name_spanish": "Cable Coaxial RTK (Derecho)",
-    "material_num": "YC.XC.TT000104",
-    "material_name": "RTK Coaxial Cable"
-},
-"omni_radar_cable": {
+"omni_radar_cable":
+{
     "id": "omni_radar_cable",
     "type": "cable",
     "name": "Omnidirectional Radar Signal Cable",
@@ -95,7 +80,8 @@
     "material_num": "YC.XC.XX000844",
     "material_name": "Omnidirectional Radar Signal Cable"
 },
-"bwd_radar_cable": {
+"bwd_radar_cable":
+{
     "id": "bwd_radar_cable",
     "type": "cable",
     "name": "Backward Vision Radar Signal Cable",
