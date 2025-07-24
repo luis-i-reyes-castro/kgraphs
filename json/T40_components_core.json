@@ -41,17 +41,10 @@
 "material_num": "BC.AG.SS000554",
 "material_name": "Spraying Board"
 },
-"signal_cable_l": {
+"signal_cable_(SIDE)": {
   "type": "cable",
-  "name": "Signal Cable (L)",
-  "name_spanish": "Cable de Señal (Izquierdo)",
-  "material_num": "YC.XC.XX000840",
-  "material_name": "Signal Cable"
-},
-"signal_cable_r": {
-  "type": "cable",
-  "name": "Signal Cable (R)",
-  "name_spanish": "Cable de Señal (Derecho)",
+  "name": "Signal Cable ((SIDE_ENG))",
+  "name_spanish": "Cable de Señal ((SIDE_SPA))",
   "material_num": "YC.XC.XX000840",
   "material_name": "Signal Cable"
 }

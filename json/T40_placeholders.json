@@ -2,6 +2,30 @@
 "T40_placeholders":
 [
     {
+    "key" : "SIDE",
+    "values" : "l,r"
+    },
+    {
+    "key" : "SIDE_ENG",
+    "values" :
+    {
+        "if" : "SIDE",
+        "is" : "l",
+        "then" : "Left",
+        "else" : "Right"
+    }
+    },
+    {
+    "key" : "SIDE_SPA",
+    "values" :
+    {
+        "if" : "SIDE",
+        "is" : "l",
+        "then" : "Izquierda",
+        "else" : "Derecha"
+    }
+    },
+    {
     "key" : "ARM",
     "values" : "1,2,3,4"
     },
