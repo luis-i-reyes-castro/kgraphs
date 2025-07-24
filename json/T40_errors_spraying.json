@@ -74,35 +74,43 @@
   "name": "Centrifugal Nozzle (NOZZLE) temperature too high",
   "name_spanish": "Boquilla centrífuga (NOZZLE) Temperatura demasiado alta"
 },
-"error_single_point_hall_sensor": {
+"error_single_point_hall_sensor":
+{
   "name": "Single-point hall sensor error",
   "name_spanish": "Error en sensor de nivel de líquido Hall de punto único"
 },
-"error_single_point_hall_sensor_disconnected": {
+"error_single_point_hall_sensor_disconnected":
+{
   "name": "Single-point hall sensor disconnected",
   "name_spanish": "Sensor de nivel de líquido Hall de punto único desconectado"
 },
-"error_flow_meter_zero_calibration_exception": {
+"error_flow_meter_zero_calibration_exception":
+{
   "name": "Flow meter zero calibration exception",
   "name_spanish": "Excepción de puesta a cero del caudímetro"
 },
-"error_flow_meter_voltage_low": {
+"error_flow_meter_voltage_low":
+{
   "name": "Flow meter voltage too low",
   "name_spanish": "Voltaje de carga del caudímetro demasiado bajo"
 },
-"error_flow_meter_voltage_high": {
+"error_flow_meter_voltage_high":
+{
   "name": "Flow meter voltage too high",
   "name_spanish": "Voltaje de carga del caudímetro demasiado alto"
 },
-"error_flow_meter_disconnected": {
+"error_flow_meter_disconnected":
+{
   "name": "Flow meter disconnected",
   "name_spanish": "Caudímetro desconectado"
 },
-"error_load_sensor_cable_broken": {
+"error_load_sensor_cable_broken":
+{
   "name": "Load sensor cable broken",
   "name_spanish": "Cable de conexión del sensor de peso roto"
 },
-"error_load_exceeded": {
+"error_load_exceeded":
+{
   "name": "Load exceeded. Ensure the load is within the specified limits.",
   "name_spanish": "Se ha superado la capacidad de carga. Asegúrese de que la carga especificada se encuentra dentro..."
 }
