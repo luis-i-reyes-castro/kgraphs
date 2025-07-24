@@ -27,8 +27,8 @@ def load_placeholders():
     return set_map, func_map
 
 def find_set_placeholders(s):
-    # Matches _(SETNAME)
-    return re.findall(r'_\((\w+)\)', s)
+    # Matches (SETNAME)
+    return re.findall(r'\((\w+)\)', s)
 
 def find_function_placeholders(s):
     # Matches (FUNCTION(SETNAME))
@@ -43,7 +43,7 @@ def expand_top_level_dict(d, set_map, func_map):
             if set_name not in set_map:
                 continue
             for set_val in set_map[set_name]:
-                new_key = re.sub(r'_\(' + re.escape(set_name) + r'\)', f'_{set_val}', orig_key)
+                new_key = re.sub(r'\(' + re.escape(set_name) + r'\)', f'{set_val}', orig_key)
                 new_val = expand_value(orig_val, {set_name: set_val}, set_map, func_map)
                 result[new_key] = new_val
         else:
@@ -67,7 +67,6 @@ def expand_value(val, set_context, set_map, func_map):
         val = re.sub(r'\((\w+\(\w+\))\)', func_replacer, val)
         # 2. Replace set placeholders
         for set_name, set_val in set_context.items():
-            val = re.sub(r'_\(' + re.escape(set_name) + r'\)', f'_{set_val}', val)
             val = re.sub(r'\(' + re.escape(set_name) + r'\)', f'{set_val}', val)
         return val
     elif isinstance(val, dict):
@@ -101,6 +100,7 @@ def main():
     out_path = out_dir / input_path.name
     with open(out_path, 'w', encoding='utf-8') as f:
         json.dump(expanded, f, indent=2, ensure_ascii=False)
+        f.write('\n')
     print(f"✅ Wrote enumerated cases to {out_path}")
 
 if __name__ == "__main__":

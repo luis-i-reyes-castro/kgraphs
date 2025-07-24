@@ -1,22 +1,22 @@
 {
 "spray_board":
 {
-  "file": "T40_components_core.json",
+  "file": "components_core.json",
   "id": "spray_board"
 },
 "cdb":
 {
-  "file": "T40_components_core.json",
+  "file": "components_core.json",
   "id": "cdb"
 },
 "signal_cable_l":
 {
-  "file": "T40_components_core.json",
+  "file": "components_core.json",
   "id": "signal_cable_l"
 },
 "pdb":
 {
-  "file": "T40_components_core.json",
+  "file": "components_core.json",
   "id": "pdb"
 },
 "spray_adapter":
@@ -102,14 +102,14 @@
 },
 "m(ARM_BACK)_esc_cable":
 {
-  "file": "T40_components_propulsion.json",
+  "file": "components_propulsion.json",
   "id": "m(ARM_BACK)_esc_cable"
 },
 "centrifugal_cable_(SIDE)":
 {
   "type": "cable",
-  "name": "Centrifugal Sprinkler Signal Cable ((SIDE_ENG))",
-  "name_spanish": "Cable de Boquilla Centrífuga ((SIDE_SPA))",
+  "name": "Centrifugal Sprinkler Signal Cable ((ENG(SIDE)))",
+  "name_spanish": "Cable de Boquilla Centrífuga ((SPA(SIDE)))",
   "material_num": "YC.XC.XX000841",
   "material_name": "Centrifugal Sprinkler Signal Cable"
 }

@@ -30,8 +30,8 @@
 {
     "id": "sdr_ant_(SIDE)",
     "type": "antenna",
-    "name": "SDR Antenna ((SIDE_ENG))",
-    "name_spanish": "Antena SDR ((SIDE_SPA))",
+    "name": "SDR Antenna ((ENG(SIDE)))",
+    "name_spanish": "Antena SDR ((SPA(SIDE)))",
     "material_num": "YC.DZ.AA000275",
     "material_name": "SDR Antenna"
 },
@@ -39,8 +39,8 @@
 {
     "id": "rtk_ant_(SIDE)",
     "type": "antenna",
-    "name": "RTK Antenna ((SIDE_ENG))",
-    "name_spanish": "Antena RTK ((SIDE_SPA))",
+    "name": "RTK Antenna ((ENG(SIDE)))",
+    "name_spanish": "Antena RTK ((SPA(SIDE)))",
     "material_num": "BC.AG.SS000560",
     "material_name": "RTK Antenna Module"
 },
@@ -66,8 +66,8 @@
 {
     "id": "rtk_cable_(SIDE)",
     "type": "cable",
-    "name": "RTK Coaxial Cable ((SIDE_ENG))",
-    "name_spanish": "Cable Coaxial RTK ((SIDE_SPA))",
+    "name": "RTK Coaxial Cable ((ENG(SIDE)))",
+    "name_spanish": "Cable Coaxial RTK ((SPA(SIDE)))",
     "material_num": "YC.XC.TT000104",
     "material_name": "RTK Coaxial Cable"
 },

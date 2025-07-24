@@ -27,8 +27,8 @@
 "front_esc_cable_(SIDE)":
 {
   "type": "cable",
-  "name": "Front Aircraft Arm ESC Power Adapter Cable ((SIDE_ENG))",
-  "name_spanish": "Cable Adaptador de Potencia del Brazo Delantero ((SIDE_SPA))",
+  "name": "Front Aircraft Arm ESC Power Adapter Cable ((ENG(SIDE)))",
+  "name_spanish": "Cable Adaptador de Potencia del Brazo Delantero ((SPA(SIDE)))",
   "material_num": "YC.XC.DD000501",
   "material_name": "Front Aircraft Arm ESC Power Adapter Cable"
 },
