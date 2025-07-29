@@ -42,18 +42,15 @@
     {"from": "cdb", "to": "m(ARM_FRONT)_esc_cable"},
     {"from": "pdb", "to": "m(ARM_BACK)_esc_cable"},
     {"from": "pdb", "to": "front_esc_cable_(SIDE)"},
-    {"from": "front_esc_cable_l", "to": "m1_esc_cable"},
-    {"from": "front_esc_cable_r", "to": "m2_esc_cable"},
-    {"from": "m1_esc_cable", "to": "esc_(ARM_1_MOTOR)"},
-    {"from": "m2_esc_cable", "to": "esc_(ARM_2_MOTOR)"},
-    {"from": "m3_esc_cable", "to": "esc_(ARM_3_MOTOR)"},
-    {"from": "m4_esc_cable", "to": "esc_(ARM_4_MOTOR)"},
+    {"from": "m(ARM_FRONT)_esc_cable",
+     "to"  : "front_esc_cable_(POWER_CABLE_SIDE(ARM_FRONT))"},
+    {"from": "m(ARM)_esc_cable", "to": "esc_(MOTOR(ARM))"},
     {"from": "esc_(MOTOR)", "to": "motor_(MOTOR)"},
 
-    {"from": "m3_esc_cable", "to": "centrifugal_cable_l"},
-    {"from": "m4_esc_cable", "to": "centrifugal_cable_r"},
-    {"from": "centrifugal_cable_l", "to": "centrifugal_motor_1"},
-    {"from": "centrifugal_cable_r", "to": "centrifugal_motor_2"}
+    {"from": "m(ARM_BACK)_esc_cable",
+     "to"  : "centrifugal_cable_(SIDE(ARM_BACK))"},
+    {"from": "centrifugal_motor_(NOZZLE)",
+     "to"  : "centrifugal_cable_(SIDE(NOZZLE))"}
     
 ]
 }
