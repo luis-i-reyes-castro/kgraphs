@@ -35,20 +35,137 @@ def find_function_placeholders(s):
     return re.findall(r'\((\w+\(\w+\))\)', s)
 
 def expand_top_level_dict(d, set_map, func_map):
+    # Check if any keys contain placeholders
+    has_placeholders_in_keys = False
+    placeholder_sets_in_keys = set()
+    
+    # Check if any values contain placeholders
+    has_placeholders_in_values = False
+    placeholder_sets_in_values = set()
+    
+    for orig_key, orig_val in d.items():
+        set_phs_in_key = find_set_placeholders(orig_key)
+        if set_phs_in_key:
+            has_placeholders_in_keys = True
+            placeholder_sets_in_keys.update(set_phs_in_key)
+        
+        set_phs_in_val = find_set_placeholders(str(orig_val))
+        if set_phs_in_val:
+            has_placeholders_in_values = True
+            placeholder_sets_in_values.update(set_phs_in_val)
+    
+    # If placeholders in keys, use original logic
+    if has_placeholders_in_keys:
+        result = OrderedDict()
+        for orig_key, orig_val in d.items():
+            set_phs_in_key = find_set_placeholders(orig_key)
+            if set_phs_in_key:
+                set_name = set_phs_in_key[0]
+                if set_name not in set_map:
+                    continue
+                for set_val in set_map[set_name]:
+                    new_key = re.sub(r'\(' + re.escape(set_name) + r'\)', f'{set_val}', orig_key)
+                    new_val = expand_value(orig_val, {set_name: set_val}, set_map, func_map)
+                    result[new_key] = new_val
+            else:
+                new_val = expand_value(orig_val, {}, set_map, func_map)
+                result[orig_key] = new_val
+        return result
+    
+    # If placeholders only in values, handle based on value types
+    if has_placeholders_in_values:
+        # Find the first placeholder set that appears in values
+        first_placeholder_set = None
+        for set_name in placeholder_sets_in_values:
+            if set_name in set_map:
+                first_placeholder_set = set_name
+                break
+        
+        if first_placeholder_set is None:
+            # No valid placeholder sets found
+            result_dict = OrderedDict()
+            for orig_key, orig_val in d.items():
+                new_val = expand_value(orig_val, {}, set_map, func_map)
+                result_dict[orig_key] = new_val
+            return result_dict
+        
+        # Check if any value is a list (like in test2.json)
+        has_list_values = any(isinstance(val, list) for val in d.values())
+        
+        if has_list_values:
+            # For lists, expand placeholders within the list elements
+            result = OrderedDict()
+            for orig_key, orig_val in d.items():
+                if isinstance(orig_val, list):
+                    # Expand placeholders within list elements
+                    expanded_list = []
+                    for item in orig_val:
+                        if isinstance(item, dict):
+                            # Check if this dict item has placeholders
+                            item_has_placeholders = False
+                            item_placeholder_sets = set()
+                            for item_key, item_val in item.items():
+                                set_phs = find_set_placeholders(str(item_val))
+                                if set_phs:
+                                    item_has_placeholders = True
+                                    item_placeholder_sets.update(set_phs)
+                            
+                            if item_has_placeholders:
+                                # Find the first placeholder set
+                                first_item_placeholder_set = None
+                                for set_name in item_placeholder_sets:
+                                    if set_name in set_map:
+                                        first_item_placeholder_set = set_name
+                                        break
+                                
+                                if first_item_placeholder_set:
+                                    # Create separate items for each placeholder expansion
+                                    for set_val in set_map[first_item_placeholder_set]:
+                                        expanded_item = {}
+                                        for item_key, item_val in item.items():
+                                            expanded_item_val = expand_value(item_val, {first_item_placeholder_set: set_val}, set_map, func_map)
+                                            expanded_item[item_key] = expanded_item_val
+                                        expanded_list.append(expanded_item)
+                                else:
+                                    # No valid placeholder sets, expand normally
+                                    expanded_item = {}
+                                    for item_key, item_val in item.items():
+                                        expanded_item_val = expand_value(item_val, {}, set_map, func_map)
+                                        expanded_item[item_key] = expanded_item_val
+                                    expanded_list.append(expanded_item)
+                            else:
+                                # No placeholders, expand normally
+                                expanded_item = {}
+                                for item_key, item_val in item.items():
+                                    expanded_item_val = expand_value(item_val, {}, set_map, func_map)
+                                    expanded_item[item_key] = expanded_item_val
+                                expanded_list.append(expanded_item)
+                        else:
+                            # Non-dict item, expand placeholders directly
+                            expanded_item = expand_value(item, {}, set_map, func_map)
+                            expanded_list.append(expanded_item)
+                    result[orig_key] = expanded_list
+                else:
+                    # Non-list value, expand normally
+                    new_val = expand_value(orig_val, {}, set_map, func_map)
+                    result[orig_key] = new_val
+            return result
+        else:
+            # For non-list values, create separate objects for each expansion
+            result = []
+            for set_val in set_map[first_placeholder_set]:
+                new_obj = OrderedDict()
+                for orig_key, orig_val in d.items():
+                    new_val = expand_value(orig_val, {first_placeholder_set: set_val}, set_map, func_map)
+                    new_obj[orig_key] = new_val
+                result.append(new_obj)
+            return result
+    
+    # No placeholders found
     result = OrderedDict()
     for orig_key, orig_val in d.items():
-        set_phs = find_set_placeholders(orig_key)
-        if set_phs:
-            set_name = set_phs[0]
-            if set_name not in set_map:
-                continue
-            for set_val in set_map[set_name]:
-                new_key = re.sub(r'\(' + re.escape(set_name) + r'\)', f'{set_val}', orig_key)
-                new_val = expand_value(orig_val, {set_name: set_val}, set_map, func_map)
-                result[new_key] = new_val
-        else:
-            new_val = expand_value(orig_val, {}, set_map, func_map)
-            result[orig_key] = new_val
+        new_val = expand_value(orig_val, {}, set_map, func_map)
+        result[orig_key] = new_val
     return result
 
 def expand_value(val, set_context, set_map, func_map):
@@ -87,9 +204,16 @@ def main():
     set_map, func_map = load_placeholders()
     data = load_json_file(input_path)
     if isinstance(data, list):
-        expanded = OrderedDict()
+        expanded_list = []
         for d in data:
-            expanded.update(expand_top_level_dict(d, set_map, func_map))
+            expanded_items = expand_top_level_dict(d, set_map, func_map)
+            if isinstance(expanded_items, list):
+                # Multiple objects returned
+                expanded_list.extend(expanded_items)
+            else:
+                # Single object returned
+                expanded_list.append(expanded_items)
+        expanded = expanded_list
     elif isinstance(data, dict):
         expanded = expand_top_level_dict(data, set_map, func_map)
     else:

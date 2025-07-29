@@ -15,7 +15,7 @@
     {"from": "cdb", "to": "rf_board"},
     {"from": "rf_board", "to": "sdr_ant_(SIDE)"},
     {"from": "rf_board", "to": "rtk_cable_(SIDE)"},
-    {"from": "rtk_cable_(SIDE)", "to": "rtk_ant_(SAME_SIDE)"},
+    {"from": "rtk_cable_(SIDE)", "to": "rtk_ant_(SIDE)"},
     
     {"from": "cdb", "to": "omni_radar_cable"},
     {"from": "omni_radar_cable", "to": "omni_radar"},
@@ -23,7 +23,7 @@
     {"from": "bwd_radar_cable", "to": "bwd_radar"},
     
     {"from": "cdb", "to": "aux_light_cable_(SIDE)"},
-    {"from": "aux_light_cable_(SIDE)", "to": "aux_light_(SAME_SIDE)"},
+    {"from": "aux_light_cable_(SIDE)", "to": "aux_light_(SIDE)"},
 
     {"from": "cdb", "to": "spray_board"},
     {"from": "cdb", "to": "load_sensor"},
@@ -48,7 +48,7 @@
     {"from": "m2_esc_cable", "to": "esc_(ARM_2_MOTOR)"},
     {"from": "m3_esc_cable", "to": "esc_(ARM_3_MOTOR)"},
     {"from": "m4_esc_cable", "to": "esc_(ARM_4_MOTOR)"},
-    {"from": "esc_(MOTOR)", "to": "motor_(SAME_MOTOR)"},
+    {"from": "esc_(MOTOR)", "to": "motor_(MOTOR)"},
 
     {"from": "m3_esc_cable", "to": "centrifugal_cable_l"},
     {"from": "m4_esc_cable", "to": "centrifugal_cable_r"},
