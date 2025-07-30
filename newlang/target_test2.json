@@ -1,0 +1,13 @@
+{
+"T40_connections":
+[
+    {"from": "m1_esc_cable", "to": "esc_1"},
+    {"from": "m1_esc_cable", "to": "esc_5"},
+    {"from": "m2_esc_cable", "to": "esc_2"},
+    {"from": "m2_esc_cable", "to": "esc_6"},
+    {"from": "m3_esc_cable", "to": "esc_3"},
+    {"from": "m3_esc_cable", "to": "esc_7"},
+    {"from": "m4_esc_cable", "to": "esc_4"},
+    {"from": "m4_esc_cable", "to": "esc_8"}
+]
+}
