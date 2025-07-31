@@ -120,29 +120,46 @@ class placeholderData:
         # Return
         return
     
+    def get_placeholder_sets( self, keyval : str) -> list:
+        """
+        Get all placeholder sets in keyval
+        """
+        ph_sets = re.findall( rxconst.RX_SET_, keyval)
+        for ph in ph_sets:
+            if ph not in self.set_set:
+                print(f"Error: Set '{ph}' not found in signatures")
+        return ph_sets
+    
+    def get_placeholder_funs( self, keyval : str) -> list:
+        """
+        Get all placeholder functions in keyval
+        """
+        ph_funs = re.findall( rxconst.RX_FUN_, keyval)
+        ph_funs_full = [f"{func_name}[{arg_name}]" for func_name, arg_name in ph_funs]
+        for ph in ph_funs_full:
+            if ph not in self.fun_set:
+                print(f"Error: Function '{ph}' not found in signatures")
+        return ph_funs_full
+    
+    def get_placeholder_rels( self, keyval : str) -> list:
+        """
+        Get all placeholder relations in keyval
+        """
+        ph_rels = re.findall( rxconst.RX_REL_, keyval)
+        ph_rels_full = [f"{rel_name}[{arg_name}]" for rel_name, arg_name in ph_rels]
+        for ph in ph_rels_full:
+            if ph not in self.rel_set:
+                print(f"Error: Relation '{ph}' not found in signatures")
+        return ph_rels_full
+
     def get_placeholders( self, keyval : str) -> tuple[list]:
         """
         Get all placeholders in keyval
         """
-        # Get all sets, funs and rels in keyval
-        ph_sets = re.findall( rxconst.RX_SET_, keyval)
-        ph_funs = re.findall( rxconst.RX_FUN_, keyval)
-        ph_rels = re.findall( rxconst.RX_REL_, keyval)
-        # Reconstruct full signatures from captured groups
-        ph_funs_full = [f"{func_name}[{arg_name}]" for func_name, arg_name in ph_funs]
-        ph_rels_full = [f"{rel_name}[{arg_name}]" for rel_name, arg_name in ph_rels]
-        # Check that sets, funs and rels in keyval are valid
-        for ph in ph_sets:
-            if ph not in self.set_set:
-                print(f"Error: Set '{ph}' not found in signatures")
-        for ph in ph_funs_full:
-            if ph not in self.fun_set:
-                print(f"Error: Function '{ph}' not found in signatures")
-        for ph in ph_rels_full:
-            if ph not in self.rel_set:
-                print(f"Error: Relation '{ph}' not found in signatures")
-        # Return lists
-        return ph_sets, ph_funs_full, ph_rels_full
+        ph_sets = self.get_placeholder_sets(keyval)
+        ph_funs = self.get_placeholder_funs(keyval)
+        ph_rels = self.get_placeholder_rels(keyval)
+        return ph_sets, ph_funs, ph_rels
 
 def load_placeholders( dir: str = 'newlang',
                        file: str = 'placeholders.json') -> placeholderData:

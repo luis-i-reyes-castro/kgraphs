@@ -15,10 +15,10 @@ RX_REL_ = fr'\({RX_REL}\)'
 #     if name.isupper():
 #         print(f"{name} = {value}")
 
-# For development
-from re import search as re_search
-from re import findall as re_findall
-txt = '(FUN1[SET1])...(FUNN[SETN])'
-# txt = 'SUPER DUMB'
-m = re_findall( RX_FUN_, txt)
-print(f'txt = {txt} -> match_groups = {m}')
+# # For development
+# from re import search as re_search
+# from re import findall as re_findall
+# txt = '(FUN1[SET1])...(FUNN[SETN])'
+# # txt = 'SUPER DUMB'
+# m = re_findall( RX_FUN_, txt)
+# print(f'txt = {txt} -> match_groups = {m}')
