@@ -4,7 +4,7 @@ Test script for expand.py
 """
 
 from expand import expand_value
-from utilities import load_placeholders, placeholderData
+from data_structures import PlaceHolderData, load_placeholders
 
 def test_expand_value():
     """Test the expand_value function with various scenarios"""
@@ -15,7 +15,7 @@ def test_expand_value():
     
     # Test 1: Simple set placeholder
     print("\nTest 1: Simple set placeholder")
-    ph_data = placeholderData(set_map={"SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
+    ph_data = PlaceHolderData(set_map={"SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
     ph_data.process_aux_objs()
     result = expand_value("cable_(SIDE)", ph_data)
     print(f"  Input: 'cable_(SIDE)' with set_context={{'SIDE': 'l'}}")
@@ -24,7 +24,7 @@ def test_expand_value():
     
     # Test 2: Function call
     print("\nTest 2: Function call")
-    ph_data = placeholderData(set_map={"SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
+    ph_data = PlaceHolderData(set_map={"SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
     ph_data.process_aux_objs()
     result = expand_value("light_(ENG[SIDE])", ph_data)
     print(f"  Input: 'light_(ENG[SIDE])' with set_context={{'SIDE': 'l'}}")
@@ -33,7 +33,7 @@ def test_expand_value():
     
     # Test 3: Relation (set-returning function)
     print("\nTest 3: Relation (set-returning function)")
-    ph_data = placeholderData(set_map={"ARM": "1"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
+    ph_data = PlaceHolderData(set_map={"ARM": "1"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
     ph_data.process_aux_objs()
     result = expand_value("motor_(*MOTOR[ARM])", ph_data)
     print(f"  Input: 'motor_(*MOTOR[ARM])' with set_context={{'ARM': '1'}}")
@@ -44,7 +44,7 @@ def test_expand_value():
     
     # Test 4: Mixed placeholders
     print("\nTest 4: Mixed placeholders")
-    ph_data = placeholderData(set_map={"SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
+    ph_data = PlaceHolderData(set_map={"SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
     ph_data.process_aux_objs()
     result = expand_value("aux_light_(SIDE)_(ENG[SIDE])", ph_data)
     print(f"  Input: 'aux_light_(SIDE)_(ENG[SIDE])' with set_context={{'SIDE': 'l'}}")
@@ -53,7 +53,7 @@ def test_expand_value():
     
     # Test 5: Nested structure
     print("\nTest 5: Nested structure")
-    ph_data = placeholderData(set_map={"SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
+    ph_data = PlaceHolderData(set_map={"SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
     ph_data.process_aux_objs()
     input_dict = {"name": "light_(SIDE)", "type": "auxiliary"}
     result = expand_value(input_dict, ph_data)
@@ -64,7 +64,7 @@ def test_expand_value():
     
     # Test 6: List with relations
     print("\nTest 6: List with relations")
-    ph_data = placeholderData(set_map={"ARM": "1", "SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
+    ph_data = PlaceHolderData(set_map={"ARM": "1", "SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
     ph_data.process_aux_objs()
     input_list = ["motor_(*MOTOR[ARM])", "cable_(SIDE)"]
     result = expand_value(input_list, ph_data)
@@ -77,7 +77,7 @@ def test_expand_value():
     
     # Test 7: No placeholders
     print("\nTest 7: No placeholders")
-    ph_data = placeholderData(set_map={"SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
+    ph_data = PlaceHolderData(set_map={"SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
     ph_data.process_aux_objs()
     result = expand_value("simple_text", ph_data)
     print(f"  Input: 'simple_text' with set_context={{'SIDE': 'l'}}")
@@ -86,7 +86,7 @@ def test_expand_value():
     
     # Test 8: Multiple relations
     print("\nTest 8: Multiple relations")
-    ph_data = placeholderData(set_map={"ARM": "1", "SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
+    ph_data = PlaceHolderData(set_map={"ARM": "1", "SIDE": "l"}, fun_map=base_ph_data.fun_map, rel_map=base_ph_data.rel_map)
     ph_data.process_aux_objs()
     result = expand_value("motor_(*MOTOR[ARM])_(SIDE)", ph_data)
     print(f"  Input: 'motor_(*MOTOR[ARM])_(SIDE)' with set_context={{'ARM': '1', 'SIDE': 'l'}}")

@@ -5,8 +5,9 @@ Expansion utilities for placeholder substitution
 
 import itertools
 import utilities as util
+from data_structures import PlaceHolderData
 
-def expand_value( val : str | dict | list, ph_data : util.placeholderData) -> str | list:
+def expand_value( val : str | dict | list, ph_data : PlaceHolderData) -> str | list:
     """
     Expand placeholders and function calls within a single value.
     
@@ -18,15 +19,14 @@ def expand_value( val : str | dict | list, ph_data : util.placeholderData) -> st
         Either a single expanded value or a list of expanded values (for relations)
     """
     if isinstance( val, str):
-        # Find all placeholders in the string
-        ph_rels = ph_data.get_placeholder_rels(val)
         # Check if any relations are present
-        if ph_rels:
-            # Handle relations (set-returning functions) by creating multiple expansions
-            return _expand_with_relations(val, ph_data)
-        else:
+        ph_rels = ph_data.get_placeholder_rels(val)
+        if not ph_rels:
             # Handle regular functions and set placeholders
             return _expand_regular(val, ph_data)
+        else:
+            # Handle relations (set-returning functions) by creating multiple expansions
+            return _expand_with_relations(val, ph_data)
     elif isinstance( val, dict):
         # Recursively expand dictionary values
         result = {}
@@ -42,14 +42,18 @@ def expand_value( val : str | dict | list, ph_data : util.placeholderData) -> st
     # Return unchanged for other types
     return val
 
-def _expand_regular( val : str, ph_data : util.placeholderData) -> str:
+def _expand_regular( val : str, ph_data : PlaceHolderData) -> str:
     """
     Expand regular functions and set placeholders (no relations).
     Returns a single expanded string.
     """
     result = val
+
+    # Replace set calls
+    for set_name, set_val in ph_data.set_map.items():
+        result = util.replace_placeholder(result, set_val, set_name)
     
-    # Replace function calls first
+    # Replace function calls
     for func_sig, mapping in ph_data.fun_map.items():
         # Get the argument set name from the pre-computed map
         arg_set = ph_data.fun_arg_map[func_sig]
@@ -59,13 +63,9 @@ def _expand_regular( val : str, ph_data : util.placeholderData) -> str:
                 replacement = mapping[arg_val]
                 result = util.replace_placeholder(result, replacement, func_sig)
     
-    # Replace set placeholders
-    for set_name, set_val in ph_data.set_map.items():
-        result = util.replace_placeholder(result, set_val, set_name)
-    
     return result
 
-def _expand_with_relations( val : str, ph_data : util.placeholderData) -> list:
+def _expand_with_relations( val : str, ph_data : PlaceHolderData) -> list:
     """
     Expand values that contain relations (set-returning functions).
     Returns a list of expanded strings.

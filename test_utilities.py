@@ -11,9 +11,8 @@ from utilities import (
     isvalid_set,
     isvalid_fun,
     isvalid_rel,
-    load_placeholders,
-    placeholderData
 )
+from data_structures import PlaceHolderData, load_placeholders
 import regex_constants as rxconst
 
 def test_load_json_file():
@@ -183,7 +182,7 @@ def test_placeholderData_class():
     rel_map = {"MOTOR[ARM]": {"1": ["1", "5"], "2": ["2", "6"]}}
     
     # Create placeholderData object
-    ph_data = placeholderData(set_map, func_map, rel_map)
+    ph_data = PlaceHolderData(set_map, func_map, rel_map)
     ph_data.process_aux_objs()
     
     print(f"  Set set: {ph_data.set_set}")
@@ -216,7 +215,7 @@ def test_get_placeholders():
     set_map = {"SIDE": ["l", "r"], "ARM": ["1", "2", "3", "4"]}
     func_map = {"ENG[SIDE]": {"l": "Left", "r": "Right"}}
     rel_map = {"MOTOR[ARM]": {"1": ["1", "5"], "2": ["2", "6"]}}
-    ph_data = placeholderData(set_map, func_map, rel_map)
+    ph_data = PlaceHolderData(set_map, func_map, rel_map)
     ph_data.process_aux_objs()
     
     for test_str in test_strings:
@@ -287,4 +286,4 @@ def main():
         sys.exit(1)
 
 if __name__ == "__main__":
-    main() 
+    main()
