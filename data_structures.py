@@ -8,6 +8,7 @@ import regex_constants as rxconst
 import utilities as util
 from pathlib import Path
 from re import findall
+from typing import Callable
 
 class PlaceHoldersInStr:
     def __init__( self, data : str | None = None):
@@ -42,7 +43,7 @@ class PlaceHoldersInDict:
         self.leads_to_list = { key : False for key in self.data.keys() }
         return
     
-    def update( self):
+    def update( self) -> None:
         for key in self.data.keys():
             # Skip if key leads to dict or list
             if self.leads_to_dict[key] or self.leads_to_list[key]:
@@ -100,7 +101,7 @@ class PlaceHoldersInList:
         self.leads_to_dict = [ False for _ in self.data ]
         self.leads_to_list = [ False for _ in self.data ]
         return
-    def update( self):
+    def update( self) -> None:
         for i, _ in enumerate(self.data):
             # Skip if item leads to dict or list
             if self.leads_to_dict[i] or self.leads_to_list[i]:
@@ -127,6 +128,17 @@ class PlaceHoldersInList:
     def lead_to_list( self) -> bool:
         return any(self.leads_to_list)
 
+class BuiltInFunction(dict):
+    def __init__( self, function : Callable[ [str], str]):
+        super().__init__()
+        self.function = function
+    def __contains__( self, key: object) -> bool:
+        return True
+    def __getitem__( self, key : str) -> str:
+        return self.function(key)
+    def __setitem__( self, key : str, value : str) -> None:
+        pass
+
 class PlaceHolderDatabase:
     """
     Convenience object for storing all placeholder data
@@ -148,10 +160,12 @@ class PlaceHolderDatabase:
         self.rel_arg_set = set()
         return
     
-    def update(self):
+    def update(self) -> None:
         """
         Update auxiliary data structures
         """
+        # Add built-in functions first
+        self.add_built_in_functions()
         # Set of sets, functions and relations
         self.set_set = set(self.set_map.keys())
         self.fun_set = set(self.fun_map.keys())
@@ -165,6 +179,16 @@ class PlaceHolderDatabase:
         self.fun_arg_set = set(self.fun_arg_map.values())
         self.rel_arg_set = set(self.rel_arg_map.values())
         # Return
+        return
+    
+    def add_built_in_functions(self) -> None:
+        """
+        Add built-in functions like SAME[SET] for every set.
+        SAME[SET] is an identity function that returns its argument.
+        """
+        for set_name in self.set_map.keys():
+            same_func_name = f"SAME[{set_name}]"
+            self.fun_map[same_func_name] = BuiltInFunction(lambda x: x)
         return
     
     def get_placeholder_sets( self, keyval : str) -> set:
