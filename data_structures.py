@@ -20,8 +20,8 @@ class PlaceHoldersInDict:
     
     def __init__( self, data : dict):
         self.data = data
-        self.key_phs = { key : PlaceHoldersInStr() for key in data.keys()   }
-        self.val_phs = { key : PlaceHoldersInStr() for key in data.values() }
+        self.key_phs = { key : PlaceHoldersInStr() for key in data.keys() }
+        self.val_phs = { key : PlaceHoldersInStr() for key in data.keys() }
         self.combined_key_phs = PlaceHoldersInStr()
         self.combined_val_phs = PlaceHoldersInStr()
         self.combined_phs     = PlaceHoldersInStr()
@@ -69,7 +69,7 @@ class PlaceHoldersInList:
             self.combined_phs.rels.update(self.item_phs[i].rels)
         return
 
-class PlaceHolderData:
+class PlaceHolderDatabase:
     """
     Convenience object for storing all placeholder data
     """
@@ -90,9 +90,9 @@ class PlaceHolderData:
         self.rel_arg_set = set()
         return
     
-    def process_aux_objs(self):
+    def update(self):
         """
-        Process function and relation maps to extract argument sets
+        Update auxiliary data structures
         """
         # Set of sets, functions and relations
         self.set_set = set(self.set_map.keys())
@@ -193,11 +193,11 @@ class PlaceHolderData:
         return result
 
 def load_placeholders( dir: str = 'newlang',
-                       file: str = 'placeholders.json') -> PlaceHolderData:
+                       file: str = 'placeholders.json') -> PlaceHolderDatabase:
     # Load data
     placeholder_path = Path(__file__).parent / dir / file
     data = util.load_json_file(placeholder_path)
-    ph_data = PlaceHolderData()
+    ph_data = PlaceHolderDatabase()
     # Build set map
     for s in data.get('sets', []):
         if isinstance(s, dict) and len(s) == 1:
@@ -222,7 +222,7 @@ def load_placeholders( dir: str = 'newlang',
             if not util.isvalid_rel(sig, mapping, ph_data.set_map):
                 print(f"Error: Relation '{sig}' is invalid: {mapping}")
             ph_data.rel_map[sig] = mapping
-    # Process auxiliary objects
-    ph_data.process_aux_objs()
+    # Update auxiliary data structures
+    ph_data.update()
     # Return placeholder data
     return ph_data

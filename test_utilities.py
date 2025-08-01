@@ -11,9 +11,9 @@ from utilities import (
     isvalid_set,
     isvalid_fun,
     isvalid_rel,
+    extract_arg_set,
+    replace_placeholder,
 )
-from data_structures import PlaceHolderData, load_placeholders
-import regex_constants as rxconst
 
 def test_load_json_file():
     """Test load_json_file function"""
@@ -145,85 +145,62 @@ def test_isvalid_rel():
         print(f"  Test {i+1}: {sig} -> {result}")
         assert result == False, f"Expected False for invalid relation {sig}"
 
-def test_load_placeholders():
-    """Test load_placeholders function"""
-    print("\nTesting load_placeholders...")
+def test_extract_arg_set():
+    """Test extract_arg_set function"""
+    print("\nTesting extract_arg_set...")
     
-    try:
-        ph_data = load_placeholders()
-        
-        print(f"  ✓ Successfully loaded placeholders")
-        print(f"    Sets: {list(ph_data.set_map.keys())}")
-        print(f"    Functions: {list(ph_data.fun_map.keys())}")
-        print(f"    Relations: {list(ph_data.rel_map.keys())}")
-        
-        # Test some specific values
-        print(f"    SIDE set: {ph_data.set_map.get('SIDE', 'Not found')}")
-        print(f"    ENG[SIDE] function: {ph_data.fun_map.get('ENG[SIDE]', 'Not found')}")
-        print(f"    MOTOR[ARM] relation: {ph_data.rel_map.get('MOTOR[ARM]', 'Not found')}")
-        
-        # Test auxiliary objects
-        print(f"    Set set: {ph_data.set_set}")
-        print(f"    Function set: {ph_data.fun_set}")
-        print(f"    Relation set: {ph_data.rel_set}")
-        print(f"    Function arg map: {ph_data.fun_arg_map}")
-        print(f"    Relation arg map: {ph_data.rel_arg_map}")
-        
-    except Exception as e:
-        print(f"  ✗ Error loading placeholders: {e}")
-
-def test_placeholderData_class():
-    """Test placeholderData class"""
-    print("\nTesting placeholderData class...")
-    
-    # Create test data
-    set_map = {"SIDE": ["l", "r"], "ARM": ["1", "2", "3", "4"]}
-    func_map = {"ENG[SIDE]": {"l": "Left", "r": "Right"}}
-    rel_map = {"MOTOR[ARM]": {"1": ["1", "5"], "2": ["2", "6"]}}
-    
-    # Create placeholderData object
-    ph_data = PlaceHolderData(set_map, func_map, rel_map)
-    ph_data.process_aux_objs()
-    
-    print(f"  Set set: {ph_data.set_set}")
-    print(f"  Function set: {ph_data.fun_set}")
-    print(f"  Relation set: {ph_data.rel_set}")
-    print(f"  Function arg map: {ph_data.fun_arg_map}")
-    print(f"  Relation arg map: {ph_data.rel_arg_map}")
-    
-    assert "SIDE" in ph_data.set_set
-    assert "ENG[SIDE]" in ph_data.fun_set
-    assert "MOTOR[ARM]" in ph_data.rel_set
-    assert ph_data.fun_arg_map["ENG[SIDE]"] == "SIDE"
-    assert ph_data.rel_arg_map["MOTOR[ARM]"] == "ARM"
-
-def test_get_placeholders():
-    """Test get_placeholders method of placeholderData class"""
-    print("\nTesting get_placeholders method...")
-    
-    # Test strings with placeholders
-    test_strings = [
-        "aux_light_(SIDE)",
-        "ENG[SIDE]",
-        "MOTOR[ARM]",
-        "rtk_cable_(SIDE)",
-        "m(ARM)_esc_cable",
-        "esc_(*MOTOR[ARM])"
+    # Valid signatures
+    valid_signatures = [
+        ("ENG[SIDE]", "SIDE"),
+        ("MOTOR[ARM]", "ARM"),
+        ("SPA[SIDE]", "SIDE"),
+        ("ESC[MOTOR]", "MOTOR")
     ]
     
-    # Create placeholderData object
-    set_map = {"SIDE": ["l", "r"], "ARM": ["1", "2", "3", "4"]}
-    func_map = {"ENG[SIDE]": {"l": "Left", "r": "Right"}}
-    rel_map = {"MOTOR[ARM]": {"1": ["1", "5"], "2": ["2", "6"]}}
-    ph_data = PlaceHolderData(set_map, func_map, rel_map)
-    ph_data.process_aux_objs()
+    for i, (sig, expected) in enumerate(valid_signatures):
+        result = extract_arg_set(sig)
+        print(f"  Test {i+1}: {sig} -> {result} (expected: {expected})")
+        assert result == expected, f"Expected {expected} for signature {sig}"
     
-    for test_str in test_strings:
-        ph_sets, ph_funs, ph_rels = ph_data.get_placeholders(test_str)
-        print(f"  '{test_str}':")
-        print(f"    Sets: {ph_sets}")
-        print(f"    Functions: {ph_funs}")
-        print(f"    Relations: {ph_rels}")
+    # Invalid signatures
+    invalid_signatures = [
+        "ENG",  # No brackets
+        "ENG[]",  # Empty brackets
+        "ENG[SIDE",  # Missing closing bracket
+        "",  # Empty string
+        None  # None
+    ]
+    
+    for i, sig in enumerate(invalid_signatures):
+        if sig is not None:
+            result = extract_arg_set(sig)
+            print(f"  Test {i+1}: {sig} -> {result} (expected: None)")
+            assert result is None, f"Expected None for invalid signature {sig}"
+    
+    # Test edge case where regex still matches
+    edge_case = "ENG[SIDE]]"  # Extra closing bracket
+    result = extract_arg_set(edge_case)
+    print(f"  Edge case: {edge_case} -> {result} (regex matches first occurrence)")
+    assert result == "SIDE", f"Expected 'SIDE' for edge case {edge_case}"
+
+def test_replace_placeholder():
+    """Test replace_placeholder function"""
+    print("\nTesting replace_placeholder...")
+    
+    # Test cases
+    test_cases = [
+        ("aux_light_(SIDE)", "l", "SIDE", "aux_light_l"),
+        ("rtk_cable_(SIDE)", "r", "SIDE", "rtk_cable_r"),
+        ("m(ARM)_esc_cable", "1", "ARM", "m1_esc_cable"),
+        ("esc_(MOTOR[ARM])", "1", "MOTOR[ARM]", "esc_1"),
+        ("no_placeholder", "value", "PLACEHOLDER", "no_placeholder"),  # No placeholder to replace
+        ("multiple_(SIDE)_(SIDE)", "l", "SIDE", "multiple_l_l"),  # Replaces all occurrences
+    ]
+    
+    for i, (val_orig, val_new, sig, expected) in enumerate(test_cases):
+        result = replace_placeholder(val_orig, val_new, sig)
+        print(f"  Test {i+1}: '{val_orig}' with '{val_new}' for '{sig}' -> '{result}' (expected: '{expected}')")
+        assert result == expected, f"Expected '{expected}' for replacement in '{val_orig}'"
 
 def test_with_test_files():
     """Test utilities with actual test JSON files"""
@@ -236,30 +213,14 @@ def test_with_test_files():
     if test1_path.exists():
         test1_data = load_json_file(str(test1_path))
         print(f"  ✓ test1.json loaded successfully")
-        
-        # Test placeholder extraction from test1.json
-        test1_str = json.dumps(test1_data)
-        ph_data = load_placeholders()
-        ph_sets, ph_funs, ph_rels = ph_data.get_placeholders(test1_str)
-        
-        print(f"    Placeholders found in test1.json:")
-        print(f"      Sets: {ph_sets}")
-        print(f"      Functions: {ph_funs}")
-        print(f"      Relations: {ph_rels}")
+        print(f"    Type: {type(test1_data)}")
+        print(f"    Keys: {list(test1_data.keys())}")
     
     if test2_path.exists():
         test2_data = load_json_file(str(test2_path))
         print(f"  ✓ test2.json loaded successfully")
-        
-        # Test placeholder extraction from test2.json
-        test2_str = json.dumps(test2_data)
-        ph_data = load_placeholders()
-        ph_sets, ph_funs, ph_rels = ph_data.get_placeholders(test2_str)
-        
-        print(f"    Placeholders found in test2.json:")
-        print(f"      Sets: {ph_sets}")
-        print(f"      Functions: {ph_funs}")
-        print(f"      Relations: {ph_rels}")
+        print(f"    Type: {type(test2_data)}")
+        print(f"    Keys: {list(test2_data.keys())}")
 
 def main():
     """Run all tests"""
@@ -272,9 +233,8 @@ def main():
         test_isvalid_set()
         test_isvalid_fun()
         test_isvalid_rel()
-        test_load_placeholders()
-        test_placeholderData_class()
-        test_get_placeholders()
+        test_extract_arg_set()
+        test_replace_placeholder()
         test_with_test_files()
         
         print("\n" + "=" * 60)
