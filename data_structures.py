@@ -29,6 +29,10 @@ class PlaceHoldersInStr:
             case _:
                 raise ValueError(f"Invalid placeholder type: {placeholder_type}")
         return len(data_struct_phs) > 0
+    def has_phs( self) -> bool:
+        return self.has_phs('set') or \
+               self.has_phs('fun') or \
+               self.has_phs('rel')
 
 class PlaceHoldersInDict:
     
@@ -87,6 +91,16 @@ class PlaceHoldersInDict:
                 raise ValueError(f"Invalid placeholder type: {placeholder_type}")
         return len(data_struct_phs) > 0
     
+    def has_phs( self, location : str) -> bool:
+        return self.has_phs(location, 'set') or \
+               self.has_phs(location, 'fun') or \
+               self.has_phs(location, 'rel')
+    
+    def has_phs( self) -> bool:
+        return self.has_phs('anywhere') or \
+               self.has_phs('keys') or \
+               self.has_phs('values')
+    
     def lead_to_dict( self) -> bool:
         return any(self.leads_to_dict.values())
     
@@ -123,6 +137,10 @@ class PlaceHoldersInList:
             case _:
                 raise ValueError(f"Invalid placeholder type: {placeholder_type}")
         return len(data_struct_phs) > 0
+    def has_phs( self) -> bool:
+        return self.has_phs('set') or \
+               self.has_phs('fun') or \
+               self.has_phs('rel')
     def lead_to_dict( self) -> bool:
         return any(self.leads_to_dict)
     def lead_to_list( self) -> bool:
@@ -274,7 +292,7 @@ class PlaceHolderDatabase:
         
         return result
     
-    def apply_phs( self, val : str | dict | list, set_context : dict) -> str | list:
+    def apply_phs( self, val : str | dict | list, set_context : dict) -> str | list[str]:
         """
         Expand placeholders and function calls within a single value.
         
@@ -332,7 +350,7 @@ class PlaceHolderDatabase:
         
         return result
     
-    def apply_phs_with_relations( self, val : str, set_context : dict) -> list:
+    def apply_phs_with_relations( self, val : str, set_context : dict) -> list[str]:
         """
         Expand values that contain relations (set-returning functions).
         Returns a list of expanded strings.

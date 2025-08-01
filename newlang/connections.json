@@ -1,5 +1,3 @@
-{
-"T40_connections":
 [
 
     {"from": "battery", "to": "pdb"},
@@ -53,4 +51,3 @@
      "to"  : "centrifugal_cable_(SIDE[NOZZLE])"}
     
 ]
-}
