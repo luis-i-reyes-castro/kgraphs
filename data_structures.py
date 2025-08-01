@@ -9,7 +9,7 @@ from pathlib import Path
 from re import findall
 
 class PlaceHoldersInStr:
-    def __init__( self, data : str):
+    def __init__( self, data : str | None = None):
         self.data = data
         self.sets = set()
         self.funs = set()
@@ -20,21 +20,11 @@ class PlaceHoldersInDict:
     
     def __init__( self, data : dict):
         self.data = data
-        self.key_sets_dict = { key : set() for key in data.keys() }
-        self.key_funs_dict = { key : set() for key in data.keys() }
-        self.key_rels_dict = { key : set() for key in data.keys() }
-        self.val_sets_dict = { key : set() for key in data.values() }
-        self.val_funs_dict = { key : set() for key in data.values() }
-        self.val_rels_dict = { key : set() for key in data.values() }
-        self.key_sets = set()
-        self.key_funs = set()
-        self.key_rels = set()
-        self.val_sets = set()
-        self.val_funs = set()
-        self.val_rels = set()
-        self.sets = set()
-        self.funs = set()
-        self.rels = set()
+        self.key_phs = { key : PlaceHoldersInStr() for key in data.keys()   }
+        self.val_phs = { key : PlaceHoldersInStr() for key in data.values() }
+        self.combined_key_phs = PlaceHoldersInStr()
+        self.combined_val_phs = PlaceHoldersInStr()
+        self.combined_phs     = PlaceHoldersInStr()
         self.leads_to_dict = { key : False for key in self.data.keys() }
         self.leads_to_list = { key : False for key in self.data.keys() }
         return
@@ -44,38 +34,27 @@ class PlaceHoldersInDict:
             # Skip if key leads to dict or list
             if self.leads_to_dict[key] or self.leads_to_list[key]:
                 continue
-            # Retrieve key and value placeholders
-            key_ph_sets = self.key_sets_dict[key]
-            key_ph_funs = self.key_funs_dict[key]
-            key_ph_rels = self.key_rels_dict[key]
-            val_ph_sets = self.val_sets_dict[key]
-            val_ph_funs = self.val_funs_dict[key]
-            val_ph_rels = self.val_rels_dict[key]
-            # Update key and value placeholder data
-            self.key_sets.update(key_ph_sets)
-            self.key_funs.update(key_ph_funs)
-            self.key_rels.update(key_ph_rels)
-            self.val_sets.update(val_ph_sets)
-            self.val_funs.update(val_ph_funs)
-            self.val_rels.update(val_ph_rels)
-            # Update global placeholder data
-            self.sets.update(key_ph_sets)
-            self.funs.update(key_ph_funs)
-            self.rels.update(key_ph_rels)
-            self.sets.update(val_ph_sets)
-            self.funs.update(val_ph_funs)
-            self.rels.update(val_ph_rels)
+            # Update combined key and value placeholder data
+            self.combined_key_phs.sets.update(self.key_phs[key].sets)
+            self.combined_key_phs.funs.update(self.key_phs[key].funs)
+            self.combined_key_phs.rels.update(self.key_phs[key].rels)
+            self.combined_val_phs.sets.update(self.val_phs[key].sets)
+            self.combined_val_phs.funs.update(self.val_phs[key].funs)
+            self.combined_val_phs.rels.update(self.val_phs[key].rels)
+            # Update combined placeholder data
+            self.combined_phs.sets.update(self.key_phs[key].sets)
+            self.combined_phs.funs.update(self.key_phs[key].funs)
+            self.combined_phs.rels.update(self.key_phs[key].rels)
+            self.combined_phs.sets.update(self.val_phs[key].sets)
+            self.combined_phs.funs.update(self.val_phs[key].funs)
+            self.combined_phs.rels.update(self.val_phs[key].rels)
         return
 
 class PlaceHoldersInList:
     def __init__( self, data : list):
         self.data = data
-        self.item_sets = [ set() for _ in self.data ]
-        self.item_funs = [ set() for _ in self.data ]
-        self.item_rels = [ set() for _ in self.data ]
-        self.sets = set()
-        self.funs = set()
-        self.rels = set()
+        self.item_phs = [ PlaceHoldersInStr() for _ in self.data ]
+        self.combined_phs = PlaceHoldersInStr()
         self.leads_to_dict = [ False for _ in self.data ]
         self.leads_to_list = [ False for _ in self.data ]
         return
@@ -85,9 +64,9 @@ class PlaceHoldersInList:
             if self.leads_to_dict[i] or self.leads_to_list[i]:
                 continue
             # Update item placeholder data
-            self.sets.update(self.item_sets[i])
-            self.funs.update(self.item_funs[i])
-            self.rels.update(self.item_rels[i])
+            self.combined_phs.sets.update(self.item_phs[i].sets)
+            self.combined_phs.funs.update(self.item_phs[i].funs)
+            self.combined_phs.rels.update(self.item_phs[i].rels)
         return
 
 class PlaceHolderData:
@@ -178,9 +157,10 @@ class PlaceHolderData:
         elif isinstance( data, dict):
             result = PlaceHoldersInDict(data)
             for k, v in data.items():
-                result.key_sets_dict[k] = self.get_placeholder_sets(k)
-                result.key_funs_dict[k] = self.get_placeholder_funs(k)
-                result.key_rels_dict[k] = self.get_placeholder_rels(k)
+                result.key_phs[k].data = k
+                result.key_phs[k].sets = self.get_placeholder_sets(k)
+                result.key_phs[k].funs = self.get_placeholder_funs(k)
+                result.key_phs[k].rels = self.get_placeholder_rels(k)
                 if isinstance( v, dict):
                     result.leads_to_dict[k] = True
                     continue
@@ -188,9 +168,10 @@ class PlaceHolderData:
                     result.leads_to_list[k] = True
                     continue
                 else:
-                    result.val_sets_dict[k] = self.get_placeholder_sets(v)
-                    result.val_funs_dict[k] = self.get_placeholder_funs(v)
-                    result.val_rels_dict[k] = self.get_placeholder_rels(v)
+                    result.val_phs[k].data = v
+                    result.val_phs[k].sets = self.get_placeholder_sets(v)
+                    result.val_phs[k].funs = self.get_placeholder_funs(v)
+                    result.val_phs[k].rels = self.get_placeholder_rels(v)
             result.update()
         
         elif isinstance( data, list):
@@ -203,9 +184,10 @@ class PlaceHolderData:
                     result.leads_to_list[i] = True
                     continue
                 else:
-                    result.item_sets[i] = self.get_placeholder_sets(item)
-                    result.item_funs[i] = self.get_placeholder_funs(item)
-                    result.item_rels[i] = self.get_placeholder_rels(item)
+                    result.item_phs[i].data = item
+                    result.item_phs[i].sets = self.get_placeholder_sets(item)
+                    result.item_phs[i].funs = self.get_placeholder_funs(item)
+                    result.item_phs[i].rels = self.get_placeholder_rels(item)
             result.update()
         
         return result
