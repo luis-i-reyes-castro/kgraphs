@@ -1,0 +1,108 @@
+---
+alwaysApply: true
+---
+
+# General Guidelines
+* Language: Python 3
+* Avoid writing codes longer than 400 lines per file. Split long algorithms using modules and import statements.
+* Avoid writing codes wider than 96 columns or characters. The reason is that I use a vertical screen, i.e., a monitor in portrait mode (taller than wider), so this way I have no need to scroll horizontally (only vertically).
+
+# Declaring Primitives, Lists, Tuples, Sets and Dictionaries
+* Use snake_case for names.
+* Leave spaces before and after the equal sign.
+
+## Lists
+### Empty lists
+* As usual. Example: `new_list = []`
+### Lists with a single item
+* As usual. Example: `new_list = [item]`
+### Lists with 2 or more items
+* Leave a space between the opening bracket and the first item.
+* Leave no spaces between the items and the commas.
+* Leave a space after each comma.
+* Leave no space between the last item and the closing bracket.
+* Example: `new_list = [ item1, item2, item3]`
+### List comprehensions:
+* Leave a space between the opening bracket and the beginning of the expression.
+* Leave a space after the end of the expression and the closing bracket.
+* Examples:
+  * `new_list = [ item for item in list ]`
+  * `new_list = [ function(item) for item in list ]`
+
+## Tuples
+### Empty tuples
+* As usual. Example: `new_tuple = ()`
+### Tuples with a single item
+* As usual. Example: `new_tuple = (item,)`
+### Tuples with 2 or more items
+* Use the same rules as for lists, replacing the brackets with parenthesis.
+### Tuple comprehensions
+* Use the same rules as for lists, replacing the brackets with parenthesis.
+
+## Sets
+### Empty sets
+* As usual. Example: `new_set = set()`
+### Sets with a single item
+* Place the item in a list and leave no spaces around the brackets.
+* Example: `new_set = set([item])`
+### Sets with 2 or more items
+* Populate a list and then feed it to the set constructor.
+* Leave no spaces around the list name.
+* Example:
+  ```
+  set_elements = [ item1, item2, item3]
+  new_set = set(set_elements)
+  ```
+### Set comprehensions
+* Use the same rules as for lists, replacing the brackets with curly braces.
+
+## Dictionaries
+### Empty dictionaries
+* As usual. Example: `new_dict = {}`
+### Dictionaries with a single key-value pair
+* Leave a space between the opening curly brace and the key.
+* Leave a space before and after the colon.
+* Leave a space between the value and the closing curly brace.
+* Example: `new_dict = { key : value }`
+### Dictionaries with 2 or more key-value pairs
+* Leave a space between the opening curly brace and the first key.
+* Leave a space before and after each colon.
+* Leave no spaces between the values and the commas.
+* Leave a space after each comma.
+* Leave a space between the last value and the closing curly brace.
+* Example: `new_dict = { key1 : value1, key2 : value2, key3 : value3 }`
+### Dictionary comprehensions
+* Leave a space between the opening curly brace and the beginning of the expression.
+* Leave a space before and after the colon
+* Leave a space after the end of the expression and the closing curly brace.
+* Example: `new_dict = { item : function(item) for item in list_or_tuple_or_set }`
+
+# Functions and Class Methods
+
+## Declarations
+### Argument types
+* Leave a space before and after the colon.
+### Return types
+* Leave a space before and after the '->'.
+* Leave a space between the return type and the colon.
+### Functions with no arguments
+* As usual. Example: `def function() -> type :`
+### Functions with one or more arguments
+* Leave a space between the opening parenthesis and the first argument.
+* Leave a space after each comma.
+* Leave no spaces between the last argument type and the closing parenthesis.
+* Examples:
+  * `def function( arg : type) -> type :`
+  * `def function( arg1 : type, arg2 : type, arg3 : type) -> type :`
+
+## Calls
+### Functions with no arguments
+* As usual. Example: `function()`
+### Functions with one argument
+* As usual, leave no spaces around the argument. Example: `function(arg)`
+### Functions with 2 or more arguments
+* Leave a space between the opening parenthesis and the first argument.
+* Leave no spaces between the arguments and the commas.
+* Leave a space after each comma.
+* Leave no spaces between the last argument and the closing parenthesis.
+* Example: `function( arg1, arg2, arg3)`
