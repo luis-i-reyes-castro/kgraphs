@@ -101,12 +101,15 @@ class PlaceHoldersInDict:
                self.has_phs('keys') or \
                self.has_phs('values')
     
-    def lead_to_dict( self) -> bool:
+    def leads_to_dict( self) -> bool:
         return any(self.leads_to_dict.values())
     
-    def lead_to_list( self) -> bool:
+    def leads_to_list( self) -> bool:
         return any(self.leads_to_list.values())
-
+    
+    def has_children( self) -> bool:
+        return self.leads_to_dict() or self.leads_to_list()
+    
 class PlaceHoldersInList:
     def __init__( self, data : list):
         self.data = data
@@ -141,10 +144,12 @@ class PlaceHoldersInList:
         return self.has_phs('set') or \
                self.has_phs('fun') or \
                self.has_phs('rel')
-    def lead_to_dict( self) -> bool:
+    def leads_to_dict( self) -> bool:
         return any(self.leads_to_dict)
-    def lead_to_list( self) -> bool:
+    def leads_to_list( self) -> bool:
         return any(self.leads_to_list)
+    def has_children( self) -> bool:
+        return self.leads_to_dict() or self.leads_to_list()
 
 class BuiltInFunction(dict):
     def __init__( self, function : Callable[ [str], str]):
