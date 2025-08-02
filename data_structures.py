@@ -404,30 +404,28 @@ def load_placeholders( dir: str = 'newlang',
     placeholder_path = Path(__file__).parent / dir / file
     data = util.load_json_file(placeholder_path)
     ph_data = PlaceHolderDatabase()
-    # Build set map
-    for s in data.get('sets', []):
-        if isinstance(s, dict) and len(s) == 1:
-            set_name = list(s.keys())[0]
-            values   = s[set_name]
-            if not util.isvalid_set(values):
-                print(f"Error: Set '{set_name}' is invalid: {values}")
-            ph_data.set_map[set_name] = values
-    # Build function map
-    for f in data.get('functions', []):
-        if isinstance(f, dict) and len(f) == 1:
-            sig     = list(f.keys())[0]
-            mapping = f[sig]
-            if not util.isvalid_fun(sig, mapping, ph_data.set_map):
-                print(f"Error: Function '{sig}' is invalid: {mapping}")
-            ph_data.fun_map[sig] = mapping
-    # Build relation map
-    for r in data.get('relations', []):
-        if isinstance(r, dict) and len(r) == 1:
-            sig     = list(r.keys())[0]
-            mapping = r[sig]
-            if not util.isvalid_rel(sig, mapping, ph_data.set_map):
-                print(f"Error: Relation '{sig}' is invalid: {mapping}")
-            ph_data.rel_map[sig] = mapping
+    
+    # Build set map - now directly from the sets dictionary
+    sets_data = data.get('sets', {})
+    for set_name, values in sets_data.items():
+        if not util.isvalid_set(values):
+            print(f"Error: Set '{set_name}' is invalid: {values}")
+        ph_data.set_map[set_name] = values
+    
+    # Build function map - now directly from the functions dictionary
+    functions_data = data.get('functions', {})
+    for sig, mapping in functions_data.items():
+        if not util.isvalid_fun(sig, mapping, ph_data.set_map):
+            print(f"Error: Function '{sig}' is invalid: {mapping}")
+        ph_data.fun_map[sig] = mapping
+    
+    # Build relation map - now directly from the relations dictionary
+    relations_data = data.get('relations', {})
+    for sig, mapping in relations_data.items():
+        if not util.isvalid_rel(sig, mapping, ph_data.set_map):
+            print(f"Error: Relation '{sig}' is invalid: {mapping}")
+        ph_data.rel_map[sig] = mapping
+    
     # Update auxiliary data structures
     ph_data.update()
     # Return placeholder data
