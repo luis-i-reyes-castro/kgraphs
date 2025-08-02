@@ -17,22 +17,21 @@ class PlaceHoldersInStr:
         self.funs = set()
         self.rels = set()
         return
-    def has_phs( self, placeholder_type : str) -> bool:
-        data_struct_phs = None
+    def contains( self, placeholder_type : str) -> bool:
         match placeholder_type:
             case 'set':
-                data_struct_phs = self.sets
+                return len(self.sets) > 0
             case 'fun':
-                data_struct_phs = self.funs
+                return len(self.funs) > 0
             case 'rel':
-                data_struct_phs = self.rels
+                return len(self.rels) > 0
+            case 'any':
+                return len(self.sets) > 0 or \
+                       len(self.funs) > 0 or \
+                       len(self.rels) > 0
             case _:
                 raise ValueError(f"Invalid placeholder type: {placeholder_type}")
-        return len(data_struct_phs) > 0
-    def has_phs( self) -> bool:
-        return self.has_phs('set') or \
-               self.has_phs('fun') or \
-               self.has_phs('rel')
+        return False
 
 class PlaceHoldersInDict:
     
@@ -68,38 +67,31 @@ class PlaceHoldersInDict:
             self.combined_phs.rels.update(self.val_phs[key].rels)
         return
     
-    def has_phs( self, location : str, placeholder_type : str) -> bool:
+    def contains( self, location : str, placeholder_type : str) -> bool:
         data_struct = None
         match location:
-            case 'anywhere':
-                data_struct = self.combined_phs
             case 'keys':
                 data_struct = self.combined_key_phs
-            case 'values':
+            case 'vals':
                 data_struct = self.combined_val_phs
+            case 'anywhere':
+                data_struct = self.combined_phs
             case _:
                 raise ValueError(f"Invalid location: {location}")
-        data_struct_phs = None
         match placeholder_type:
             case 'set':
-                data_struct_phs = data_struct.sets
+                return len(data_struct.sets) > 0
             case 'fun':
-                data_struct_phs = data_struct.funs
+                return len(data_struct.funs) > 0
             case 'rel':
-                data_struct_phs = data_struct.rels
+                return len(data_struct.rels) > 0
+            case 'any':
+                return len(data_struct.sets) > 0 or \
+                       len(data_struct.funs) > 0 or \
+                       len(data_struct.rels) > 0
             case _:
                 raise ValueError(f"Invalid placeholder type: {placeholder_type}")
-        return len(data_struct_phs) > 0
-    
-    def has_phs( self, location : str) -> bool:
-        return self.has_phs(location, 'set') or \
-               self.has_phs(location, 'fun') or \
-               self.has_phs(location, 'rel')
-    
-    def has_phs( self) -> bool:
-        return self.has_phs('anywhere') or \
-               self.has_phs('keys') or \
-               self.has_phs('values')
+        return False
     
     def leads_to_dict( self) -> bool:
         return any(self.leads_to_dict.values())
@@ -111,6 +103,7 @@ class PlaceHoldersInDict:
         return self.leads_to_dict() or self.leads_to_list()
     
 class PlaceHoldersInList:
+    
     def __init__( self, data : list):
         self.data = data
         self.item_phs = [ PlaceHoldersInStr() for _ in self.data ]
@@ -118,6 +111,7 @@ class PlaceHoldersInList:
         self.leads_to_dict = [ False for _ in self.data ]
         self.leads_to_list = [ False for _ in self.data ]
         return
+    
     def update( self) -> None:
         for i, _ in enumerate(self.data):
             # Skip if item leads to dict or list
@@ -128,26 +122,29 @@ class PlaceHoldersInList:
             self.combined_phs.funs.update(self.item_phs[i].funs)
             self.combined_phs.rels.update(self.item_phs[i].rels)
         return
-    def has_phs( self, placeholder_type : str) -> bool:
-        data_struct_phs = None
+    
+    def contains( self, placeholder_type : str) -> bool:
         match placeholder_type:
             case 'set':
-                data_struct_phs = self.combined_phs.sets
+                return len(self.combined_phs.sets) > 0
             case 'fun':
-                data_struct_phs = self.combined_phs.funs
+                return len(self.combined_phs.funs) > 0
             case 'rel':
-                data_struct_phs = self.combined_phs.rels
+                return len(self.combined_phs.rels) > 0
+            case 'any':
+                return len(self.combined_phs.sets) > 0 or \
+                       len(self.combined_phs.funs) > 0 or \
+                       len(self.combined_phs.rels) > 0
             case _:
                 raise ValueError(f"Invalid placeholder type: {placeholder_type}")
-        return len(data_struct_phs) > 0
-    def has_phs( self) -> bool:
-        return self.has_phs('set') or \
-               self.has_phs('fun') or \
-               self.has_phs('rel')
+        return False
+    
     def leads_to_dict( self) -> bool:
         return any(self.leads_to_dict)
+    
     def leads_to_list( self) -> bool:
         return any(self.leads_to_list)
+    
     def has_children( self) -> bool:
         return self.leads_to_dict() or self.leads_to_list()
 
