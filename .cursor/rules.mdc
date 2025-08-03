@@ -3,106 +3,65 @@ alwaysApply: true
 ---
 
 # General Guidelines
-* Language: Python 3
-* Avoid writing codes longer than 400 lines per file. Split long algorithms using modules and import statements.
-* Avoid writing codes wider than 96 columns or characters. The reason is that I use a vertical screen, i.e., a monitor in portrait mode (taller than wider), so this way I have no need to scroll horizontally (only vertically).
 
-# Declaring Primitives, Lists, Tuples, Sets and Dictionaries
-* Use snake_case for names.
-* Leave spaces before and after the equal sign.
+* Max line length: **92 characters**
+* My editor is in **portrait mode**, so vertical readability is preferred over horizontal density.
 
-## Lists
-### Empty lists
-* As usual. Example: `new_list = []`
-### Lists with a single item
-* As usual. Example: `new_list = [item]`
-### Lists with 2 or more items
-* Leave a space between the opening bracket and the first item.
-* Leave no spaces between the items and the commas.
+# Python Code Style Guidelines
+
+## Variable Naming
+
+* Variables, functions, and method names: `snake_case`
+* Class names: `CamelCase`
+
+## PEP 8 Exceptions
+
+I generally follow [PEP 8](https://peps.python.org/pep-0008/) guidelines for writing Python code. However, I prefer to **add extra spaces in specific places** for better readability, especially in the context of my vertical screen setup. These exceptions are listed below.
+
+### Assignments
+
+* Leave a space before and after the equal sign.
+  ✅ Example: `value = 10`
+
+### Lists, Tuples, Dictionaries, and Sets (with 2+ elements)
+
+* Leave a space between the opening bracket/brace/parenthesis and the first item.
 * Leave a space after each comma.
-* Leave no space between the last item and the closing bracket.
-* Example: `new_list = [ item1, item2, item3]`
-### List comprehensions:
-* Leave a space between the opening bracket and the beginning of the expression.
-* Leave a space after the end of the expression and the closing bracket.
-* Examples:
-  * `new_list = [ item for item in list ]`
-  * `new_list = [ function(item) for item in list ]`
+* Do **not** leave a space before the closing bracket/brace/parenthesis.
+* For dictionaries, leave a space before and after each colon between key and value.
+  ✅ Examples:  
+  `my_list = [ item1, item2, item3]`  
+  `my_dict = { key1 : value1, key2 : value2 }`
 
-## Tuples
-### Empty tuples
-* As usual. Example: `new_tuple = ()`
-### Tuples with a single item
-* As usual. Example: `new_tuple = (item,)`
-### Tuples with 2 or more items
-* Use the same rules as for lists, replacing the brackets with parenthesis.
-### Tuple comprehensions
-* Use the same rules as for lists, replacing the brackets with parenthesis.
+### Comprehensions
 
-## Sets
-### Empty sets
-* As usual. Example: `new_set = set()`
-### Sets with a single item
-* Place the item in a list and leave no spaces around the brackets.
-* Example: `new_set = set([item])`
-### Sets with 2 or more items
-* Populate a list and then feed it to the set constructor.
-* Leave no spaces around the list name.
-* Example:
-  ```
-  set_elements = [ item1, item2, item3]
-  new_set = set(set_elements)
-  ```
-### Set comprehensions
-* Use the same rules as for lists, replacing the brackets with curly braces.
+* Leave a space after the opening bracket/brace/parenthesis.
+* Leave a space before the closing bracket/brace/parenthesis.
+* For dictionary comprehensions, leave a space before and after each colon.
+  ✅ Examples:
+  `[ item for item in items ]`
+  `{ key : value for key, value in items }`
 
-## Dictionaries
-### Empty dictionaries
-* As usual. Example: `new_dict = {}`
-### Dictionaries with a single key-value pair
-* Leave a space between the opening curly brace and the key.
-* Leave a space before and after the colon.
-* Leave a space between the value and the closing curly brace.
-* Example: `new_dict = { key : value }`
-### Dictionaries with 2 or more key-value pairs
-* Leave a space between the opening curly brace and the first key.
-* Leave a space before and after each colon.
-* Leave no spaces between the values and the commas.
-* Leave a space after each comma.
-* Leave a space between the last value and the closing curly brace.
-* Example: `new_dict = { key1 : value1, key2 : value2, key3 : value3 }`
-### Dictionary comprehensions
-* Leave a space between the opening curly brace and the beginning of the expression.
-* Leave a space before and after the colon
-* Leave a space after the end of the expression and the closing curly brace.
-* Example: `new_dict = { item : function(item) for item in list_or_tuple_or_set }`
+### Function and Method Definitions
 
-# Functions and Class Methods
+* Leave a space between the opening parenthesis and the first argument.
+* Leave a space before and after colons used in type annotations.
+* Leave a space before and after the `->` return type arrow.
+* Leave a space between the return type and the final colon.
+  ✅ Example:
+  `def function( arg1 : int, arg2 : str) -> bool :`
 
-## Declarations
-### Argument types
-* Leave a space before and after the colon.
-### Return types
-* Leave a space before and after the '->'.
-* Leave a space between the return type and the colon.
-### Functions with no arguments
-* As usual. Example: `def function() -> type :`
-### Functions with one or more arguments
+### Function and Method Calls
+
 * Leave a space between the opening parenthesis and the first argument.
 * Leave a space after each comma.
-* Leave no spaces between the last argument type and the closing parenthesis.
-* Examples:
-  * `def function( arg : type) -> type :`
-  * `def function( arg1 : type, arg2 : type, arg3 : type) -> type :`
+* Do **not** leave a space before the closing parenthesis.
+  ✅ Example:
+  `function( arg1, arg2, arg3)`
 
-## Calls
-### Functions with no arguments
-* As usual. Example: `function()`
-### Functions with one argument
-* As usual, leave no spaces around the argument. Example: `function(arg)`
-### Functions with 2 or more arguments
-* Leave a space between the opening parenthesis and the first argument.
-* Leave no spaces between the arguments and the commas.
-* Leave a space after each comma.
-* Leave no spaces between the last argument and the closing parenthesis.
-* Example: `function( arg1, arg2, arg3)`
+### Conditionals and Loops
+
+* Leave a space before the ending colon.
+  ✅ Examples:
+  `if condition :`
+  `for item in list_of_items :`
