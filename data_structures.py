@@ -31,12 +31,11 @@ class PlaceHoldersInStr:
             case _:
                 raise ValueError(f"Invalid placeholder type: {placeholder_type}")
         return False
-    def print( self, name = 'String') -> None:
-        print(f"{name} Placeholders:")
-        print(f"  Data: {self.data}")
-        print(f"  Sets: {self.sets}")
-        print(f"  Functions: {self.funs}")
-        print(f"  Relations: {self.rels}")
+    def print( self, indent = 1) -> None:
+        spaces = '  ' * indent
+        print(f"{spaces}Sets: {self.sets}")
+        print(f"{spaces}Functions: {self.funs}")
+        print(f"{spaces}Relations: {self.rels}")
         return
 
 class PlaceHoldersInDict:
@@ -46,6 +45,7 @@ class PlaceHoldersInDict:
         self.leads_to_str = { key : isinstance( val, str) for key, val in self.data.items() }
         self.key_phs          = { key : PlaceHoldersInStr() for key in data.keys() }
         self.val_phs          = { key : PlaceHoldersInStr() for key in data.keys() }
+        self.key_val_phs      = { key : PlaceHoldersInStr() for key in data.keys() }
         self.combined_key_phs = PlaceHoldersInStr()
         self.combined_val_phs = PlaceHoldersInStr()
         self.combined_phs     = PlaceHoldersInStr()
@@ -54,6 +54,9 @@ class PlaceHoldersInDict:
     def update( self) -> None:
         for key in self.data.keys():
             # Keys are always strings
+            self.key_val_phs[key].sets.update(self.key_phs[key].sets)
+            self.key_val_phs[key].funs.update(self.key_phs[key].funs)
+            self.key_val_phs[key].rels.update(self.key_phs[key].rels)
             self.combined_key_phs.sets.update(self.key_phs[key].sets)
             self.combined_key_phs.funs.update(self.key_phs[key].funs)
             self.combined_key_phs.rels.update(self.key_phs[key].rels)
@@ -62,6 +65,9 @@ class PlaceHoldersInDict:
             self.combined_phs.rels.update(self.key_phs[key].rels)
             # Values may be strings or data structures
             if self.leads_to_str[key]:
+                self.key_val_phs[key].sets.update(self.val_phs[key].sets)
+                self.key_val_phs[key].funs.update(self.val_phs[key].funs)
+                self.key_val_phs[key].rels.update(self.val_phs[key].rels)
                 self.combined_val_phs.sets.update(self.val_phs[key].sets)
                 self.combined_val_phs.funs.update(self.val_phs[key].funs)
                 self.combined_val_phs.rels.update(self.val_phs[key].rels)
@@ -104,13 +110,13 @@ class PlaceHoldersInDict:
     
     def print( self) -> None:
         print('PLACEHOLDERS IN DICT:')
-        self.combined_phs.print('Combined Key and Val')
-        self.combined_key_phs.print('Combined Key')
-        self.combined_val_phs.print('Combined Val')
-        for key in self.data.keys():
-            self.key_phs[key].print('Key')
+        for key, val in self.data.items():
+            print(f'Key: {key}')
             if self.leads_to_str[key]:
-                self.val_phs[key].print('Value')
+                print(f'Val: {val}')
+            else:
+                print(f'Val: [ Data Structure ]')
+            self.key_val_phs[key].print()
         return
 
 class PlaceHoldersInList:
