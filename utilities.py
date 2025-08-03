@@ -15,6 +15,23 @@ def load_json_file( filepath : str) -> OrderedDict:
     with open( filepath, 'r', encoding='utf-8') as f:
         return load( f, object_pairs_hook = OrderedDict)
 
+def print_recursively( data : str | dict | list, indent = 0) -> None:
+    space = '  ' * indent
+    if isinstance( data, str):
+        print(f"{space}{data}")
+    elif isinstance( data, dict):
+        print(f"{space}{'{'}")
+        for key, value in data.items():
+            print(f"{space}{key}:")
+            print_recursively( value, indent + 1)
+        print(f"{space}{'}'}")
+    elif isinstance( data, list):
+        print(f"{space}{'['}")
+        for item in data:
+            print_recursively( item, indent + 1)
+        print(f"{space}{']'}")
+    return
+
 def isvalid_set( set_values : list) -> bool:
     """
     Check placeholder declaration for correctness: sets
