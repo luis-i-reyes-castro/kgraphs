@@ -3,7 +3,6 @@
 Data structures for placeholder substitution
 """
 
-import itertools
 import regex_constants as rxconst
 import utilities as util
 from pathlib import Path
@@ -32,39 +31,43 @@ class PlaceHoldersInStr:
             case _:
                 raise ValueError(f"Invalid placeholder type: {placeholder_type}")
         return False
+    def print( self, name = 'String') -> None:
+        print(f"{name} Placeholders:")
+        print(f"  Data: {self.data}")
+        print(f"  Sets: {self.sets}")
+        print(f"  Functions: {self.funs}")
+        print(f"  Relations: {self.rels}")
+        return
 
 class PlaceHoldersInDict:
     
     def __init__( self, data : dict):
         self.data = data
-        self.key_phs = { key : PlaceHoldersInStr() for key in data.keys() }
-        self.val_phs = { key : PlaceHoldersInStr() for key in data.keys() }
+        self.leads_to_str = { key : isinstance( val, str) for key, val in self.data.items() }
+        self.key_phs          = { key : PlaceHoldersInStr() for key in data.keys() }
+        self.val_phs          = { key : PlaceHoldersInStr() for key in data.keys() }
         self.combined_key_phs = PlaceHoldersInStr()
         self.combined_val_phs = PlaceHoldersInStr()
         self.combined_phs     = PlaceHoldersInStr()
-        self.leads_to_dict = { key : False for key in self.data.keys() }
-        self.leads_to_list = { key : False for key in self.data.keys() }
         return
     
     def update( self) -> None:
         for key in self.data.keys():
-            # Skip if key leads to dict or list
-            if self.leads_to_dict[key] or self.leads_to_list[key]:
-                continue
-            # Update combined key and value placeholder data
+            # Keys are always strings
             self.combined_key_phs.sets.update(self.key_phs[key].sets)
             self.combined_key_phs.funs.update(self.key_phs[key].funs)
             self.combined_key_phs.rels.update(self.key_phs[key].rels)
-            self.combined_val_phs.sets.update(self.val_phs[key].sets)
-            self.combined_val_phs.funs.update(self.val_phs[key].funs)
-            self.combined_val_phs.rels.update(self.val_phs[key].rels)
-            # Update combined placeholder data
             self.combined_phs.sets.update(self.key_phs[key].sets)
             self.combined_phs.funs.update(self.key_phs[key].funs)
             self.combined_phs.rels.update(self.key_phs[key].rels)
-            self.combined_phs.sets.update(self.val_phs[key].sets)
-            self.combined_phs.funs.update(self.val_phs[key].funs)
-            self.combined_phs.rels.update(self.val_phs[key].rels)
+            # Values may be strings or data structures
+            if self.leads_to_str[key]:
+                self.combined_val_phs.sets.update(self.val_phs[key].sets)
+                self.combined_val_phs.funs.update(self.val_phs[key].funs)
+                self.combined_val_phs.rels.update(self.val_phs[key].rels)
+                self.combined_phs.sets.update(self.val_phs[key].sets)
+                self.combined_phs.funs.update(self.val_phs[key].funs)
+                self.combined_phs.rels.update(self.val_phs[key].rels)
         return
     
     def contains( self, location : str, placeholder_type : str) -> bool:
@@ -93,34 +96,38 @@ class PlaceHoldersInDict:
                 raise ValueError(f"Invalid placeholder type: {placeholder_type}")
         return False
     
-    def leads_to_dict( self) -> bool:
-        return any(self.leads_to_dict.values())
+    def contains_only_strings( self) -> bool:
+        return all(self.leads_to_str.values())
     
-    def leads_to_list( self) -> bool:
-        return any(self.leads_to_list.values())
+    def contains_data_structures( self) -> bool:
+        return not self.contains_only_strings()
     
-    def has_children( self) -> bool:
-        return self.leads_to_dict() or self.leads_to_list()
-    
+    def print( self) -> None:
+        print('PLACEHOLDERS IN DICT:')
+        self.combined_phs.print('Combined Key and Val')
+        self.combined_key_phs.print('Combined Key')
+        self.combined_val_phs.print('Combined Val')
+        for key in self.data.keys():
+            self.key_phs[key].print('Key')
+            if self.leads_to_str[key]:
+                self.val_phs[key].print('Value')
+        return
+
 class PlaceHoldersInList:
     
     def __init__( self, data : list):
         self.data = data
-        self.item_phs = [ PlaceHoldersInStr() for _ in self.data ]
+        self.leads_to_str = [ isinstance( item, str) for item in self.data ]
+        self.item_phs     = [ PlaceHoldersInStr() for _ in self.data ]
         self.combined_phs = PlaceHoldersInStr()
-        self.leads_to_dict = [ False for _ in self.data ]
-        self.leads_to_list = [ False for _ in self.data ]
         return
     
     def update( self) -> None:
         for i, _ in enumerate(self.data):
-            # Skip if item leads to dict or list
-            if self.leads_to_dict[i] or self.leads_to_list[i]:
-                continue
-            # Update item placeholder data
-            self.combined_phs.sets.update(self.item_phs[i].sets)
-            self.combined_phs.funs.update(self.item_phs[i].funs)
-            self.combined_phs.rels.update(self.item_phs[i].rels)
+            if self.leads_to_str[i]:
+                self.combined_phs.sets.update(self.item_phs[i].sets)
+                self.combined_phs.funs.update(self.item_phs[i].funs)
+                self.combined_phs.rels.update(self.item_phs[i].rels)
         return
     
     def contains( self, placeholder_type : str) -> bool:
@@ -139,14 +146,19 @@ class PlaceHoldersInList:
                 raise ValueError(f"Invalid placeholder type: {placeholder_type}")
         return False
     
-    def leads_to_dict( self) -> bool:
-        return any(self.leads_to_dict)
+    def contains_only_strings( self) -> bool:
+        return all(self.leads_to_str)
     
-    def leads_to_list( self) -> bool:
-        return any(self.leads_to_list)
+    def contains_data_structures( self) -> bool:
+        return not self.contains_only_strings()
     
-    def has_children( self) -> bool:
-        return self.leads_to_dict() or self.leads_to_list()
+    def print( self) -> None:
+        print('PLACEHOLDERS IN LIST:')
+        self.combined_phs.print('Combined Items')
+        for i, item in enumerate(self.data):
+            if self.leads_to_str[i]:
+                self.item_phs[i].print('Item')
+        return
 
 class BuiltInFunction(dict):
     def __init__( self, function : Callable[ [str], str]):
@@ -263,13 +275,7 @@ class PlaceHolderDatabase:
                 result.key_phs[k].sets = self.get_placeholder_sets(k)
                 result.key_phs[k].funs = self.get_placeholder_funs(k)
                 result.key_phs[k].rels = self.get_placeholder_rels(k)
-                if isinstance( v, dict):
-                    result.leads_to_dict[k] = True
-                    continue
-                elif isinstance( v, list):
-                    result.leads_to_list[k] = True
-                    continue
-                else:
+                if result.leads_to_str[k]:
                     result.val_phs[k].data = v
                     result.val_phs[k].sets = self.get_placeholder_sets(v)
                     result.val_phs[k].funs = self.get_placeholder_funs(v)
@@ -279,13 +285,7 @@ class PlaceHolderDatabase:
         elif isinstance( data, list):
             result = PlaceHoldersInList(data)
             for i, item in enumerate(data):
-                if isinstance( item, dict):
-                    result.leads_to_dict[i] = True
-                    continue
-                elif isinstance( item, list):
-                    result.leads_to_list[i] = True
-                    continue
-                else:
+                if result.leads_to_str[i]:
                     result.item_phs[i].data = item
                     result.item_phs[i].sets = self.get_placeholder_sets(item)
                     result.item_phs[i].funs = self.get_placeholder_funs(item)
@@ -293,107 +293,6 @@ class PlaceHolderDatabase:
             result.update()
         
         return result
-    
-    def apply_phs( self, val : str | dict | list, set_context : dict) -> str | list[str]:
-        """
-        Expand placeholders and function calls within a single value.
-        
-        Args:
-            val: The value to expand (can be string, dict, list, or other types)
-            set_context: Dictionary containing set context for placeholder substitution
-        
-        Returns:
-            Either a single expanded value or a list of expanded values (for relations)
-        """
-        if isinstance( val, str):
-            # Check if any relations are present
-            ph_rels = self.get_placeholder_rels(val)
-            if not ph_rels:
-                # Handle regular functions and set placeholders
-                return self.apply_phs_regular(val, set_context)
-            else:
-                # Handle relations (set-returning functions) by creating multiple expansions
-                return self.apply_phs_with_relations(val, set_context)
-        elif isinstance( val, dict):
-            # Recursively expand dictionary values
-            result = {}
-            for k, v in val.items():
-                result[k] = self.apply_phs(v, set_context)
-            return result
-        elif isinstance( val, list):
-            # Recursively expand list elements
-            result = []
-            for v in val:
-                result.append(self.apply_phs(v, set_context))
-            return result
-        # Return unchanged for other types
-        return val
-    
-    def apply_phs_regular( self, val : str, set_context : dict) -> str:
-        """
-        Expand regular functions and set placeholders (no relations).
-        Returns a single expanded string.
-        """
-        result = val
-
-        # Replace set calls
-        for set_name, set_val in set_context.items():
-            result = util.replace_placeholder(result, set_val, set_name)
-        
-        # Replace function calls
-        for func_sig, mapping in self.fun_map.items():
-            # Get the argument set name from the pre-computed map
-            arg_set = self.fun_arg_map[func_sig]
-            if arg_set and arg_set in set_context:
-                arg_val = set_context[arg_set]
-                if arg_val in mapping:
-                    replacement = mapping[arg_val]
-                    result = util.replace_placeholder(result, replacement, func_sig)
-        
-        return result
-    
-    def apply_phs_with_relations( self, val : str, set_context : dict) -> list[str]:
-        """
-        Expand values that contain relations (set-returning functions).
-        Returns a list of expanded strings.
-        """
-        # Collect all possible expansions for each relation
-        relation_expansions = []
-        
-        for rel_sig, mapping in self.rel_map.items():
-            # Get the argument set name from the pre-computed map
-            arg_set = self.rel_arg_map[rel_sig]
-            if arg_set and arg_set in set_context:
-                arg_val = set_context[arg_set]
-                if arg_val in mapping:
-                    # Get the list of values returned by this relation
-                    relation_values = mapping[arg_val]
-                    relation_expansions.append((rel_sig, relation_values))
-        
-        if not relation_expansions:
-            # No valid relations found, fall back to regular expansion
-            return self.apply_phs_regular(val, set_context)
-        
-        # Generate all combinations of relation expansions
-        results = []
-        rel_sigs = [exp[0] for exp in relation_expansions]
-        rel_value_lists = [exp[1] for exp in relation_expansions]
-        
-        for combination in itertools.product(*rel_value_lists):
-            expanded_val = val
-            
-            # Replace each relation with its value from the combination
-            for rel_sig, replacement in zip(rel_sigs, combination):
-                # For relations, we need to include the * prefix in the placeholder
-                full_placeholder = f"*{rel_sig}"
-                expanded_val = util.replace_placeholder(expanded_val, replacement, full_placeholder)
-            
-            # Also replace any remaining regular functions and set placeholders
-            expanded_val = self.apply_phs_regular(expanded_val, set_context)
-            
-            results.append(expanded_val)
-        
-        return results
 
 def load_placeholders( dir: str = 'newlang',
                        file: str = 'placeholders.json') -> PlaceHolderDatabase:
