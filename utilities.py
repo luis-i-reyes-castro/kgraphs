@@ -15,21 +15,36 @@ def load_json_file( filepath : str) -> OrderedDict:
     with open( filepath, 'r', encoding='utf-8') as f:
         return load( f, object_pairs_hook = OrderedDict)
 
-def print_recursively( data : str | dict | list, indent = 0) -> None:
+def print_sep( width : int = 80) -> None :
+    print( '-' * width )
+    return
+
+def print_ind( arg : str, indent = 0) -> None :
     space = '  ' * indent
+    print(f'{space}{arg}')
+    return
+
+def print_recursively( data : str | dict | list, indent = 0) -> None :
+    
     if isinstance( data, str):
-        print(f"{space}{data}")
+        print_ind( data, indent)
+    
     elif isinstance( data, dict):
-        print(f"{space}{'{'}")
+        print_ind( '{', indent)
         for key, value in data.items():
-            print(f"{space}{key}:")
+            print_ind( f'{key}:', indent)
             print_recursively( value, indent + 1)
-        print(f"{space}{'}'}")
+        print_ind( '}', indent)
+    
     elif isinstance( data, list):
-        print(f"{space}{'['}")
+        print_ind( '[', indent)
         for item in data:
             print_recursively( item, indent + 1)
-        print(f"{space}{']'}")
+        print_ind( ']', indent)
+    
+    else :
+        raise ValueError(f'Invalid data type: {type(data)}')
+    
     return
 
 def isvalid_set( set_values : list) -> bool:
@@ -89,8 +104,10 @@ def extract_arg_set( sig : str) -> str:
     match = search( rxconst.RX_ARG, sig)
     return match.group(1) if match else None
 
-def replace_placeholder( val_orig : str, val_new : str, sig : str) -> str:
+def replace_placeholder( argument : str,
+                         placeholder : str,
+                         placeholder_value : str) -> str:
     """
-    Replace a placeholder with a new value
+    Replace a placeholder with a value
     """
-    return val_orig.replace( f'({sig})', val_new)
+    return argument.replace( f'({placeholder})', placeholder_value)
