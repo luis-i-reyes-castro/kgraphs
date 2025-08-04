@@ -1,0 +1,8 @@
+[
+["disconnected", "not connected"],
+["forward vision", "front vision", "binocular vision"],
+["jammed", "blocked", "stuck"],
+["pump", "delivery pump", "water pump"],
+["nozzle", "centrifugal motor"],
+["stabilizer", "gimbal"]
+]

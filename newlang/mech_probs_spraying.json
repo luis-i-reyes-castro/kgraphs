@@ -1,0 +1,26 @@
+{
+"thick_mixture":
+{
+  "type": "problem cause",
+  "name": "Pesticide Mixture is Too Thick",
+  "name_spanish": "Mezcla de Pesticidas es Demasiado Espesa"
+},
+"pump_(PUMP)_impeller_stuck":
+{
+  "type": "problem cause",
+  "name": "Pump (SAME[PUMP]) Impeller is Stuck",
+  "name_spanish": "Turbina de la Bomba (SAME[PUMP]) está Atascada"
+},
+"pump_(PUMP)_motor_magnet_loose":
+{
+  "type": "problem cause",
+  "name": "Pump (SAME[PUMP]) Motor Magnet is Loose",
+  "name_spanish": "Imán del Motor de la Bomba (SAME[PUMP]) está Patinando en su Eje"
+},
+"check_valve_(PUMP)_stuck":
+{
+  "type": "problem cause",
+  "name": "M(ARM[PUMP]) Arm Check Valve is Stuck",
+  "name_spanish": "Válvula Check del Brazo M(ARM[PUMP]) está Atascada"
+}
+}
