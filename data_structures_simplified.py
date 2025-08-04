@@ -10,35 +10,6 @@ from re import search
 from typing import Callable
 from utilities import load_json_file
 
-class PlaceHoldersInStr :
-    def __init__( self, data : str | None = None) :
-        self.data = data
-        self.sets = []
-        self.funs = []
-        self.rels = []
-        return
-    def contains( self, placeholder_type : str) -> bool :
-        match placeholder_type:
-            case 'set':
-                return len(self.sets) > 0
-            case 'fun':
-                return len(self.funs) > 0
-            case 'rel':
-                return len(self.rels) > 0
-            case 'any':
-                return len(self.sets) > 0 or \
-                       len(self.funs) > 0 or \
-                       len(self.rels) > 0
-            case _:
-                raise ValueError(f"Invalid placeholder type: {placeholder_type}")
-        return False
-    def print( self, indent = 1) -> None:
-        spaces = '  ' * indent
-        print(f"{spaces}Sets: {self.sets}")
-        print(f"{spaces}Functions: {self.funs}")
-        print(f"{spaces}Relations: {self.rels}")
-        return
-
 class BuiltInFunction(dict) :
     def __init__( self, function : Callable[ [str], str]) :
         super().__init__()
@@ -90,21 +61,31 @@ class PlaceHolderDatabase:
         match = search( rxconst.RX_ARG, set_signature)
         return match.group(1) if match else None
     
-    def get_placeholders( self, data : str) -> PlaceHoldersInStr :
+    def get_first_placeholder( self, data : str | list[str], ph_type : str) -> str | None :
         """
-        Get all placeholders in keyval
+        Get the first placeholder of a given type in the data
         """
-        result = None
-
-        if isinstance( data, str):
-            result = PlaceHoldersInStr(data)
-            result.sets = self.get_placeholder_sets(data)
-            result.funs = self.get_placeholder_funs(data)
-            result.rels = self.get_placeholder_rels(data)
-        else:
-            raise ValueError(f"Invalid data type: {type(data)}")
+        if isinstance( data, str) :
+            placeholders = []
+            match ph_type:
+                case 'set':
+                    placeholders = self.get_placeholder_sets(data)
+                case 'fun':
+                    placeholders = self.get_placeholder_funs(data)
+                case 'rel':
+                    placeholders = self.get_placeholder_rels(data)
+                case _:
+                    raise ValueError(f"Invalid placeholder type: {ph_type}")
+            if placeholders:
+                return placeholders[0]
         
-        return result
+        elif isinstance( data, list) :
+            for item in data:
+                first_placeholder = self.get_first_placeholder( item, ph_type)
+                if first_placeholder :
+                    return first_placeholder
+        
+        return None
     
     def get_placeholder_sets( self, keyval : str) -> list :
         """
@@ -186,18 +167,33 @@ class PlaceHolderDatabase:
         return True
     
     @staticmethod
-    def replace( argument : str, placeholder : str, placeholder_value : str) -> str :
+    def replace( argument : str | list[str], 
+                 placeholder : str, 
+                 placeholder_value : str) -> str | list[str] :
         """
-        Replace a set or function placeholder with a value
+        Replace a set or function placeholder in a string or list of strings
         """
-        return argument.replace( f'({placeholder})', placeholder_value)
+        placeholder_str = f'({placeholder})'
+        result = None
+        if isinstance( argument, str) :
+            result = str(argument).replace( placeholder_str, placeholder_value)
+        elif isinstance( argument, list) :
+            result = []
+            for item in argument :
+                new_item = str(item).replace( placeholder_str, placeholder_value)
+                result.append(new_item)
+        else:
+            raise ValueError(f"Invalid argument type: {type(argument)}")
+        return result
     
     @staticmethod
-    def replace_relation( argument : str, placeholder : str, placeholder_value : str) -> str :
+    def replace_relation( argument : str,
+                          placeholder : str,
+                          placeholder_value : str) -> str :
         """
-        Replace a relation placeholder with a value
+        Replace a relation placeholder in a string or list of strings
         """
-        return argument.replace( f'(*{placeholder})', placeholder_value)
+        return PlaceHolderDatabase.replace( argument, f'*{placeholder}', placeholder_value)
     
     def update( self) -> None :
         """
