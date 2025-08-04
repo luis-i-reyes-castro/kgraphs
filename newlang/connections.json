@@ -42,7 +42,7 @@
     ["pdb", "front_esc_cable_(SIDE)"],
     ["m(ARM_FRONT)_esc_cable", "front_esc_cable_(POWER_CABLE_SIDE[ARM_FRONT])"],
     ["m(ARM)_esc_cable", "esc_(*MOTOR[ARM])"],
-    ["esc_(MOTOR)", "motor_(MOTOR)"],
+    ["esc_(MOTOR)", "motor_(SAME[MOTOR])"],
 
     ["m(ARM_BACK)_esc_cable", "centrifugal_cable_(SIDE[ARM_BACK])"],
     ["centrifugal_motor_(NOZZLE)", "centrifugal_cable_(SIDE[NOZZLE])"]

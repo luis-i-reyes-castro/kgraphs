@@ -188,9 +188,16 @@ class PlaceHolderDatabase:
     @staticmethod
     def replace( argument : str, placeholder : str, placeholder_value : str) -> str :
         """
-        Replace a placeholder with a value
+        Replace a set or function placeholder with a value
         """
         return argument.replace( f'({placeholder})', placeholder_value)
+    
+    @staticmethod
+    def replace_relation( argument : str, placeholder : str, placeholder_value : str) -> str :
+        """
+        Replace a relation placeholder with a value
+        """
+        return argument.replace( f'(*{placeholder})', placeholder_value)
     
     def update( self) -> None :
         """
