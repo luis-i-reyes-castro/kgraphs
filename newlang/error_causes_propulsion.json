@@ -1,6 +1,6 @@
 [
 {
-"errors":
+"group_errors":
 [
     "error_esc_(MOTOR_FRONT)",
     "error_esc_(MOTOR_FRONT)_self_check",
@@ -9,7 +9,7 @@
     "error_esc_(MOTOR_FRONT)_backup_throttle_lost",
     "error_esc_(MOTOR_FRONT)_throttle_cycle_exception"
 ],
-"causes":
+"group_causes":
 [
     {
     "component": "avionics",
@@ -38,7 +38,7 @@
 ]
 },
 {
-"errors":
+"group_errors":
 [
     "error_esc_(MOTOR_BACK)",
     "error_esc_(MOTOR_BACK)_self_check",
@@ -46,7 +46,7 @@
     "error_esc_(MOTOR_BACK)_disconnected",
     "error_esc_(MOTOR_BACK)_throttle_cycle_exception"
 ],
-"causes":
+"group_causes":
 [
     {
     "component": "avionics",
@@ -65,7 +65,7 @@
     "probability": "medium"
     },
     {
-    "component": "m(SAME[MOTOR_BACK_ARM])_esc_cable",
+    "component": "m(ARM[MOTOR_BACK])_esc_cable",
     "probability": "high"
     },
     {
@@ -79,11 +79,11 @@
 ]
 },
 {
-"errors":
+"group_errors":
 [
     "error_esc_(MOTOR_BACK)_backup_throttle_lost"
 ],
-"causes":
+"group_causes":
 [
     {
     "component": "avionics",
@@ -102,7 +102,7 @@
     "probability": "medium"
     },
     {
-    "component": "m(SAME[MOTOR_BACK_ARM])_esc_cable",
+    "component": "m(ARM[MOTOR_BACK])_esc_cable",
     "probability": "high"
     },
     {
