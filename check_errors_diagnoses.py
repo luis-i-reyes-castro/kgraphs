@@ -1,10 +1,15 @@
+#!/usr/bin/env python3
+"""
+Check error mappings for consistency
+"""
+
 import sys
 import utilities as util
 
 def check_error_mappings(system_type):
     # Construct filenames based on system_type
     errors_file = f'expansions/errors_{system_type}.json'
-    causes_file = f'expansions/error_causes_{system_type}.json'
+    causes_file = f'expansions/diagnoses_{system_type}.json'
 
     # Load both JSON files
     try:

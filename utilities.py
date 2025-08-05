@@ -6,15 +6,16 @@ Utilities for placeholder substitution
 from collections import OrderedDict
 from json import load
 from json import dump
+from typing import Any
 
-def load_json_file( filepath : str) -> OrderedDict:
+def load_json_file( filepath : str) -> Any :
     """
     Load JSON file as OrderedDict
     """
     with open( filepath, 'r', encoding='utf-8') as f:
         return load( f, object_pairs_hook = OrderedDict)
 
-def save_json_file( filepath : str, data : OrderedDict) -> None:
+def save_json_file( filepath : str, data : Any) -> None :
     """
     Save JSON file as OrderedDict
     """

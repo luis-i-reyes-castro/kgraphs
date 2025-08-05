@@ -96,8 +96,8 @@ def parse_list_of_pairs( data : OrderedDict,
     # The grand finale
     return result
 
-def parse_error_causes( data : OrderedDict,
-                        phDB : ds.PlaceHolderDatabase) -> OrderedDict :
+def parse_diagnoses( data : OrderedDict,
+                     phDB : ds.PlaceHolderDatabase) -> OrderedDict :
     # Initialize results dict
     result = OrderedDict()
     # Iterate through outer list
@@ -147,10 +147,10 @@ if __name__ == "__main__" :
     
     dir_input  = 'newlang/'
     dir_output = 'expansions/'
-    batch_dod  = ( 'components_', 'errors_', 'mech_', 'problems_')
+    batch_dod  = ( 'components_', 'errors_', 'problems_')
     batch_lop  = ( 'connections',)
-    batch_ecs  = ( 'error_causes_',)
-    batch_full = batch_dod + batch_ecs + batch_lop
+    batch_dia  = ( 'diagnoses_',)
+    batch_full = batch_dod + batch_lop + batch_dia
     exceptions = ( 'placeholders',)
 
     # List all files in the input directory
@@ -175,8 +175,8 @@ if __name__ == "__main__" :
             parsed_data = parse_dict_of_dicts( file_data, placeholderDB)
         elif filename.startswith(batch_lop) :
             parsed_data = parse_list_of_pairs( file_data, placeholderDB)
-        elif filename.startswith(batch_ecs) :
-            parsed_data = parse_error_causes( file_data, placeholderDB)
+        elif filename.startswith(batch_dia) :
+            parsed_data = parse_diagnoses( file_data, placeholderDB)
         else :
             raise ValueError( f'Unknown batch: {filename}')
         # Write the parsed data as JSON to the output directory
