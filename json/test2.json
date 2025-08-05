@@ -1,8 +1,0 @@
-{
-    "T40_connections":
-    [
-        {"from": "cdb", "to": "signal_cable_(SIDE)" },
-        {"from": "rtk_cable_(SIDE)", "to": "rtk_ant_(SIDE)"},
-        {"from": "m(ARM)_esc_cable", "to": "esc_(MOTOR(ARM))"}
-    ]
-}

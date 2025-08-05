@@ -1,6 +1,0 @@
-{
-"T40_connections":
-[
-    {"from": "m(ARM)_esc_cable", "to": "esc_(*MOTOR[ARM])"}
-]
-}
