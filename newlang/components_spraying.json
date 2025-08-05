@@ -94,7 +94,7 @@
 "m(ARM_BACK)_esc_cable":
 {
   "file": "components_propulsion.json",
-  "id": "m(ARM_BACK)_esc_cable"
+  "id": "m(SAME[ARM_BACK])_esc_cable"
 },
 "centrifugal_cable_(SIDE)":
 {
