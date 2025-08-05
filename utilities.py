@@ -5,6 +5,7 @@ Utilities for placeholder substitution
 
 from collections import OrderedDict
 from json import load
+from json import dump
 
 def load_json_file( filepath : str) -> OrderedDict:
     """
@@ -12,6 +13,14 @@ def load_json_file( filepath : str) -> OrderedDict:
     """
     with open( filepath, 'r', encoding='utf-8') as f:
         return load( f, object_pairs_hook = OrderedDict)
+
+def save_json_file( filepath : str, data : OrderedDict) -> None:
+    """
+    Save JSON file as OrderedDict
+    """
+    with open(filepath, 'w', encoding='utf-8') as f:
+        dump(data, f, indent=2, ensure_ascii=False)
+    return
 
 def print_sep( width : int = 80) -> None :
     print( '-' * width )
