@@ -83,19 +83,19 @@
     "probability": "high"
     },
     {
-    "mech_prob": "thick_mixture",
+    "problem_mechanical": "thick_mixture",
     "probability": "high"
     },
     {
-    "mech_prob": "pump_(SAME[PUMP])_impeller_stuck",
+    "problem_mechanical": "pump_(SAME[PUMP])_impeller_stuck",
     "probability": "high"
     },
     {
-    "mech_prob": "pump_(SAME[PUMP])_motor_magnet_loose",
+    "problem_mechanical": "pump_(SAME[PUMP])_motor_magnet_loose",
     "probability": "high"
     },
     {
-    "mech_prob": "check_valve_(SAME[PUMP])_stuck",
+    "problem_mechanical": "check_valve_(SAME[PUMP])_stuck",
     "probability": "high"
     }
 ]
@@ -112,19 +112,19 @@
     "probability": "medium"
     },
     {
-    "mech_prob": "thick_mixture",
+    "problem_mechanical": "thick_mixture",
     "probability": "high"
     },
     {
-    "mech_prob": "pump_(SAME[PUMP])_impeller_stuck",
+    "problem_mechanical": "pump_(SAME[PUMP])_impeller_stuck",
     "probability": "high"
     },
     {
-    "mech_prob": "pump_(SAME[PUMP])_motor_magnet_loose",
+    "problem_mechanical": "pump_(SAME[PUMP])_motor_magnet_loose",
     "probability": "high"
     },
     {
-    "mech_prob": "check_valve_(SAME[PUMP])_stuck",
+    "problem_mechanical": "check_valve_(SAME[PUMP])_stuck",
     "probability": "high"
     }
 ]
@@ -174,7 +174,8 @@
 "group_errors":
 [
     "error_centrifugal_nozzle_(NOZZLE)_worn_out_or_clogged",
-    "error_centrifugal_nozzle_(NOZZLE)_stuck"
+    "error_centrifugal_nozzle_(NOZZLE)_stuck",
+    "error_centrifugal_nozzle_(NOZZLE)_temperature_high"
 ],
 "group_causes":
 [
@@ -187,19 +188,19 @@
     "probability": "medium"
     },
     {
-    "mech_prob": "thick_mixture",
+    "problem_mechanical": "thick_mixture",
     "probability": "high"
     },
     {
-    "mech_prob": "pump_(PUMP[NOZZLE])_impeller_stuck",
+    "problem_mechanical": "pump_(PUMP[NOZZLE])_impeller_stuck",
     "probability": "high"
     },
     {
-    "mech_prob": "pump_(PUMP[NOZZLE])_motor_magnet_loose",
+    "problem_mechanical": "pump_(PUMP[NOZZLE])_motor_magnet_loose",
     "probability": "medium"
     },
     {
-    "mech_prob": "check_valve_(PUMP[NOZZLE])_stuck",
+    "problem_mechanical": "check_valve_(PUMP[NOZZLE])_stuck",
     "probability": "medium"
     }
 ]

@@ -1,0 +1,14 @@
+{
+  "arm_(ARM)_locking_piece_handle":
+  {
+    "type": "problem cause",
+    "name": "Arm (SAME[ARM]) Locking Piece Handle is Loose or Damaged",
+    "name_spanish": "Seguro del Brazo (SAME[ARM]) está Flojo o Dañado"
+  },
+  "something_loose":
+  {
+  "type": "problem cause",
+  "name": "Some Arm, Motor or Propeller is Loose",
+  "name_spanish": "Algun Brazo, Motor or Hélice está Flojo"
+  }
+}

@@ -6,7 +6,19 @@ Check error mappings for consistency
 import sys
 import utilities as util
 
-def check_error_mappings(system_type):
+def has_valid_cause_keys( cause : dict) -> bool :
+    # Cause must have either a component or a problem
+    cond_1A = 'component' in cause
+    cond_1B = any( str(key).startswith('problem_') for key in cause.keys() )
+    # Cause must have a probability or frequency
+    cond_2_vals = ( 'probability', 'frequency' )
+    cond_2      = any( key in cause for key in cond_2_vals )
+    # Enforce conditions
+    if not ( ( cond_1A or cond_1B ) and cond_2 ) :
+        return False
+    return True
+
+def check_error_mappings( system_type : str) -> bool :
     # Construct filenames based on system_type
     errors_file = f'expansions/errors_{system_type}.json'
     causes_file = f'expansions/diagnoses_{system_type}.json'
@@ -41,8 +53,7 @@ def check_error_mappings(system_type):
             if not isinstance(cause, dict):
                 errors_with_invalid_causes.add(error_code)
                 break
-            if (('component' not in cause and 'mech_prob' not in cause) or 
-                'probability' not in cause):
+            if not has_valid_cause_keys(cause):
                 errors_with_invalid_causes.add(error_code)
                 break
 
@@ -75,8 +86,8 @@ def check_error_mappings(system_type):
     if errors_with_invalid_causes:
         print(f"\n❌ Errors that have invalid cause structures in {causes_file}:")
         for error in sorted(errors_with_invalid_causes):
-            print(f"  - {error} (missing 'component'/'mech_prob' or "
-                  f"'probability' keys)")
+            msg = f"(missing component/problem or probability/frequency keys)"
+            print(f"  - {error} {msg}")
 
     return False
 
