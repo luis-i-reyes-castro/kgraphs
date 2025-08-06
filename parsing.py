@@ -3,7 +3,7 @@
 Parsing functions for placeholder substitution
 """
 
-import data_structures_simplified as ds
+import data_structures as ds
 import os
 import shutil
 import utilities as util

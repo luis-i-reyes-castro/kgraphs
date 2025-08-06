@@ -15,6 +15,13 @@ def load_json_file( filepath : str) -> Any :
     with open( filepath, 'r', encoding='utf-8') as f:
         return load( f, object_pairs_hook = OrderedDict)
 
+def load_json_file_as_string( filepath : str) -> str :
+    """
+    Load JSON file as string
+    """
+    with open( filepath, 'r', encoding='utf-8') as f:
+        return f.read()
+
 def save_json_file( filepath : str, data : Any) -> None :
     """
     Save JSON file as OrderedDict
