@@ -1,23 +1,23 @@
 {
 "cdb":
 {
-  "file": "components_core.json",
-  "id": "cdb"
+    "file": "components_core.json",
+    "id": "cdb"
 },
 "pdb":
 {
-  "file": "components_core.json",
-  "id": "pdb"
+    "file": "components_core.json",
+    "id": "pdb"
 },
 "signal_cable_(SIDE)":
 {
-  "file": "components_core.json",
-  "id": "signal_cable_(SAME[SIDE])"
+    "file": "components_core.json",
+    "id": "signal_cable_(SAME[SIDE])"
 },
 "spray_board":
 {
-  "file": "components_core.json",
-  "id": "spray_board"
+    "file": "components_core.json",
+    "id": "spray_board"
 },
 "load_sensor":
 {
@@ -29,43 +29,43 @@
 },
 "spray_adapt_cable":
 {
-  "type": "cable",
-  "name": "Spraying Adaptive Cable",
-  "name_spanish": "Cable Adaptativo de Rociado",
-  "material_num": "YC.XC.XX000842",
-  "material_name": "Spraying Adaptive Cable"
+    "type": "cable",
+    "name": "Spraying Adaptive Cable",
+    "name_spanish": "Cable Adaptativo de Rociado",
+    "material_num": "YC.XC.XX000842",
+    "material_name": "Spraying Adaptive Cable"
 },
 "spray_signal_cable":
 {
-  "type": "cable",
-  "name": "Spraying Signal Cable",
-  "name_spanish": "Cable de Señal de Rociado",
-  "material_num": "YC.XC.XX000835",
-  "material_name": "Spraying Signal Cable"
+    "type": "cable",
+    "name": "Spraying Signal Cable",
+    "name_spanish": "Cable de Señal de Rociado",
+    "material_num": "YC.XC.XX000835",
+    "material_name": "Spraying Signal Cable"
 },
 "spray_adapter":
 {
-  "type": "board",
-  "name": "Spraying Adapter",
-  "name_spanish": "Tarjeta Adaptadora de Rociado",
-  "material_num": "BC.AG.SS000546",
-  "material_name": "Spraying Adapter Module"
+    "type": "board",
+    "name": "Spraying Adapter",
+    "name_spanish": "Tarjeta Adaptadora de Rociado",
+    "material_num": "BC.AG.SS000546",
+    "material_name": "Spraying Adapter Module"
 },
 "flow_meter_cable":
 {
-  "type": "cable",
-  "name": "Flow Meter Signal Cable",
-  "name_spanish": "Cable del Medidor de Caudal",
-  "material_num": "YC.XC.XX000839",
-  "material_name": "Flow Meter Signal Cable"
+    "type": "cable",
+    "name": "Flow Meter Signal Cable",
+    "name_spanish": "Cable del Medidor de Caudal",
+    "material_num": "YC.XC.XX000839",
+    "material_name": "Flow Meter Signal Cable"
 },
 "impeller_pump_cable":
 {
-  "type": "cable",
-  "name": "Impeller Pump Signal Cable",
-  "name_spanish": "Cable de Bombas",
-  "material_num": "YC.XC.XX000857",
-  "material_name": "Impeller Pump Signal Cable"
+    "type": "cable",
+    "name": "Impeller Pump Signal Cable",
+    "name_spanish": "Cable de Bombas",
+    "material_num": "YC.XC.XX000857",
+    "material_name": "Impeller Pump Signal Cable"
 },
 "liquid_level":
 {
@@ -93,24 +93,24 @@
 },
 "m(ARM_BACK)_esc_cable":
 {
-  "file": "components_propulsion.json",
-  "id": "m(SAME[ARM_BACK])_esc_cable"
+    "file": "components_propulsion.json",
+    "id": "m(SAME[ARM_BACK])_esc_cable"
 },
 "centrifugal_cable_(SIDE)":
 {
-  "type": "cable",
-  "name": "Centrifugal Sprinkler Signal Cable ((ENG[SIDE]))",
-  "name_spanish": "Cable de Boquilla Centrífuga ((SPA[SIDE]))",
-  "material_num": "YC.XC.XX000841",
-  "material_name": "Centrifugal Sprinkler Signal Cable"
+    "type": "cable",
+    "name": "Centrifugal Sprinkler Signal Cable ((ENG[SIDE]))",
+    "name_spanish": "Cable de Boquilla Centrífuga ((SPA[SIDE]))",
+    "material_num": "YC.XC.XX000841",
+    "material_name": "Centrifugal Sprinkler Signal Cable"
 },
 "centrifugal_motor_(NOZZLE)":
 {
-  "type": "motor",
-  "name": "Centrifugal Motor (SAME[NOZZLE])",
-  "alt_name": "Centrifugal Nozzle (SAME[NOZZLE])",
-  "name_spanish": "Motor de Boquilla Centrífuga (SAME[NOZZLE])",
-  "material_num": "BC.AG.SS000565",
-  "material_name": "Centrifugal Motor"
+    "type": "motor",
+    "name": "Centrifugal Motor (SAME[NOZZLE])",
+    "alt_name": "Centrifugal Nozzle (SAME[NOZZLE])",
+    "name_spanish": "Motor de Boquilla Centrífuga (SAME[NOZZLE])",
+    "material_num": "BC.AG.SS000565",
+    "material_name": "Centrifugal Motor"
 }
 }

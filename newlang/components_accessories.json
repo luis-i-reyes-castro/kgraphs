@@ -10,11 +10,11 @@
 },
 "aux_light_cable_(SIDE)":
 {
-  "id": "aux_light_cable_(SAME[SIDE])",
-  "type": "cable", 
-  "name": "Auxiliary Bottom Light Signal Cable ((ENG[SIDE]))",
-  "name_spanish": "Cable de Luz Auxiliar ((SPA[SIDE]))",
-  "material_num": "YC.XC.XX000853",
-  "material_name": "Auxiliary Bottom Light Signal Cable"
+    "id": "aux_light_cable_(SAME[SIDE])",
+    "type": "cable",
+    "name": "Auxiliary Bottom Light Signal Cable ((ENG[SIDE]))",
+    "name_spanish": "Cable de Luz Auxiliar ((SPA[SIDE]))",
+    "material_num": "YC.XC.XX000853",
+    "material_name": "Auxiliary Bottom Light Signal Cable"
 }
 }

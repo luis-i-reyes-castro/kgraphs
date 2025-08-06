@@ -10,42 +10,42 @@
 },
 "esc_(MOTOR)":
 {
-  "type": "esc",
-  "name": "ESC (SAME[MOTOR])",
-  "name_spanish": "ESC (SAME[MOTOR])",
-  "material_num": "BC.AG.SS000563",
-  "material_name": "ESC Module"
+    "type": "esc",
+    "name": "ESC (SAME[MOTOR])",
+    "name_spanish": "ESC (SAME[MOTOR])",
+    "material_num": "BC.AG.SS000563",
+    "material_name": "ESC Module"
 },
 "motor_(MOTOR)":
 {
-  "type": "motor",
-  "name": "Motor (SAME[MOTOR])",
-  "name_spanish": "Motor (SAME[MOTOR])",
-  "material_num": "BC.AG.SS000668",
-  "material_name": "Propulsion Motor 10033"
+    "type": "motor",
+    "name": "Motor (SAME[MOTOR])",
+    "name_spanish": "Motor (SAME[MOTOR])",
+    "material_num": "BC.AG.SS000668",
+    "material_name": "Propulsion Motor 10033"
 },
 "front_esc_cable_(SIDE)":
 {
-  "type": "cable",
-  "name": "Front Aircraft Arm ESC Power Adapter Cable ((ENG[SIDE]))",
-  "name_spanish": "Cable Adaptador de Potencia del Brazo Delantero ((SPA[SIDE]))",
-  "material_num": "YC.XC.DD000501",
-  "material_name": "Front Aircraft Arm ESC Power Adapter Cable"
+    "type": "cable",
+    "name": "Front Aircraft Arm ESC Power Adapter Cable ((ENG[SIDE]))",
+    "name_spanish": "Cable Adaptador de Potencia del Brazo Delantero ((SPA[SIDE]))",
+    "material_num": "YC.XC.DD000501",
+    "material_name": "Front Aircraft Arm ESC Power Adapter Cable"
 },
 "m(ARM_FRONT)_esc_cable":
 {
-  "type": "cable",
-  "name": "M(SAME[ARM_FRONT]) Aircraft Arm ESC Composite Cable",
-  "name_spanish": "Cable de ESC del Brazo M(SAME[ARM_FRONT])",
-  "material_num": "YC.XC.XS000011",
-  "material_name": "M1 & M2 Aircraft Arm ESC Composite Cable"
+    "type": "cable",
+    "name": "M(SAME[ARM_FRONT]) Aircraft Arm ESC Composite Cable",
+    "name_spanish": "Cable de ESC del Brazo M(SAME[ARM_FRONT])",
+    "material_num": "YC.XC.XS000011",
+    "material_name": "M1 & M2 Aircraft Arm ESC Composite Cable"
 },
 "m(ARM_BACK)_esc_cable":
 {
-  "type": "cable",
-  "name": "M(SAME[ARM_BACK]) Aircraft Arm ESC Composite Cable",
-  "name_spanish": "Cable de ESC del Brazo M(SAME[ARM_BACK])",
-  "material_num": "YC.XC.XS000012",
-  "material_name": "M3 & M4 Aircraft Arm ESC Composite Cable"
+    "type": "cable",
+    "name": "M(SAME[ARM_BACK]) Aircraft Arm ESC Composite Cable",
+    "name_spanish": "Cable de ESC del Brazo M(SAME[ARM_BACK])",
+    "material_num": "YC.XC.XS000012",
+    "material_name": "M3 & M4 Aircraft Arm ESC Composite Cable"
 }
 }
