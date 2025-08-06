@@ -1,0 +1,247 @@
+[
+{
+"group_errors":
+[
+    "error_barometer_excessive_deviation",
+    "error_barometer_out_of_range",
+    "error_static_altitude_change"
+],
+"group_causes":
+[
+    {
+    "component": "avionics",
+    "probability": "low"
+    },
+    {
+    "component": "barometer",
+    "probability": "high",
+    "note": "Humidity may have leaked into the barometer, causing false readings."
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_abnormal_linking",
+    "error_aircraft_unlinked",
+    "error_aircraft_unlinked",
+    "error_unstable_linking"
+],
+"group_causes":
+[
+    {
+    "component": "avionics",
+    "probability": "medium"
+    },
+    {
+    "component": "cdb",
+    "probability": "low"
+    },
+    {
+    "component": "rf_board",
+    "probability": "high"
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_radar",
+    "error_radar_disconnected",
+    "error_radar_esc_self_check",
+    "error_radar_esc_disconnected",
+    "error_radar_nav_communication",
+    "error_radar_internal_comm_1",
+    "error_radar_internal_comm_2",
+    "error_radar_downlink_1",
+    "error_radar_downlink_2"
+],
+"group_causes":
+[
+    {
+    "component": "avionics",
+    "probability": "low"
+    },
+    {
+    "component": "omni_radar_cable",
+    "probability": "medium"
+    },
+    {
+    "component": "omni_radar",
+    "probability": "medium"
+    },
+    {
+    "problem_firmware": "firmware_misbehaving",
+    "probability": "high"
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_radar_raster",
+    "error_radar_rf_clock"
+],
+"group_causes":
+[
+    {
+    "component": "avionics",
+    "probability": "low"
+    },
+    {
+    "component": "omni_radar_cable",
+    "probability": "medium"
+    },
+    {
+    "component": "omni_radar",
+    "probability": "high"
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_radar_internal_comm_3",
+    "error_radar_internal_comm_4",
+    "error_radar_downlink_3",
+    "error_radar_downlink_4"
+],
+"group_causes":
+[
+    {
+    "component": "avionics",
+    "probability": "low"
+    },
+    {
+    "component": "cdb",
+    "probability": "low"
+    },
+    {
+    "component": "bwd_radar_cable",
+    "probability": "medium"
+    },
+    {
+    "component": "bwd_radar",
+    "probability": "high"
+    },
+    {
+    "problem_firmware": "firmware_misbehaving",
+    "probability": "high"
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_front_ambient_light"
+],
+"group_causes":
+[
+    {
+    "problem_external": "ambient_light",
+    "probability": "high"
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_fwd_vision_blurred",
+    "error_fwd_vision_calibration",
+    "error_fwd_obstacle_detection"
+],
+"group_causes":
+[
+    {
+    "component": "avionics",
+    "probability": "low"
+    },
+    {
+    "component": "fwd_vision",
+    "probability": "medium",
+    "note": "Binocular cameras dirty. Clean them."
+    },
+    {
+    "problem_firmware": "firmware_misbehaving",
+    "probability": "high"
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_gimbal_position_init",
+    "error_gimbal_motor_data",
+    "error_gimbal_init_overload",
+    "error_gimbal_motor_not_initialized"
+],
+"group_causes":
+[
+    {
+    "component": "avionics",
+    "probability": "low"
+    },
+    {
+    "component": "fpv_camera",
+    "probability": "high",
+    "note": "The FPV camera gimbal motor is jammed. Clean it."
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_left_stick_movement"
+],
+"group_causes":
+[
+    {
+    "component": "rc_left_stick",
+    "probability": "high"
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_right_stick_movement"
+],
+"group_causes":
+[
+    {
+    "component": "rc_right_stick",
+    "probability": "high"
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_cnn_algorithm"
+],
+"group_causes":
+[
+    {
+    "problem_firmware": "firmware_misbehaving",
+    "probability": "high"
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_aircraft_module_version"
+],
+"group_causes":
+[
+    {
+    "problem_firmware": "firmware_misbehaving",
+    "probability": "high"
+    },
+    {
+    "problem_firmware": "firmware_update",
+    "probability": "high"
+    }
+]
+}
+]

@@ -1,14 +1,19 @@
 {
-  "arm_(ARM)_locking_piece_handle":
-  {
-    "type": "problem cause",
+"arm_(ARM)_locking_piece_handle":
+{
     "name": "Arm (SAME[ARM]) Locking Piece Handle is Loose or Damaged",
-    "name_spanish": "Seguro del Brazo (SAME[ARM]) está Flojo o Dañado"
-  },
-  "something_loose":
-  {
-  "type": "problem cause",
-  "name": "Some Arm, Motor or Propeller is Loose",
-  "name_spanish": "Algun Brazo, Motor or Hélice está Flojo"
-  }
+    "solutions":
+    [
+    "If the arm locking piece handle is loose, then tighten it up.",
+    "If the arm locking piece handle is damaged, then replace it"
+    ]
+},
+"something_loose":
+{
+    "name": "Some Arm, Motor or Propeller is Loose",
+    "solutions":
+    [
+    "Suspend operations immediately and contact technical support."
+    ]
+}
 }

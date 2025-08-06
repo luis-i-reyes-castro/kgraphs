@@ -1,0 +1,21 @@
+{
+"mission_radius":
+{
+    "name": "Mission Radius Too High",
+    "note": "The mission radius is the maximum distance between the takeoff point and any point where the aircraft is supposed to fly. You are trying to send the aircraft to fly too far from the takeoff point.",
+    "solutions":
+    [
+    "Reduce the field (map) size.",
+    "Move the takeoff point to a place where the mission radius is smaller."
+    ]
+},
+"takeoff_area_too_tight":
+{
+    "name": "Takeoff Area is Too Tight",
+    "solutions":
+    [
+    "Turn the aircraft off, rotate it 90 degrees, and restart it.",
+    "Move the takeoff point to an area with more clearance, where the GNSS antennas can acquire more satellites."
+    ]
+}
+}
