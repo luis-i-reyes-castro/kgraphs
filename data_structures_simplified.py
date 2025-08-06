@@ -53,7 +53,7 @@ class PlaceHolderDatabase:
         return
     
     @staticmethod
-    def extract_arg_set( set_signature : str) -> str :
+    def extract_arg_set( set_signature : str) -> str | None :
         """
         Extract the argument set name from a function or relation signature.
         For example, from "ENG[SIDE]" extract "SIDE".
@@ -187,9 +187,9 @@ class PlaceHolderDatabase:
         return result
     
     @staticmethod
-    def replace_relation( argument : str,
+    def replace_relation( argument : str | list[str],
                           placeholder : str,
-                          placeholder_value : str) -> str :
+                          placeholder_value : str) -> str | list[str] :
         """
         Replace a relation placeholder in a string or list of strings
         """
@@ -219,7 +219,7 @@ class PlaceHolderDatabase:
 def load_placeholders( dir: str = 'newlang',
                        file: str = 'placeholders.json') -> PlaceHolderDatabase:
     # Load data
-    placeholder_path = Path(__file__).parent / dir / file
+    placeholder_path = str( Path(__file__).parent / dir / file )
     data = load_json_file(placeholder_path)
     # Initialize placeholder database object
     ph_data = PlaceHolderDatabase()
