@@ -1,13 +1,13 @@
 {
 "problem_cannot_turn_on_aircraft":
 {
-  "name": "Cannot turn on aircraft",
-  "name_spanish": "No se puede encender la aeronave"
+    "name": "Cannot turn on aircraft",
+    "name_spanish": "No se puede encender la aeronave"
 },
 "problema_cannot_link_to_aircraft":
 {
-  "name": "Cannot link to aircraft",
-  "name_spanish": "No se puede vincular a la aeronave"
+    "name": "Cannot link to aircraft",
+    "name_spanish": "No se puede vincular a la aeronave"
 },
 "problem_rth_mission_end":
 {
@@ -36,27 +36,27 @@
 },
 "problem_calibration_result_pump_(PUMP)_fail":
 {
-  "name": "Calibration result pump (SAME[PUMP]) fail",
-  "name_spanish": "Resultado de calibración de la bomba (SAME[PUMP]) fallido"
+    "name": "Calibration result pump (SAME[PUMP]) fail",
+    "name_spanish": "Resultado de calibración de la bomba (SAME[PUMP]) fallido"
 },
 "problem_calibration_result_flow_meter_fail":
 {
-  "name": "Calibration result flow meter fail",
-  "name_spanish": "Resultado de calibración del caudímetro fallido"
+    "name": "Calibration result flow meter fail",
+    "name_spanish": "Resultado de calibración del caudímetro fallido"
 },
 "problem_flow_meter_zero_pumps_running":
 {
-  "name": "Flow meter displays zero liters per minute even though the pumps are running",
-  "name_spanish": "El caudímetro marca cero litros por minuto a pesar de que las bombas estan funcionando"
+    "name": "Flow meter displays zero liters per minute even though the pumps are running",
+    "name_spanish": "El caudímetro marca cero litros por minuto a pesar de que las bombas estan funcionando"
 },
 "problem_flow_meter_exceeds_12_liters_per_minute":
 {
-  "name": "Flow meter exceeds 12 liters per minute",
-  "name_spanish": "El caudímetro marca más de 12 litros por minuto"
+    "name": "Flow meter exceeds 12 liters per minute",
+    "name_spanish": "El caudímetro marca más de 12 litros por minuto"
 },
 "problem_load_capacity_exceeded":
 {
-  "name": "Load capacity exceeded error is displayed even though the load is less than 40 liters",
-  "name_spanish": "El error de capacidad de carga aparece muestra a pesar de que la carga se encuentra por debajo de 40 litros"
+    "name": "Load capacity exceeded error is displayed even though the load is less than 40 liters",
+    "name_spanish": "El error de capacidad de carga aparece muestra a pesar de que la carga se encuentra por debajo de 40 litros"
 }
 }
