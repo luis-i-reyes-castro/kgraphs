@@ -31,7 +31,7 @@
     "probability": "medium"
     },
     {
-    "component": "pump_signal_cable",
+    "component": "impeller_pump_cable",
     "probability": "high"
     },
     {
@@ -67,7 +67,7 @@
     "probability": "medium"
     },
     {
-    "component": "pump_signal_cable",
+    "component": "impeller_pump_cable",
     "probability": "high"
     },
     {

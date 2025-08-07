@@ -229,7 +229,7 @@
     "note": "Pins dirty or damaged."
     },
     {
-    "problem_firmware": "firmware_restart",
+    "problem_firmware": "firmware_misbehaving",
     "probability": "high"
     }
 ]

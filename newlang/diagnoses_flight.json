@@ -23,7 +23,7 @@
     "probability": "low"
     },
     {
-    "component": "rtk_antenna_(SIDE)",
+    "component": "rtk_ant_(SIDE)",
     "probability": "low"
     },
     {
@@ -88,11 +88,7 @@
     "probability": "high"
     },
     {
-    "component": "sdr_cable_(SIDE)",
-    "probability": "low"
-    },
-    {
-    "component": "sdr_antenna_(SIDE)",
+    "component": "sdr_ant_(SIDE)",
     "probability": "low"
     }
 ]
@@ -310,7 +306,7 @@
     "probability": "high"
     },
     {
-    "problem_firmware": "firmware_update",
+    "problem_firmware": "firmware_update_needed",
     "probability": "high"
     }
 ]
