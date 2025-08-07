@@ -5,6 +5,7 @@ Parsing functions for placeholder substitution
 
 import data_structures as ds
 import os
+import parsing_utilities as pu
 import shutil
 import utilities as util
 from collections import OrderedDict
@@ -110,9 +111,36 @@ def parse_diagnoses( data : OrderedDict,
         # If no sets then make one key for each error, insert it into the result,
         # and copy the causes without function replacement
         if not group_set :
+            # Iterate through error strings in list
             for error in group_errors :
+                # Initialize resulting causes list
                 result[error] = []
+                # Iterate through cause dictionaries in list
                 for cause in group_causes :
+                    # Check if cause has valid keys
+                    if not pu.has_valid_cause_keys(cause):
+                        raise ValueError( f'Invalid cause keys: {cause}')
+                    # If the cause is a component
+                    comp_str = 'component'
+                    if comp_str in cause.keys() :
+                        # If the component has placeholder sets
+                        comp_val = cause[comp_str]
+                        comp_set = phDB.get_first_placeholder( comp_val, 'set')
+                        if comp_set :
+                            # Iterate through elements of the set
+                            for set_element in phDB.set_map[comp_set] :
+                                # Copy the cause dictionary
+                                inner_result = OrderedDict(cause)
+                                # Replace placeholder
+                                new_comp_val = \
+                                phDB.replace( comp_val, comp_set, set_element)
+                                # Insert new component value into cause dict
+                                inner_result[comp_str] = new_comp_val
+                                # Insert dict into results list
+                                result[error].append(inner_result)
+                            # Move on to next cause
+                            continue
+                    # Component has no set placeholders, so just copy cause dict.
                     result[error].append(OrderedDict(cause))
             continue
         # There is a set, so iterate through errors and elements of the set.
@@ -123,6 +151,9 @@ def parse_diagnoses( data : OrderedDict,
                 result[outer_key] = []
                 # Iterate through list of error causes. Each cause is a dict.
                 for cause in group_causes :
+                    # Check if cause has valid keys
+                    if not pu.has_valid_cause_keys(cause):
+                        raise ValueError( f'Invalid cause keys: {cause}')
                     # Initialize inner result dict
                     inner_result = OrderedDict()
                     # Iterate through cause key-val pairs

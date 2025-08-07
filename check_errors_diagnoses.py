@@ -3,20 +3,9 @@
 Check error mappings for consistency
 """
 
+import parsing_utilities as pu
 import sys
 import utilities as util
-
-def has_valid_cause_keys( cause : dict) -> bool :
-    # Cause must have either a component or a problem
-    cond_1A = 'component' in cause
-    cond_1B = any( str(key).startswith('problem_') for key in cause.keys() )
-    # Cause must have a probability or frequency
-    cond_2_vals = ( 'probability', 'frequency' )
-    cond_2      = any( key in cause for key in cond_2_vals )
-    # Enforce conditions
-    if not ( ( cond_1A or cond_1B ) and cond_2 ) :
-        return False
-    return True
 
 def check_error_mappings( system_type : str) -> bool :
     # Construct filenames based on system_type
@@ -53,7 +42,7 @@ def check_error_mappings( system_type : str) -> bool :
             if not isinstance(cause, dict):
                 errors_with_invalid_causes.add(error_code)
                 break
-            if not has_valid_cause_keys(cause):
+            if not pu.has_valid_cause_keys(cause):
                 errors_with_invalid_causes.add(error_code)
                 break
 
