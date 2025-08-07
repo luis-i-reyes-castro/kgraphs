@@ -1,8 +1,20 @@
 {
+    // Necessary for the linter (Pylance) to work correctly
     "python.defaultInterpreterPath": "/home/luis/pe/bin/python",
-    "python.analysis.extraPaths": [
+    "python.analysis.extraPaths":
+    [
         "/home/luis/pe/lib/python3.12/site-packages"
     ],
     "python.analysis.autoImportCompletions": true,
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    
+    // For line wrapping
+    "editor.wordWrapColumn": 92,         // Sets the wrap column
+    "editor.wordWrap": "wordWrapColumn", // Wraps at the above column
+    "editor.wrappingIndent": "same",     // Keeps indentation when wrapping
+
+    // To stop extra indentation when pasting multi-line code
+    "editor.autoIndent": "keep",
+    "editor.formatOnPaste": false
+
 }

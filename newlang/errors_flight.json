@@ -169,12 +169,12 @@
     "name": "Aircraft module version incompatible",
     "name_spanish": "Versión del módulo Aeronave incompatible"
 },
-"error_restricted_zone":
+"error_zone_restricted":
 {
     "name": "Your aircraft is in the restricted zone",
     "name_spanish": "Su aeronave está en la zona restringida"
 },
-"error_warning_zone":
+"error_zone_warning":
 {
     "name": "Aircraft in warning zone (0). Fly with caution.",
     "name_spanish": "Aeronaves en zona de advertencia (0). Vuele con cuidado."

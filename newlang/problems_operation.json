@@ -1,5 +1,5 @@
 {
-"mission_radius":
+"mission_radius_too_high":
 {
     "name": "Mission Radius Too High",
     "note": "The mission radius is the maximum distance between the takeoff point and any point where the aircraft is supposed to fly. You are trying to send the aircraft to fly too far from the takeoff point.",
@@ -9,6 +9,15 @@
     "Move the takeoff point to a place where the mission radius is smaller."
     ]
 },
+"rtk_positioning_on":
+{
+    "name": "RTK Positioning is On",
+    "solutions":
+    [
+    "If you are not using an RTK antenna, turn off RTK positioning.",
+    "If you are using an RTK antenna, check that it is on and working properly."
+    ]
+},
 "takeoff_area_too_tight":
 {
     "name": "Takeoff Area is Too Tight",
@@ -16,6 +25,14 @@
     [
     "Turn the aircraft off, rotate it 90 degrees, and restart it.",
     "Move the takeoff point to an area with more clearance, where the GNSS antennas can acquire more satellites."
+    ]
+},
+"zone_restricted_or_warning":
+{
+    "name": "Takeoff Area is In a Restricted or Warning Zone",
+    "solutions":
+    [
+    "Contact your DJI dealer for information on how to unblock flight in this area."
     ]
 }
 }

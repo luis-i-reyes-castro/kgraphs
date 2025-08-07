@@ -14,14 +14,5 @@
     [
     "Go to a place with reliable WiFi signal and update the drone's firmware."
     ]
-},
-"rtk_positioning_on":
-{
-    "name": "RTK Positioning is On",
-    "solutions":
-    [
-    "If you are not using an RTK antenna, turn off RTK positioning.",
-    "If you are using an RTK antenna, check that it is on and working properly."
-    ]
 }
 }

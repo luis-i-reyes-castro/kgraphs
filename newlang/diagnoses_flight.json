@@ -2,6 +2,52 @@
 {
 "group_errors":
 [
+    "error_rtk_antennas_not_ready"
+],
+"group_causes":
+[
+    {
+    "component": "avionics",
+    "probability": "low"
+    },
+    {
+    "component": "cdb",
+    "probability": "low"
+    },
+    {
+    "component": "rf_board",
+    "probability": "low"
+    },
+    {
+    "component": "rtk_cable_(SIDE)",
+    "probability": "low"
+    },
+    {
+    "component": "rtk_antenna_(SIDE)",
+    "probability": "low"
+    },
+    {
+    "problem_operation": "takeoff_area_too_tight",
+    "probability": "high"
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_rtk_source_not_selected"
+],
+"group_causes":
+[
+    {
+    "problem_operation": "rtk_positioning_on",
+    "probability": "high"
+    }
+]
+},
+{
+"group_errors":
+[
     "error_barometer_excessive_deviation",
     "error_barometer_out_of_range",
     "error_static_altitude_change"
@@ -40,6 +86,14 @@
     {
     "component": "rf_board",
     "probability": "high"
+    },
+    {
+    "component": "sdr_cable_(SIDE)",
+    "probability": "low"
+    },
+    {
+    "component": "sdr_antenna_(SIDE)",
+    "probability": "low"
     }
 ]
 },
@@ -217,6 +271,23 @@
 {
 "group_errors":
 [
+    "error_mission_radius"
+],
+"group_causes":
+[
+    {
+    "problem_operation": "mission_radius_too_high",
+    "probability": "high"
+    },
+    {
+    "problem_firmware": "firmware_misbehaving",
+    "probability": "low"
+    }
+]
+},
+{
+"group_errors":
+[
     "error_cnn_algorithm"
 ],
 "group_causes":
@@ -240,6 +311,20 @@
     },
     {
     "problem_firmware": "firmware_update",
+    "probability": "high"
+    }
+]
+},
+{
+"group_errors":
+[
+    "error_zone_restricted",
+    "error_zone_warning"
+],
+"group_causes":
+[
+    {
+    "problem_operation": "zone_restricted_or_warning",
     "probability": "high"
     }
 ]
