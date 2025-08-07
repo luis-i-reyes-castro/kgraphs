@@ -39,7 +39,7 @@ def print_ind( arg : str, indent = 0) -> None :
     print(f'{space}{arg}')
     return
 
-def print_recursively( data : str | dict | list, indent = 0) -> None :
+def print_recursively( data : str | dict | list | tuple, indent = 0) -> None :
     
     if isinstance( data, str):
         print_ind( data, indent)
@@ -57,6 +57,12 @@ def print_recursively( data : str | dict | list, indent = 0) -> None :
             print_recursively( item, indent + 1)
         print_ind( ']', indent)
     
+    elif isinstance( data, tuple):
+        print_ind( '(', indent)
+        for item in data:
+            print_recursively( item, indent + 1)
+        print_ind( ')', indent)
+
     else :
         raise ValueError(f'Invalid data type: {type(data)}')
     
