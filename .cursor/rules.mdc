@@ -21,43 +21,51 @@ I generally follow [PEP 8](https://peps.python.org/pep-0008/) guidelines for wri
 ### Assignments
 
 * Leave a space before and after the equal sign.
-  ✅ Example: `value = 10`
+* ✅ Example: `value = 10`
 
 ### Lists, Tuples, Dictionaries, and Sets (with 2+ elements)
 
 * Leave a space between the opening bracket/brace/parenthesis and the first item.
 * Leave a space after each comma.
-* Do **not** leave a space before the closing bracket/brace/parenthesis.
 * For dictionaries, leave a space before and after each colon between key and value.
-  ✅ Examples:  
-  `my_list = [ item1, item2, item3]`  
-  `my_dict = { key1 : value1, key2 : value2 }`
+* ✅ Examples:
+  * `my_list = [ item1, item2, item3 ]`
+  * `my_dict = { key1 : value1, key2 : value2 }`
 
 ### Comprehensions
 
 * Leave a space after the opening bracket/brace/parenthesis.
 * Leave a space before the closing bracket/brace/parenthesis.
 * For dictionary comprehensions, leave a space before and after each colon.
-  ✅ Examples:
-  `[ item for item in items ]`
-  `{ key : value for key, value in items }`
+* ✅ Examples:
+  * `[ item for item in items ]`
+  * `{ key : value for key, value in items }`
 
 ### Function and Method Definitions
 
 * Leave a space between the opening parenthesis and the first argument.
 * Leave a space before and after colons used in type annotations.
+* Do **not** leave a space before the closing parenthesis.
 * Leave a space before and after the `->` return type arrow.
 * Leave a space between the return type and the final colon.
-  ✅ Example:
-  `def function( arg1 : int, arg2 : str) -> bool :`
+* ✅ Example:
+  * `def function( arg : list) -> None :`
+  * `def class_method( arg1 : int, arg2 : str) -> bool :`
 
 ### Function and Method Calls
 
-* Leave a space between the opening parenthesis and the first argument.
-* Leave a space after each comma.
-* Do **not** leave a space before the closing parenthesis.
-  ✅ Example:
-  `function( arg1, arg2, arg3)`
+* Single argument:
+  * Leave no spaces.
+  * ✅ Example:
+    * `function(arg)`
+
+* Multiple arguments:
+  * Leave a space between the opening parenthesis and the first argument.
+  * Leave a space after each comma.
+  * Do **not** leave a space before the closing parenthesis.
+    ✅ Examples:
+    * `isinstance( var, type)`
+    * `class_method( arg1, arg2, arg3)`
 
 ### Conditionals and Loops
 
