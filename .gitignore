@@ -1,6 +1,7 @@
 *.log
 __pycache__/
 .ipynb_checkpoints/
+*_results/
 archive/
 dknowledge_expanded/
 dev_prompts/

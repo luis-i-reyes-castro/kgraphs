@@ -7,7 +7,7 @@ import placeholder_regex as phrx
 from re import findall
 from re import search
 from typing import Callable
-from utilities_json import load_json_file
+from utilities_io import load_json_file
 
 class BuiltInFunction(dict) :
     def __init__( self, function : Callable[ [str], str]) :

@@ -6,8 +6,8 @@ Compute paths between components
 import networkx as nx
 import os
 from constants import DIR_DKNOWLEDGE_B
-from utilities_json import load_json_file
-from utilities_json import save_json_file
+from utilities_io import load_json_file
+from utilities_io import save_json_file
 
 def build_graph( dir_data : str):
     # Load all component files
