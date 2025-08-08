@@ -3,8 +3,8 @@
 Functions for loading data after expansion
 """
 
-from utilities_json import load_json_file
-from utilities_json import load_json_files_starting_with
+from utilities_io import load_json_file
+from utilities_io import load_json_files_starting_with
 
 def load_domain_knowledge( directory : str, subsystem : str | None = None) -> dict :
     # Initialize results dict

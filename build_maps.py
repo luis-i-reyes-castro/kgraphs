@@ -6,7 +6,7 @@ Traverse the pipeline error -> diagnosis -> component | problem
 import sys
 from constants import DIR_DKNOWLEDGE_B
 from constants import SUBSYSTEMS
-from utilities_loading import load_domain_knowledge
+from utilities_dknowledge import load_domain_knowledge
 from utilities_printing import print_recursively
 
 def build_map( directory : str, system_type : str) -> dict :

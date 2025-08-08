@@ -7,7 +7,7 @@ import sys
 import os
 from constants import DIR_DKNOWLEDGE_B
 from constants import SUBSYSTEMS
-from utilities_loading import load_domain_knowledge
+from utilities_dknowledge import load_domain_knowledge
 
 def has_valid_words( cause : dict, valid_words : list[str]) -> bool :
     for word in valid_words:

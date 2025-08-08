@@ -6,7 +6,7 @@ Count tokens in JSON files
 import os
 import sys
 import tiktoken
-from utilities_json import load_json_file_as_string
+from utilities_io import load_file_as_string
 from utilities_printing import print_sep
 
 def count_tokens_in_string( string : str, encoding_name : str = "cl100k_base") -> int :
@@ -25,7 +25,7 @@ def analyze_json_files( directory : str) -> dict :
         if filename.endswith('.json'):
             filepath = os.path.join( directory, filename)
             try:
-                content_string = load_json_file_as_string(filepath)
+                content_string = load_file_as_string(filepath)
                 token_counts[filename] = count_tokens_in_string(content_string)
             except Exception as e:
                 print(f"Error processing {filename}: {str(e)}")

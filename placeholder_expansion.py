@@ -11,8 +11,8 @@ from placeholder_data_structures import load_placeholders
 from placeholder_parsing import parse_dict_of_dicts
 from placeholder_parsing import parse_list_of_pairs
 from placeholder_parsing import parse_diagnoses
-from utilities_json import load_json_file
-from utilities_json import save_json_file
+from utilities_io import load_json_file
+from utilities_io import save_json_file
 from utilities_printing import print_ind
 
 if __name__ == "__main__" :
