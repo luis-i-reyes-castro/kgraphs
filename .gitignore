@@ -1,5 +1,6 @@
 *.log
-__pycache__
+__pycache__/
 archive/
-expansions/
+data_expanded/
 prompts/
+test.py

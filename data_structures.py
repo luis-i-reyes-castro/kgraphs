@@ -4,7 +4,6 @@ Data structures for placeholder substitution
 """
 
 import regex_constants as rxconst
-from pathlib import Path
 from re import findall
 from re import search
 from typing import Callable
@@ -216,10 +215,8 @@ class PlaceHolderDatabase:
         # Return
         return
 
-def load_placeholders( dir: str = 'newlang',
-                       file: str = 'placeholders.json') -> PlaceHolderDatabase:
+def load_placeholders( placeholder_path : str) -> PlaceHolderDatabase:
     # Load data
-    placeholder_path = str( Path(__file__).parent / dir / file )
     data = load_json_file(placeholder_path)
     # Initialize placeholder database object
     ph_data = PlaceHolderDatabase()

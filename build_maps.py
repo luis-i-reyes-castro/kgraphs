@@ -59,6 +59,8 @@ def build_map( directory : str, system_type : str) -> dict :
     return error_maps
 
 if __name__ == "__main__" :
+    
+    dir_data = 'data_expanded/'
     available_systems = [ 'spraying', 'propulsion', 'flight' ]
     
     if len(sys.argv) != 3 :
@@ -75,7 +77,7 @@ if __name__ == "__main__" :
         sys.exit(1)
     
     # Build the error map
-    error_map = build_map( 'expansions', subsystem)
+    error_map = build_map( dir_data, subsystem)
     
     # Check if the error exists
     if error_code not in error_map :

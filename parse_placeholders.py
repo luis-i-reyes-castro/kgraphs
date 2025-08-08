@@ -13,16 +13,17 @@ from parsing import parse_diagnoses
 
 if __name__ == "__main__" :
     
-    placeholderDB = ds.load_placeholders()
-    
-    dir_input  = 'newlang/'
-    dir_output = 'expansions/'
+    dir_input  = 'data_original/'
+    dir_output = 'data_expanded/'
     batch_dod  = ( 'components_', 'errors_', 'problems_')
     batch_lop  = ( 'connections',)
     batch_dia  = ( 'diagnoses_',)
     batch_full = batch_dod + batch_lop + batch_dia
     exceptions = ( 'placeholders',)
-
+    
+    # Load the placeholder database
+    path_placeholders = os.path.join( dir_input, 'placeholders.json')
+    placeholderDB = ds.load_placeholders(path_placeholders)
     # List all files in the input directory
     for filename in os.listdir(dir_input) :
         path_input  = os.path.join(dir_input, filename)

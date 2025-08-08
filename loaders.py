@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Functions for loading expansions
+Functions for loading data after expansion
 """
 
 import glob
