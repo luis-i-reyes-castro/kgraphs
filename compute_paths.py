@@ -1,6 +1,13 @@
+#!/usr/bin/env python3
+"""
+Compute paths between components
+"""
+
 import networkx as nx
 import os
-import utilities as util
+from constants import DIR_DKNOWLEDGE_B
+from utilities_json import load_json_file
+from utilities_json import save_json_file
 
 def build_graph( dir_data : str):
     # Load all component files
@@ -14,18 +21,18 @@ def build_graph( dir_data : str):
     # Load all component files
     for filename in component_files:
         data_path = os.path.join( dir_data, filename)
-        data      = util.load_json_file(data_path)
+        data      = load_json_file(data_path)
         for key, value in data.items():
             # Handle references to other files
             if isinstance(value, dict) and 'file' in value:
                 ref_data_path = os.path.join( dir_data, value['file'])
-                ref_data      = util.load_json_file(ref_data_path)
+                ref_data      = load_json_file(ref_data_path)
                 components[key] = ref_data[value['id']]
             else:
                 components[key] = value
 
     # Load connections
-    connections = util.load_json_file(os.path.join( dir_data, 'connections.json'))
+    connections = load_json_file(os.path.join( dir_data, 'connections.json'))
 
     # Create undirected graph
     G = nx.Graph()
@@ -59,7 +66,7 @@ def compute_paths( dir_data : str):
     # Paths from avionics to propulsion components
     paths['avionics_to_propulsion'] = {}
     data_json = os.path.join( dir_data, 'components_propulsion.json')
-    propulsion_components = util.load_json_file(data_json)
+    propulsion_components = load_json_file(data_json)
     for component_id, data in components.items():
         if component_id in propulsion_components:
             path = get_path(G, 'avionics', component_id)
@@ -69,7 +76,7 @@ def compute_paths( dir_data : str):
     # Paths from avionics to accessories
     paths['avionics_to_accessories'] = {}
     data_json = os.path.join( dir_data, 'components_accessories.json')
-    accessories_components = util.load_json_file(data_json)
+    accessories_components = load_json_file(data_json)
     for component_id, data in components.items():
         if component_id in accessories_components:
             path = get_path(G, 'avionics', component_id)
@@ -79,7 +86,7 @@ def compute_paths( dir_data : str):
     # Paths from avionics to sensors (except antennas)
     paths['avionics_to_sensors'] = {}
     data_json = os.path.join( dir_data, 'components_sensors.json')
-    sensors_data = util.load_json_file(data_json)
+    sensors_data = load_json_file(data_json)
     for component_id, data in sensors_data.items():
         if data.get('type') != 'antenna':
             path = get_path(G, 'avionics', component_id)
@@ -99,16 +106,16 @@ def compute_paths( dir_data : str):
     avoid_edges = [('signal_cable_r', 'cdb'), ('signal_cable_r', 'pdb')]
     paths['spray_board_to_spraying'] = {}
     data_json = os.path.join( dir_data, 'components_spraying.json')
-    spraying_components = util.load_json_file(data_json)
+    spraying_components = load_json_file(data_json)
     for component_id in spraying_components:
         path = get_path(G, 'spray_board', component_id, avoid_edges)
         if path:
             paths['spray_board_to_spraying'][component_id] = path
 
     # Save paths to file
-    util.save_json_file(os.path.join( dir_data, 'paths.json'), paths)
+    save_json_file(os.path.join( dir_data, 'paths.json'), paths)
 
 if __name__ == '__main__':
     
-    dir_data = 'data_expanded/'
+    dir_data = DIR_DKNOWLEDGE_B
     compute_paths(dir_data)

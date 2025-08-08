@@ -3,9 +3,11 @@
 Traverse the pipeline error -> diagnosis -> component | problem
 """
 
-import loaders
-from utilities import print_recursively
 import sys
+from constants import DIR_DKNOWLEDGE_B
+from constants import SUBSYSTEMS
+from utilities_loading import load_domain_knowledge
+from utilities_printing import print_recursively
 
 def build_map( directory : str, system_type : str) -> dict :
     """
@@ -19,7 +21,7 @@ def build_map( directory : str, system_type : str) -> dict :
         A dictionary mapping error codes to tuples of (components_list, problems_list)
     """
     # Load subsystem data
-    data = loaders.load_data_expanded( directory, system_type)
+    data = load_domain_knowledge( directory, system_type)
     
     # Initialize result mapping
     error_maps = {}
@@ -60,32 +62,32 @@ def build_map( directory : str, system_type : str) -> dict :
 
 if __name__ == "__main__" :
     
-    dir_data = 'data_expanded/'
-    available_systems = [ 'spraying', 'propulsion', 'flight' ]
+    dir_data = DIR_DKNOWLEDGE_B
+    subsystems_msg = f"Available subsystems: {', '.join(SUBSYSTEMS)}"
     
     if len(sys.argv) != 3 :
         print(f"Usage: python build_maps.py <subsystem> <error>")
-        print(f"Available subsystems: {', '.join(available_systems)}")
+        print(subsystems_msg)
         sys.exit(1)
     
-    subsystem = sys.argv[1]
-    error_code = sys.argv[2]
+    input_subsystem = sys.argv[1]
+    input_error     = sys.argv[2]
     
-    if subsystem not in available_systems :
-        print(f"❌ Error: Invalid subsystem '{subsystem}'")
-        print(f"Available subsystems: {', '.join(available_systems)}")
+    if input_subsystem not in SUBSYSTEMS :
+        print(f"❌ Error: Invalid subsystem '{input_subsystem}'")
+        print(subsystems_msg)
         sys.exit(1)
     
     # Build the error map
-    error_map = build_map( dir_data, subsystem)
+    error_map = build_map( dir_data, input_subsystem)
     
     # Check if the error exists
-    if error_code not in error_map :
-        print(f"❌ Error: Error code '{error_code}' not found in subsystem '{subsystem}'")
+    if input_error not in error_map :
+        print(f"❌ Error: Error code '{input_error}' not found in subsystem '{input_subsystem}'")
         print(f"Available errors: {', '.join(sorted(error_map.keys()))}")
         sys.exit(1)
     
     # Print the result recursively
-    print(f"Error: {error_code}")
-    print(f"Subsystem: {subsystem}")
-    print_recursively(error_map[error_code])
+    print(f"Error: {input_error}")
+    print(f"Subsystem: {input_subsystem}")
+    print_recursively(error_map[input_error])

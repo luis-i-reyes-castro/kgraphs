@@ -1,14 +1,15 @@
 #!/bin/bash
 
 # Target directory
-DATA_DIR="data_expanded/"
+DIR_FETCH_CMD="import constants; print(constants.DIR_DKNOWLEDGE_B)"
+DIR_NAME=$(python3 -c "$DIR_FETCH_CMD")
 # Check if directory exists, create if it doesn't
-if [ ! -d "$DATA_DIR" ]; then
-    echo "Creating directory: $DATA_DIR"
-    mkdir -p "$DATA_DIR"
+if [ ! -d "$DIR_NAME" ]; then
+    echo "Creating directory: $DIR_NAME"
+    mkdir -p "$DIR_NAME"
 else
-    rm "$DATA_DIR"*.json
+    rm -v "$DIR_NAME"/*.json
 fi
 
-python3 parse_placeholders.py
+python3 placeholder_expansion.py
 python3 compute_paths.py

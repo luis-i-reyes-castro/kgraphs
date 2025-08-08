@@ -3,11 +3,11 @@
 Data structures for placeholder substitution
 """
 
-import regex_constants as rxconst
+import placeholder_regex as phrx
 from re import findall
 from re import search
 from typing import Callable
-from utilities import load_json_file
+from utilities_json import load_json_file
 
 class BuiltInFunction(dict) :
     def __init__( self, function : Callable[ [str], str]) :
@@ -57,7 +57,7 @@ class PlaceHolderDatabase:
         Extract the argument set name from a function or relation signature.
         For example, from "ENG[SIDE]" extract "SIDE".
         """
-        match = search( rxconst.RX_ARG, set_signature)
+        match = search( phrx.RX_ARG, set_signature)
         return match.group(1) if match else None
     
     def get_first_placeholder( self, data : str | list[str], ph_type : str) -> str | None :
@@ -90,7 +90,7 @@ class PlaceHolderDatabase:
         """
         Get all placeholder sets in keyval
         """
-        ph_sets = findall( rxconst.RX_SET_, keyval)
+        ph_sets = findall( phrx.RX_SET_, keyval)
         for ph in ph_sets:
             if ph not in self.set_set:
                 print(f"Error: Set '{ph}' not found in signatures")
@@ -100,7 +100,7 @@ class PlaceHolderDatabase:
         """
         Get all placeholder functions in keyval
         """
-        ph_funs = findall( rxconst.RX_FUN_, keyval)
+        ph_funs = findall( phrx.RX_FUN_, keyval)
         ph_funs_full = [f"{func_name}[{arg_name}]" for func_name, arg_name in ph_funs]
         for ph in ph_funs_full:
             if ph not in self.fun_set:
@@ -111,7 +111,7 @@ class PlaceHolderDatabase:
         """
         Get all placeholder relations in keyval
         """
-        ph_rels = findall( rxconst.RX_REL_, keyval)
+        ph_rels = findall( phrx.RX_REL_, keyval)
         ph_rels_full = [f"{rel_name}[{arg_name}]" for rel_name, arg_name in ph_rels]
         for ph in ph_rels_full:
             if ph not in self.rel_set:
@@ -138,7 +138,7 @@ class PlaceHolderDatabase:
         Check placeholder declaration for correctness: functions
         """
         # Check that argument set is in set_map
-        match    = search( rxconst.RX_ARG, fun_signature)
+        match    = search( phrx.RX_ARG, fun_signature)
         set_name = match.group(1) if match else None
         if not ( set_name and ( set_name in self.set_map ) ) :
             return False

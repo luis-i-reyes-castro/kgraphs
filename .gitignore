@@ -1,6 +1,6 @@
 *.log
 __pycache__/
 archive/
-data_expanded/
+dknowledge_expanded/
 prompts/
 test.py

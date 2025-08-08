@@ -3,12 +3,11 @@
 Parsing functions for placeholder substitution
 """
 
-import data_structures as ds
-import parsing_utilities as pu
 from collections import OrderedDict
+from placeholder_data_structures import PlaceHolderDatabase
 
 def parse_dict_of_dicts( data : OrderedDict,
-                         phDB : ds.PlaceHolderDatabase) -> OrderedDict :
+                         phDB : PlaceHolderDatabase) -> OrderedDict :
     # Initialize result dictionary
     result = OrderedDict()
     # Iterate through outer dictionary key-val pairs
@@ -45,7 +44,7 @@ def parse_dict_of_dicts( data : OrderedDict,
     return result
 
 def parse_list_of_pairs( data : OrderedDict,
-                         phDB : ds.PlaceHolderDatabase) -> list[list[str]] :
+                         phDB : PlaceHolderDatabase) -> list[list[str]] :
     # Initialize results list
     result = []
     # Iterate through outer list
@@ -95,7 +94,7 @@ def parse_list_of_pairs( data : OrderedDict,
     return result
 
 def parse_diagnoses( data : OrderedDict,
-                     phDB : ds.PlaceHolderDatabase) -> OrderedDict :
+                     phDB : PlaceHolderDatabase) -> OrderedDict :
     # Initialize results dict
     result = OrderedDict()
     # Iterate through outer list
@@ -114,9 +113,6 @@ def parse_diagnoses( data : OrderedDict,
                 result[error] = []
                 # Iterate through cause dictionaries in list
                 for cause in group_causes :
-                    # Check if cause has valid keys
-                    if not pu.has_valid_cause_keys(cause):
-                        raise ValueError( f'Invalid cause keys: {cause}')
                     # If the cause is a component
                     comp_str = 'component'
                     if comp_str in cause.keys() :
@@ -148,9 +144,6 @@ def parse_diagnoses( data : OrderedDict,
                 result[outer_key] = []
                 # Iterate through list of error causes. Each cause is a dict.
                 for cause in group_causes :
-                    # Check if cause has valid keys
-                    if not pu.has_valid_cause_keys(cause):
-                        raise ValueError( f'Invalid cause keys: {cause}')
                     # Initialize inner result dict
                     inner_result = OrderedDict()
                     # Iterate through cause key-val pairs

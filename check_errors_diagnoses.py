@@ -3,10 +3,24 @@
 Check error mappings for consistency
 """
 
-import parsing_utilities as pu
 import sys
-import loaders
 import os
+from constants import DIR_DKNOWLEDGE_B
+from constants import SUBSYSTEMS
+from utilities_loading import load_domain_knowledge
+
+def has_valid_words( cause : dict, valid_words : list[str]) -> bool :
+    for word in valid_words:
+        if any( str(key).startswith(word) for key in cause.keys() ) :
+            return True
+    return False
+
+def has_valid_cause_keys( cause : dict) -> bool :
+    valid_words = [ 'component', 'problem']
+    cond_1 = has_valid_words( cause, valid_words)
+    valid_words = [ 'probability', 'frequency' ]
+    cond_2 = has_valid_words( cause, valid_words)
+    return cond_1 and cond_2
 
 def check_error_mappings( directory : str, system_type : str) -> bool :
     """
@@ -14,7 +28,7 @@ def check_error_mappings( directory : str, system_type : str) -> bool :
     """
     
     # Load all data using the new loader function
-    data = loaders.load_data_expanded(directory)
+    data = load_domain_knowledge(directory)
     
     # Get all error codes from errors data
     all_error_codes = set(data['errors'].keys())
@@ -38,7 +52,7 @@ def check_error_mappings( directory : str, system_type : str) -> bool :
             if not isinstance( cause, dict) :
                 errors_with_invalid_causes.add(error_code)
                 break
-            if not pu.has_valid_cause_keys(cause) :
+            if not has_valid_cause_keys(cause) :
                 errors_with_invalid_causes.add(error_code)
                 break
 
@@ -82,7 +96,7 @@ def check_diagnoses_components_problems( directory : str, system_type : str) -> 
     """
     
     # Load all data using the new loader function
-    data = loaders.load_data_expanded(directory)
+    data = load_domain_knowledge(directory)
     
     # Track issues
     invalid_causes = []
@@ -133,26 +147,26 @@ def check_diagnoses_components_problems( directory : str, system_type : str) -> 
 
 if __name__ == "__main__" :
 
-    available_systems = [ 'spraying', 'propulsion', 'flight']
+    dir_input = DIR_DKNOWLEDGE_B
+    usage_msg = f"Usage: python check_errors_diagnoses.py [{'|'.join(SUBSYSTEMS)}]"
 
-    if len(sys.argv) != 3 :
-        print(f"Usage: python check_errors_diagnoses.py <directory> [{'|'.join(available_systems)}]")
+    if not os.path.isdir(dir_input) :
+        print(f"❌ Error: Directory '{dir_input}' does not exist")
         sys.exit(1)
     
-    directory = sys.argv[1]
-    system_type = sys.argv[2]
-    
-    if system_type not in available_systems :
-        print(f"Usage: python check_errors_diagnoses.py <directory> [{'|'.join(available_systems)}]")
+    if len(sys.argv) != 2 :
+        print(usage_msg)
         sys.exit(1)
     
-    if not os.path.isdir(directory) :
-        print(f"❌ Error: Directory '{directory}' does not exist")
+    subsystem_input = sys.argv[1]
+    
+    if subsystem_input not in SUBSYSTEMS :
+        print(usage_msg)
         sys.exit(1)
     
-    print(f"Directory: {directory}")
-    print(f"System type: {system_type}")
+    print(f"Directory: {dir_input}")
+    print(f"System type: {subsystem_input}")
     print(f"Checking maps from errors to diagnoses...")
-    check_error_mappings( directory, system_type)
+    check_error_mappings( dir_input, subsystem_input)
     print(f"Checking maps from diagnoses to components/problems...")
-    check_diagnoses_components_problems( directory, system_type)
+    check_diagnoses_components_problems( dir_input, subsystem_input)
