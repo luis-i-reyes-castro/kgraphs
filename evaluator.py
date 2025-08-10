@@ -80,6 +80,8 @@ class EvaluatorApp :
                               command = self.buttons[key]['fun'] )
             btn.grid( row    = self.buttons[key]['row'],
                       column = self.buttons[key]['col'] )
+            # Store button reference for later state management
+            self.buttons[key]['button'] = btn
         # Buttons: Style
         self.style = ttk.Style()
         self.style.configure( 'TButton',
@@ -117,11 +119,6 @@ class EvaluatorApp :
         # Load the first image
         self.image_load_first()
         
-        # Display placeholder text
-        # self.message_text.insert( tk.END, "HELLO WORLD!\n")
-        # self.message_text.insert( tk.END, "HELLO WORLD!\n")
-        # self.message_text.insert( tk.END, "HELLO WORLD!\n")
-        
         return
     
     def image_display( self, image_path : str | None = None) -> None :
@@ -148,7 +145,6 @@ class EvaluatorApp :
                                   self.CANVAS_CTR_Y,
                                   image=self.image_tk_pi)
         # The grand finale
-        self.message_text.delete( 1.0, tk.END)
         self.root.update()
         return
     
@@ -168,6 +164,7 @@ class EvaluatorApp :
             self.message_text.delete( 1.0, tk.END)
             self.message_text.insert( tk.END, f"Exception thrown!\n\
                                               Check console for exception info.\n")
+            self.update_button_states()
             self.root.update()
             return
         
@@ -180,15 +177,24 @@ class EvaluatorApp :
         else :
             self.message_text.insert( tk.END, f"Evaluation failure.\n")
             self.message_text.insert( tk.END, f"REASON: API returned None.\n")
+        
+        self.update_button_states()
         self.root.update()
         
         return
     
     def image_load(self) -> None :
         if self.image_filenames:
+            # Get image name and path
             self.image_current_name = self.image_filenames[self.image_current_index]
             self.image_current_path = os.path.join( DIR_EVAL_IN, self.image_current_name)
+            # Print image name to title
             self.root.title(f"Current image: {self.image_current_name}")
+            # Clear textbox and reset evaluation state
+            self.message_text.delete( 1.0, tk.END)
+            self.image_errors_obj     = None
+            self.image_errors_summary = None
+            # Display image and update button states
             self.image_display(self.image_current_path)
             self.update_button_states()
         return
@@ -238,8 +244,14 @@ class EvaluatorApp :
             self.root.update()
         return
 
-    def update_button_states(self):
-        pass
+    def update_button_states(self) -> None :
+        """Update the enabled/disabled state of buttons based on current state."""
+        # Enable SAVE button only if we have evaluation results
+        if self.image_errors_obj:
+            self.buttons['SAVE']['button'].config( state = 'normal')
+        else:
+            self.buttons['SAVE']['button'].config( state = 'disabled')
+        return
     
     def update_label_buttons(self):
         pass
