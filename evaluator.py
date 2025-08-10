@@ -3,141 +3,79 @@ from constants import DIR_IMGS
 from constants import IMG_FORMATS
 from PIL import Image, ImageTk
 
-# GUI Modules
 import tkinter as tk
 from tkinter import ttk
 
-# Image Labeling App
-class ImageLabelingApp :
+class EvaluatorApp :
+    """
+    Graphical User Interface (GUI) Evaluator for Agent Stage 1.
+    """
     
-    # Make canvas size responsive to screen size
     def __init__( self) -> None :
         
         self.root = tk.Tk()
-        
-        # Get screen dimensions
-        screen_width  = self.root.winfo_screenwidth()
-        screen_height = self.root.winfo_screenheight()
-        
-        # Calculate responsive dimensions (use 80% of screen size)
-        self.CANVAS_WIDTH  = int( screen_width  * 0.20 )
-        self.CANVAS_HEIGHT = int( screen_height * 0.40 )
-        self.CANVAS_RATIO = self.CANVAS_WIDTH / self.CANVAS_HEIGHT
-        self.CANVAS_CTR_X = self.CANVAS_WIDTH  // 2
-        self.CANVAS_CTR_Y = self.CANVAS_HEIGHT // 2
-        self.CANVAS_BG_COLOR = 'black'
 
-        # Make text box size responsive
-        self.TEXT_WIDTH  = min( 20, screen_width  // 12)
-        self.TEXT_HEIGHT = min( 30, screen_height // 40)
-        self.TEXT_BG_COLOR = 'white'
-        self.TEXT_FG_COLOR = 'black'
-
-        self.BUTTON_BG_COLOR     = 'lightgray'
-        self.BUTTON_SEL_BG_COLOR = [ ( 'selected', 'orange') ]
-        self.BUTTON_SEL_RELIEF   = [ ( 'selected', 'sunken') ]
-        
-        # Title
+        # Title and background color
         self.root.title("Evaluator for Agent Stage 1")
-        # Background color
-        self.root.configure( bg = self.CANVAS_BG_COLOR)
-        
-        # Make window size responsive and ensure it fits on screen
-        # Calculate maximum window size that fits on screen
-        max_window_width = int(screen_width * 0.95)
-        max_window_height = int(screen_height * 0.95)
-        
-        # Calculate desired window size based on content
-        desired_width = self.CANVAS_WIDTH + 400  # Canvas + controls + padding
-        desired_height = self.CANVAS_HEIGHT + 200  # Canvas + text box + padding
-        
-        # Use the smaller of desired size or maximum screen size
-        window_width = min(desired_width, max_window_width)
-        window_height = min(desired_height, max_window_height)
-        
-        # Center the window on screen
-        x = (screen_width - window_width) // 2
-        y = (screen_height - window_height) // 2
-        
-        # Set initial window size and position
-        self.root.geometry(f"{int(window_width)}x{int(window_height)}+{x}+{y}")
-        
-        # Make window resizable
-        self.root.resizable(True, True)
-        
-        # Set minimum window size to prevent it from becoming too small
-        min_width = self.CANVAS_WIDTH + 200
-        min_height = self.CANVAS_HEIGHT + 100
-        self.root.minsize(min_width, min_height)
-        
-        # Bind window resize event to handle canvas and text box resizing
-        self.root.bind('<Configure>', self.on_window_resize)
-        
-        # Ensure window is properly positioned and sized after initialization
-        self.root.after(100, self.finalize_window_setup)
-        
-        # Configure grid weights for responsive layout
-        # Rows: 0-10 (11 rows total)
-        for i in range(11):
-            self.root.grid_rowconfigure(i, weight=1)
-        
-        # Columns: 0-6 (7 columns total)
-        for i in range(7):
-            self.root.grid_columnconfigure(i, weight=1)
+        self.root.configure( bg = 'black')
 
-        # Canvas: Spans columns 0-1, rows 0-10
+        # Grid spacing
+        self.root.grid_rowconfigure(  0, weight = 10)   # Top spacing
+        self.root.grid_rowconfigure( 10, weight = 10)   # Bottom spacing
+        self.root.grid_columnconfigure( 0, minsize=20)  # Left spacing
+        self.root.grid_columnconfigure( 2, minsize=20)  # Spacing between canvas and buttons
+        self.root.grid_columnconfigure( 6, minsize=20)  # Right spacing
+        
+        # Canvas: Parameters
+        self.CANVAS_WIDTH  = 800
+        self.CANVAS_HEIGHT = 600
+        self.CANVAS_RATIO  = self.CANVAS_WIDTH / self.CANVAS_HEIGHT
+        self.CANVAS_CTR_X  = self.CANVAS_WIDTH // 2
+        self.CANVAS_CTR_Y  = self.CANVAS_HEIGHT // 2
+        self.CANVAS_BG_COLOR = 'black'
+        # Canvas: Object
         self.canvas = tk.Canvas( self.root, width = self.CANVAS_WIDTH,
                                             height = self.CANVAS_HEIGHT,
                                             bg = self.CANVAS_BG_COLOR )
-        self.canvas.grid( row = 0, column = 0, rowspan = 11, columnspan = 2, 
-                          padx = 10, pady = 10, sticky="nsew")
+        self.canvas.grid( row = 1, column = 1, rowspan = 9)
 
-        # Create a frame for controls on the right side (columns 3-5, rows 0-2)
-        self.controls_frame = tk.Frame(self.root, bg=self.CANVAS_BG_COLOR)
-        self.controls_frame.grid(row=0, column=3, rowspan=3, columnspan=3, 
-                                padx=10, pady=10, sticky="nsew")
-        
-        # Configure controls frame grid (3x3 grid for buttons)
-        for i in range(3):
-            self.controls_frame.grid_rowconfigure(i, weight=1)
-        for i in range(3):
-            self.controls_frame.grid_columnconfigure(i, weight=1)
-
-        # Message Text Box: Below controls frame, columns 3-5, rows 4-10
+        # Text box: Parameters
+        self.TEXT_WIDTH  = 48
+        self.TEXT_HEIGHT = 24
+        self.TEXT_BG_COLOR = 'white'
+        self.TEXT_FG_COLOR = 'black'
+        # Text Box: Object
         self.message_text = tk.Text( self.root,
                                      width = self.TEXT_WIDTH,
                                      height = self.TEXT_HEIGHT,
                                      bg = self.TEXT_BG_COLOR,
                                      fg = self.TEXT_FG_COLOR,
                                      wrap = tk.WORD )
-        self.message_text.grid( row = 4, column = 3, rowspan = 7, columnspan = 3,
-                                padx = 10, pady = 10, sticky = "nsew" )
-        
-        # Navigation and rotation buttons
+        self.message_text.grid( row = 5, column = 3, rowspan = 5, columnspan = 3, 
+                                padx = 5, pady = 5, sticky = "nsew" )
+
+        # Buttons: Definitions
         self.buttons = {}
-        # Buttons: First and Last
-        self.buttons['FIRST'] = { 'row':0, 'col':0, 'fun': self.image_load_first }
-        self.buttons['LAST']  = { 'row':0, 'col':2, 'fun': self.image_load_last }
-        # Buttons: Prev and Next
-        self.buttons['PREV']  = { 'row':1, 'col':0, 'fun': self.image_load_prev }
-        self.buttons['NEXT']  = { 'row':1, 'col':2, 'fun': self.image_load_next }
-        # Buttons: Rotate Left and Right
-        self.buttons['LEFT']  = { 'row':2, 'col':0, 'fun': self.image_rotate_left  }
-        self.buttons['RIGHT'] = { 'row':2, 'col':2, 'fun': self.image_rotate_right }
-        # Buttons: Eval and Save
-        self.buttons['EVAL']  = { 'row':1, 'col':1, 'fun': lambda x : None }
-        self.buttons['SAVE']  = { 'row':2, 'col':1, 'fun': lambda x : None }
-        
-        # Add buttons to controls frame
+        self.buttons['FIRST'] = { 'row':1, 'col':3, 'fun': self.image_load_first }
+        self.buttons['LAST']  = { 'row':1, 'col':5, 'fun': self.image_load_last }
+        self.buttons['PREV']  = { 'row':2, 'col':3, 'fun': self.image_load_prev }
+        self.buttons['NEXT']  = { 'row':2, 'col':5, 'fun': self.image_load_next }
+        self.buttons['LEFT']  = { 'row':3, 'col':3, 'fun': self.image_rotate_left  }
+        self.buttons['RIGHT'] = { 'row':3, 'col':5, 'fun': self.image_rotate_right }
+        self.buttons['EVAL']  = { 'row':2, 'col':4, 'fun': lambda x : None }
+        self.buttons['SAVE']  = { 'row':3, 'col':4, 'fun': lambda x : None }
+        # Buttons: Colors
+        self.BUTTON_BG_COLOR     = 'lightgray'
+        self.BUTTON_SEL_BG_COLOR = [ ( 'selected', 'orange') ]
+        self.BUTTON_SEL_RELIEF   = [ ( 'selected', 'sunken') ]
+        # Buttons: Object
         for key in self.buttons.keys() :
-            btn = ttk.Button( self.controls_frame,
+            btn = ttk.Button( self.root,
                               text = key,
                               command = self.buttons[key]['fun'] )
             btn.grid( row    = self.buttons[key]['row'],
-                      column = self.buttons[key]['col'],
-                      padx = 5, pady = 5, sticky="nsew" )
-        
-        # Configure style for the buttons
+                      column = self.buttons[key]['col'] )
+        # Buttons: Style
         self.style = ttk.Style()
         self.style.configure( 'TButton',
                               background = self.BUTTON_BG_COLOR )
@@ -150,7 +88,6 @@ class ImageLabelingApp :
         self.root.bind( "<Right>", lambda e: self.image_load_next())
         self.root.bind( "<Shift-Left>",  lambda e: self.image_rotate_left())
         self.root.bind( "<Shift-Right>", lambda e: self.image_rotate_right())
-        
         # Key bindings: Numpad row upper
         self.root.bind( "<KP_7>", lambda e: self.image_load_first())
         self.root.bind( "<KP_8>", lambda e: None)
@@ -266,22 +203,7 @@ class ImageLabelingApp :
     def save_rotation(self, angle_change):
         pass    
 
-    def on_window_resize(self, event):
-        # This method is called when the window is resized.
-        # It can be used to update the canvas or text box size if they are
-        # directly affected by the window size.
-        # For now, it's a placeholder.
-        pass
-
-    def finalize_window_setup(self):
-        # This method is called after the window has been initialized and
-        # its geometry has been set. It can be used to perform any
-        # final adjustments or calculations that depend on the window size.
-        # For example, if the canvas or text box need to be resized
-        # based on the final window size.
-        pass
-
 if __name__ == "__main__":
     
-    app = ImageLabelingApp()
+    app = EvaluatorApp()
     app.root.mainloop()
