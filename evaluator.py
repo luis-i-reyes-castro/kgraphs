@@ -1,8 +1,11 @@
 import os
-from constants import DIR_IMGS
-from constants import IMG_FORMATS
+from constants import DIR_EVAL_IN
+from constants import DIR_EVAL_OUT
+from constants import IMG_FORMAT
 from PIL import Image, ImageTk
-from read_errors_from_image import read_errors, print_error_summary
+from read_errors_from_image import read_errors
+from read_errors_from_image import write_errors_summary
+from utilities_io import save_data_to_json_file
 
 import tkinter as tk
 from tkinter import ttk
@@ -60,11 +63,12 @@ class EvaluatorApp :
         self.buttons['FIRST'] = { 'row':1, 'col':3, 'fun': self.image_load_first }
         self.buttons['LAST']  = { 'row':1, 'col':5, 'fun': self.image_load_last }
         self.buttons['PREV']  = { 'row':2, 'col':3, 'fun': self.image_load_prev }
+        self.buttons['EVAL']  = { 'row':2, 'col':4, 'fun': self.image_evaluate_current }
         self.buttons['NEXT']  = { 'row':2, 'col':5, 'fun': self.image_load_next }
         self.buttons['LEFT']  = { 'row':3, 'col':3, 'fun': self.image_rotate_left  }
+        self.buttons['SAVE']  = { 'row':3, 'col':4, 'fun': self.image_save_errors_json }
         self.buttons['RIGHT'] = { 'row':3, 'col':5, 'fun': self.image_rotate_right }
-        self.buttons['EVAL']  = { 'row':2, 'col':4, 'fun': self.evaluate_current_image }
-        self.buttons['SAVE']  = { 'row':3, 'col':4, 'fun': lambda x : None }
+        
         # Buttons: Colors
         self.BUTTON_BG_COLOR     = 'lightgray'
         self.BUTTON_SEL_BG_COLOR = [ ( 'selected', 'orange') ]
@@ -95,17 +99,17 @@ class EvaluatorApp :
         self.root.bind( "<KP_9>", lambda e: self.image_load_last())
         # Key bindings: Numpad row middle
         self.root.bind( "<KP_4>", lambda e: self.image_load_prev())
-        self.root.bind( "<KP_5>", lambda e: self.evaluate_current_image())
+        self.root.bind( "<KP_5>", lambda e: self.image_evaluate_current())
         self.root.bind( "<KP_6>", lambda e: self.image_load_next())
         # Key bindings: Numpad row lower
         self.root.bind( "<KP_1>", lambda e: self.image_rotate_left())
-        self.root.bind( "<KP_2>", lambda e: None)
+        self.root.bind( "<KP_2>", lambda e: self.image_save_errors_json())
         self.root.bind( "<KP_3>", lambda e: self.image_rotate_right())
         
         # Initialize list of image filenames
         self.image_filenames = []
-        for filename in sorted(os.listdir(DIR_IMGS)) :
-            if filename.lower().endswith(IMG_FORMATS) :
+        for filename in sorted(os.listdir(DIR_EVAL_IN)) :
+            if filename.lower().endswith(IMG_FORMAT) :
                 self.image_filenames.append(filename)
         # Number of images
         self.image_num = len(self.image_filenames)
@@ -114,9 +118,9 @@ class EvaluatorApp :
         self.image_load_first()
         
         # Display placeholder text
-        self.message_text.insert( tk.END, "HELLO WORLD!\n")
-        self.message_text.insert( tk.END, "HELLO WORLD!\n")
-        self.message_text.insert( tk.END, "HELLO WORLD!\n")
+        # self.message_text.insert( tk.END, "HELLO WORLD!\n")
+        # self.message_text.insert( tk.END, "HELLO WORLD!\n")
+        # self.message_text.insert( tk.END, "HELLO WORLD!\n")
         
         return
     
@@ -144,40 +148,70 @@ class EvaluatorApp :
                                   self.CANVAS_CTR_Y,
                                   image=self.image_tk_pi)
         # The grand finale
+        self.message_text.delete( 1.0, tk.END)
         self.root.update()
         return
     
-    def image_get_current_name(self) -> str | None :
-        if self.image_filenames:
-            return self.image_filenames[self.current_index]
-        return None
+    def image_evaluate_current(self) -> None :
+        """Evaluate the current image using the read_errors function."""
+        
+        # Clear text box and show status
+        self.message_text.delete( 1.0, tk.END)
+        self.message_text.insert( tk.END, f"Calling LLM API. Please wait...\n")
+        self.root.update()
+        
+        # Call read_errors function
+        self.image_errors_obj = None
+        try:
+            self.image_errors_obj = read_errors(self.image_current_path)
+        except Exception as e:
+            self.message_text.delete( 1.0, tk.END)
+            self.message_text.insert( tk.END, f"Exception thrown!\n\
+                                              Check console for exception info.\n")
+            self.root.update()
+            return
+        
+        self.message_text.delete( 1.0, tk.END)
+        if self.image_errors_obj :
+            self.image_errors_summary = write_errors_summary(self.image_errors_obj)
+            self.message_text.insert( tk.END, f"Evaluation successful.\n")
+            self.message_text.insert( tk.END, f"RESULTS:\n")
+            self.message_text.insert( tk.END, self.image_errors_summary)
+        else :
+            self.message_text.insert( tk.END, f"Evaluation failure.\n")
+            self.message_text.insert( tk.END, f"REASON: API returned None.\n")
+        self.root.update()
+        
+        return
     
     def image_load(self) -> None :
         if self.image_filenames:
-            img_path = os.path.join( DIR_IMGS, self.image_filenames[self.current_index])
-            self.image_display(img_path)
+            self.image_current_name = self.image_filenames[self.image_current_index]
+            self.image_current_path = os.path.join( DIR_EVAL_IN, self.image_current_name)
+            self.root.title(f"Current image: {self.image_current_name}")
+            self.image_display(self.image_current_path)
             self.update_button_states()
         return
     
     def image_load_first(self) -> None :
-        self.current_index = 0
+        self.image_current_index = 0
         self.image_load()
         return
     
     def image_load_last(self) -> None :
-        self.current_index = self.image_num - 1
+        self.image_current_index = self.image_num - 1
         self.image_load()
         return
     
-    def image_load_next(self) -> None:
-        if 0 <= self.current_index < self.image_num - 1 :
-            self.current_index += 1
+    def image_load_next(self) -> None :
+        if 0 <= self.image_current_index < self.image_num - 1 :
+            self.image_current_index += 1
             self.image_load()
         return
 
-    def image_load_prev(self) -> None:
-        if 1 <= self.current_index < self.image_num :
-            self.current_index -= 1
+    def image_load_prev(self) -> None :
+        if 1 <= self.image_current_index < self.image_num :
+            self.image_current_index -= 1
             self.image_load()
         return
     
@@ -194,6 +228,15 @@ class EvaluatorApp :
     def image_rotate_right(self) -> None :
         self.image_rotate(-90)
         return
+    
+    def image_save_errors_json(self) -> None :
+        if self.image_errors_obj :
+            output_file = str(self.image_current_name).replace( IMG_FORMAT, '.json')
+            output_path = os.path.join( DIR_EVAL_OUT, output_file)
+            save_data_to_json_file( self.image_errors_obj, output_path)
+            self.message_text.insert( tk.END, f"RESULTS SAVED TO: {output_path}\n")
+            self.root.update()
+        return
 
     def update_button_states(self):
         pass
@@ -202,53 +245,7 @@ class EvaluatorApp :
         pass
 
     def save_rotation(self, angle_change):
-        pass    
-
-    def evaluate_current_image(self):
-        """Evaluate the current image using the read_errors function."""
-        if not hasattr(self, 'current_index') or self.current_index >= len(self.image_filenames):
-            self.message_text.delete(1.0, tk.END)
-            self.message_text.insert(tk.END, "No image loaded to evaluate.\n")
-            return
-            
-        # Get current image path
-        current_image_name = self.image_filenames[self.current_index]
-        image_path = os.path.join(DIR_IMGS, current_image_name)
-        
-        # Clear text box and show status
-        self.message_text.delete(1.0, tk.END)
-        self.message_text.insert(tk.END, f"Evaluating image: {current_image_name}\n")
-        self.message_text.insert(tk.END, "Please wait...\n")
-        self.root.update()
-        
-        try:
-            # Call read_errors function
-            result = read_errors(image_path, save_results=True)
-            
-            # Clear text box and display results
-            self.message_text.delete(1.0, tk.END)
-            
-            if result:
-                self.message_text.insert(tk.END, f"Image: {current_image_name}\n")
-                self.message_text.insert(tk.END, f"Language: {result.get('metadata', {}).get('language', 'Unknown')}\n")
-                self.message_text.insert(tk.END, f"Number of errors: {result.get('metadata', {}).get('num_msg', 0)}\n\n")
-                
-                if result.get('data'):
-                    self.message_text.insert(tk.END, "Extracted Errors:\n")
-                    for i, error in enumerate(result['data'], 1):
-                        self.message_text.insert(tk.END, f"{i}. {error}\n")
-                else:
-                    self.message_text.insert(tk.END, "No errors found.\n")
-                    
-                self.message_text.insert(tk.END, f"\nResults saved to: stage_1_results/{current_image_name.replace('.jpg', '.json')}\n")
-            else:
-                self.message_text.insert(tk.END, f"Failed to evaluate image: {current_image_name}\n")
-                self.message_text.insert(tk.END, "Check console for error details.\n")
-                
-        except Exception as e:
-            self.message_text.delete(1.0, tk.END)
-            self.message_text.insert(tk.END, f"Error during evaluation: {str(e)}\n")
-            print(f"Error in evaluate_current_image: {e}")
+        pass
 
 if __name__ == "__main__":
     

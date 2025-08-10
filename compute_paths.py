@@ -7,7 +7,7 @@ import networkx as nx
 import os
 from constants import DIR_DKNOWLEDGE_B
 from utilities_io import load_json_file
-from utilities_io import save_json_file
+from utilities_io import save_data_to_json_file
 
 def build_graph( dir_data : str):
     # Load all component files
@@ -113,7 +113,7 @@ def compute_paths( dir_data : str):
             paths['spray_board_to_spraying'][component_id] = path
 
     # Save paths to file
-    save_json_file(os.path.join( dir_data, 'paths.json'), paths)
+    save_data_to_json_file( paths, os.path.join( dir_data, 'paths.json'))
 
 if __name__ == '__main__':
     

@@ -14,17 +14,20 @@ def load_file_as_string( filepath : str) -> str :
     """
     Load JSON file as string
     """
-    with open( filepath, 'r', encoding='utf-8') as f:
+    with open( filepath, 'r', encoding = 'utf-8') as f :
         return f.read()
 
 def load_json_file( filepath : str) -> Any :
     """
     Load JSON file as OrderedDict
     """
-    with open( filepath, 'r', encoding='utf-8') as f:
+    with open( filepath, 'r', encoding = 'utf-8') as f :
         return load( f, object_pairs_hook = OrderedDict)
 
 def load_json_files_starting_with( directory : str, prefix : str) -> dict :
+    """
+    Load all JSON files in a directory starting with a given prefix
+    """
     result = {}
     files  = glob(f'{directory}/{prefix}*.json')
     for file_path in files :
@@ -40,29 +43,29 @@ def load_json_string( data : str) -> Any :
     """
     Load JSON from a string, handling markdown code blocks if present.
     """
-    # Strip whitespace
+    data = remove_markdown_header_footer( data, 'json')
+    return loads( data, object_pairs_hook = OrderedDict)
+
+def remove_markdown_header_footer( data : str, data_type) -> str :
+    """
+    Remove markdown header and footer
+    """
     data  = data.strip()
-    # Check if the data is wrapped in markdown code blocks
-    cond1 = data.startswith( ( "```json", "```") )
+    cond1 = data.startswith( ( "```", "```" + data_type) )
     cond2 = data.endswith( "```" )
-    # If the data is wrapped in markdown code blocks, extract the JSON content.
     if cond1 or cond2 :
-        # Split the data into lines
         lines = data.split('\n')
-        # Remove first and last lines
         if cond1 :
             lines = lines[1:]
         if cond2 :
             lines = lines[:-1]
-        # Reassemble the data
         data = '\n'.join(lines)
-    # Load the JSON
-    return loads( data, object_pairs_hook = OrderedDict)
+    return data
 
-def save_json_file( filepath : str, data : Any) -> None :
+def save_data_to_json_file( data : Any, filepath : str) -> None :
     """
-    Save JSON file as OrderedDict
+    Save data to JSON file
     """
-    with open(filepath, 'w', encoding='utf-8') as f:
-        dump(data, f, indent=2, ensure_ascii=False)
+    with open( filepath, 'w', encoding = 'utf-8') as f :
+        dump( data, f, indent = 4, ensure_ascii = False)
     return

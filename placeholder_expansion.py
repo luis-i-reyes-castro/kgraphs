@@ -12,7 +12,7 @@ from placeholder_parsing import parse_dict_of_dicts
 from placeholder_parsing import parse_list_of_pairs
 from placeholder_parsing import parse_diagnoses
 from utilities_io import load_json_file
-from utilities_io import save_json_file
+from utilities_io import save_data_to_json_file
 from utilities_printing import print_ind
 
 if __name__ == "__main__" :
@@ -64,5 +64,5 @@ if __name__ == "__main__" :
         else :
             raise ValueError( f'Unknown batch: {filename}')
         # Write the parsed data as JSON to the output directory
-        save_json_file( path_output, parsed_data)
+        save_data_to_json_file( parsed_data, path_output)
         print_ind( f'File data expanded.', 1)
