@@ -7,6 +7,10 @@
     ],
     "python.analysis.autoImportCompletions": true,
     "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.diagnosticSeverityOverrides":
+    {
+    "reportGeneralTypeIssues": "none" // Disable all type errors
+    },
     
     // For line wrapping
     "editor.wordWrapColumn": 92,         // Sets the wrap column
