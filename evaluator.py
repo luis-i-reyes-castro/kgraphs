@@ -2,6 +2,7 @@ import os
 from constants import DIR_IMGS
 from constants import IMG_FORMATS
 from PIL import Image, ImageTk
+from read_errors_from_image import read_errors, print_error_summary
 
 import tkinter as tk
 from tkinter import ttk
@@ -62,7 +63,7 @@ class EvaluatorApp :
         self.buttons['NEXT']  = { 'row':2, 'col':5, 'fun': self.image_load_next }
         self.buttons['LEFT']  = { 'row':3, 'col':3, 'fun': self.image_rotate_left  }
         self.buttons['RIGHT'] = { 'row':3, 'col':5, 'fun': self.image_rotate_right }
-        self.buttons['EVAL']  = { 'row':2, 'col':4, 'fun': lambda x : None }
+        self.buttons['EVAL']  = { 'row':2, 'col':4, 'fun': self.evaluate_current_image }
         self.buttons['SAVE']  = { 'row':3, 'col':4, 'fun': lambda x : None }
         # Buttons: Colors
         self.BUTTON_BG_COLOR     = 'lightgray'
@@ -94,7 +95,7 @@ class EvaluatorApp :
         self.root.bind( "<KP_9>", lambda e: self.image_load_last())
         # Key bindings: Numpad row middle
         self.root.bind( "<KP_4>", lambda e: self.image_load_prev())
-        self.root.bind( "<KP_5>", lambda e: None)
+        self.root.bind( "<KP_5>", lambda e: self.evaluate_current_image())
         self.root.bind( "<KP_6>", lambda e: self.image_load_next())
         # Key bindings: Numpad row lower
         self.root.bind( "<KP_1>", lambda e: self.image_rotate_left())
@@ -202,6 +203,52 @@ class EvaluatorApp :
 
     def save_rotation(self, angle_change):
         pass    
+
+    def evaluate_current_image(self):
+        """Evaluate the current image using the read_errors function."""
+        if not hasattr(self, 'current_index') or self.current_index >= len(self.image_filenames):
+            self.message_text.delete(1.0, tk.END)
+            self.message_text.insert(tk.END, "No image loaded to evaluate.\n")
+            return
+            
+        # Get current image path
+        current_image_name = self.image_filenames[self.current_index]
+        image_path = os.path.join(DIR_IMGS, current_image_name)
+        
+        # Clear text box and show status
+        self.message_text.delete(1.0, tk.END)
+        self.message_text.insert(tk.END, f"Evaluating image: {current_image_name}\n")
+        self.message_text.insert(tk.END, "Please wait...\n")
+        self.root.update()
+        
+        try:
+            # Call read_errors function
+            result = read_errors(image_path, save_results=True)
+            
+            # Clear text box and display results
+            self.message_text.delete(1.0, tk.END)
+            
+            if result:
+                self.message_text.insert(tk.END, f"Image: {current_image_name}\n")
+                self.message_text.insert(tk.END, f"Language: {result.get('metadata', {}).get('language', 'Unknown')}\n")
+                self.message_text.insert(tk.END, f"Number of errors: {result.get('metadata', {}).get('num_msg', 0)}\n\n")
+                
+                if result.get('data'):
+                    self.message_text.insert(tk.END, "Extracted Errors:\n")
+                    for i, error in enumerate(result['data'], 1):
+                        self.message_text.insert(tk.END, f"{i}. {error}\n")
+                else:
+                    self.message_text.insert(tk.END, "No errors found.\n")
+                    
+                self.message_text.insert(tk.END, f"\nResults saved to: stage_1_results/{current_image_name.replace('.jpg', '.json')}\n")
+            else:
+                self.message_text.insert(tk.END, f"Failed to evaluate image: {current_image_name}\n")
+                self.message_text.insert(tk.END, "Check console for error details.\n")
+                
+        except Exception as e:
+            self.message_text.delete(1.0, tk.END)
+            self.message_text.insert(tk.END, f"Error during evaluation: {str(e)}\n")
+            print(f"Error in evaluate_current_image: {e}")
 
 if __name__ == "__main__":
     

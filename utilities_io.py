@@ -43,16 +43,19 @@ def load_json_string( data : str) -> Any :
     # Strip whitespace
     data  = data.strip()
     # Check if the data is wrapped in markdown code blocks
-    cond1 = data.startswith("```json") and data.endswith("```")
-    cond2 = data.startswith("```") and data.endswith("```")
+    cond1 = data.startswith( ( "```json", "```") )
+    cond2 = data.endswith( "```" )
     # If the data is wrapped in markdown code blocks, extract the JSON content.
     if cond1 or cond2 :
         # Split the data into lines
         lines = data.split('\n')
         # Remove first and last lines
-        json_lines = lines[1:-1]
+        if cond1 :
+            lines = lines[1:]
+        if cond2 :
+            lines = lines[:-1]
         # Reassemble the data
-        data = '\n'.join(json_lines)
+        data = '\n'.join(lines)
     # Load the JSON
     return loads( data, object_pairs_hook = OrderedDict)
 
