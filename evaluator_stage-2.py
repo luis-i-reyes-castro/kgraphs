@@ -61,13 +61,13 @@ class EvaluatorAppS2 :
         self.buttons = {}
         self.buttons['<DATA']  = { 'row':2, 'col':3, 'fun': self.data_load_prev  }
         self.buttons['DATA>']  = { 'row':2, 'col':5, 'fun': self.data_load_next  }
-        self.buttons['<ERROR'] = { 'row':3, 'col':3, 'fun': lambda x : None }
-        self.buttons['EVAL']   = { 'row':3, 'col':4, 'fun': lambda x : None }
-        self.buttons['ERROR>'] = { 'row':3, 'col':5, 'fun': lambda x : None }
-        self.buttons['M1']     = { 'row':4, 'col':4, 'fun': lambda x : None }
-        self.buttons['M2']     = { 'row':5, 'col':4, 'fun': lambda x : None }
-        self.buttons['M3']     = { 'row':6, 'col':4, 'fun': lambda x : None }
-        self.buttons['M4']     = { 'row':7, 'col':4, 'fun': lambda x : None }
+        self.buttons['<ERROR'] = { 'row':3, 'col':3, 'fun': self.error_load_prev }
+        self.buttons['EVAL']   = { 'row':3, 'col':4, 'fun': lambda : None }
+        self.buttons['ERROR>'] = { 'row':3, 'col':5, 'fun': self.error_load_next }
+        self.buttons['M1']     = { 'row':4, 'col':4, 'fun': lambda : None }
+        self.buttons['M2']     = { 'row':5, 'col':4, 'fun': lambda : None }
+        self.buttons['M3']     = { 'row':6, 'col':4, 'fun': lambda : None }
+        self.buttons['M4']     = { 'row':7, 'col':4, 'fun': lambda : None }
         # Buttons: Objects
         for key in self.buttons.keys() :
             # Initialize object and place it on the grid
@@ -82,6 +82,8 @@ class EvaluatorAppS2 :
         # Key bindings: Arrows
         self.root.bind( "<Left>",  lambda e: self.data_load_prev())
         self.root.bind( "<Right>", lambda e: self.data_load_next())
+        self.root.bind( "<Shift-Left>",  lambda e: self.error_load_prev())
+        self.root.bind( "<Shift-Right>", lambda e: self.error_load_next())
         
         # Initialize list of data filenames
         self.data_filenames = []
@@ -106,9 +108,12 @@ class EvaluatorAppS2 :
 
         # Print image name to title and clear textbox
         self.root.title(f"Current data file: {self.data_name}")
-        self.textbox_clear('A')
-        self.textbox_clear('B')
-        self.textbox_print( 'A', self.data_str)
+        self.textbox_print( 'A', self.data_str, clear = True)
+
+        # Initialize error current index and number of errors
+        self.error_index = 0
+        self.error_num   = self.data_obj['metadata']['num_msg']
+        self.error_load()
 
         return
     
@@ -124,16 +129,34 @@ class EvaluatorAppS2 :
             self.data_load()
         return
     
+    def error_load(self) -> None :
+        self.error_name = self.data_obj['data'][self.error_index]
+        self.textbox_print( 'B', 'CURRENT ERROR:', clear = True)
+        self.textbox_print( 'B', self.error_name)
+        return
+    
+    def error_load_next(self) -> None :
+        if 0 <= self.error_index < self.error_num - 1 :
+            self.error_index += 1
+            self.error_load()
+        return
+    
+    def error_load_prev(self) -> None :
+        if 1 <= self.error_index < self.error_num :
+            self.error_index -= 1
+            self.error_load()
+        return
+    
     def textbox_print( self, box : str, text : str, clear : bool = False) -> None :
         match box :
             case 'A' :
                 if clear :
                     self.textbox_clear('A')
-                self.textbox_a.insert( tk.END, text)
+                self.textbox_a.insert( tk.END, text + '\n')
             case 'B' :
                 if clear :
                     self.textbox_clear('B')
-                self.textbox_b.insert( tk.END, text)
+                self.textbox_b.insert( tk.END, text + '\n')
             case _ :
                 raise ValueError( f"Invalid box: {box}")
         return
