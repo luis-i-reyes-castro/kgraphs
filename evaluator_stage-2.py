@@ -7,10 +7,15 @@ import tkinter as tk
 from tkinter import ttk
 
 import os
+from constants import DIR_DKNOWLEDGE_B
 from constants import DIR_S1_OUTPUT
 from constants import FORMAT_DATA
 from read_errors_from_image import write_errors_summary
+from thefuzz import process
+from thefuzz.fuzz import token_set_ratio
+from utilities_printing import print_recursively
 from utilities_io import load_json_file
+from utilities_io import load_json_files_starting_with
 
 class EvaluatorAppS2 :
     
@@ -85,6 +90,9 @@ class EvaluatorAppS2 :
         self.root.bind( "<Shift-Left>",  lambda e: self.error_load_prev())
         self.root.bind( "<Shift-Right>", lambda e: self.error_load_next())
         
+        # Load errors database
+        self.errors_db = load_json_files_starting_with( DIR_DKNOWLEDGE_B, 'errors_')
+        
         # Initialize list of data filenames
         self.data_filenames = []
         for filename in sorted(os.listdir(DIR_S1_OUTPUT)) :
@@ -129,10 +137,35 @@ class EvaluatorAppS2 :
             self.data_load()
         return
     
+    def edb_get_list( self, language : str) -> list :
+        result = []
+        match language :
+            case 'English' :
+                for inner_dict in self.errors_db.values() :
+                    result.append(inner_dict['name'])
+            case 'Spanish' :
+                for inner_dict in self.errors_db.values() :
+                    result.append(inner_dict['name_spanish'])
+            case _ :
+                raise ValueError( f"Invalid language: {language}")
+        return result
+    
+    def error_eval_fuzz_tsr(self) -> None :
+        error_list = self.edb_get_list('Spanish')
+        error_matches = process.extract( self.error_name,
+                                         error_list,
+                                         scorer = token_set_ratio )
+        self.textbox_print( 'B', 'TOP MATCHES:')
+        for error, score in error_matches :
+            self.textbox_print( 'B', f'Error: {error}')
+            self.textbox_print( 'B', f'\tScore: {score}')
+        return
+    
     def error_load(self) -> None :
         self.error_name = self.data_obj['data'][self.error_index]
         self.textbox_print( 'B', 'CURRENT ERROR:', clear = True)
         self.textbox_print( 'B', self.error_name)
+        self.error_eval_fuzz_tsr()
         return
     
     def error_load_next(self) -> None :

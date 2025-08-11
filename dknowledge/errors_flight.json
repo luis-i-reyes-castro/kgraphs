@@ -137,7 +137,7 @@
 "error_gimbal_position_init":
 {
     "name": "Error initializing gimbal position",
-    "name_spanish": "Error al inicial la posición del estabilizador"
+    "name_spanish": "Error al iniciar la posición del estabilizador"
 },
 "error_gimbal_motor_data":
 {
