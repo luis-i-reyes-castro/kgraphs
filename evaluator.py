@@ -5,6 +5,8 @@ from constants import IMG_FORMAT
 from PIL import Image, ImageTk
 from read_errors_from_image import read_errors
 from read_errors_from_image import write_errors_summary
+from utilities_io import ensure_dir
+from utilities_io import exists_file
 from utilities_io import save_data_to_json_file
 
 import tkinter as tk
@@ -68,13 +70,9 @@ class EvaluatorApp :
         self.buttons['LEFT']  = { 'row':3, 'col':3, 'fun': self.image_rotate_left  }
         self.buttons['SAVE']  = { 'row':3, 'col':4, 'fun': self.image_save_errors_json }
         self.buttons['RIGHT'] = { 'row':3, 'col':5, 'fun': self.image_rotate_right }
-        
-        # Buttons: Colors
-        self.BUTTON_BG_COLOR     = 'lightgray'
-        self.BUTTON_SEL_BG_COLOR = [ ( 'selected', 'orange') ]
-        self.BUTTON_SEL_RELIEF   = [ ( 'selected', 'sunken') ]
-        # Buttons: Object
+        # Buttons: Objects
         for key in self.buttons.keys() :
+            # Initialize object and place it on the grid
             btn = ttk.Button( self.root,
                               text = key,
                               command = self.buttons[key]['fun'] )
@@ -82,13 +80,18 @@ class EvaluatorApp :
                       column = self.buttons[key]['col'] )
             # Store button reference for later state management
             self.buttons[key]['button'] = btn
-        # Buttons: Style
+        
+        # Buttons: Colors
+        self.BUTTON_BG_COLOR     = 'lightgray'
+        self.BUTTON_SEL_BG_COLOR = [ ( 'selected', self.BUTTON_BG_COLOR) ]
+        self.BUTTON_SEL_RELIEF   = [ ( 'selected', 'sunken') ]
+        # Buttons: Default Style
         self.style = ttk.Style()
-        self.style.configure( 'TButton',
-                              background = self.BUTTON_BG_COLOR )
-        self.style.map( 'TButton',
-                        background = self.BUTTON_SEL_BG_COLOR,
-                        relief = self.BUTTON_SEL_RELIEF )
+        self.style.configure( 'TButton', background = self.BUTTON_BG_COLOR)
+        self.style.map(       'TButton', background = self.BUTTON_SEL_BG_COLOR,
+                                         relief = self.BUTTON_SEL_RELIEF)
+        # Buttons: Orange Style for Warnings
+        self.style.configure( 'Orange.TButton', background = 'orange')
         
         # Key bindings: Arrows
         self.root.bind( "<Left>",  lambda e: self.image_load_prev())
@@ -118,6 +121,9 @@ class EvaluatorApp :
         
         # Load the first image
         self.image_load_first()
+
+        # Ensure output directory exists
+        ensure_dir(DIR_EVAL_OUT)
         
         return
     
@@ -145,15 +151,13 @@ class EvaluatorApp :
                                   self.CANVAS_CTR_Y,
                                   image=self.image_tk_pi)
         # The grand finale
-        self.root.update()
         return
     
     def image_evaluate_current(self) -> None :
         """Evaluate the current image using the read_errors function."""
         
         # Clear text box and show status
-        self.message_text.delete( 1.0, tk.END)
-        self.message_text.insert( tk.END, f"Calling LLM API. Please wait...\n")
+        self.textbox_print( f"Calling LLM API. Please wait...\n", clear = True)
         self.root.update()
         
         # Call read_errors function
@@ -161,22 +165,21 @@ class EvaluatorApp :
         try:
             self.image_errors_obj = read_errors(self.image_current_path)
         except Exception as e:
-            self.message_text.delete( 1.0, tk.END)
-            self.message_text.insert( tk.END, f"Exception thrown!\n\
-                                              Check console for exception info.\n")
+            self.textbox_print( f"Exception thrown!\n", clear = True)
+            self.textbox_print( f"Check console for exception info.\n")
             self.update_button_states()
             self.root.update()
             return
         
-        self.message_text.delete( 1.0, tk.END)
+        self.textbox_clear()
         if self.image_errors_obj :
             self.image_errors_summary = write_errors_summary(self.image_errors_obj)
-            self.message_text.insert( tk.END, f"Evaluation successful.\n")
-            self.message_text.insert( tk.END, f"RESULTS:\n")
-            self.message_text.insert( tk.END, self.image_errors_summary)
+            self.textbox_print(f"Evaluation successful.\n")
+            self.textbox_print(f"RESULTS:\n")
+            self.textbox_print(self.image_errors_summary)
         else :
-            self.message_text.insert( tk.END, f"Evaluation failure.\n")
-            self.message_text.insert( tk.END, f"REASON: API returned None.\n")
+            self.textbox_print(f"Evaluation failure.\n")
+            self.textbox_print(f"REASON: API returned None.\n")
         
         self.update_button_states()
         self.root.update()
@@ -184,19 +187,24 @@ class EvaluatorApp :
         return
     
     def image_load(self) -> None :
-        if self.image_filenames:
+        if self.image_filenames :
             # Get image name and path
             self.image_current_name = self.image_filenames[self.image_current_index]
             self.image_current_path = os.path.join( DIR_EVAL_IN, self.image_current_name)
-            # Print image name to title
-            self.root.title(f"Current image: {self.image_current_name}")
+            # Get corresponding image JSON file and path and check if it exists
+            self.image_json_file   = self.image_current_name.replace( IMG_FORMAT, '.json')
+            self.image_json_path   = os.path.join( DIR_EVAL_OUT, self.image_json_file)
+            self.image_json_exists = exists_file(self.image_json_path)
             # Clear textbox and reset evaluation state
-            self.message_text.delete( 1.0, tk.END)
             self.image_errors_obj     = None
             self.image_errors_summary = None
-            # Display image and update button states
+            # Print image name to title and clear textbox
+            self.root.title(f"Current image: {self.image_current_name}")
+            self.textbox_clear()
+            # Display image and update button states and window
             self.image_display(self.image_current_path)
             self.update_button_states()
+            self.root.update()
         return
     
     def image_load_first(self) -> None :
@@ -237,20 +245,38 @@ class EvaluatorApp :
     
     def image_save_errors_json(self) -> None :
         if self.image_errors_obj :
-            output_file = str(self.image_current_name).replace( IMG_FORMAT, '.json')
-            output_path = os.path.join( DIR_EVAL_OUT, output_file)
-            save_data_to_json_file( self.image_errors_obj, output_path)
-            self.message_text.insert( tk.END, f"RESULTS SAVED TO: {output_path}\n")
+            save_data_to_json_file( self.image_errors_obj, self.image_json_path)
+            self.textbox_print(f"RESULTS SAVED TO: {self.image_json_path}\n")
             self.root.update()
         return
-
+    
+    def textbox_print( self, text : str, clear : bool = False) -> None :
+        if clear :
+            self.textbox_clear()
+        self.message_text.insert( tk.END, text)
+        return
+    
+    def textbox_clear(self) -> None :
+        self.message_text.delete( 1.0, tk.END)
+        return
+    
     def update_button_states(self) -> None :
-        """Update the enabled/disabled state of buttons based on current state."""
         # Enable SAVE button only if we have evaluation results
-        if self.image_errors_obj:
+        if hasattr( self, 'image_errors_obj') and self.image_errors_obj :
             self.buttons['SAVE']['button'].config( state = 'normal')
-        else:
+        else :
             self.buttons['SAVE']['button'].config( state = 'disabled')
+        
+        # Set button background colors based on JSON file existence
+        if hasattr( self, 'image_json_exists') and self.image_json_exists :
+            # If JSON exists, set EVAL and SAVE buttons to orange background
+            self.buttons['EVAL']['button'].configure( style = 'Orange.TButton')
+            self.buttons['SAVE']['button'].configure( style = 'Orange.TButton')
+        else :
+            # If JSON doesn't exist, use default button style
+            self.buttons['EVAL']['button'].configure( style = 'TButton')
+            self.buttons['SAVE']['button'].configure( style = 'TButton')
+        
         return
     
     def update_label_buttons(self):

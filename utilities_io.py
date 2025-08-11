@@ -8,7 +8,21 @@ from glob import glob
 from json import dump
 from json import load
 from json import loads
+from pathlib import Path
 from typing import Any
+
+def ensure_dir( dir_name : str) -> None :
+    """
+    Ensure directory exists.
+    """
+    Path(dir_name).mkdir( parents = True, exist_ok = True)
+    return
+
+def exists_file( filepath : str) -> bool :
+    """
+    Check if a file exists.
+    """
+    return Path(filepath).exists()
 
 def load_file_as_string( filepath : str) -> str :
     """

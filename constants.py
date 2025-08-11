@@ -9,5 +9,5 @@ AGENT_PROMPTS = [ 'stage_1.md' ]
 
 # Evaluator
 DIR_EVAL_IN  = '/home/luis/errorDS/DAL/t40_t50/prop/'
-DIR_EVAL_OUT = 'stage_1_results'
+DIR_EVAL_OUT = 'agent_results/pixtral-12b-2409/'
 IMG_FORMAT   = '.jpg'
