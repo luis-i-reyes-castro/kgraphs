@@ -7,6 +7,7 @@ from read_errors_from_image import read_errors
 from read_errors_from_image import write_errors_summary
 from utilities_io import ensure_dir
 from utilities_io import exists_file
+from utilities_io import load_json_file
 from utilities_io import save_data_to_json_file
 
 import tkinter as tk
@@ -154,8 +155,6 @@ class EvaluatorApp :
         return
     
     def image_evaluate_current(self) -> None :
-        """Evaluate the current image using the read_errors function."""
-        
         # Clear text box and show status
         self.textbox_print( f"Calling LLM API. Please wait...\n", clear = True)
         self.root.update()
@@ -195,16 +194,37 @@ class EvaluatorApp :
             self.image_json_file   = self.image_current_name.replace( IMG_FORMAT, '.json')
             self.image_json_path   = os.path.join( DIR_EVAL_OUT, self.image_json_file)
             self.image_json_exists = exists_file(self.image_json_path)
-            # Clear textbox and reset evaluation state
-            self.image_errors_obj     = None
-            self.image_errors_summary = None
+            
+            # Load existing JSON file if it exists
+            if self.image_json_exists :
+                try :
+                    self.image_errors_obj     = load_json_file(self.image_json_path)
+                    self.image_errors_summary = write_errors_summary(self.image_errors_obj)
+                except Exception as e :
+                    self.image_errors_obj     = None
+                    self.image_errors_summary = None
+                    print(f"Error loading JSON file: {e}")
+            else:
+                # Clear textbox and reset evaluation state
+                self.image_errors_obj     = None
+                self.image_errors_summary = None
+            
             # Print image name to title and clear textbox
             self.root.title(f"Current image: {self.image_current_name}")
             self.textbox_clear()
+            
             # Display image and update button states and window
             self.image_display(self.image_current_path)
+            
+            # If we have existing results, display them in the textbox
+            if self.image_errors_summary:
+                self.textbox_print(f"EXISTING RESULTS:\n")
+                self.textbox_print(self.image_errors_summary)
+            
+            # Update button states and window
             self.update_button_states()
             self.root.update()
+        
         return
     
     def image_load_first(self) -> None :
