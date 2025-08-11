@@ -65,14 +65,14 @@ class EvaluatorApp :
 
         # Buttons: Definitions
         self.buttons = {}
-        self.buttons['FIRST'] = { 'row':1, 'col':3, 'fun': self.image_load_first }
-        self.buttons['LAST']  = { 'row':1, 'col':5, 'fun': self.image_load_last }
-        self.buttons['PREV']  = { 'row':2, 'col':3, 'fun': self.image_load_prev }
-        self.buttons['NEXT']  = { 'row':2, 'col':5, 'fun': self.image_load_next }
+        self.buttons['FIRST'] = { 'row':1, 'col':3, 'fun': self.image_load_first       }
         self.buttons['EVAL']  = { 'row':1, 'col':4, 'fun': self.image_evaluate_current }
+        self.buttons['LAST']  = { 'row':1, 'col':5, 'fun': self.image_load_last        }
+        self.buttons['PREV']  = { 'row':2, 'col':3, 'fun': self.image_load_prev        }
         self.buttons['SAVE']  = { 'row':2, 'col':4, 'fun': self.image_save_errors_json }
+        self.buttons['NEXT']  = { 'row':2, 'col':5, 'fun': self.image_load_next        }
         self.buttons['LEFT']  = { 'row':3, 'col':3, 'fun': self.image_rotate_left  }
-        self.buttons['DELETE']= { 'row':3, 'col':4, 'fun': self.image_delete_json }
+        self.buttons['DELETE']= { 'row':3, 'col':4, 'fun': self.image_delete_json  }
         self.buttons['RIGHT'] = { 'row':3, 'col':5, 'fun': self.image_rotate_right }
         # Buttons: Objects
         for key in self.buttons.keys() :
@@ -255,7 +255,6 @@ class EvaluatorApp :
     def image_rotate( self, angle : int) -> None :
         self.image = self.image.rotate( angle, expand = True)
         self.image_display()
-        self.save_rotation(angle)
         return
     
     def image_rotate_left(self) -> None :
@@ -324,12 +323,6 @@ class EvaluatorApp :
             self.buttons['SAVE']['button'].configure( style = 'TButton')
         
         return
-    
-    def update_label_buttons(self):
-        pass
-
-    def save_rotation(self, angle_change):
-        pass
 
 if __name__ == "__main__":
     
