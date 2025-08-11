@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+"""
+Graphical User Interface (GUI) Agent Evaluator
+"""
+
 import os
 from constants import DIR_EVAL_IN
 from constants import DIR_EVAL_OUT
@@ -14,16 +19,13 @@ import tkinter as tk
 from tkinter import ttk
 
 class EvaluatorApp :
-    """
-    Graphical User Interface (GUI) Evaluator for Agent Stage 1.
-    """
     
     def __init__( self) -> None :
         
         self.root = tk.Tk()
 
         # Title and background color
-        self.root.title("Evaluator for Agent Stage 1")
+        self.root.title("Agent Evaluator")
         self.root.configure( bg = 'black')
 
         # Grid spacing
@@ -66,10 +68,11 @@ class EvaluatorApp :
         self.buttons['FIRST'] = { 'row':1, 'col':3, 'fun': self.image_load_first }
         self.buttons['LAST']  = { 'row':1, 'col':5, 'fun': self.image_load_last }
         self.buttons['PREV']  = { 'row':2, 'col':3, 'fun': self.image_load_prev }
-        self.buttons['EVAL']  = { 'row':2, 'col':4, 'fun': self.image_evaluate_current }
         self.buttons['NEXT']  = { 'row':2, 'col':5, 'fun': self.image_load_next }
+        self.buttons['EVAL']  = { 'row':1, 'col':4, 'fun': self.image_evaluate_current }
+        self.buttons['SAVE']  = { 'row':2, 'col':4, 'fun': self.image_save_errors_json }
         self.buttons['LEFT']  = { 'row':3, 'col':3, 'fun': self.image_rotate_left  }
-        self.buttons['SAVE']  = { 'row':3, 'col':4, 'fun': self.image_save_errors_json }
+        self.buttons['DELETE']= { 'row':3, 'col':4, 'fun': self.image_delete_json }
         self.buttons['RIGHT'] = { 'row':3, 'col':5, 'fun': self.image_rotate_right }
         # Buttons: Objects
         for key in self.buttons.keys() :
@@ -101,15 +104,15 @@ class EvaluatorApp :
         self.root.bind( "<Shift-Right>", lambda e: self.image_rotate_right())
         # Key bindings: Numpad row upper
         self.root.bind( "<KP_7>", lambda e: self.image_load_first())
-        self.root.bind( "<KP_8>", lambda e: None)
+        self.root.bind( "<KP_8>", lambda e: self.image_evaluate_current())
         self.root.bind( "<KP_9>", lambda e: self.image_load_last())
         # Key bindings: Numpad row middle
         self.root.bind( "<KP_4>", lambda e: self.image_load_prev())
-        self.root.bind( "<KP_5>", lambda e: self.image_evaluate_current())
+        self.root.bind( "<KP_5>", lambda e: self.image_save_errors_json())
         self.root.bind( "<KP_6>", lambda e: self.image_load_next())
         # Key bindings: Numpad row lower
         self.root.bind( "<KP_1>", lambda e: self.image_rotate_left())
-        self.root.bind( "<KP_2>", lambda e: self.image_save_errors_json())
+        self.root.bind( "<KP_2>", lambda e: self.image_delete_json())
         self.root.bind( "<KP_3>", lambda e: self.image_rotate_right())
         
         # Initialize list of image filenames
@@ -267,7 +270,24 @@ class EvaluatorApp :
         if self.image_errors_obj :
             save_data_to_json_file( self.image_errors_obj, self.image_json_path)
             self.textbox_print(f"RESULTS SAVED TO: {self.image_json_path}\n")
+            self.image_json_exists = True
+            self.update_button_states()
             self.root.update()
+        return
+    
+    def image_delete_json(self) -> None :
+        if self.image_json_exists and exists_file(self.image_json_path):
+            try:
+                os.remove(self.image_json_path)
+                self.image_json_exists = False
+                self.image_errors_obj = None
+                self.image_errors_summary = None
+                self.textbox_print(f"JSON file deleted: {self.image_json_path}\n", clear=True)
+                self.update_button_states()
+                self.root.update()
+            except Exception as e:
+                self.textbox_print(f"Error deleting JSON file: {e}\n", clear=True)
+                self.root.update()
         return
     
     def textbox_print( self, text : str, clear : bool = False) -> None :
@@ -286,6 +306,12 @@ class EvaluatorApp :
             self.buttons['SAVE']['button'].config( state = 'normal')
         else :
             self.buttons['SAVE']['button'].config( state = 'disabled')
+        
+        # Enable DELETE button only if JSON file exists
+        if hasattr( self, 'image_json_exists') and self.image_json_exists :
+            self.buttons['DELETE']['button'].config( state = 'normal')
+        else :
+            self.buttons['DELETE']['button'].config( state = 'disabled')
         
         # Set button background colors based on JSON file existence
         if hasattr( self, 'image_json_exists') and self.image_json_exists :
