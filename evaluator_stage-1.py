@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Graphical User Interface (GUI) Agent Evaluator
+Graphical User Interface (GUI) Agent Evaluator App: Stage 1
 """
 
 import os
-from constants import DIR_EVAL_IN
-from constants import DIR_EVAL_OUT
+from constants import DIR_S1_INPUT
+from constants import DIR_S1_OUTPUT
 from constants import IMG_FORMAT
 from PIL import Image, ImageTk
 from read_errors_from_image import read_errors
@@ -18,14 +18,14 @@ from utilities_io import save_data_to_json_file
 import tkinter as tk
 from tkinter import ttk
 
-class EvaluatorApp :
+class EvaluatorAppS1 :
     
     def __init__( self) -> None :
         
         self.root = tk.Tk()
 
         # Title and background color
-        self.root.title("Agent Evaluator")
+        self.root.title("Agent Evaluator: Stage 1")
         self.root.configure( bg = 'black')
 
         # Grid spacing
@@ -117,7 +117,7 @@ class EvaluatorApp :
         
         # Initialize list of image filenames
         self.image_filenames = []
-        for filename in sorted(os.listdir(DIR_EVAL_IN)) :
+        for filename in sorted(os.listdir(DIR_S1_INPUT)) :
             if filename.lower().endswith(IMG_FORMAT) :
                 self.image_filenames.append(filename)
         # Number of images
@@ -127,7 +127,7 @@ class EvaluatorApp :
         self.image_load_first()
 
         # Ensure output directory exists
-        ensure_dir(DIR_EVAL_OUT)
+        ensure_dir(DIR_S1_OUTPUT)
         
         return
     
@@ -192,10 +192,10 @@ class EvaluatorApp :
         if self.image_filenames :
             # Get image name and path
             self.image_current_name = self.image_filenames[self.image_current_index]
-            self.image_current_path = os.path.join( DIR_EVAL_IN, self.image_current_name)
+            self.image_current_path = os.path.join( DIR_S1_INPUT, self.image_current_name)
             # Get corresponding image JSON file and path and check if it exists
             self.image_json_file   = self.image_current_name.replace( IMG_FORMAT, '.json')
-            self.image_json_path   = os.path.join( DIR_EVAL_OUT, self.image_json_file)
+            self.image_json_path   = os.path.join( DIR_S1_OUTPUT, self.image_json_file)
             self.image_json_exists = exists_file(self.image_json_path)
             
             # Load existing JSON file if it exists
@@ -326,5 +326,5 @@ class EvaluatorApp :
 
 if __name__ == "__main__":
     
-    app = EvaluatorApp()
+    app = EvaluatorAppS1()
     app.root.mainloop()

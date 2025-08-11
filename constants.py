@@ -8,6 +8,6 @@ DIR_AGENT_PROMPTS = 'agent_prompts'
 AGENT_PROMPTS = [ 'stage_1.md' ]
 
 # Evaluator
-DIR_EVAL_IN  = '/home/luis/errorDS/DAL/t40_t50/prop/'
-DIR_EVAL_OUT = 'agent_results/pixtral-12b-2409/'
-IMG_FORMAT   = '.jpg'
+DIR_S1_INPUT  = '/home/luis/errorDS/DAL/t40_t50/prop/'
+DIR_S1_OUTPUT = 'agent_results/pixtral-12b-2409/'
+IMG_FORMAT    = '.jpg'
