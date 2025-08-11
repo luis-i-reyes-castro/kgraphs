@@ -3,10 +3,13 @@
 Graphical User Interface (GUI) Agent Evaluator App: Stage 1
 """
 
+import tkinter as tk
+from tkinter import ttk
+
 import os
 from constants import DIR_S1_INPUT
 from constants import DIR_S1_OUTPUT
-from constants import IMG_FORMAT
+from constants import FORMAT_IMG
 from PIL import Image, ImageTk
 from read_errors_from_image import read_errors
 from read_errors_from_image import write_errors_summary
@@ -14,9 +17,6 @@ from utilities_io import ensure_dir
 from utilities_io import exists_file
 from utilities_io import load_json_file
 from utilities_io import save_data_to_json_file
-
-import tkinter as tk
-from tkinter import ttk
 
 class EvaluatorAppS1 :
     
@@ -118,7 +118,7 @@ class EvaluatorAppS1 :
         # Initialize list of image filenames
         self.image_filenames = []
         for filename in sorted(os.listdir(DIR_S1_INPUT)) :
-            if filename.lower().endswith(IMG_FORMAT) :
+            if filename.lower().endswith(FORMAT_IMG) :
                 self.image_filenames.append(filename)
         # Number of images
         self.image_num = len(self.image_filenames)
@@ -194,7 +194,7 @@ class EvaluatorAppS1 :
             self.image_current_name = self.image_filenames[self.image_current_index]
             self.image_current_path = os.path.join( DIR_S1_INPUT, self.image_current_name)
             # Get corresponding image JSON file and path and check if it exists
-            self.image_json_file   = self.image_current_name.replace( IMG_FORMAT, '.json')
+            self.image_json_file   = self.image_current_name.replace( FORMAT_IMG, '.json')
             self.image_json_path   = os.path.join( DIR_S1_OUTPUT, self.image_json_file)
             self.image_json_exists = exists_file(self.image_json_path)
             

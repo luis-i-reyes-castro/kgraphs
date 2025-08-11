@@ -6,6 +6,12 @@ Graphical User Interface (GUI) Agent Evaluator App: Stage 2
 import tkinter as tk
 from tkinter import ttk
 
+import os
+from constants import DIR_S1_OUTPUT
+from constants import FORMAT_DATA
+from read_errors_from_image import write_errors_summary
+from utilities_io import load_json_file
+
 class EvaluatorAppS2 :
     
     def __init__( self) -> None :
@@ -53,15 +59,15 @@ class EvaluatorAppS2 :
 
         # Buttons: Definitions
         self.buttons = {}
-        self.buttons['<JSON']  = { 'row':2, 'col':3, 'fun': self._dummy_function }
-        self.buttons['EVAL']   = { 'row':2, 'col':4, 'fun': self._dummy_function }
-        self.buttons['JSON>']  = { 'row':2, 'col':5, 'fun': self._dummy_function }
-        self.buttons['<ERROR'] = { 'row':3, 'col':3, 'fun': self._dummy_function }
-        self.buttons['ERROR>'] = { 'row':3, 'col':5, 'fun': self._dummy_function }
-        self.buttons['M1']     = { 'row':4, 'col':4, 'fun': self._dummy_function }
-        self.buttons['M2']     = { 'row':5, 'col':4, 'fun': self._dummy_function }
-        self.buttons['M3']     = { 'row':6, 'col':4, 'fun': self._dummy_function }
-        self.buttons['M4']     = { 'row':7, 'col':4, 'fun': self._dummy_function }
+        self.buttons['<DATA']  = { 'row':2, 'col':3, 'fun': self.data_load_prev  }
+        self.buttons['DATA>']  = { 'row':2, 'col':5, 'fun': self.data_load_next  }
+        self.buttons['<ERROR'] = { 'row':3, 'col':3, 'fun': lambda x : None }
+        self.buttons['EVAL']   = { 'row':3, 'col':4, 'fun': lambda x : None }
+        self.buttons['ERROR>'] = { 'row':3, 'col':5, 'fun': lambda x : None }
+        self.buttons['M1']     = { 'row':4, 'col':4, 'fun': lambda x : None }
+        self.buttons['M2']     = { 'row':5, 'col':4, 'fun': lambda x : None }
+        self.buttons['M3']     = { 'row':6, 'col':4, 'fun': lambda x : None }
+        self.buttons['M4']     = { 'row':7, 'col':4, 'fun': lambda x : None }
         # Buttons: Objects
         for key in self.buttons.keys() :
             # Initialize object and place it on the grid
@@ -73,11 +79,49 @@ class EvaluatorAppS2 :
             # Store button reference for later state management
             self.buttons[key]['button'] = btn
         
+        # Key bindings: Arrows
+        self.root.bind( "<Left>",  lambda e: self.data_load_prev())
+        self.root.bind( "<Right>", lambda e: self.data_load_next())
+        
+        # Initialize list of data filenames
+        self.data_filenames = []
+        for filename in sorted(os.listdir(DIR_S1_OUTPUT)) :
+            if filename.lower().endswith(FORMAT_DATA) :
+                self.data_filenames.append(filename)
+        # Number of data files
+        self.data_num = len(self.data_filenames)
+
+        # Initialize data current index
+        self.data_curr_index = 0
+        self.data_load()
+        
         return
     
-    def _dummy_function( self) -> None :
-        """Placeholder function for buttons (no functionality yet)"""
-        print("Button clicked - functionality not implemented yet")
+    def data_load(self) -> None :
+        # Get data name, path, object and string
+        self.data_name = self.data_filenames[self.data_curr_index]
+        self.data_path = os.path.join( DIR_S1_OUTPUT, self.data_name)
+        self.data_obj  = load_json_file(self.data_path)
+        self.data_str  = write_errors_summary(self.data_obj)
+
+        # Print image name to title and clear textbox
+        self.root.title(f"Current data file: {self.data_name}")
+        self.textbox_clear('A')
+        self.textbox_clear('B')
+        self.textbox_print( 'A', self.data_str)
+
+        return
+    
+    def data_load_next(self) -> None :
+        if 0 <= self.data_curr_index < self.data_num - 1 :
+            self.data_curr_index += 1
+            self.data_load()
+        return
+    
+    def data_load_prev(self) -> None :
+        if 1 <= self.data_curr_index < self.data_num :
+            self.data_curr_index -= 1
+            self.data_load()
         return
     
     def textbox_print( self, box : str, text : str, clear : bool = False) -> None :
