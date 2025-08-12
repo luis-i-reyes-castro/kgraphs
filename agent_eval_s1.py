@@ -16,7 +16,7 @@ from agent_decode_errors import write_errors_summary
 from utilities_io import ensure_dir
 from utilities_io import exists_file
 from utilities_io import load_json_file
-from utilities_io import save_data_to_json_file
+from utilities_io import save_to_json_file
 
 class EvaluatorAppS1 :
     
@@ -267,7 +267,7 @@ class EvaluatorAppS1 :
     
     def image_save_errors_json(self) -> None :
         if self.image_errors_obj :
-            save_data_to_json_file( self.image_errors_obj, self.image_json_path)
+            save_to_json_file( self.image_errors_obj, self.image_json_path)
             self.textbox_print(f"RESULTS SAVED TO: {self.image_json_path}\n")
             self.image_json_exists = True
             self.update_button_states()

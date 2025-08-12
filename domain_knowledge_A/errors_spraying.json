@@ -61,7 +61,7 @@
 },
 "error_centrifugal_nozzle_(NOZZLE)_worn_out_or_clogged":
 {
-    "name": "Centrifugal Nozzle 1 worn out or clogged",
+    "name": "Centrifugal Nozzle (SAME[NOZZLE]) worn out or clogged",
     "name_spanish": "Cabezal del Boquilla Desgastado o Boquilla Obstruida (Boquilla Centrífuga (SAME[NOZZLE]))"
 },
 "error_centrifugal_nozzle_(NOZZLE)_stuck":

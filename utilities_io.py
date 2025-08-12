@@ -38,11 +38,11 @@ def load_json_file( filepath : str) -> Any :
     with open( filepath, 'r', encoding = 'utf-8') as f :
         return load( f, object_pairs_hook = OrderedDict)
 
-def load_json_files_starting_with( directory : str, prefix : str) -> dict :
+def load_json_files_starting_with( directory : str, prefix : str) -> OrderedDict :
     """
     Load all JSON files in a directory starting with a given prefix
     """
-    result = {}
+    result = OrderedDict()
     files  = glob(f'{directory}/{prefix}*.json')
     for file_path in files :
         try :
@@ -76,7 +76,15 @@ def remove_markdown_header_footer( data : str, data_type) -> str :
         data = '\n'.join(lines)
     return data
 
-def save_data_to_json_file( data : Any, filepath : str) -> None :
+def save_to_file( data : str, filepath : str) -> None :
+    """
+    Save data to file
+    """
+    with open( filepath, 'w', encoding = 'utf-8') as f :
+        f.write(data)
+    return
+
+def save_to_json_file( data : Any, filepath : str) -> None :
     """
     Save data to JSON file
     """

@@ -11,3 +11,4 @@ fi
 # Run expansions and compute paths
 python3 dka_expansion.py
 python3 dkb_compute_paths.py
+python3 dkb_publish_errors_list.py
