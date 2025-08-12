@@ -1,8 +1,10 @@
-*.log
-__pycache__/
+# Directories
 .ipynb_checkpoints/
-*_results/
+__pycache__/
 archive/
-dknowledge_expanded/
+domain_knowledge_B/
 dev_prompts/
+*_results/
+# Files
 test.py
+*.log

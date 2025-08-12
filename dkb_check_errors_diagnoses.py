@@ -5,9 +5,9 @@ Check error mappings for consistency
 
 import sys
 import os
-from constants import DIR_DKNOWLEDGE_B
-from constants import SUBSYSTEMS
-from utilities_dknowledge import load_domain_knowledge
+from abc_project_vars import DIR_DKNOWLEDGE_B
+from abc_project_vars import SUBSYSTEMS
+from utilities_dkb import load_domain_knowledge
 
 def has_valid_words( cause : dict, valid_words : list[str]) -> bool :
     for word in valid_words:

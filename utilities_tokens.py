@@ -15,14 +15,15 @@ def count_tokens_in_string( string : str, encoding_name : str = "cl100k_base") -
     num_tokens = len( encoding.encode(string) )
     return num_tokens
 
-def analyze_json_files( directory : str) -> dict :
+def count_tokens_in_files( directory : str) -> dict :
     """
-    Analyzes all JSON files in the given directory and returns token counts.
+    Analyzes all JSON and Markdown files in the given directory and returns token counts.
     Returns a dictionary with filenames as keys and token counts as values.
     """
+    data_formats = ( '.json', '.md')
     token_counts = {}
     for filename in os.listdir(directory):
-        if filename.endswith('.json'):
+        if filename.endswith(data_formats):
             filepath = os.path.join( directory, filename)
             try:
                 content_string = load_file_as_string(filepath)
@@ -35,7 +36,7 @@ if __name__ == "__main__" :
     # Analyze current directory unless a directory is specified
     directory = os.getcwd() if len(sys.argv) < 2 else sys.argv[1]
     # Analyze files
-    token_counts = analyze_json_files(directory)
+    token_counts = count_tokens_in_files(directory)
     # Print token counts for each file (sorted alphabetically)
     print_sep()
     print("Token counts per file:")

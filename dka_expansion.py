@@ -5,12 +5,13 @@ Parsing functions for placeholder substitution
 
 import os
 import shutil
-from constants import DIR_DKNOWLEDGE_A
-from constants import DIR_DKNOWLEDGE_B
-from placeholder_data_structures import load_placeholders
-from placeholder_parsing import parse_dict_of_dicts
-from placeholder_parsing import parse_list_of_pairs
-from placeholder_parsing import parse_diagnoses
+from abc_project_vars import DIR_DKNOWLEDGE_A
+from abc_project_vars import DIR_DKNOWLEDGE_B
+from dka_data_structures import load_placeholders
+from dka_parsing import parse_dict_of_dicts
+from dka_parsing import parse_list_of_pairs
+from dka_parsing import parse_diagnoses
+from utilities_io import ensure_dir
 from utilities_io import load_json_file
 from utilities_io import save_data_to_json_file
 from utilities_printing import print_ind
@@ -21,6 +22,7 @@ if __name__ == "__main__" :
     dir_output = DIR_DKNOWLEDGE_B
 
     print_ind(f'Expanding domain knowledge from: {dir_input}')
+    ensure_dir(dir_output)
     print_ind(f'Saving files to: {dir_output}')
 
     batch_dod  = ( 'components_', 'errors_', 'problems_')

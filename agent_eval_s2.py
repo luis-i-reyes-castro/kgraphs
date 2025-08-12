@@ -7,10 +7,10 @@ import tkinter as tk
 from tkinter import ttk
 
 import os
-from constants import DIR_DKNOWLEDGE_B
-from constants import DIR_S1_OUTPUT
-from constants import FORMAT_DATA
-from read_errors_from_image import write_errors_summary
+from abc_project_vars import DIR_DKNOWLEDGE_B
+from abc_project_vars import DIR_S1_OUTPUT
+from abc_project_vars import FORMAT_DATA
+from agent_decode_errors import write_errors_summary
 from thefuzz import process
 from thefuzz.fuzz import token_set_ratio
 from utilities_printing import print_recursively

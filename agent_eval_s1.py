@@ -7,12 +7,12 @@ import tkinter as tk
 from tkinter import ttk
 
 import os
-from constants import DIR_S1_INPUT
-from constants import DIR_S1_OUTPUT
-from constants import FORMAT_IMG
+from abc_project_vars import DIR_S1_INPUT
+from abc_project_vars import DIR_S1_OUTPUT
+from abc_project_vars import FORMAT_IMG
 from PIL import Image, ImageTk
-from read_errors_from_image import read_errors
-from read_errors_from_image import write_errors_summary
+from agent_decode_errors import read_errors
+from agent_decode_errors import write_errors_summary
 from utilities_io import ensure_dir
 from utilities_io import exists_file
 from utilities_io import load_json_file

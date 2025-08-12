@@ -5,7 +5,7 @@ Compute paths between components
 
 import networkx as nx
 import os
-from constants import DIR_DKNOWLEDGE_B
+from abc_project_vars import DIR_DKNOWLEDGE_B
 from utilities_io import load_json_file
 from utilities_io import save_data_to_json_file
 

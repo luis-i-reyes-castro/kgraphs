@@ -3,7 +3,7 @@
 Data structures for placeholder substitution
 """
 
-import placeholder_regex as phrx
+import dka_regex as phrx
 from re import findall
 from re import search
 from typing import Callable

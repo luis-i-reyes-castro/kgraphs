@@ -4,7 +4,7 @@ Parsing functions for placeholder substitution
 """
 
 from collections import OrderedDict
-from placeholder_data_structures import PlaceHolderDatabase
+from dka_data_structures import PlaceHolderDatabase
 
 def parse_dict_of_dicts( data : OrderedDict,
                          phDB : PlaceHolderDatabase) -> OrderedDict :
