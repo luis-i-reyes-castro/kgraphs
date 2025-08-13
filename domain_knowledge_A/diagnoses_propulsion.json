@@ -12,7 +12,7 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "low"
     },
     {
@@ -20,19 +20,19 @@
     "probability": "low"
     },
     {
-    "component": "front_esc_cable_(POWER_CABLE_SIDE[MOTOR_FRONT])",
+    "component": "cable_esc_front_power_(POWER_CABLE_SIDE[MOTOR_FRONT])",
     "probability": "low"
     },
     {
-    "component": "m(ARM[MOTOR_FRONT])_esc_cable",
+    "component": "cable_esc_arm_m(ARM[MOTOR_FRONT])",
     "probability": "high"
     },
     {
-    "component": "esc_(SAME[MOTOR_FRONT])",
+    "component": "board_esc_(SAME[MOTOR_FRONT])",
     "probability": "high"
     },
     {
-    "component": "motor_(SAME[MOTOR_FRONT])",
+    "component": "motor_propulsion_(SAME[MOTOR_FRONT])",
     "probability": "medium"
     }
 ]
@@ -49,7 +49,7 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "low"
     },
     {
@@ -57,7 +57,7 @@
     "probability": "low"
     },
     {
-    "component": "signal_cable_r",
+    "component": "cable_signal_r",
     "probability": "low"
     },
     {
@@ -65,15 +65,15 @@
     "probability": "medium"
     },
     {
-    "component": "m(ARM[MOTOR_BACK])_esc_cable",
+    "component": "cable_esc_arm_m(ARM[MOTOR_BACK])",
     "probability": "high"
     },
     {
-    "component": "esc_(SAME[MOTOR_BACK])",
+    "component": "board_esc_(SAME[MOTOR_BACK])",
     "probability": "high"
     },
     {
-    "component": "motor_(SAME[MOTOR_BACK])",
+    "component": "motor_propulsion_(SAME[MOTOR_BACK])",
     "probability": "medium"
     }
 ]
@@ -86,7 +86,7 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "low"
     },
     {
@@ -94,7 +94,7 @@
     "probability": "low"
     },
     {
-    "component": "signal_cable_l",
+    "component": "cable_signal_l",
     "probability": "medium"
     },
     {
@@ -102,15 +102,15 @@
     "probability": "medium"
     },
     {
-    "component": "m(ARM[MOTOR_BACK])_esc_cable",
+    "component": "cable_esc_arm_m(ARM[MOTOR_BACK])",
     "probability": "high"
     },
     {
-    "component": "esc_(SAME[MOTOR_BACK])",
+    "component": "board_esc_(SAME[MOTOR_BACK])",
     "probability": "high"
     },
     {
-    "component": "motor_(SAME[MOTOR_BACK])",
+    "component": "motor_propulsion_(SAME[MOTOR_BACK])",
     "probability": "medium"
     }
 ]
@@ -123,11 +123,11 @@
 "group_causes":
 [
     {
-    "component": "esc_(SAME[MOTOR])",
+    "component": "board_esc_(SAME[MOTOR])",
     "probability": "medium"
     },
     {
-    "component": "motor_(SAME[MOTOR])",
+    "component": "motor_propulsion_(SAME[MOTOR])",
     "probability": "high",
     "note": "Dirty, stuck or damaged."
     }
@@ -141,7 +141,7 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "low"
     },
     {
@@ -149,7 +149,7 @@
     "probability": "medium"
     },
     {
-    "component": "m(SAME[ARM_FRONT])_pos",
+    "component": "sensor_in_position_arm_m(SAME[ARM_FRONT])",
     "probability": "high"
     },
     {
@@ -166,7 +166,7 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "low"
     },
     {
@@ -174,7 +174,7 @@
     "probability": "low"
     },
     {
-    "component": "signal_cable_l",
+    "component": "cable_signal_l",
     "probability": "low"
     },
     {
@@ -182,7 +182,7 @@
     "probability": "low"
     },
     {
-    "component": "m(SAME[ARM_BACK])_pos",
+    "component": "sensor_in_position_arm_m(SAME[ARM_BACK])",
     "probability": "high"
     },
     {

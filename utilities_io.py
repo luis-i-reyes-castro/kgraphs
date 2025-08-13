@@ -50,7 +50,7 @@ def load_json_files_starting_with( directory : str, prefix : str) -> OrderedDict
             file_contents = OrderedDict(load_json_file(file_path))
             for file_key in file_contents.keys() :
                 if file_key in result :
-                    print(f"❌ Error: Found repeated key!")
+                    print(f"❌ Error in load_json_files_starting_with: Found repeated key!")
                     print_ind( f"File: {file_path}", 1)
                     print_ind( f"Key : {file_key}",  1)
             result.update(file_contents)

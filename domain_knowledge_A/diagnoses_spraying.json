@@ -11,7 +11,7 @@
 "group_causes":
 [
     {
-    "component": "spray_board",
+    "component": "board_spray",
     "probability": "low"
     },
     {
@@ -19,23 +19,23 @@
     "probability": "low"
     },
     {
-    "component": "spray_adapt_cable",
+    "component": "cable_spray_adapt",
     "probability": "medium"
     },
     {
-    "component": "spray_signal_cable",
+    "component": "cable_spray_signal",
     "probability": "medium"
     },
     {
-    "component": "spray_adapter",
+    "component": "board_spray_adapter",
     "probability": "medium"
     },
     {
-    "component": "impeller_pump_cable",
+    "component": "cable_pump",
     "probability": "high"
     },
     {
-    "component": "pump_(SAME[PUMP])",
+    "component": "motor_pump_(SAME[PUMP])",
     "probability": "high"
     }
 ]
@@ -48,7 +48,7 @@
 "group_causes":
 [
     {
-    "component": "spray_board",
+    "component": "board_spray",
     "probability": "low"
     },
     {
@@ -56,30 +56,30 @@
     "probability": "low"
     },
     {
-    "component": "spray_adapt_cable",
+    "component": "cable_spray_adapt",
     "probability": "medium"
     },{
-    "component": "spray_signal_cable",
+    "component": "cable_spray_signal",
     "probability": "medium"
     },
     {
-    "component": "spray_adapter",
+    "component": "board_spray_adapter",
     "probability": "medium"
     },
     {
-    "component": "impeller_pump_cable",
+    "component": "cable_pump",
     "probability": "high"
     },
     {
-    "component": "pump_(SAME[PUMP])",
+    "component": "motor_pump_(SAME[PUMP])",
     "probability": "high"
     },
     {
-    "component": "flow_meter_cable",
+    "component": "cable_flow_meter",
     "probability": "high"
     },
     {
-    "component": "flow_meter",
+    "component": "sensor_flow_meter",
     "probability": "high"
     },
     {
@@ -87,11 +87,11 @@
     "probability": "high"
     },
     {
-    "problem_mechanical": "pump_(SAME[PUMP])_impeller_stuck",
+    "problem_mechanical": "motor_pump_(SAME[PUMP])_impeller_stuck",
     "probability": "high"
     },
     {
-    "problem_mechanical": "pump_(SAME[PUMP])_motor_magnet_loose",
+    "problem_mechanical": "motor_pump_(SAME[PUMP])_magnet_loose",
     "probability": "high"
     },
     {
@@ -108,7 +108,7 @@
 "group_causes":
 [
     {
-    "component": "pump_(SAME[PUMP])",
+    "component": "motor_pump_(SAME[PUMP])",
     "probability": "medium"
     },
     {
@@ -116,11 +116,11 @@
     "probability": "high"
     },
     {
-    "problem_mechanical": "pump_(SAME[PUMP])_impeller_stuck",
+    "problem_mechanical": "motor_pump_(SAME[PUMP])_impeller_stuck",
     "probability": "high"
     },
     {
-    "problem_mechanical": "pump_(SAME[PUMP])_motor_magnet_loose",
+    "problem_mechanical": "motor_pump_(SAME[PUMP])_magnet_loose",
     "probability": "high"
     },
     {
@@ -141,7 +141,7 @@
 "group_causes":
 [
     {
-    "component": "spray_board",
+    "component": "board_spray",
     "probability": "medium"
     },
     {
@@ -157,15 +157,15 @@
     "probability": "low"
     },
     {
-    "component": "m(ARM[NOZZLE])_esc_cable",
+    "component": "cable_esc_arm_m(ARM[NOZZLE])",
     "probability": "low"
     },
     {
-    "component": "centrifugal_cable_(SIDE[NOZZLE])",
+    "component": "cable_centrifugal_(SIDE[NOZZLE])",
     "probability": "medium"
     },
     {
-    "component": "centrifugal_motor_(SAME[NOZZLE])",
+    "component": "motor_centrifugal_(SAME[NOZZLE])",
     "probability": "high"
     }
 ]
@@ -180,11 +180,11 @@
 "group_causes":
 [
     {
-    "component": "pump_(PUMP[NOZZLE])",
+    "component": "motor_pump_(PUMP[NOZZLE])",
     "probability": "medium"
     },
     {
-    "component": "centrifugal_motor_(SAME[NOZZLE])",
+    "component": "motor_centrifugal_(SAME[NOZZLE])",
     "probability": "medium"
     },
     {
@@ -192,11 +192,11 @@
     "probability": "high"
     },
     {
-    "problem_mechanical": "pump_(PUMP[NOZZLE])_impeller_stuck",
+    "problem_mechanical": "motor_pump_(PUMP[NOZZLE])_impeller_stuck",
     "probability": "high"
     },
     {
-    "problem_mechanical": "pump_(PUMP[NOZZLE])_motor_magnet_loose",
+    "problem_mechanical": "motor_pump_(PUMP[NOZZLE])_magnet_loose",
     "probability": "medium"
     },
     {
@@ -214,7 +214,7 @@
 "group_causes":
 [
     {
-    "component": "spray_board",
+    "component": "board_spray",
     "probability": "low"
     },
     {
@@ -222,19 +222,19 @@
     "probability": "low"
     },
     {
-    "component": "spray_adapt_cable",
+    "component": "cable_spray_adapt",
     "probability": "medium"
     },
     {
-    "component": "spray_signal_cable",
+    "component": "cable_spray_signal",
     "probability": "medium"
     },
     {
-    "component": "spray_adapter",
+    "component": "board_spray_adapter",
     "probability": "medium"
     },
     {
-    "component": "liquid_level",
+    "component": "sensor_liquid_level",
     "probability": "high"
     }
 ]
@@ -247,7 +247,7 @@
 "group_causes":
 [
     {
-    "component": "spray_board",
+    "component": "board_spray",
     "probability": "high",
     "note": "Problem is usually solved by calibrating flow meter."
     },
@@ -256,23 +256,23 @@
     "probability": "low"
     },
     {
-    "component": "spray_adapt_cable",
+    "component": "cable_spray_adapt",
     "probability": "low"
     },
     {
-    "component": "spray_signal_cable",
+    "component": "cable_spray_signal",
     "probability": "low"
     },
     {
-    "component": "spray_adapter",
+    "component": "board_spray_adapter",
     "probability": "low"
     },
     {
-    "component": "flow_meter_cable",
+    "component": "cable_flow_meter",
     "probability": "low"
     },
     {
-    "component": "flow_meter",
+    "component": "sensor_flow_meter",
     "probability": "medium"
     }
 ]
@@ -287,7 +287,7 @@
 "group_causes":
 [
     {
-    "component": "spray_board",
+    "component": "board_spray",
     "probability": "low"
     },
     {
@@ -295,23 +295,23 @@
     "probability": "low"
     },
     {
-    "component": "spray_adapt_cable",
+    "component": "cable_spray_adapt",
     "probability": "medium"
     },
     {
-    "component": "spray_signal_cable",
+    "component": "cable_spray_signal",
     "probability": "medium"
     },
     {
-    "component": "spray_adapter",
+    "component": "board_spray_adapter",
     "probability": "medium"
     },
     {
-    "component": "flow_meter_cable",
+    "component": "cable_flow_meter",
     "probability": "high"
     },
     {
-    "component": "flow_meter",
+    "component": "sensor_flow_meter",
     "probability": "high"
     }
 ]
@@ -319,13 +319,13 @@
 {
 "group_errors":
 [
-    "error_load_sensor_cable_broken",
+    "error_sensor_load_cable_broken",
     "error_load_exceeded"
 ],
 "group_causes":
 [
     {
-    "component": "spray_board",
+    "component": "board_spray",
     "probability": "low"
     },
     {
@@ -333,7 +333,7 @@
     "probability": "low"
     },
     {
-    "component": "load_sensor",
+    "component": "sensor_load",
     "probability": "high"
     }
 ]

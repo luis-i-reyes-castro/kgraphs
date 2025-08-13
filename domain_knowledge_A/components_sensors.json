@@ -1,27 +1,27 @@
 {
-"barometer":
+"antenna_rtk_(SIDE)":
 {
-    "type": "sensor",
-    "name": "Barometer",
-    "name_spanish": "Barómetro",
-    "material_num": "NA",
-    "material_name": "Barometer Module"
+    "type": "antenna",
+    "name": "RTK Antenna ((ENG[SIDE]))",
+    "name_spanish": "Antena RTK ((SPA[SIDE]))",
+    "material_num": "BC.AG.SS000560",
+    "material_name": "RTK Antenna Module"
 },
-"fpv_camera":
+"antenna_sdr_(SIDE)":
+{
+    "type": "antenna",
+    "name": "SDR Antenna ((ENG[SIDE]))",
+    "name_spanish": "Antena SDR ((SPA[SIDE]))",
+    "material_num": "YC.DZ.AA000275",
+    "material_name": "SDR Antenna"
+},
+"camera_fpv":
 {
     "type": "sensor",
     "name": "FPV Camera",
     "name_spanish": "Cámara FPV",
     "material_num": "BC.AG.SS000549",
     "material_name": "FPV Module"
-},
-"fwd_vision":
-{
-    "type": "sensor",
-    "name": "Forward Vision Sensors",
-    "name_spanish": "Sensores de Visión Frontal",
-    "material_num": "BC.AG.SS000562",
-    "material_name": "Forward Vision Sensor Module"
 },
 "radar_bwd":
 {
@@ -39,20 +39,29 @@
     "material_num": "BC.AG.SS000551",
     "material_name": "Omnidirectional Radar Module"
 },
-"rtk_ant_(SIDE)":
+"sensor_barometer":
 {
-    "type": "antenna",
-    "name": "RTK Antenna ((ENG[SIDE]))",
-    "name_spanish": "Antena RTK ((SPA[SIDE]))",
-    "material_num": "BC.AG.SS000560",
-    "material_name": "RTK Antenna Module"
+    "type": "sensor",
+    "name": "Barometer",
+    "name_spanish": "Barómetro",
+    "material_num": "NA",
+    "material_name": "Barometer Module"
 },
-"sdr_ant_(SIDE)":
+"sensor_fwd_vision":
 {
-    "type": "antenna",
-    "name": "SDR Antenna ((ENG[SIDE]))",
-    "name_spanish": "Antena SDR ((SPA[SIDE]))",
-    "material_num": "YC.DZ.AA000275",
-    "material_name": "SDR Antenna"
+    "type": "sensor",
+    "name": "Forward Vision Sensors",
+    "name_spanish": "Sensores de Visión Frontal",
+    "material_num": "BC.AG.SS000562",
+    "material_name": "Forward Vision Sensor Module"
+},
+"sensor_in_position_arm_m(ARM)":
+{
+    "type": "sensor",
+    "name": "M(SAME[ARM]) Arm In-position Detector",
+    "name_alt": "M(SAME[ARM]) Folding Sensor",
+    "name_spanish": "Sensor de Plegado del Brazo M(SAME[ARM])",
+    "material_num": "BC.AG.SS000547",
+    "material_name": "Aircraft Arm In-position Detector Signal Cable"
 }
 }

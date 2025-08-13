@@ -1,5 +1,13 @@
 {
-"centrifugal_motor_(NOZZLE)":
+"board_spray_adapter":
+{
+    "type": "board",
+    "name": "Spraying Adapter",
+    "name_spanish": "Tarjeta Adaptadora de Rociado",
+    "material_num": "BC.AG.SS000546",
+    "material_name": "Spraying Adapter Module"
+},
+"motor_centrifugal_(NOZZLE)":
 {
     "type": "motor",
     "name": "Centrifugal Motor (SAME[NOZZLE])",
@@ -8,31 +16,7 @@
     "material_num": "BC.AG.SS000565",
     "material_name": "Centrifugal Motor"
 },
-"flow_meter":
-{
-    "type": "sensor",
-    "name": "Flow Meter",
-    "name_spanish": "Medidor de Caudal",
-    "material_num": "BC.AG.SS000545",
-    "material_name": "Flow Meter Module"
-},
-"liquid_level":
-{
-    "type": "sensor",
-    "name": "Liquid Level Meter",
-    "name_spanish": "Medidor de Nivel de Líquido",
-    "material_num": "BC.AG.SS000547",
-    "material_name": "Liquid Level Meter Module"
-},
-"load_sensor":
-{
-    "type": "sensor",
-    "name": "Load Sensor",
-    "name_spanish": "Sensor de Peso",
-    "material_num": "BC.AG.SS000550",
-    "material_name": "Load Sensor Module"
-},
-"pump_(PUMP)":
+"motor_pump_(PUMP)":
 {
     "type": "motor",
     "name": "Impeller Pump Motor (SAME[PUMP])",
@@ -40,12 +24,28 @@
     "material_num": "BC.AG.SS000543",
     "material_name": "Impeller Pump Motor"
 },
-"spray_adapter":
+"sensor_flow_meter":
 {
-    "type": "board",
-    "name": "Spraying Adapter",
-    "name_spanish": "Tarjeta Adaptadora de Rociado",
-    "material_num": "BC.AG.SS000546",
-    "material_name": "Spraying Adapter Module"
+    "type": "sensor",
+    "name": "Flow Meter",
+    "name_spanish": "Medidor de Caudal",
+    "material_num": "BC.AG.SS000545",
+    "material_name": "Flow Meter Module"
+},
+"sensor_liquid_level":
+{
+    "type": "sensor",
+    "name": "Liquid Level Meter",
+    "name_spanish": "Medidor de Nivel de Líquido",
+    "material_num": "BC.AG.SS000547",
+    "material_name": "Liquid Level Meter Module"
+},
+"sensor_load":
+{
+    "type": "sensor",
+    "name": "Load Sensor",
+    "name_spanish": "Sensor de Peso",
+    "material_num": "BC.AG.SS000550",
+    "material_name": "Load Sensor Module"
 }
 }

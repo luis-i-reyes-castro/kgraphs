@@ -1,5 +1,5 @@
 {
-"rc_left_stick":
+"rc_stick_left":
 {
     "type": "input_device",
     "name": "Remote Control Left Stick",
@@ -7,7 +7,7 @@
     "material_num": "NA",
     "material_name": "NA"
 },
-"rc_right_stick":
+"rc_stick_right":
 {
     "type": "input_device",
     "name": "Remote Control Right Stick",

@@ -1,14 +1,5 @@
 {
-"m(ARM)_pos":
-{
-    "type": "sensor",
-    "name": "M(SAME[ARM]) Arm In-position Detector",
-    "name_alt": "M(SAME[ARM]) Folding Sensor",
-    "name_spanish": "Sensor de Plegado del Brazo M(SAME[ARM])",
-    "material_num": "BC.AG.SS000547",
-    "material_name": "Aircraft Arm In-position Detector Signal Cable"
-},
-"esc_(MOTOR)":
+"board_esc_(MOTOR)":
 {
     "type": "esc",
     "name": "ESC (SAME[MOTOR])",
@@ -16,7 +7,7 @@
     "material_num": "BC.AG.SS000563",
     "material_name": "ESC Module"
 },
-"motor_(MOTOR)":
+"motor_propulsion_(MOTOR)":
 {
     "type": "motor",
     "name": "Motor (SAME[MOTOR])",

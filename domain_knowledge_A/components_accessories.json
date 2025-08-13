@@ -1,5 +1,5 @@
 {
-"aux_light_(SIDE)":
+"light_(SIDE)":
 {
     "type": "light",
     "name": "Auxiliary Bottom Light ((ENG[SIDE]))",

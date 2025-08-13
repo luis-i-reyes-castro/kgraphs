@@ -7,7 +7,7 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "low"
     },
     {
@@ -15,15 +15,15 @@
     "probability": "low"
     },
     {
-    "component": "rf_board",
+    "component": "board_RF",
     "probability": "low"
     },
     {
-    "component": "rtk_cable_(SIDE)",
+    "component": "cable_rtk_(SIDE)",
     "probability": "low"
     },
     {
-    "component": "rtk_ant_(SIDE)",
+    "component": "antenna_rtk_(SIDE)",
     "probability": "low"
     },
     {
@@ -55,11 +55,11 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "low"
     },
     {
-    "component": "barometer",
+    "component": "sensor_barometer",
     "probability": "high",
     "note": "Humidity may have leaked into the barometer, causing false readings."
     }
@@ -76,7 +76,7 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "medium"
     },
     {
@@ -84,11 +84,11 @@
     "probability": "low"
     },
     {
-    "component": "rf_board",
+    "component": "board_RF",
     "probability": "high"
     },
     {
-    "component": "sdr_ant_(SIDE)",
+    "component": "antenna_sdr_(SIDE)",
     "probability": "low"
     }
 ]
@@ -109,15 +109,15 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "low"
     },
     {
-    "component": "omni_radar_cable",
+    "component": "cable_radar_omni",
     "probability": "medium"
     },
     {
-    "component": "omni_radar",
+    "component": "radar_omni",
     "probability": "medium"
     },
     {
@@ -135,15 +135,15 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "low"
     },
     {
-    "component": "omni_radar_cable",
+    "component": "cable_radar_omni",
     "probability": "medium"
     },
     {
-    "component": "omni_radar",
+    "component": "radar_omni",
     "probability": "high"
     }
 ]
@@ -159,7 +159,7 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "low"
     },
     {
@@ -167,11 +167,11 @@
     "probability": "low"
     },
     {
-    "component": "bwd_radar_cable",
+    "component": "cable_radar_bwd",
     "probability": "medium"
     },
     {
-    "component": "bwd_radar",
+    "component": "radar_bwd",
     "probability": "high"
     },
     {
@@ -203,11 +203,11 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "low"
     },
     {
-    "component": "fwd_vision",
+    "component": "sensor_fwd_vision",
     "probability": "medium",
     "note": "Binocular cameras dirty. Clean them."
     },
@@ -228,11 +228,11 @@
 "group_causes":
 [
     {
-    "component": "avionics",
+    "component": "board_avionics",
     "probability": "low"
     },
     {
-    "component": "fpv_camera",
+    "component": "camera_fpv",
     "probability": "high",
     "note": "The FPV camera gimbal motor is jammed. Clean it."
     }
@@ -247,7 +247,7 @@
 "group_causes":
 [
     {
-    "component": "rc_left_stick",
+    "component": "rc_stick_left",
     "probability": "high"
     }
 ]
@@ -261,7 +261,7 @@
 "group_causes":
 [
     {
-    "component": "rc_right_stick",
+    "component": "rc_stick_right",
     "probability": "high"
     }
 ]

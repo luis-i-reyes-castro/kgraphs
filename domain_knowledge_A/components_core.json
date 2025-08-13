@@ -23,7 +23,7 @@
     "material_num": "BC.AG.SS000558",
     "material_name": "Power Distribution Board"
 },
-"avionics":
+"board_avionics":
 {
     "type": "board",
     "name": "Avionics Board",
@@ -31,7 +31,7 @@
     "material_num": "BC.AG.SS000617",
     "material_name": "Aerial-electronics Board (FCC)"
 },
-"rf_board":
+"board_RF":
 {
     "type": "board",
     "name": "RF Board",
@@ -39,7 +39,7 @@
     "material_num": "BC.AG.SS000552",
     "material_name": "RF Board"
 },
-"spray_board":
+"board_spray":
 {
     "type": "board",
     "name": "Spraying Board",

@@ -103,8 +103,8 @@ def compute_paths( dir_data : str):
                 paths['rf_board_to_antennas'][component_id] = path
 
     # Paths from spray_board to spraying components
-    # Avoid signal_cable_r when going from cdb to pdb
-    avoid_edges = [('signal_cable_r', 'cdb'), ('signal_cable_r', 'pdb')]
+    # Avoid cable_signal_r when going from cdb to pdb
+    avoid_edges = [('cable_signal_r', 'cdb'), ('cable_signal_r', 'pdb')]
     paths['spray_board_to_spraying'] = {}
     data_json = os.path.join( dir_data, 'components_spraying.json')
     spraying_components = load_json_file(data_json)
