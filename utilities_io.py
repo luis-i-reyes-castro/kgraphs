@@ -10,6 +10,7 @@ from json import load
 from json import loads
 from pathlib import Path
 from typing import Any
+from utilities_printing import print_ind
 
 def ensure_dir( dir_name : str) -> None :
     """
@@ -46,7 +47,12 @@ def load_json_files_starting_with( directory : str, prefix : str) -> OrderedDict
     files  = glob(f'{directory}/{prefix}*.json')
     for file_path in files :
         try :
-            file_contents = load_json_file(file_path)
+            file_contents = OrderedDict(load_json_file(file_path))
+            for file_key in file_contents.keys() :
+                if file_key in result :
+                    print(f"❌ Error: Found repeated key!")
+                    print_ind( f"File: {file_path}", 1)
+                    print_ind( f"Key : {file_key}",  1)
             result.update(file_contents)
         except FileNotFoundError as e :
             print(f"❌ Error: Could not find file {e.filename}")
