@@ -241,7 +241,8 @@
 {
 "group_errors":
 [
-    "error_left_stick_movement"
+    "error_left_stick_movement_A",
+    "error_left_stick_movement_B"
 ],
 "group_causes":
 [
@@ -254,7 +255,8 @@
 {
 "group_errors":
 [
-    "error_right_stick_movement"
+    "error_right_stick_movement_A",
+    "error_right_stick_movement_B"
 ],
 "group_causes":
 [

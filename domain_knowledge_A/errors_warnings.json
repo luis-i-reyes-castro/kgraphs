@@ -1,0 +1,57 @@
+{
+"warning_battery_level_1":
+{
+    "name": "Level 1 low battery warning",
+    "name_spanish": "Advertencia de nivel de batería bajo de nivel 1"
+},
+"warning_battery_level_2":
+{
+    "name": "Level 2 low battery warning",
+    "name_spanish": "Advertencia de nivel de batería bajo de nivel 2"
+},
+"ribbon_cannot_takeoff":
+{
+    "name": "Cannot takeoff. - Possible risks.",
+    "name_spanish": "No se puede despegar. - Posibles riesgos."
+},
+"ribbon_gnss_trajectory":
+{
+    "name": "Manual trajectory (GNSS)",
+    "name_spanish": "Trayectoria manual (GNSS)"
+},
+"ribbon_power_error":
+{
+    "name": "Power error",
+    "name_spanish": "Error de potencia"
+},
+"warning_emergency_stop":
+{
+    "name": "Emergency collision avoidance system. Move the control stick back/forward/left/right to cancel. Fly with caution.",
+    "name_spanish": "Sistema anticolisión de emergencia. Mueva la palanca de control hacia atrás/adelante/izquierda/derecha para cancelar. Vuele con precaución."
+},
+"warning_payload_capacity":
+{
+    "name": "Payload capacity exceeded. Ensure sure payload added is within...",
+    "name_spanish": "Se ha superado la capacidad de carga. Asegúrese de que la carga especificada se encuenta dentro..."
+},
+"warning_motors_started":
+{
+    "name": "Motors started",
+    "name_spanish": "Motores arrancados"
+},
+"warning_obstacle_above":
+{
+    "name": "Obstacle above aircraft. Fly with caution.",
+    "name_spanish": "Obstáculo por encima de la aeronave. Vuele con precaución."
+},
+"warning_obstacle_blow":
+{
+    "name": "Obstacle below aircraft. Fly with caution.",
+    "name_spanish": "Obstáculo inferior detectado. Vuele con precaución."
+},
+"warning_no_liquid_payload":
+{
+    "name": "No more liquid payload. Land and refill.",
+    "name_spanish": "Se ha quedado sin pesticida. Aterrice y rellene el tanque."
+}
+}
