@@ -1,11 +1,12 @@
 # Directories
 .ipynb_checkpoints/
 __pycache__/
+agent_results/
 archive/
 domain_knowledge_B/
 dev_prompts/
-*_results/
 # Files
-list_error_names.md
 test.py
+# Patterns
+*.jpg
 *.log

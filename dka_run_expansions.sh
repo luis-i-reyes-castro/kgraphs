@@ -6,6 +6,7 @@ DIR_NAME=$(python3 -c "$DIR_PRINT_CMD")
 # If directory exists then remove all its contents
 if [ -d "$DIR_NAME" ]; then
     rm -v "$DIR_NAME"/*.json
+    rm -v "$DIR_NAME"/*.md
 fi
 
 # Run expansions and compute paths

@@ -8,6 +8,7 @@ import os
 from abc_project_vars import DIR_DKNOWLEDGE_B
 from utilities_io import load_json_file
 from utilities_io import save_to_json_file
+from utilities_printing import print_ind
 
 def build_graph( dir_data : str):
     # Load all component files
@@ -118,4 +119,7 @@ def compute_paths( dir_data : str):
 if __name__ == '__main__':
     
     dir_data = DIR_DKNOWLEDGE_B
+    print_ind(f'Computing component paths from: {dir_data}')
     compute_paths(dir_data)
+    print_ind( f'Saved component paths to:', 1)
+    print_ind( f'{dir_data}/paths.json', 1)

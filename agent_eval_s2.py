@@ -10,7 +10,7 @@ import os
 from abc_project_vars import DIR_DKNOWLEDGE_B
 from abc_project_vars import DIR_S1_OUTPUT
 from abc_project_vars import FORMAT_DATA
-from agent_decode_errors import write_errors_summary
+from agent_read_errors import write_errors_summary
 from thefuzz import process
 from thefuzz.fuzz import token_set_ratio
 from utilities_printing import print_recursively
