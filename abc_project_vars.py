@@ -5,7 +5,7 @@ SUBSYSTEMS       = [ 'flight', 'propulsion', 'spraying' ]
 
 # Agent
 DIR_AGENT_PROMPTS = 'agent_prompts'
-PROMPT_FILES      = [ 'stage_1.md' ]
+PROMPTS           = [ 'v2_intro.md', 'v2_read_errors.md' ]
 
 # Evaluator
 DIR_S1_INPUT  = '/home/luis/errorDS/DAL/t40_t50/prop/'

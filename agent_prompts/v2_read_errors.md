@@ -1,4 +1,6 @@
-## Context
+# Task Context and Definition
+
+## Task Context
 You are analyzing a T40 remote control screen photo (from smartphone) showing any number of error messages. Images may be:
 
 **Main Operating Screen (MOS)**
@@ -17,7 +19,7 @@ You are analyzing a T40 remote control screen photo (from smartphone) showing an
 * If text unreadable, rotate image CCW; if still unreadable, rotate CW.
 * Errors for motors, ESCs, pumps, or nozzles must include their index (e.g., "ESC 5", "Pump 1").
 
-## Error Examples (Partial List)
+### Error Examples (Partial List)
 
 **General flight & navigation**
 * Cannot take off. Dual RTK antennas not ready
@@ -63,7 +65,7 @@ You are analyzing a T40 remote control screen photo (from smartphone) showing an
 * Flow meter voltage too low
 * Load sensor cable broken
 
-## Task
+## Task Definition
 Extract error messages and return **only** this JSON:
 ```json
 {

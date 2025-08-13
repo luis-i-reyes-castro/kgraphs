@@ -23,8 +23,8 @@ Respond simply, step-by-step, confirm user understanding before continuing.
 * Check valves: spring-plug type
 
 ## Power
-* Smart 14S LiPo battery → Power Distribution Board (PDB)
-
+* Smart battery (14S LiPo) → Power Distribution Board (PDB)
+  
 ## Control & Comms
 * Cable Distribution Board (CDB)  
   * Avionics Board: IMU, flight control, propulsion  

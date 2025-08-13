@@ -11,8 +11,8 @@ from abc_project_vars import DIR_S1_INPUT
 from abc_project_vars import DIR_S1_OUTPUT
 from abc_project_vars import FORMAT_IMG
 from PIL import Image, ImageTk
-from agent_decode_errors import read_errors
-from agent_decode_errors import write_errors_summary
+from agent_read_errors import read_errors
+from agent_read_errors import write_errors_summary
 from utilities_io import ensure_dir
 from utilities_io import exists_file
 from utilities_io import load_json_file
