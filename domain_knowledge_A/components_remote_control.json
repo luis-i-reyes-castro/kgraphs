@@ -1,7 +1,6 @@
 {
 "rc_left_stick":
 {
-    "id": "rc_left_stick",
     "type": "input_device",
     "name": "Remote Control Left Stick",
     "name_spanish": "Palanca Izquierda del Control Remoto",
@@ -10,7 +9,6 @@
 },
 "rc_right_stick":
 {
-    "id": "rc_right_stick",
     "type": "input_device",
     "name": "Remote Control Right Stick",
     "name_spanish": "Palanca Derecha del Control Remoto",

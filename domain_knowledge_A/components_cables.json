@@ -1,0 +1,106 @@
+{
+"cable_aux_light_(SIDE)":
+{
+    "type": "cable",
+    "name": "Auxiliary Bottom Light Signal Cable ((ENG[SIDE]))",
+    "name_spanish": "Cable de Luz Auxiliar ((SPA[SIDE]))",
+    "material_num": "YC.XC.XX000853",
+    "material_name": "Auxiliary Bottom Light Signal Cable"
+},
+"cable_centrifugal_(SIDE)":
+{
+    "type": "cable",
+    "name": "Centrifugal Sprinkler Signal Cable ((ENG[SIDE]))",
+    "name_spanish": "Cable de Boquilla Centrífuga ((SPA[SIDE]))",
+    "material_num": "YC.XC.XX000841",
+    "material_name": "Centrifugal Sprinkler Signal Cable"
+},
+"cable_flow_meter":
+{
+    "type": "cable",
+    "name": "Flow Meter Signal Cable",
+    "name_spanish": "Cable del Medidor de Caudal",
+    "material_num": "YC.XC.XX000839",
+    "material_name": "Flow Meter Signal Cable"
+},
+"cable_front_esc_(SIDE)":
+{
+    "type": "cable",
+    "name": "Front Aircraft Arm ESC Power Adapter Cable ((ENG[SIDE]))",
+    "name_spanish": "Cable Adaptador de Potencia del Brazo Delantero ((SPA[SIDE]))",
+    "material_num": "YC.XC.DD000501",
+    "material_name": "Front Aircraft Arm ESC Power Adapter Cable"
+},
+"cable_impeller_pump":
+{
+    "type": "cable",
+    "name": "Impeller Pump Signal Cable",
+    "name_spanish": "Cable de Bombas",
+    "material_num": "YC.XC.XX000857",
+    "material_name": "Impeller Pump Signal Cable"
+},
+"cable_m(ARM_FRONT)_esc":
+{
+    "type": "cable",
+    "name": "M(SAME[ARM_FRONT]) Aircraft Arm ESC Composite Cable",
+    "name_spanish": "Cable de ESC del Brazo M(SAME[ARM_FRONT])",
+    "material_num": "YC.XC.XS000011",
+    "material_name": "M1 & M2 Aircraft Arm ESC Composite Cable"
+},
+"cable_m(ARM_BACK)_esc":
+{
+    "type": "cable",
+    "name": "M(SAME[ARM_BACK]) Aircraft Arm ESC Composite Cable",
+    "name_spanish": "Cable de ESC del Brazo M(SAME[ARM_BACK])",
+    "material_num": "YC.XC.XS000012",
+    "material_name": "M3 & M4 Aircraft Arm ESC Composite Cable"
+},
+"cable_radar_bwd":
+{
+    "type": "cable",
+    "name": "Backward Vision Radar Signal Cable",
+    "name_spanish": "Cable de Radar de Visión Trasera",
+    "material_num": "YC.XC.XX000845",
+    "material_name": "Backward Vision Radar Signal Cable"
+},
+"cable_radar_omni":
+{
+    "type": "cable",
+    "name": "Omnidirectional Radar Signal Cable",
+    "name_spanish": "Cable de Radar Omnidireccional",
+    "material_num": "YC.XC.XX000844",
+    "material_name": "Omnidirectional Radar Signal Cable"
+},
+"cable_rtk_(SIDE)":
+{
+    "type": "cable",
+    "name": "RTK Coaxial Cable ((ENG[SIDE]))",
+    "name_spanish": "Cable Coaxial RTK ((SPA[SIDE]))",
+    "material_num": "YC.XC.TT000104",
+    "material_name": "RTK Coaxial Cable"
+},
+"cable_signal_(SIDE)":
+{
+    "type": "cable",
+    "name": "Signal Cable ((ENG[SIDE]))",
+    "name_spanish": "Cable de Señal ((SPA[SIDE]))",
+    "material_num": "YC.XC.XX000840",
+    "material_name": "Signal Cable"
+},
+"cable_spray_adapt":
+{
+    "type": "cable",
+    "name": "Spraying Adaptive Cable",
+    "name_spanish": "Cable Adaptativo de Rociado",
+    "material_num": "YC.XC.XX000842",
+    "material_name": "Spraying Adaptive Cable"
+},
+"cable_spray_signal":
+{
+    "type": "cable",
+    "name": "Spraying Signal Cable",
+    "name_spanish": "Cable de Señal de Rociado",
+    "material_num": "YC.XC.XX000835",
+    "material_name": "Spraying Signal Cable"
+}
+}

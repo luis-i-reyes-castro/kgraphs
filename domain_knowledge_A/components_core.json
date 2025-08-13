@@ -46,13 +46,5 @@
     "name_spanish": "Tarjeta de Rociado",
     "material_num": "BC.AG.SS000554",
     "material_name": "Spraying Board"
-},
-"signal_cable_(SIDE)":
-{
-    "type": "cable",
-    "name": "Signal Cable ((ENG[SIDE]))",
-    "name_spanish": "Cable de Señal ((SPA[SIDE]))",
-    "material_num": "YC.XC.XX000840",
-    "material_name": "Signal Cable"
 }
 }

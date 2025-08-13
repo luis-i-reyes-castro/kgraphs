@@ -2,8 +2,8 @@
 
     ["battery", "pdb"],
 
-    ["cdb", "signal_cable_(SIDE)"],
-    ["pdb", "signal_cable_(SIDE)"],
+    ["cdb", "cable_signal_(SIDE)"],
+    ["pdb", "cable_signal_(SIDE)"],
 
     ["cdb", "avionics"],
     ["avionics", "fpv_camera"],
@@ -12,39 +12,39 @@
 
     ["cdb", "rf_board"],
     ["rf_board", "sdr_ant_(SIDE)"],
-    ["rf_board", "rtk_cable_(SIDE)"],
-    ["rtk_cable_(SIDE)", "rtk_ant_(SAME[SIDE])"],
+    ["rf_board", "cable_rtk_(SIDE)"],
+    ["cable_rtk_(SIDE)", "rtk_ant_(SAME[SIDE])"],
     
-    ["cdb", "omni_radar_cable"],
-    ["omni_radar_cable", "omni_radar"],
-    ["cdb", "bwd_radar_cable"],
-    ["bwd_radar_cable", "bwd_radar"],
+    ["cdb", "cable_radar_omni"],
+    ["cable_radar_omni", "radar_omni"],
+    ["cdb", "cable_radar_bwd"],
+    ["cable_radar_bwd", "radar_bwd"],
     
-    ["cdb", "aux_light_cable_(SIDE)"],
-    ["aux_light_cable_(SIDE)", "aux_light_(SAME[SIDE])"],
+    ["cdb", "cable_aux_light_(SIDE)"],
+    ["cable_aux_light_(SIDE)", "aux_light_(SAME[SIDE])"],
 
     ["cdb", "spray_board"],
     ["cdb", "load_sensor"],
-    ["cdb", "spray_adapt_cable"],
-    ["spray_adapt_cable", "spray_signal_cable"],
-    ["spray_signal_cable", "spray_adapter"],
+    ["cdb", "cable_spray_adapt"],
+    ["cable_spray_adapt", "cable_spray_signal"],
+    ["cable_spray_signal", "spray_adapter"],
     ["spray_adapter", "flow_meter_cable"],
     ["flow_meter_cable", "flow_meter"],
     ["spray_adapter", "liquid_level"],
-    ["spray_adapter", "impeller_pump_cable"],
-    ["impeller_pump_cable", "pump_(PUMP)"],
+    ["spray_adapter", "cable_impeller_pump"],
+    ["cable_impeller_pump", "pump_(PUMP)"],
 
     ["cdb", "m(ARM_FRONT)_pos"],
     ["pdb", "m(ARM_BACK)_pos"],
 
-    ["cdb", "m(ARM_FRONT)_esc_cable"],
-    ["pdb", "m(ARM_BACK)_esc_cable"],
-    ["pdb", "front_esc_cable_(SIDE)"],
-    ["m(ARM_FRONT)_esc_cable", "front_esc_cable_(POWER_CABLE_SIDE[ARM_FRONT])"],
-    ["m(ARM)_esc_cable", "esc_(*MOTOR[ARM])"],
+    ["cdb", "cable_m(ARM_FRONT)_esc"],
+    ["pdb", "cable_m(ARM_BACK)_esc"],
+    ["pdb", "cable_front_esc_(SIDE)"],
+    ["cable_m(ARM_FRONT)_esc", "cable_front_esc_(POWER_CABLE_SIDE[ARM_FRONT])"],
+    ["cable_m(ARM)_esc", "esc_(*MOTOR[ARM])"],
     ["esc_(MOTOR)", "motor_(SAME[MOTOR])"],
 
-    ["m(ARM_BACK)_esc_cable", "centrifugal_cable_(SIDE[ARM_BACK])"],
-    ["centrifugal_motor_(NOZZLE)", "centrifugal_cable_(SIDE[NOZZLE])"]
+    ["cable_m(ARM_BACK)_esc", "cable_centrifugal_(SIDE[ARM_BACK])"],
+    ["centrifugal_motor_(NOZZLE)", "cable_centrifugal_(SIDE[NOZZLE])"]
     
 ]
