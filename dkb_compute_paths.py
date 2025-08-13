@@ -13,8 +13,9 @@ from utilities_printing import print_ind
 def build_graph( dir_data : str):
     # Load all component files
     components = {}
-    component_files = [ 'components_core.json',
-                        'components_accessories.json',
+    component_files = [ 'components_accessories.json',
+                        'components_cables.json',
+                        'components_core.json',
                         'components_propulsion.json',
                         'components_sensors.json',
                         'components_spraying.json' ]
@@ -65,54 +66,55 @@ def compute_paths( dir_data : str):
     paths = {}
 
     # Paths from avionics to propulsion components
-    paths['avionics_to_propulsion'] = {}
+    paths['board_avionics_to_propulsion'] = {}
     data_json = os.path.join( dir_data, 'components_propulsion.json')
     propulsion_components = load_json_file(data_json)
     for component_id, data in components.items():
         if component_id in propulsion_components:
-            path = get_path(G, 'avionics', component_id)
+            path = get_path( G, 'board_avionics', component_id)
             if path:
-                paths['avionics_to_propulsion'][component_id] = path
-
-    # Paths from avionics to accessories
-    paths['avionics_to_accessories'] = {}
-    data_json = os.path.join( dir_data, 'components_accessories.json')
-    accessories_components = load_json_file(data_json)
-    for component_id, data in components.items():
-        if component_id in accessories_components:
-            path = get_path(G, 'avionics', component_id)
-            if path:
-                paths['avionics_to_accessories'][component_id] = path
+                paths['board_avionics_to_propulsion'][component_id] = path
 
     # Paths from avionics to sensors (except antennas)
-    paths['avionics_to_sensors'] = {}
+    paths['board_avionics_to_sensors'] = {}
     data_json = os.path.join( dir_data, 'components_sensors.json')
     sensors_data = load_json_file(data_json)
     for component_id, data in sensors_data.items():
         if data.get('type') != 'antenna':
-            path = get_path(G, 'avionics', component_id)
+            path = get_path( G, 'board_avionics', component_id)
             if path:
-                paths['avionics_to_sensors'][component_id] = path
+                paths['board_avionics_to_sensors'][component_id] = path
 
     # Paths from rf_board to antennas
-    paths['rf_board_to_antennas'] = {}
+    paths['board_RF_to_antennas'] = {}
     for component_id, data in sensors_data.items():
         if data.get('type') == 'antenna':
-            path = get_path(G, 'rf_board', component_id)
+            path = get_path( G, 'board_RF', component_id)
             if path:
-                paths['rf_board_to_antennas'][component_id] = path
+                paths['board_RF_to_antennas'][component_id] = path
 
     # Paths from spray_board to spraying components
-    # Avoid cable_signal_r when going from cdb to pdb
-    avoid_edges = [('cable_signal_r', 'cdb'), ('cable_signal_r', 'pdb')]
-    paths['spray_board_to_spraying'] = {}
     data_json = os.path.join( dir_data, 'components_spraying.json')
     spraying_components = load_json_file(data_json)
+    paths['board_spray_to_spraying'] = {}
+    # Avoid cable_signal_r when going from cdb to pdb
+    avoid_edges = [ ( 'cable_signal_r', 'cdb'),
+                    ( 'cable_signal_r', 'pdb') ]
     for component_id in spraying_components:
-        path = get_path(G, 'spray_board', component_id, avoid_edges)
+        path = get_path( G, 'board_spray', component_id, avoid_edges)
         if path:
-            paths['spray_board_to_spraying'][component_id] = path
+            paths['board_spray_to_spraying'][component_id] = path
 
+    # Paths from avionics to accessories
+    paths['board_avionics_to_accessories'] = {}
+    data_json = os.path.join( dir_data, 'components_accessories.json')
+    accessories_components = load_json_file(data_json)
+    for component_id, data in components.items():
+        if component_id in accessories_components:
+            path = get_path( G, 'board_avionics', component_id)
+            if path:
+                paths['board_avionics_to_accessories'][component_id] = path
+    
     # Save paths to file
     save_to_json_file( paths, os.path.join( dir_data, 'paths.json'))
 
