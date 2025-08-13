@@ -16,27 +16,27 @@ class DomainKnowledgeRetriever :
             raise ValueError( f"Invalid language: {language}")
         self.lang = language
         
-        self.dict_error_names = {}
-        self.list_error_names = []
-        self.build_dict_list_error_names()
+        self.dict_message_names = {}
+        self.list_message_names = []
+        self.build_dict_list_message_names()
         
         return
     
-    def build_dict_list_error_names(self) -> None :
-        # Inner key of name depends on the language
-        inner_key_of_name = ''
+    def build_dict_list_message_names(self) -> None :
+        # Message name field depends on the language
+        message_name_field = ''
         match self.lang :
             case 'English' :
-                inner_key_of_name += 'name'
+                message_name_field += 'name'
             case 'Spanish' :
-                inner_key_of_name += 'name_spanish'
+                message_name_field += 'name_spanish'
         
-        # Build dict mapping error names to error codes
-        for outer_key, inner_dict in self.data['errors'].items() :
-            error_name = inner_dict[inner_key_of_name]
-            self.dict_error_names[error_name] = outer_key
+        # Build dict mapping message names to message keys
+        for message_key, inner_dict in self.data['messages'].items() :
+            message_name = inner_dict[message_name_field]
+            self.dict_message_names[message_name] = message_key
         
-        # Build list of error names
-        self.list_error_names = self.dict_error_names.keys()
+        # Build list of message names
+        self.list_message_names = self.dict_message_names.keys()
         
         return

@@ -13,16 +13,16 @@ if __name__ == '__main__' :
     
     print_ind(f'Collecting all error messages from: {DIR_DKNOWLEDGE_B}')
     
-    output_file = 'errors_all.md'
+    output_file = 'messages_all.md'
     output_path = os.path.join( DIR_DKNOWLEDGE_B, output_file)
     retriever   = DomainKnowledgeRetriever('English')
-    list_errors = retriever.list_error_names
+    list_errors = retriever.list_message_names
     
-    output_str = f'## List of All Error Messages\n\n'
+    output_str = f'## List of All Messages\n\n'
     for e_name in list_errors :
         output_str += f'* {e_name}\n'
     
     save_to_file( output_str, output_path)
 
-    print_ind( f'Saved list of all error messages to:', 1)
+    print_ind( f'Saved list of all messages to:', 1)
     print_ind( f'{output_path}', 1)

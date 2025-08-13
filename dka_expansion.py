@@ -25,7 +25,7 @@ if __name__ == "__main__" :
     ensure_dir(dir_output)
     print_ind(f'Saving files to: {dir_output}')
 
-    batch_dod  = ( 'components_', 'errors_', 'problems_')
+    batch_dod  = ( 'components_', 'messages_', 'problems_')
     batch_lop  = ( 'connections',)
     batch_dia  = ( 'diagnoses_',)
     exceptions = ( 'placeholders',)
