@@ -1,0 +1,62 @@
+{
+"error_front_ambient_light":
+{
+    "name": "Front ambient light too weak. Obstacle avoidance system not available. Fly with caution.",
+    "name_spanish": "Luz ambiental delantera demasiado débil. Sistema de superación de obstáculos no disponible. Vuele con cuidado."
+},
+"error_fwd_obstacle_detection":
+{
+    "name": "Forward obstacle detection error. Obstacle avoidance function may not be available.",
+    "name_spanish": "Error de detección de obstáculos frontales. La función de superación de obstáculos puede no estar disponible."
+},
+"error_fwd_vision_blurred":
+{
+    "name": "Forward binocular vision sensors blurred. Front obstacle detection not available.",
+    "name_spanish": "Sensores de visión binocular delanteros borrosos. La detección de obstáculos frontal no está disponible."
+},
+"error_fwd_vision_calibration":
+{
+    "name": "Forward visual sensor calibration error. Front obstacle detection system not available. Recalibrate sensor.",
+    "name_spanish": "Error de calibración del sensor visual frontal. El sistema de detección de obstáculos frontal no está disponible. Recalibrar sensor."
+},
+"error_fwd_vision_connection_left":
+{
+    "name": "Front left visual sensor connection error. Front obstacle detection system not available.",
+    "name_spanish": "Error de conexión del sensor visual delantero izquierdo. El sistema anticollision frontal no está disponible."
+},
+"error_fwd_vision_connection_right":
+{
+    "name": "Front right visual sensor connection error. Front obstacle detection system not available.",
+    "name_spanish": "Error de conexión del sensor visual delantero derecho. El sistema anticollision frontal no está disponible."
+},
+"error_gimbal_init_overload":
+{
+    "name": "Error initializing gimbal. Motor overload.",
+    "name_spanish": "Error al inicial el estabilizador. Sobrecarga de motor."
+},
+"error_gimbal_motor_data":
+{
+    "name": "Gimbal motor data error",
+    "name_spanish": "Error de datos del motor del estabilizador"
+},
+"error_gimbal_motor_not_initialized":
+{
+    "name": "Gimbal motor not initialized",
+    "name_spanish": "Motor del estabilizador no inicializado"
+},
+"error_gimbal_no_data":
+{
+    "name": "No data on gimbal inclination",
+    "name_spanish": "Sin datos sobre la articulación del estabilizador"
+},
+"error_gimbal_pitch_motor":
+{
+    "name": "Gimbal pitch motor error",
+    "name_spanish": "Error de motor de inclinación del estabilizador"
+},
+"error_gimbal_position_init":
+{
+    "name": "Error initializing gimbal position",
+    "name_spanish": "Error al iniciar la posición del estabilizador"
+}
+}

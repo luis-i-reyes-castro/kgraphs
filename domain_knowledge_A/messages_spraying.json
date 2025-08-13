@@ -108,10 +108,5 @@
 {
     "name": "Load sensor cable broken",
     "name_spanish": "Cable de conexión del sensor de peso roto"
-},
-"error_load_exceeded":
-{
-    "name": "Load exceeded. Ensure the load is within the specified limits.",
-    "name_spanish": "Se ha superado la capacidad de carga. Asegúrese de que la carga especificada se encuentra dentro..."
 }
 }

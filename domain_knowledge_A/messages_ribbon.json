@@ -1,0 +1,17 @@
+{
+"ribbon_cannot_takeoff":
+{
+    "name": "Cannot takeoff. - Possible risks.",
+    "name_spanish": "No se puede despegar. - Posibles riesgos."
+},
+"ribbon_gnss_trajectory":
+{
+    "name": "Manual trajectory (GNSS)",
+    "name_spanish": "Trayectoria manual (GNSS)"
+},
+"ribbon_power_error":
+{
+    "name": "Power error",
+    "name_spanish": "Error de potencia"
+}
+}

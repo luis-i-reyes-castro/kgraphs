@@ -1,0 +1,37 @@
+{
+"error_aircraft_module_version":
+{
+    "name": "Aircraft module version incompatible",
+    "name_spanish": "Versión del módulo Aeronave incompatible"
+},
+"error_angular_velocity_sensor_overheated":
+{
+    "name": "Angular velocity sensor overheated",
+    "name_spanish": "Medidor de velocidad angular sobrecalentado"
+},
+"error_avionics":
+{
+    "name": "Avionics System / Aicraft Electronics System Error",
+    "name_spanish": "Sistema Avionics / Error del sistema de electrónica aérea"
+},
+"error_barometer_excessive_deviation":
+{
+    "name": "Excessive barometer deviation",
+    "name_spanish": "Desvío excesivo de barómetro"
+},
+"error_barometer_out_of_range":
+{
+    "name": "Barometer out of range",
+    "name_spanish": "Barómetro fuera de rango"
+},
+"error_barometer_static_altitude_change":
+{
+    "name": "Aircraft static altitude change",
+    "name_spanish": "Cambio de la altitud estática de la aeronave"
+},
+"error_cnn_algorithm":
+{
+    "name": "Error initializing CNN algorithm. Restart aircraft or fly with caution.",
+    "name_spanish": "Error al inicial el algoritmo de CNN. Re-inicie la aeronave o vuele con cuidado."
+}
+}
