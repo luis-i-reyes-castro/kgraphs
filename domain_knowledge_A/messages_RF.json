@@ -2,26 +2,90 @@
 "error_rtk_antennas_not_ready":
 {
     "name": "Cannot take off. Dual RTK antennas not ready",
-    "name_spanish": "No se puede despegar. Las antenas duales RTK no están listas."
+    "name_spanish": "No se puede despegar. Las antenas duales RTK no están listas.",
+    "cuases":
+    {
+    "components": [],
+    "problems":
+    [
+        "kp_factor_too_high",
+        "takeoff_area_too_tight"
+    ],
+    "signals":
+    [
+        "antenna_rtk_(SIDE)_data"
+    ]
+    }
 },
 "error_rtk_source_not_selected":
 {
     "name": "RTK signal source not selected. Cannot start.",
-    "name_spanish": "Fuente de señal RTK no seleccionada. No se puede iniciar."
+    "name_spanish": "Fuente de señal RTK no seleccionada. No se puede iniciar.",
+    "cuases":
+    {
+    "components": [],
+    "problems":
+    [
+        "rtk_positioning_on"
+    ],
+    "signals": []
+    }
 },
 "error_linking":
 {
     "name": "Aircraft unlinked",
-    "name_spanish": "Aeronave desvinculada"
+    "name_spanish": "Aeronave desvinculada",
+    "cuases":
+    {
+    "components":
+    [
+        "board_avionics",
+        "board_RF"
+    ],
+    "problems": [],
+    "signals":
+    [
+        "antenna_sdr_(SIDE)_data",
+        "board_RF_power"
+    ]
+    }
 },
 "error_linking_abnormal":
 {
     "name": "Aircraft linking was abnormal and could not be unlocked. Never take off...",
-    "name_spanish": "La vinculación de la aeronave era anormal y no ha podido ser desbloqueada. Nunca despegue..."
+    "name_spanish": "La vinculación de la aeronave era anormal y no ha podido ser desbloqueada. Nunca despegue...",
+    "cuases":
+    {
+    "components":
+    [
+        "board_avionics",
+        "board_RF"
+    ],
+    "problems": [],
+    "signals":
+    [
+        "antenna_sdr_(SIDE)_data",
+        "board_RF_power"
+    ]
+    }
 },
 "error_linking_unstable":
 {
     "name": "Unstable linking, app could not unlock aircraft.",
-    "name_spanish": "Vinculación inestable, la aplicación no ha podido desbloquar la aeronave."
+    "name_spanish": "Vinculación inestable, la aplicación no ha podido desbloquear la aeronave.",
+    "cuases":
+    {
+    "components":
+    [
+        "board_avionics",
+        "board_RF"
+    ],
+    "problems": [],
+    "signals":
+    [
+        "antenna_sdr_(SIDE)_data",
+        "board_RF_power"
+    ]
+    }
 }
 }

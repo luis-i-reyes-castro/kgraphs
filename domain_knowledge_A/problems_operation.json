@@ -35,6 +35,14 @@
     "Move the takeoff point to an area with more clearance, where the GNSS antennas can acquire more satellites."
     ]
 },
+"zone_altitude":
+{
+    "name": "Takeoff Area is In a Restricted Altitude Zone (150 meters)",
+    "solutions":
+    [
+    "Obey the warning and do not fly above 150 meter from the ground."
+    ]
+},
 "zone_restricted_or_warning":
 {
     "name": "Takeoff Area is In a Restricted or Warning Zone",
