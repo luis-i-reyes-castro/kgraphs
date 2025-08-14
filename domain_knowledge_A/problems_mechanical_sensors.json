@@ -8,6 +8,14 @@
     "If problem persists, seek to replace barometer."
     ]
 },
+"camera_fpv_gimbal_stuck":
+{
+    "name": "FPV Camera Gimbal Stuck",
+    "solutions":
+    [
+    "Clean the FPV camera gimbal and make sure it can move freely."
+    ]
+},
 "IMU_overheated":
 {
     "name": "Inertial Measurement Unit (IMU) Overheated",
@@ -24,6 +32,14 @@
     [
     "Replace the omnidirectional radar's bearing.",
     "If replacement of the omnidirectional radar's bearing is not available, replace entire radar module."
+    ]
+},
+"sensor_fwd_vision_dirty":
+{
+    "name": "Front Vision Sensors Dirty",
+    "solutions":
+    [
+    "Clean the front vision sensors."
     ]
 }
 }

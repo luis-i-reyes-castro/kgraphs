@@ -22,5 +22,13 @@
     [
     "Calibrate the flow meter"
     ]
+},
+"sensor_fwd_vision_calibration":
+{
+    "name": "Front Vision Sensors Needs Calibration",
+    "solutions":
+    [
+    "Calibrate the front vision sensors using the calibration pattern sheet"
+    ]
 }
 }
