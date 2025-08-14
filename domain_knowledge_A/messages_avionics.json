@@ -1,37 +1,127 @@
 {
-"error_aircraft_module_version":
-{
-    "name": "Aircraft module version incompatible",
-    "name_spanish": "Versión del módulo Aeronave incompatible"
-},
 "error_angular_velocity_sensor_overheated":
 {
     "name": "Angular velocity sensor overheated",
-    "name_spanish": "Medidor de velocidad angular sobrecalentado"
+    "name_spanish": "Medidor de velocidad angular sobrecalentado",
+    "cuases":
+    {
+    "components":
+    [
+        "board_avionics"
+    ],
+    "problems":
+    [
+        "IMU_overheated"
+    ],
+    "signals": []
+    }
 },
 "error_avionics":
 {
     "name": "Avionics System / Aicraft Electronics System Error",
-    "name_spanish": "Sistema Avionics / Error del sistema de electrónica aérea"
+    "name_spanish": "Sistema Avionics / Error del sistema de electrónica aérea",
+    "cuases":
+    {
+    "components":
+    [
+        "board_avionics"
+    ],
+    "problems":
+    [
+        "firmware_misbehaving"
+    ],
+    "signals": []
+    }
 },
 "error_barometer_excessive_deviation":
 {
     "name": "Excessive barometer deviation",
-    "name_spanish": "Desvío excesivo de barómetro"
+    "name_spanish": "Desvío excesivo de barómetro",
+    "cuases":
+    {
+    "components":
+    [
+        "sensor_barometer"
+    ],
+    "problems":
+    [
+        "barometer_absorbed_humidity"
+    ],
+    "signals":
+    [
+        "sensor_barometer_data"
+    ]
+    }
 },
 "error_barometer_out_of_range":
 {
     "name": "Barometer out of range",
-    "name_spanish": "Barómetro fuera de rango"
+    "name_spanish": "Barómetro fuera de rango",
+    "cuases":
+    {
+    "components":
+    [
+        "sensor_barometer"
+    ],
+    "problems":
+    [
+        "barometer_absorbed_humidity"
+    ],
+    "signals":
+    [
+        "sensor_barometer_data"
+    ]
+    }
 },
 "error_barometer_static_altitude_change":
 {
     "name": "Aircraft static altitude change",
-    "name_spanish": "Cambio de la altitud estática de la aeronave"
+    "name_spanish": "Cambio de la altitud estática de la aeronave",
+    "cuases":
+    {
+    "components":
+    [
+        "sensor_barometer"
+    ],
+    "problems":
+    [
+        "barometer_absorbed_humidity"
+    ],
+    "signals":
+    [
+        "sensor_barometer_data"
+    ]
+    }
 },
 "error_cnn_algorithm":
 {
     "name": "Error initializing CNN algorithm. Restart aircraft or fly with caution.",
-    "name_spanish": "Error al inicial el algoritmo de CNN. Re-inicie la aeronave o vuele con cuidado."
+    "name_spanish": "Error al inicial el algoritmo de CNN. Re-inicie la aeronave o vuele con cuidado.",
+    "cuases":
+    {
+    "components":
+    [
+        "board_avionics"
+    ],
+    "problems":
+    [
+        "firmware_misbehaving"
+    ],
+    "signals": []
+    }
+},
+"error_module_version":
+{
+    "name": "Aircraft module version incompatible",
+    "name_spanish": "Versión del módulo Aeronave incompatible",
+    "cuases":
+    {
+    "components": [],
+    "problems":
+    [
+        "firmware_update_needed"
+    ],
+    "signals": []
+    }
 }
 }
