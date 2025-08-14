@@ -25,8 +25,8 @@
 
     ["cdb", "board_spray"],
     ["cdb", "sensor_load"],
-    ["cdb", "cable_spray_adapt"],
-    ["cable_spray_adapt", "cable_spray_signal"],
+    ["cdb", "cable_spray_adaptive"],
+    ["cable_spray_adaptive", "cable_spray_signal"],
     ["cable_spray_signal", "board_spray_adapter"],
 
     ["board_spray_adapter", "cable_flow_meter"],

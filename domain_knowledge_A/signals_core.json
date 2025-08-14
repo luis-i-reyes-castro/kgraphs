@@ -1,0 +1,45 @@
+[
+{
+"signals":
+    [
+    "battery_data",
+    "board_avionics_power"
+    ],
+"path":
+    [
+    "battery",
+    "pdb",
+    "cable_signal_l",
+    "cdb",
+    "board_avionics"
+    ]
+},
+{
+"signals":
+    [
+    "board_RF_power"
+    ],
+"path":
+    [
+    "battery",
+    "pdb",
+    "cable_signal_l",
+    "cdb",
+    "board_RF"
+    ]
+},
+{
+"signals":
+    [
+    "board_spray_power"
+    ],
+"path":
+    [
+    "battery",
+    "pdb",
+    "cable_signal_l",
+    "cdb",
+    "board_spray"
+    ]
+}
+]

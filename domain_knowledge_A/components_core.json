@@ -7,22 +7,6 @@
     "material_num": "NA",
     "material_name": "Battery"
 },
-"cdb":
-{
-    "type": "board",
-    "name": "Cable Distribution Board",
-    "name_spanish": "Tarjeta de Distribución de Cables",
-    "material_num": "BC.AG.SS000556",
-    "material_name": "Cable Distribution Board"
-},
-"pdb":
-{
-    "type": "board",
-    "name": "Power Distribution Board",
-    "name_spanish": "Tarjeta de Distribución de Potencia",
-    "material_num": "BC.AG.SS000558",
-    "material_name": "Power Distribution Board"
-},
 "board_avionics":
 {
     "type": "board",
@@ -46,5 +30,21 @@
     "name_spanish": "Tarjeta de Rociado",
     "material_num": "BC.AG.SS000554",
     "material_name": "Spraying Board"
+},
+"cdb":
+{
+    "type": "board",
+    "name": "Cable Distribution Board",
+    "name_spanish": "Tarjeta de Distribución de Cables",
+    "material_num": "BC.AG.SS000556",
+    "material_name": "Cable Distribution Board"
+},
+"pdb":
+{
+    "type": "board",
+    "name": "Power Distribution Board",
+    "name_spanish": "Tarjeta de Distribución de Potencia",
+    "material_num": "BC.AG.SS000558",
+    "material_name": "Power Distribution Board"
 }
 }

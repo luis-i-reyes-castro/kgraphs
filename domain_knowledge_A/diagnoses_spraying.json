@@ -19,7 +19,7 @@
     "probability": "low"
     },
     {
-    "component": "cable_spray_adapt",
+    "component": "cable_spray_adaptive",
     "probability": "medium"
     },
     {
@@ -56,7 +56,7 @@
     "probability": "low"
     },
     {
-    "component": "cable_spray_adapt",
+    "component": "cable_spray_adaptive",
     "probability": "medium"
     },{
     "component": "cable_spray_signal",
@@ -222,7 +222,7 @@
     "probability": "low"
     },
     {
-    "component": "cable_spray_adapt",
+    "component": "cable_spray_adaptive",
     "probability": "medium"
     },
     {
@@ -256,7 +256,7 @@
     "probability": "low"
     },
     {
-    "component": "cable_spray_adapt",
+    "component": "cable_spray_adaptive",
     "probability": "low"
     },
     {
@@ -295,7 +295,7 @@
     "probability": "low"
     },
     {
-    "component": "cable_spray_adapt",
+    "component": "cable_spray_adaptive",
     "probability": "medium"
     },
     {

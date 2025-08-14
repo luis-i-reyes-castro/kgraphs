@@ -1,12 +1,4 @@
 {
-"cable_light_(SIDE)":
-{
-    "type": "cable",
-    "name": "Auxiliary Bottom Light Signal Cable ((ENG[SIDE]))",
-    "name_spanish": "Cable de Luz Auxiliar ((SPA[SIDE]))",
-    "material_num": "YC.XC.XX000853",
-    "material_name": "Auxiliary Bottom Light Signal Cable"
-},
 "cable_centrifugal_(SIDE)":
 {
     "type": "cable",
@@ -46,6 +38,14 @@
     "name_spanish": "Cable del Medidor de Caudal",
     "material_num": "YC.XC.XX000839",
     "material_name": "Flow Meter Signal Cable"
+},
+"cable_light_(SIDE)":
+{
+    "type": "cable",
+    "name": "Auxiliary Bottom Light Signal Cable ((ENG[SIDE]))",
+    "name_spanish": "Cable de Luz Auxiliar ((SPA[SIDE]))",
+    "material_num": "YC.XC.XX000853",
+    "material_name": "Auxiliary Bottom Light Signal Cable"
 },
 "cable_pump":
 {
@@ -88,7 +88,7 @@
     "material_num": "YC.XC.XX000840",
     "material_name": "Signal Cable"
 },
-"cable_spray_adapt":
+"cable_spray_adaptive":
 {
     "type": "cable",
     "name": "Spraying Adaptive Cable",

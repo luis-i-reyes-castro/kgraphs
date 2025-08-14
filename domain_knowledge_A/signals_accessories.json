@@ -1,0 +1,15 @@
+[
+{
+"signals":
+    [
+    "light_(SIDE)_power"
+    ],
+"path":
+    [
+    "board_avionics",
+    "cdb",
+    "cable_light_(SAME[SIDE])",
+    "light_(SAME[SIDE])"
+    ]
+}
+]

@@ -1,0 +1,85 @@
+[
+{
+"signals":
+    [
+    "motor_centrifugal_(NOZZLE)_esc_data",
+    "motor_centrifugal_(NOZZLE)_esc_power",
+    "motor_centrifugal_(NOZZLE)_esc_self_check",
+    "motor_centrifugal_(NOZZLE)_throttle"
+    ],
+"path":
+    [
+    "board_spray",
+    "cdb",
+    "cable_signal_r",
+    "cable_esc_arm_m(ARM[NOZZLE])",
+    "cable_centrifugal_(SIDE[NOZZLE])",
+    "motor_centrifugal_(SAME[NOZZLE])"
+    ]
+},
+{
+"signals":
+    [
+    "motor_pump_(PUMP)_esc_data",
+    "motor_pump_(PUMP)_esc_power",
+    "motor_pump_(PUMP)_esc_self_check",
+    "motor_pump_(PUMP)_throttle"
+    ],
+"path":
+    [
+    "board_spray",
+    "cdb",
+    "cable_spray_adaptive",
+    "cable_spray_signal",
+    "board_spray_adapter",
+    "cable_pump",
+    "motor_pump_(SAME[PUMP])"
+    ]
+},
+{
+"signals":
+    [
+    "sensor_flow_meter_data",
+    "sensor_flow_meter_power"
+    ],
+"path":
+    [
+    "board_spray",
+    "cdb",
+    "cable_spray_adaptive",
+    "cable_spray_signal",
+    "board_spray_adapter",
+    "cable_flow_meter",
+    "sensor_flow_meter"
+    ]
+},
+{
+"signals":
+    [
+    "sensor_liquid_level_data",
+    "sensor_liquid_level_power"
+    ],
+"path":
+    [
+    "board_spray",
+    "cdb",
+    "cable_spray_adaptive",
+    "cable_spray_signal",
+    "board_spray_adapter",
+    "sensor_liquid_level"
+    ]
+},
+{
+"signals":
+    [
+    "sensor_load_data",
+    "sensor_load_power"
+    ],
+"path":
+    [
+    "board_spray",
+    "cdb",
+    "sensor_load"
+    ]
+}
+]
