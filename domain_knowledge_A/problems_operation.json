@@ -1,10 +1,39 @@
 {
+"ambient_light":
+{
+    "name": "Ambient Light is Too Low",
+    "note": "You are trying to operate either before dawn or after sunset. Getting this warning at night is totally normal."
+},
 "arm_(ARM)_not_secured":
 {
     "name": "Forgot to Securely Fasten the Arm (SAME[ARM]) Locking Piece Handle",
     "solutions":
     [
     "Do not forget to secure the arm (SAME[ARM]) locking piece handle"
+    ]
+},
+"excessive_battery_discharge":
+{
+    "name": "Excessive Battery Discharge",
+    "solutions":
+    [
+    "Avoid discharging the battery below 15%."
+    ]
+},
+"excessive_loading":
+{
+    "name": "Excessive Loading",
+    "solutions":
+    [
+    "Do not load the aircraft with more than 35 liters."
+    ]
+},
+"kp_factor_too_high":
+{
+    "name": "KP Factor Too High",
+    "solutions":
+    [
+    "Check the KP factor using an app like UAV Forecast. If it is above 7, suspend operations and wait for the KP factor to decrease."
     ]
 },
 "mission_radius_too_high":

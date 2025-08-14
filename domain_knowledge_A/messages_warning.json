@@ -1,4 +1,9 @@
 {
+"warning_rc_battery_low":
+{
+    "name": "Remote control battery level low",
+    "name_spanish": "Nivel de batería del control remoto bajo"
+},
 "warning_battery_level_1":
 {
     "name": "Level 1 low battery warning",

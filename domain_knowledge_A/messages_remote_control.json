@@ -1,27 +1,58 @@
 {
-"error_rc_battery_low":
-{
-    "name": "Remote control battery level low",
-    "name_spanish": "Nivel de batería del control remoto bajo"
-},
 "error_stick_movement_left_A":
 {
     "name": "Error detected in left and right movement of left stick.",
-    "name_spanish": "Se ha detectado un error en el movimiento izquierdo y derecho de la palanca izquierda."
+    "name_spanish": "Se ha detectado un error en el movimiento izquierdo y derecho de la palanca izquierda.",
+    "cuases":
+    {
+    "components":
+    [
+        "rc_stick_left"
+    ],
+    "problems": [],
+    "signals": []
+    }
 },
 "error_stick_movement_left_B":
 {
     "name": "Error detected in up/forward and down/backward movement of left stick.",
-    "name_spanish": "Se ha detectado un error en el movimiento hacia adelante y hacia atrás de la palanca izquierda."
+    "name_spanish": "Se ha detectado un error en el movimiento hacia adelante y hacia atrás de la palanca izquierda.",
+    "cuases":
+    {
+    "components":
+    [
+        "rc_stick_left"
+    ],
+    "problems": [],
+    "signals": []
+    }
 },
 "error_stick_movement_right_A":
 {
     "name": "Error detected in left and right movement of right stick.",
-    "name_spanish": "Se ha detectado un error en el movimiento izquierdo y derecho de la palanca derecha."
+    "name_spanish": "Se ha detectado un error en el movimiento izquierdo y derecho de la palanca derecha.",
+    "cuases":
+    {
+    "components":
+    [
+        "rc_stick_right"
+    ],
+    "problems": [],
+    "signals": []
+    }
 },
 "error_stick_movement_right_B":
 {
     "name": "Error detected in up/forward and down/backward movement of right stick.",
-    "name_spanish": "Se ha detectado un error en el movimiento hacia adelante y hacia atrás de la palanca derecha."
+    "name_spanish": "Se ha detectado un error en el movimiento hacia adelante y hacia atrás de la palanca derecha.",
+    "cuases":
+    {
+    "components":
+    [
+        "rc_stick_right"
+    ],
+    "problems": [],
+    "signals": []
+    }
 }
 }
