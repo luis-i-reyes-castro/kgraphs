@@ -41,8 +41,9 @@
     ["cdb", "cable_esc_arm_m(ARM_FRONT)"],
     ["pdb", "cable_esc_arm_m(ARM_BACK)"],
     ["pdb", "cable_esc_front_power_(SIDE)"],
-    ["cable_esc_arm_m(ARM_FRONT)", "cable_esc_front_power_(POWER_CABLE_SIDE[ARM_FRONT])"],
-    ["cable_esc_arm_m(ARM)", "board_esc_(*MOTOR[ARM])"],
+    ["cable_esc_arm_m(ARM_FRONT)",
+     "cable_esc_front_power_(CABLE_ESC_FRONT_POWER_SIDE[ARM_FRONT])"],
+    ["board_esc_(MOTOR)", "cable_esc_arm_m(ARM[MOTOR])"],
     ["board_esc_(MOTOR)", "motor_propulsion_(SAME[MOTOR])"],
 
     ["cable_esc_arm_m(ARM_BACK)", "cable_centrifugal_(SIDE[ARM_BACK])"],

@@ -16,7 +16,6 @@
     "board_esc_(SAME[MOTOR_FRONT])"
     ]
 },
-
 {
 "signals":
     [
@@ -59,7 +58,7 @@
     [
     "battery",
     "pdb",
-    "cable_esc_front_power_(POWER_CABLE_SIDE[MOTOR_FRONT])",
+    "cable_esc_front_power_(CABLE_ESC_FRONT_POWER_SIDE[MOTOR_FRONT])",
     "cable_esc_arm_m(ARM[MOTOR_FRONT])",
     "board_esc_(SAME[MOTOR_FRONT])"
     ]
