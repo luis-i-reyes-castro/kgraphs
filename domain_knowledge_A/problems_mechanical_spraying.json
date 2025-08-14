@@ -1,10 +1,26 @@
 {
-"thick_mixture":
+"centrifugal_nozzle_(NOZZLE)_overheated":
 {
-    "name": "Pesticide Mixture is Too Thick",
+    "name": "Centrifugal Nozzle (SAME[NOZZLE]) Overheated",
     "solutions":
     [
-    "Try a lighter mixture and avoid powder products."
+    "Check the centrifugal nozzle motor temperature."
+    ]
+},
+"centrifugal_nozzle_(NOZZLE)_stuck":
+{
+    "name": "Centrifugal Nozzle (SAME[NOZZLE]) Stuck",
+    "solutions":
+    [
+    "Check if the centrifugal nozzle motor is stuck."
+    ]
+},
+"check_valve_(PUMP)_stuck":
+{
+    "name": "M(ARM[PUMP]) Arm Check Valve is Stuck",
+    "solutions":
+    [
+    "Disassemble the check valve, clean its componentes, and reassemble it."
     ]
 },
 "pump_(PUMP)_impeller_stuck":
@@ -23,12 +39,28 @@
     "Replace the pump motor."
     ]
 },
-"check_valve_(PUMP)_stuck":
+"pump_(PUMP)_overheated":
 {
-    "name": "M(ARM[PUMP]) Arm Check Valve is Stuck",
+    "name": "Pump (SAME[PUMP]) Overheated",
     "solutions":
     [
-    "Disassemble the check valve, clean its componentes, and reassemble it."
+    "Check the impeller pump motor temperature."
+    ]
+},
+"liquid_level_gauge_misalignment":
+{
+    "name": "Liquid Level Gauge Out Misalignment",
+    "solutions":
+    [
+    "Check if the liquid level gauge is misaligned or misplaced."
+    ]
+},
+"thick_mixture":
+{
+    "name": "Pesticide Mixture is Too Thick",
+    "solutions":
+    [
+    "Try a lighter mixture and avoid powder products."
     ]
 }
 }

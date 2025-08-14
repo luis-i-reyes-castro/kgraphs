@@ -14,5 +14,13 @@
     [
     "Go to a place with reliable WiFi signal and update the drone's firmware."
     ]
+},
+"flow_meter_calibration":
+{
+    "name": "Flow Meter Needs Calibration",
+    "solutions":
+    [
+    "Calibrate the flow meter"
+    ]
 }
 }
