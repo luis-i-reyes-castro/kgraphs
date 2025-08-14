@@ -37,6 +37,8 @@
 {
 "signals":
     [
+    "radar_terrain_data",
+    "radar_terrain_power",
     "radar_bwd_data",
     "radar_bwd_power"
     ],
@@ -51,13 +53,13 @@
 {
 "signals":
     [
-    "radar_omni_esc_data",
-    "radar_omni_esc_power",
-    "radar_omni_esc_self_check",
+    "radar_upper_data",
+    "radar_upper_power",
     "radar_omni_data",
     "radar_omni_power",
-    "radar_upper_data",
-    "radar_upper_power"
+    "radar_omni_esc_data",
+    "radar_omni_esc_power",
+    "radar_omni_esc_self_check"
     ],
 "path":
     [

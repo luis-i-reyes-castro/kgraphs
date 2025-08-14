@@ -1,0 +1,10 @@
+{
+"radar_omni_bearing_damaged":
+{
+    "name": "Omnidirectional Radar Bearing is Damaged",
+    "solutions":
+    [
+    "Replace the bearing or the entire radar."
+    ]
+}
+}
