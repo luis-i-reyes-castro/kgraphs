@@ -8,6 +8,22 @@
     "If the arm locking piece handle is damaged, then replace it"
     ]
 },
+"board_esc_(MOTOR)_overheated":
+{
+    "name": "ESC (SAME[MOTOR]) Overheated",
+    "solutions":
+    [
+    "Check ESC temperature. If temperature is above 60 degrees Celcius then suspend operations and seek technical support."
+    ]
+},
+"motor_propulsion_(MOTOR)_stuck":
+{
+    "name": "Motor (SAME[MOTOR]) Stuck",
+    "solutions":
+    [
+    "Check if the motor got stuck, or if its propellers got stuck."
+    ]
+},
 "something_loose":
 {
     "name": "Some Arm, Motor or Propeller is Loose",

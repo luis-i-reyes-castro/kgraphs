@@ -2,33 +2,6 @@
 {
 "signals":
     [
-    "esc_(MOTOR_FRONT)_power_high"
-    ],
-"path":
-    [
-    "battery",
-    "pdb",
-    "cable_esc_front_power_(POWER_CABLE_SIDE[MOTOR_FRONT])",
-    "cable_esc_arm_m(ARM[MOTOR_FRONT])",
-    "board_esc_(SAME[MOTOR_FRONT])"
-    ]
-},
-{
-"signals":
-    [
-    "esc_(MOTOR_BACK)_power_high"
-    ],
-"path":
-    [
-    "battery",
-    "pdb",
-    "cable_esc_arm_m(ARM[MOTOR_BACK])",
-    "board_esc_(SAME[MOTOR_BACK])"
-    ]
-},
-{
-"signals":
-    [
     "esc_(MOTOR_FRONT)_data",
     "esc_(MOTOR_FRONT)_power_low",
     "esc_(MOTOR_FRONT)_self_check",
@@ -72,6 +45,33 @@
     "board_avionics",
     "cdb",
     "cable_signal_r",
+    "pdb",
+    "cable_esc_arm_m(ARM[MOTOR_BACK])",
+    "board_esc_(SAME[MOTOR_BACK])"
+    ]
+},
+{
+"signals":
+    [
+    "esc_(MOTOR_FRONT)_power_high"
+    ],
+"path":
+    [
+    "battery",
+    "pdb",
+    "cable_esc_front_power_(POWER_CABLE_SIDE[MOTOR_FRONT])",
+    "cable_esc_arm_m(ARM[MOTOR_FRONT])",
+    "board_esc_(SAME[MOTOR_FRONT])"
+    ]
+},
+{
+"signals":
+    [
+    "esc_(MOTOR_BACK)_power_high"
+    ],
+"path":
+    [
+    "battery",
     "pdb",
     "cable_esc_arm_m(ARM[MOTOR_BACK])",
     "board_esc_(SAME[MOTOR_BACK])"

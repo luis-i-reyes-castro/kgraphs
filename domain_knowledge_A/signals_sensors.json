@@ -94,8 +94,7 @@
 {
 "signals":
     [
-    "sensor_in_position_arm_m(ARM_FRONT)_data",
-    "sensor_in_position_arm_m(ARM_FRONT)_power"
+    "sensor_in_position_arm_m(ARM_FRONT)_data"
     ],
 "path":
     [
@@ -107,8 +106,7 @@
 {
 "signals":
     [
-    "sensor_in_position_arm_m(ARM_BACK)_data",
-    "sensor_in_position_arm_m(ARM_BACK)_power"
+    "sensor_in_position_arm_m(ARM_BACK)_data"
     ],
 "path":
     [

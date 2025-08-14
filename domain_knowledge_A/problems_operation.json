@@ -1,4 +1,12 @@
 {
+"arm_(ARM)_not_secured":
+{
+    "name": "Forgot to Securely Fasten the Arm (SAME[ARM]) Locking Piece Handle",
+    "solutions":
+    [
+    "Do not forget to secure the arm (SAME[ARM]) locking piece handle"
+    ]
+},
 "mission_radius_too_high":
 {
     "name": "Mission Radius Too High",

@@ -2,62 +2,183 @@
 "error_abnormal_vibration":
 {
     "name": "Abnormal vibration on the aircraft arms. Crash risk. Immediate maintenance required.",
-    "name_spanish": "Vibración anormal en los brazos del bastidor. Riesgo de choque. Se requiere mantenimiento inmediato."
+    "name_spanish": "Vibración anormal en los brazos del bastidor. Riesgo de choque. Se requiere mantenimiento inmediato.",
+    "causes":
+    {
+    "components": [],
+    "problems":
+    [
+        "something_loose"
+    ],
+    "signals": []
+    }
 },
 "error_arm_(ARM)_not_securely_fastened":
 {
     "name": "Aircraft arm (SAME[ARM]) not securely fastened",
-    "name_spanish": "El brazo (SAME[ARM]) no está bien sujeto"
-},
-"error_esc_(MOTOR)":
-{
-    "name": "ESC (SAME[MOTOR]) error",
-    "name_spanish": "Error del ESC (SAME[MOTOR])"
-},
-
-"error_esc_(MOTOR)_disconnected":
-{
-    "name": "ESC (SAME[MOTOR]) disconnected",
-    "name_spanish": "ESC (SAME[MOTOR]) desconectado"
-},
-"error_esc_(MOTOR)_self_check":
-{
-    "name": "ESC (SAME[MOTOR]) self-check error",
-    "name_spanish": "Error de autocomprobación del ESC (SAME[MOTOR])"
-},
-"error_esc_(MOTOR)_throttle":
-{
-    "name": "Motor (SAME[MOTOR]) throttle signal lost. Stop the flight immediately.",
-    "name_spanish": "Señal de acelerador del motor (SAME[MOTOR]) perdida. Detenga el vuelo inmediatamente."
-},
-"error_esc_(MOTOR)_throttle_backup":
-{
-    "name": "Motor (SAME[MOTOR]) backup throttle signal lost. Stop the flight immediately.",
-    "name_spanish": "Se ha perdido el acelerador de repuesto del motor (SAME[MOTOR]). Detenga el vuelo inmediatamente."
-},
-"error_esc_(MOTOR)_throttle_cycle_exception":
-{
-    "name": "Motor (SAME[MOTOR]) throttle cycle exception",
-    "name_spanish": "Excepción de ciclo de acelerador del motor (SAME[MOTOR])"
-},
-"error_esc_(MOTOR)_voltage_low":
-{
-    "name": "ESC (SAME[MOTOR]) voltage too low",
-    "name_spanish": "Voltaje del ESC (SAME[MOTOR]) demasiado bajo"
-},
-"error_esc_(MOTOR)_NTC_overheating":
-{
-    "name": "ESC (SAME[MOTOR]) NTC overheating",
-    "name_spanish": "NTC de ESC (SAME[MOTOR]) sobrecalentada"
+    "name_spanish": "El brazo (SAME[ARM]) no está bien sujeto",
+    "causes":
+    {
+    "components": [],
+    "problems":
+    [
+        "arm_(SAME[ARM])_not_secured"
+    ],
+    "signals":
+    [
+        "sensor_in_position_arm_m(SAME[ARM])_data"
+    ]
+    }
 },
 "error_esc_state":
 {
     "name": "ESC state error. Turn off the aicraft and restart it. Contact DJI Support if this continues after restarting.",
-    "name_spanish": "Error de estado ESC. Apague la aeronave y reiníciela. Contacte con DJI Support si esto continua después de reiniciar."
+    "name_spanish": "Error de estado ESC. Apague la aeronave y reiníciela. Contacte con DJI Support si esto continua después de reiniciar.",
+    "solutions":
+    [
+        "This is a generic error message. You will need to read the other error messages to determine which ESC is not working properly."
+    ]
+},
+"error_esc_(MOTOR)":
+{
+    "name": "ESC (SAME[MOTOR]) error",
+    "name_spanish": "Error del ESC (SAME[MOTOR])",
+    "causes":
+    {
+    "components": [],
+    "problems": [],
+    "signals":
+    [
+        "esc_(SAME[MOTOR])_data",
+        "esc_(SAME[MOTOR])_power_low"
+    ]
+    }
+},
+"error_esc_(MOTOR)_disconnected":
+{
+    "name": "ESC (SAME[MOTOR]) disconnected",
+    "name_spanish": "ESC (SAME[MOTOR]) desconectado",
+    "causes":
+    {
+    "components": [],
+    "problems": [],
+    "signals":
+    [
+        "esc_(SAME[MOTOR])_data",
+        "esc_(SAME[MOTOR])_power_low"
+    ]
+    }
+},
+"error_esc_(MOTOR)_self_check":
+{
+    "name": "ESC (SAME[MOTOR]) self-check error",
+    "name_spanish": "Error de autocomprobación del ESC (SAME[MOTOR])",
+    "causes":
+    {
+    "components": [],
+    "problems": [],
+    "signals":
+    [
+        "esc_(SAME[MOTOR])_self_check"
+    ]
+    }
+},
+"error_esc_(MOTOR)_throttle":
+{
+    "name": "Motor (SAME[MOTOR]) throttle signal lost. Stop the flight immediately.",
+    "name_spanish": "Señal de acelerador del motor (SAME[MOTOR]) perdida. Detenga el vuelo inmediatamente.",
+    "causes":
+    {
+    "components": [],
+    "problems": [],
+    "signals":
+    [
+        "esc_(SAME[MOTOR])_throttle"
+    ]
+    }
+},
+"error_esc_(MOTOR)_throttle_backup":
+{
+    "name": "Motor (SAME[MOTOR]) backup throttle signal lost. Stop the flight immediately.",
+    "name_spanish": "Se ha perdido el acelerador de repuesto del motor (SAME[MOTOR]). Detenga el vuelo inmediatamente.",
+    "causes":
+    {
+    "components": [],
+    "problems": [],
+    "signals":
+    [
+        "esc_(SAME[MOTOR])_throttle_backup"
+    ]
+    }
+},
+"error_esc_(MOTOR)_throttle_cycle_exception":
+{
+    "name": "Motor (SAME[MOTOR]) throttle cycle exception",
+    "name_spanish": "Excepción de ciclo de acelerador del motor (SAME[MOTOR])",
+    "causes":
+    {
+    "components": [],
+    "problems": [],
+    "signals":
+    [
+        "esc_(SAME[MOTOR])_throttle"
+    ]
+    }
+},
+"error_esc_(MOTOR)_voltage_low":
+{
+    "name": "ESC (SAME[MOTOR]) voltage too low",
+    "name_spanish": "Voltaje del ESC (SAME[MOTOR]) demasiado bajo",
+    "causes":
+    {
+    "components": [],
+    "problems": [],
+    "signals":
+    [
+        "esc_(SAME[MOTOR])_power_low"
+    ]
+    }
+},
+"error_esc_(MOTOR)_NTC_overheating":
+{
+    "name": "ESC (SAME[MOTOR]) NTC overheating",
+    "name_spanish": "NTC de ESC (SAME[MOTOR]) sobrecalentada",
+    "causes":
+    {
+    "components":
+    [
+        "board_esc_(SAME[MOTOR])"
+    ],
+    "problems":
+    [
+        "board_esc_(SAME[MOTOR])_overheated"
+    ],
+    "signals":
+    [
+        "esc_(SAME[MOTOR])_data",
+        "esc_(SAME[MOTOR])_power_high",
+        "esc_(SAME[MOTOR])_power_low"
+    ]
+    }
 },
 "error_motor_(MOTOR)_jammed":
 {
     "name": "Motor (SAME[MOTOR]) jammed. Stop the flight immediately.",
-    "name_spanish": "Motor (SAME[MOTOR]) atascado. Detenga el vuelo inmediatamente."
+    "name_spanish": "Motor (SAME[MOTOR]) atascado. Detenga el vuelo inmediatamente.",
+    "causes":
+    {
+    "components":
+    [
+        "motor_propulsion_(SAME[MOTOR])"
+    ],
+    "problems":
+    [
+        "motor_propulsion_(SAME[MOTOR])_stuck"
+    ],
+    "signals":
+    [
+        "esc_(SAME[MOTOR])_data"
+    ]
+    }
 }
 }
