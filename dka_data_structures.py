@@ -4,6 +4,7 @@ Data structures for placeholder substitution
 """
 
 import dka_regex as phrx
+from collections import OrderedDict
 from re import findall
 from re import search
 from typing import Callable
@@ -44,7 +45,65 @@ class PlaceHolderDatabase:
             self.fun_map[same_func_name] = BuiltInFunction(lambda x: x)
         return
     
-    def extract_arg_set( self, fun_call : str) -> str | None :
+    def apply_ph( self,
+                  data : str | list | dict,
+                  placeholder : str,
+                  argument : str) -> str | list | dict :
+        """
+        Apply a set or function placeholder to a string
+        """
+        result = None
+        if isinstance( data, str) :
+            result = str(data).replace( f'({placeholder})', argument)
+        
+        elif isinstance( data, list) :
+            result = []
+            for item in data :
+                result.append( self.apply_ph( item, placeholder, argument))
+        
+        elif isinstance( data, dict) :
+            result = OrderedDict()
+            for key, val in data.items() :
+                res_key = self.apply_ph( key, placeholder, argument)
+                res_val = self.apply_ph( val, placeholder, argument)
+                result[res_key] = res_val
+        
+        else :
+            raise ValueError(f"In apply_ph: Invalid argument type: {type(data)}")
+        
+        return result
+    
+    def eval_apply_funs( self,
+                         data : str | list | dict, 
+                         argument : str) -> str | list | dict :
+        
+        result = None
+        if isinstance( data, str) :
+            data_fun = self.get_first_placeholder( data, 'fun')
+            if data_fun :
+                fun_val = self.fun_map[data_fun][argument]
+                result  = self.apply_ph( data, data_fun, fun_val)
+            else:
+                result = data
+        
+        elif isinstance( data, list) :
+            result = []
+            for item in data :
+                result.append( self.eval_apply_funs( item, argument))
+        
+        elif isinstance( data, dict) :
+            result = OrderedDict()
+            for key, val in data.items() :
+                res_key = self.eval_apply_funs( key, argument)
+                res_val = self.eval_apply_funs( val, argument)
+                result[res_key] = res_val
+        
+        else:
+            raise ValueError(f"In eval_apply_funs: Invalid argument type: {type(data)}")
+        
+        return result
+    
+    def get_arg_set( self, fun_call : str) -> str | None :
         """
         Extract the argument set name from a function call.
         For example, from "ENG[SIDE]" extract "SIDE".
@@ -52,7 +111,9 @@ class PlaceHolderDatabase:
         match = search( phrx.RX_ARG, fun_call)
         return match.group(1) if match else None
     
-    def get_first_placeholder( self, data : str | list[str], ph_type : str) -> str | None :
+    def get_first_placeholder( self, 
+                               data : str | list | dict,
+                               ph_type : str) -> str | None :
         """
         Get the first placeholder of a given type in the data
         """
@@ -71,6 +132,15 @@ class PlaceHolderDatabase:
         elif isinstance( data, list) :
             for item in data:
                 first_placeholder = self.get_first_placeholder( item, ph_type)
+                if first_placeholder :
+                    return first_placeholder
+        
+        elif isinstance( data, dict) :
+            for key, val in data.items() :
+                first_placeholder = self.get_first_placeholder( key, ph_type)
+                if first_placeholder :
+                    return first_placeholder
+                first_placeholder = self.get_first_placeholder( val, ph_type)
                 if first_placeholder :
                     return first_placeholder
         
@@ -133,7 +203,7 @@ class PlaceHolderDatabase:
         Check placeholder declaration for correctness: functions
         """
         # Check that function argument is in set_map
-        set_name = self.extract_arg_set(fun_name)
+        set_name = self.get_arg_set(fun_name)
         if not ( set_name and ( set_name in self.set_map ) ) :
             return False
         # Check that function domain matches argument
@@ -144,20 +214,6 @@ class PlaceHolderDatabase:
             return False
         # No check failed so function is valid
         return True
-    
-    def replace( self,
-                 argument : str,
-                 placeholder : str,
-                 placeholder_value : str) -> str :
-        """
-        Replace a set or function placeholder in a string or list of strings
-        """
-        result = None
-        if isinstance( argument, str) :
-            result = str(argument).replace( f'({placeholder})', placeholder_value)
-        else:
-            raise ValueError(f"Invalid argument type: {type(argument)}")
-        return result
 
 def load_placeholders( placeholder_path : str) -> PlaceHolderDatabase:
     # Load data
@@ -196,7 +252,7 @@ def load_placeholders( placeholder_path : str) -> PlaceHolderDatabase:
     # Process functions of subsets
     funs_of_subsets = {}
     for fun_name, fun_dict in phDB.fun_map.items() :
-        fun_arg = phDB.extract_arg_set(fun_name)
+        fun_arg = phDB.get_arg_set(fun_name)
         if fun_arg in phDB.sub_map :
             for subset in phDB.sub_map[fun_arg] :
                 new_fun_name = fun_name.replace( fun_arg, subset)
