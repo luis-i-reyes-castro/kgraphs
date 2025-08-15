@@ -1,0 +1,130 @@
+{
+"cable_centrifugal_front":
+{
+    "type": "cable",
+    "name": "Front Nozzle Power Cable",
+    "name_spanish": "Cable de Boquillas Centrífugas Delanteras",
+    "material_num": "YC.XC.XX000993",
+    "material_name": "Front Atomized Sprinkler Power Cable"
+},
+"cable_centrifugal_rear_(SIDE)":
+{
+    "type": "cable",
+    "name": "Centrifugal Nozzle Cable (Rear-(ENG[SIDE]))",
+    "name_spanish": "Cable de Boquilla Centrífuga (Posterior-(SPA[SIDE]))",
+    "material_num": "YC.XC.XX001000",
+    "material_name": "Atomized Sprinkler Adapter Cable (Rear)"
+},
+"cable_comm":
+{
+    "type": "cable",
+    "name": "Communicate Cable",
+    "name_spanish": "Cable de Comunicación",
+    "material_num": "YC.XC.XX001009",
+    "material_name": "Communicate Cable (Cable Distribution Board-Spraying Module)"
+},
+"cable_esc_arm_m(ARM_FRONT)":
+{
+    "type": "cable",
+    "name": "M(SAME[ARM_FRONT]) Aircraft Arm ESC Composite Cable",
+    "name_spanish": "Cable de ESC del Brazo M(SAME[ARM_FRONT])",
+    "material_num": "YC.XC.DD000573",
+    "material_name": "M1 & M2 Aircraft Arm ESC Composite Cable"
+},
+"cable_esc_arm_m(ARM_BACK)":
+{
+    "type": "cable",
+    "name": "M(SAME[ARM_BACK]) Aircraft Arm ESC Composite Cable",
+    "name_spanish": "Cable de ESC del Brazo M(SAME[ARM_BACK])",
+    "material_num": "YC.XC.DD000572",
+    "material_name": "M3 & M4 Aircraft Arm ESC Composite Cable"
+},
+"cable_esc_front_power_(SIDE)":
+{
+    "type": "cable",
+    "name": "Front Arm ESC Power Adapter Cable ((ENG[SIDE]))",
+    "name_spanish": "Cable Adaptador de Potencia del Brazo Delantero ((SPA[SIDE]))",
+    "material_num": "YC.XC.DD000576",
+    "material_name": "Front Arm ESC Power Adapter Cable"
+},
+"cable_flow_meter":
+{
+    "type": "cable",
+    "name": "Flow Meter Signal Cable",
+    "name_spanish": "Cable del Medidor de Caudal",
+    "material_num": "YC.XC.XX001004",
+    "material_name": "Flow Meter Signal Cable"
+},
+"cable_camera_fpv":
+{
+    "type": "cable",
+    "name": "FPV Camera Signal Cable",
+    "name_spanish": "Cable de Cámara FPV",
+    "material_num": "YC.XC.XX001014",
+    "material_name": "FPV Camera Signal Cable"
+},
+"cable_sensor_fwd_vision_(UD)":
+{
+    "type": "cable",
+    "name": "Forward Vision Sensor Signal Cable (ENG[UD])",
+    "name_spanish": "Cable de Sensor de Vision Frontal (SPA[UD])",
+    "material_num": "YC.XC.XX001013",
+    "material_name": "Forward Vision Sensor Signal Cable"
+},
+"cable_light":
+{
+    "type": "cable",
+    "name": "Auxiliary Bottom Light Signal Cable",
+    "name_spanish": "Cable de Luz Auxiliar",
+    "material_num": "YC.XC.XX000999",
+    "material_name": "Auxiliary Bottom Light Signal Cable"
+},
+"cable_radar_fwd":
+{
+    "type": "cable",
+    "name": "Forward Radar Signal Cable",
+    "name_spanish": "Cable de Radar Delantero",
+    "material_num": "YC.XC.XX001011",
+    "material_name": "Forward Radar Signal Cable"
+},
+"cable_radar_rear":
+{
+    "type": "cable",
+    "name": "Rear Radar Signal Cable",
+    "name_spanish": "Cable de Radar de Visión Trasera",
+    "material_num": "YC.XC.XX001012",
+    "material_name": "Rear Radar Signal Cable"
+},
+"cable_rtk_(SIDE)":
+{
+    "type": "cable",
+    "name": "RTK Coaxial Cable ((ENG[SIDE]))",
+    "name_spanish": "Cable Coaxial RTK ((SPA[SIDE]))",
+    "material_num": "YC.XC.TT000132",
+    "material_name": "RTK Coaxial Cable"
+},
+"cable_spray_adaptive":
+{
+    "type": "cable",
+    "name": "Spraying Adaptive Cable",
+    "name_spanish": "Cable Adaptativo de Rociado",
+    "material_num": "YC.XC.XX001001",
+    "material_name": "Spraying Adaptive Cable"
+},
+"cable_spray_signal":
+{
+    "type": "cable",
+    "name": "Spraying Signal Cable",
+    "name_spanish": "Cable de Señal de Rociado",
+    "material_num": "YC.XC.XX001002",
+    "material_name": "Spraying Signal Cable"
+},
+"cable_throttle":
+{
+    "type": "cable",
+    "name": "Throttle Cable",
+    "name_spanish": "Cable de Señal de Aceleración",
+    "material_num": "YC.XC.XX000997",
+    "material_name": "Throttle Cable (Cable Distribution Board-Spraying Module)"
+}
+}

@@ -1,0 +1,54 @@
+[
+
+    ["battery", "pdb"],
+
+    ["pdb", "board_spray_power"],
+    ["board_spray_power", "cable_comm"],
+    ["board_spray_power", "cable_throttle"],
+    ["board_spray_power", "cable_centrifugal_front"],
+    ["cdb", "cable_comm"],
+    ["cdb", "cable_throttle"],
+    ["cdb", "cable_centrifugal_front"],
+    
+    ["cdb", "board_avionics"],
+    ["board_avionics", "cable_camera_fpv"],
+    ["cable_camera_fpv", "camera_fpv"],
+    ["board_avionics", "sensor_barometer"],
+
+    ["cdb", "board_RF"],
+    ["board_RF", "antenna_sdr_front_(SIDE)"],
+    ["board_RF", "antenna_sdr_rear_(SIDE)"],
+    ["board_RF", "cable_rtk_(SIDE)"],
+    ["cable_rtk_(SIDE)", "antenna_rtk_(SAME[SIDE])"],
+    
+    ["cdb", "cable_sensor_fwd_vision_(UD)"],
+    ["cable_sensor_fwd_vision_(UD)", "sensor_fwd_vision_(SAME[UD])"],
+    ["cdb", "cable_radar_fwd"],
+    ["cable_radar_fwd", "radar_fwd"],
+    ["cdb", "cable_light"],
+    ["cable_light", "light_(SIDE)"],
+
+    ["board_spray_power", "cable_radar_bwd"],
+    ["cable_radar_bwd", "radar_bwd"],
+    
+    ["board_spray_power", "sensor_weight"],
+    ["board_spray_power", "cable_spray_adaptive"],
+    ["cable_spray_adaptive", "cable_spray_signal"],
+    ["cable_spray_signal", "cable_flow_meter"],
+    ["cable_flow_meter", "sensor_flow_meter"],
+    ["cable_spray_signal", "sensor_liquid_level"],
+    ["cable_spray_signal", "motor_pump_(PUMP)"],
+
+    ["cdb", "cable_esc_arm_m(ARM_FRONT)"],
+    ["pdb", "cable_esc_front_power_(SIDE)"],
+    ["cable_esc_arm_m(ARM_FRONT)",
+     "cable_esc_front_power_(CABLE_ESC_FRONT_POWER_SIDE[ARM_FRONT])"],
+    ["board_spray_power", "cable_esc_arm_m(ARM_BACK)"],
+    
+    ["board_esc_(MOTOR)", "cable_esc_arm_m(ARM[MOTOR])"],
+    ["board_esc_(MOTOR)", "motor_propulsion_(SAME[MOTOR])"],
+
+    ["cable_esc_arm_m(ARM_BACK)", "cable_centrifugal_rear_(SIDE[ARM_BACK])"],
+    ["motor_centrifugal_rear_(NOZZLE)", "cable_centrifugal_rear_(SIDE[NOZZLE])"]
+    
+]

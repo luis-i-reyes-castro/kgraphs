@@ -1,0 +1,101 @@
+{
+"sets":
+{
+    "SIDE":   ["l","r"],
+    "UD":     ["u","d"],
+    "ARM":    ["1","2","3","4"],
+    "MOTOR":  ["1","2","3","4","5","6","7","8"],
+    "PUMP":   ["1","2"],
+    "NOZZLE": ["3","4"]
+},
+"subsets":
+{
+    "ARM_FRONT":   { "set" : "ARM", "elements": ["1","2"] },
+    "ARM_BACK":    { "set" : "ARM", "elements": ["3","4"] },
+    "MOTOR_FRONT": { "set" : "MOTOR", "elements": ["1","2","5","6"] },
+    "MOTOR_BACK":  { "set" : "MOTOR", "elements": ["3","4","7","8"] }
+},
+"functions":
+{
+    "ENG[SIDE]":
+    {
+        "l" : "Left",
+        "r" : "Right"
+    },
+    "SPA[SIDE]":
+    {
+        "l" : "Izquierdo",
+        "r" : "Derecho"
+    },
+    "ENG[UD]":
+    {
+        "u" : "Up",
+        "l" : "Down"
+    },
+    "SPA[UD]":
+    {
+        "u" : "Superior",
+        "l" : "Inferior"
+    },
+    "ARM[MOTOR]":
+    {
+        "1" : "1",
+        "2" : "2",
+        "3" : "3",
+        "4" : "4",
+        "5" : "1",
+        "6" : "2",
+        "7" : "3",
+        "8" : "4"
+    },
+    "ARM[PUMP]":
+    {
+        "1" : "3",
+        "2" : "4"
+    },
+    "ARM[NOZZLE]":
+    {
+        "3" : "3",
+        "4" : "4"
+    },
+    "CABLE_ESC_FRONT_POWER_SIDE[ARM_FRONT]":
+    {
+        "1" : "l",
+        "2" : "r"
+    },
+    "CABLE_ESC_FRONT_POWER_SIDE[MOTOR_FRONT]":
+    {
+        "1" : "l",
+        "2" : "r",
+        "5" : "l",
+        "6" : "r"
+    },
+    "SIDE[ARM]":
+    {
+        "1" : "r",
+        "2" : "l",
+        "3" : "l",
+        "4" : "r"
+    },
+    "SIDE[PUMP]":
+    {
+        "1" : "l",
+        "2" : "r"
+    },
+    "SIDE[NOZZLE]":
+    {
+        "3" : "l",
+        "4" : "r"
+    },
+    "NOZZLE[PUMP]":
+    {
+        "1" : "3",
+        "2" : "4"
+    },
+    "PUMP[NOZZLE]":
+    {
+        "3" : "1",
+        "4" : "2"
+    }
+}
+}

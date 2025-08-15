@@ -1,0 +1,66 @@
+{
+"antenna_rtk_(SIDE)":
+{
+    "type": "antenna",
+    "name": "RTK Antenna ((ENG[SIDE]))",
+    "name_spanish": "Antena RTK ((SPA[SIDE]))",
+    "material_num": "BC.AG.SS000694",
+    "material_name": "RTK Antenna Module"
+},
+"antenna_sdr_front_(SIDE)":
+{
+    "type": "antenna",
+    "name": "SDR Antenna (Front-(ENG[SIDE]))",
+    "name_spanish": "Antena SDR (Frontal-(SPA[SIDE]))",
+    "material_num": "YC.DZ.AA000326",
+    "material_name": "SDR Antenna (Front)"
+},
+"antenna_sdr_rear_(SIDE)":
+{
+    "type": "antenna",
+    "name": "SDR Antenna (Rear-(ENG[SIDE]))",
+    "name_spanish": "Antena SDR (Trasera-(SPA[SIDE]))",
+    "material_num": "YC.DZ.AA000325",
+    "material_name": "SDR Antenna (Rear)"
+},
+"camera_fpv":
+{
+    "type": "sensor",
+    "name": "FPV Camera",
+    "name_spanish": "Cámara FPV",
+    "material_num": "BC.AG.SS000681",
+    "material_name": "FPV Camera Module"
+},
+"radar_fwd":
+{
+    "type": "sensor",
+    "name": "Forward Radar Module ",
+    "name_spanish": "Radar Delantero",
+    "material_num": "BC.AG.SS000939.02.F",
+    "material_name": "Forward Radar Module "
+},
+"radar_rear":
+{
+    "type": "sensor",
+    "name": "Rear Radar Module ",
+    "name_spanish": "Radar Trasero",
+    "material_num": "BC.AG.SS000940.02.F",
+    "material_name": "Rear Radar Module "
+},
+"sensor_barometer":
+{
+    "type": "sensor",
+    "name": "Barometer",
+    "name_spanish": "Barómetro",
+    "material_num": "BC.AG.PP000354",
+    "material_name": "Barometer Board"
+},
+"sensor_fwd_vision_(UD)":
+{
+    "type": "sensor",
+    "name": "Forward Vision Sensors (ENG[UD])",
+    "name_spanish": "Sensores de Visión Frontal (SPA[UD])",
+    "material_num": "BC.AG.SS000671",
+    "material_name": "Forward Vision Sensor Module"
+}
+}
