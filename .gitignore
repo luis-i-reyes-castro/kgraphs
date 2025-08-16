@@ -3,7 +3,7 @@
 __pycache__/
 agent_results/
 archive/
-domain_knowledge_B/
+T40_dkb/
 dev_prompts/
 # Files
 test.py

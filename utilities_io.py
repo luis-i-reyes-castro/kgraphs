@@ -25,6 +25,12 @@ def exists_file( filepath : str) -> bool :
     """
     return Path(filepath).exists()
 
+def list_files_starting_with( directory : str, prefix : str, extension : str) -> list :
+    """
+    List files in a directory starting with a given prefix and extension
+    """
+    return sorted(glob(f'{directory}/{prefix}*.{extension}'))
+
 def load_file_as_string( filepath : str) -> str :
     """
     Load JSON file as string
@@ -39,24 +45,18 @@ def load_json_file( filepath : str) -> Any :
     with open( filepath, 'r', encoding = 'utf-8') as f :
         return load( f, object_pairs_hook = OrderedDict)
 
-def load_json_files_starting_with( directory : str, prefix : str) -> OrderedDict :
+def load_json_files_starting_with( directory : str, prefix : str) -> list :
     """
     Load all JSON files in a directory starting with a given prefix
     """
-    result = OrderedDict()
-    files  = glob(f'{directory}/{prefix}*.json')
+    result = []
+    files  = list_files_starting_with( directory, prefix, 'json')
     for file_path in files :
         try :
-            file_contents = OrderedDict(load_json_file(file_path))
-            for file_key in file_contents.keys() :
-                if file_key in result :
-                    print(f"❌ Error in load_json_files_starting_with: Found repeated key!")
-                    print_ind( f"File: {file_path}", 1)
-                    print_ind( f"Key : {file_key}",  1)
-            result.update(file_contents)
+            file_contents = load_json_file(file_path)
+            result.append(file_contents)
         except FileNotFoundError as e :
             print(f"❌ Error: Could not find file {e.filename}")
-            continue
     return result
 
 def load_json_string( data : str) -> Any :
