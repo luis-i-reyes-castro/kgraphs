@@ -34,10 +34,15 @@
 {
     "name": "ESC state error. Turn off the aicraft and restart it. Contact DJI Support if this continues after restarting.",
     "name_spanish": "Error de estado ESC. Apague la aeronave y reiníciela. Contacte con DJI Support si esto continua después de reiniciar.",
-    "solutions":
+    "causes":
+    {
+    "components": [],
+    "problems":
     [
-        "This is a generic error message. You will need to read the other error messages to determine which ESC is not working properly."
-    ]
+        "generic_esc_state_error"
+    ],
+    "signals": []
+    }
 },
 "error_esc_(MOTOR)":
 {

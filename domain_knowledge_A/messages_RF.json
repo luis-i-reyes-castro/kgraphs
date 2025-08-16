@@ -3,7 +3,7 @@
 {
     "name": "Cannot take off. Dual RTK antennas not ready",
     "name_spanish": "No se puede despegar. Las antenas duales RTK no están listas.",
-    "cuases":
+    "causes":
     {
     "components": [],
     "problems":
@@ -21,7 +21,7 @@
 {
     "name": "RTK signal source not selected. Cannot start.",
     "name_spanish": "Fuente de señal RTK no seleccionada. No se puede iniciar.",
-    "cuases":
+    "causes":
     {
     "components": [],
     "problems":
@@ -35,7 +35,7 @@
 {
     "name": "Aircraft unlinked",
     "name_spanish": "Aeronave desvinculada",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -54,7 +54,7 @@
 {
     "name": "Aircraft linking was abnormal and could not be unlocked. Never take off...",
     "name_spanish": "La vinculación de la aeronave era anormal y no ha podido ser desbloqueada. Nunca despegue...",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -73,7 +73,7 @@
 {
     "name": "Unstable linking, app could not unlock aircraft.",
     "name_spanish": "Vinculación inestable, la aplicación no ha podido desbloquear la aeronave.",
-    "cuases":
+    "causes":
     {
     "components":
     [

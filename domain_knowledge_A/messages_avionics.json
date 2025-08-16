@@ -3,7 +3,7 @@
 {
     "name": "Angular velocity sensor overheated",
     "name_spanish": "Medidor de velocidad angular sobrecalentado",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -20,7 +20,7 @@
 {
     "name": "Avionics System / Aicraft Electronics System Error",
     "name_spanish": "Sistema Avionics / Error del sistema de electrónica aérea",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -37,7 +37,7 @@
 {
     "name": "Excessive barometer deviation",
     "name_spanish": "Desvío excesivo de barómetro",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -57,7 +57,7 @@
 {
     "name": "Barometer out of range",
     "name_spanish": "Barómetro fuera de rango",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -77,7 +77,7 @@
 {
     "name": "Aircraft static altitude change",
     "name_spanish": "Cambio de la altitud estática de la aeronave",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -97,7 +97,7 @@
 {
     "name": "Error initializing CNN algorithm. Restart aircraft or fly with caution.",
     "name_spanish": "Error al inicial el algoritmo de CNN. Re-inicie la aeronave o vuele con cuidado.",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -114,7 +114,7 @@
 {
     "name": "Aircraft module version incompatible",
     "name_spanish": "Versión del módulo Aeronave incompatible",
-    "cuases":
+    "causes":
     {
     "components": [],
     "problems":

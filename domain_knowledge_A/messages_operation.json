@@ -3,7 +3,7 @@
 {
     "name": "Mission radius exceeds acceptable limit",
     "name_spanish": "El radio de la misión es superior al límite acceptable.",
-    "cuases":
+    "causes":
     {
     "components": [],
     "problems":
@@ -17,7 +17,7 @@
 {
     "name": "Aircraft in restricted altitude zone (150 m). Fly with caution.",
     "name_spanish": "Aeronave en zona de altitud restringida (150 m). Vuele con cuidado.",
-    "cuases":
+    "causes":
     {
     "components": [],
     "problems":
@@ -31,7 +31,7 @@
 {
     "name": "Your aircraft is in the restricted zone",
     "name_spanish": "Su aeronave está en la zona restringida",
-    "cuases":
+    "causes":
     {
     "components": [],
     "problems":
@@ -45,7 +45,7 @@
 {
     "name": "Aircraft in warning zone (0). Fly with caution.",
     "name_spanish": "Aeronaves en zona de advertencia (0). Vuele con cuidado.",
-    "cuases":
+    "causes":
     {
     "components": [],
     "problems":

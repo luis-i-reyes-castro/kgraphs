@@ -23,6 +23,14 @@
     "Calibrate the flow meter"
     ]
 },
+"generic_esc_state_error":
+{
+    "name": "Generic (Non-indexed) ESC State Error Message",
+    "solutions":
+    [
+    "Read the other error messages to determine which ESC is not working properly."
+    ]
+},
 "sensor_fwd_vision_calibration":
 {
     "name": "Front Vision Sensors Needs Calibration",

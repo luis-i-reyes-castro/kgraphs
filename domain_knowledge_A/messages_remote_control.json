@@ -3,7 +3,7 @@
 {
     "name": "Error detected in left and right movement of left stick.",
     "name_spanish": "Se ha detectado un error en el movimiento izquierdo y derecho de la palanca izquierda.",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -17,7 +17,7 @@
 {
     "name": "Error detected in up/forward and down/backward movement of left stick.",
     "name_spanish": "Se ha detectado un error en el movimiento hacia adelante y hacia atrás de la palanca izquierda.",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -31,7 +31,7 @@
 {
     "name": "Error detected in left and right movement of right stick.",
     "name_spanish": "Se ha detectado un error en el movimiento izquierdo y derecho de la palanca derecha.",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -45,7 +45,7 @@
 {
     "name": "Error detected in up/forward and down/backward movement of right stick.",
     "name_spanish": "Se ha detectado un error en el movimiento hacia adelante y hacia atrás de la palanca derecha.",
-    "cuases":
+    "causes":
     {
     "components":
     [

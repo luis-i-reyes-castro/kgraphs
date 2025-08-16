@@ -3,7 +3,7 @@
 {
     "name": "Radar error. Obstacle detection may not be available. Execute piloting and landing manually.",
     "name_spanish": "Error de radar. La detección de obstáculos podría no estar disponible. Ejecute el pilotaje y el aterrizaje manualmente.",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -24,7 +24,7 @@
 {
     "name": "Radar disconnected",
     "name_spanish": "Radar desconectado",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -42,7 +42,7 @@
 {
     "name": "Radar downlink communication exception I",
     "name_spanish": "Excepción de comunicación de bajada de radar I",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -62,7 +62,7 @@
 {
     "name": "Radar downlink communication exception II",
     "name_spanish": "Excepción de comunicación de bajada de radar II",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -82,7 +82,7 @@
 {
     "name": "Radar downlink communication exception III",
     "name_spanish": "Excepción de comunicación de bajada de radar III",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -102,7 +102,7 @@
 {
     "name": "Radar downlink communication exception IV",
     "name_spanish": "Excepción de comunicación de bajada de radar IV",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -122,7 +122,7 @@
 {
     "name": "Radar ESC disconnected",
     "name_spanish": "ESC de radar desconectado",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -140,7 +140,7 @@
 {
     "name": "Radar ESC self-check error",
     "name_spanish": "Error de autocomprobación del ESC del radar",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -157,7 +157,7 @@
 {
     "name": "Radar internal communication exception I",
     "name_spanish": "Excepción de comunicación interna de radar I",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -177,7 +177,7 @@
 {
     "name": "Radar internal communication exception II",
     "name_spanish": "Excepción de comunicación interna de radar II",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -197,7 +197,7 @@
 {
     "name": "Radar internal communication exception III",
     "name_spanish": "Excepción de comunicación interna de radar III",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -217,7 +217,7 @@
 {
     "name": "Radar internal communication exception IV",
     "name_spanish": "Excepción de comunicación interna de radar IV",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -237,7 +237,7 @@
 {
     "name": "Communication between radar and navigation system failed",
     "name_spanish": "Ha fallado la comunicación entre el radar y el sistema de navegación.",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -257,7 +257,7 @@
 {
     "name": "Radar raster error",
     "name_spanish": "Error de ráster de radar",
-    "cuases":
+    "causes":
     {
     "components":
     [
@@ -274,7 +274,7 @@
 {
     "name": "Radar RF clock exception",
     "name_spanish": "Excepción de reloj RF de radar",
-    "cuases":
+    "causes":
     {
     "components":
     [
