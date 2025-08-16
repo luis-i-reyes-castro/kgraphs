@@ -8,61 +8,67 @@ import shutil
 from abc_project_vars import DIR_DKNOWLEDGE_A
 from abc_project_vars import DIR_DKNOWLEDGE_B
 from collections import OrderedDict
-from dka_data_structures import load_placeholders
 from dka_data_structures import PlaceHolderDatabase
+from dka_data_structures import contains_placeholders
+from dka_data_structures import load_placeholders
 from utilities_io import ensure_dir
 from utilities_io import load_json_file
 from utilities_io import save_to_json_file
 from utilities_printing import print_ind
 
-def parse_dict_of_dicts( data : OrderedDict,
-                         phDB : PlaceHolderDatabase) -> OrderedDict :
+def parse_dict( data : OrderedDict, phDB : PlaceHolderDatabase) -> OrderedDict :
     
     result = OrderedDict()
     
-    for outer_key, inner_dict in data.items() :
+    for outer_key, inner_data in data.items() :
         outer_key_set = phDB.get_first_placeholder( outer_key, 'set')
-        if outer_key_set :
+        if outer_key_set and ( outer_key_set in phDB.set_map ) :
             for element in phDB.set_map[outer_key_set] :
                 new_outer_key         = phDB.apply_ph( outer_key, outer_key_set, element)
-                result[new_outer_key] = phDB.eval_apply_funs( inner_dict, element)
+                result[new_outer_key] = phDB.apply_funs( inner_data, element)
         else :
-            result[outer_key] = OrderedDict(inner_dict)
+            result[outer_key] = OrderedDict(inner_data)
     
     return result
 
-def parse_list_of_lists( data : list,
-                         phDB : PlaceHolderDatabase) -> list[list] :
+def parse_connections( data : list, phDB : PlaceHolderDatabase) -> list[list] :
     
     result = []
 
     for inner_list in data :
+        comp_1 = inner_list[0]
+        comp_2 = inner_list[1]
         
-        set_index = None
-        set_ph    = ''
-        for i, item in enumerate(inner_list) :
-            item_set = phDB.get_first_placeholder( item, 'set')
-            if item_set:
-                set_index = i
-                set_ph    = item_set
-                break
-        
-        if set_index :
+        set_ph = phDB.get_first_placeholder( comp_1, 'set')
+        if set_ph and ( set_ph in phDB.set_map ) :
             for set_element in phDB.set_map[set_ph] :
-                
-                new_inner_list = list(inner_list) 
-                new_inner_list[set_index] = \
-                phDB.apply_ph(inner_list[set_index], set_ph, set_element)
-
-                for j, _ in enumerate(new_inner_list) :
-                    if j != set_index :
-                        new_inner_list[j] = \
-                        phDB.eval_apply_funs(new_inner_list[j], set_element)
-                
-                result.append(new_inner_list)
+                new_comp_1 = phDB.apply_ph( comp_1, set_ph, set_element)
+                new_comp_2 = phDB.apply_funs( comp_2, set_element)
+                result.append( [ new_comp_1, new_comp_2] )
         
-        else:
-            result.append(inner_list)
+        else :
+            set_ph = phDB.get_first_placeholder( comp_2, 'set')
+            if set_ph and ( set_ph in phDB.set_map ) :
+                for set_element in phDB.set_map[set_ph] :
+                    new_comp_1 = comp_1
+                    new_comp_2 = phDB.apply_ph( comp_2, set_ph, set_element)
+                    result.append( [ new_comp_1, new_comp_2] )
+            
+            else :
+                result.append(inner_list)
+    
+    return result
+
+def parse_messages( data : OrderedDict, phDB : PlaceHolderDatabase) -> OrderedDict :
+    
+    result = parse_dict( data, phDB)
+    
+    for message_key, message_data in data.items() :
+        if str(message_key).startswith('error_') :
+            causes = message_data['causes']
+            causes['components'] = phDB.extend_list(causes['components'])
+            causes['problems']   = phDB.extend_list(causes['problems'])
+            causes['signals']    = phDB.extend_list(causes['signals'])
     
     return result
 
@@ -76,28 +82,17 @@ def parse_signals( data : list,
         list_path    = inner_dict['path']
         signals_set  = phDB.get_first_placeholder( list_signals, 'set')
         
-        if signals_set :
+        if signals_set and ( signals_set in phDB.set_map ) :
             for set_element in phDB.set_map[signals_set] :
                 new_inner_dict = OrderedDict()
                 new_inner_dict['signals'] = phDB.apply_ph( list_signals,
                                                            signals_set,
                                                            set_element)
-                new_inner_dict['path']    = phDB.eval_apply_funs( list_path,
-                                                                  set_element)
+                new_inner_dict['path']    = phDB.apply_funs( list_path, set_element)
                 result.append(new_inner_dict)
         
         else :
             result.append(OrderedDict(inner_dict))
-    
-    return result
-
-def parse_messages( data : OrderedDict, phDB : PlaceHolderDatabase) -> OrderedDict :
-    
-    result = parse_dict_of_dicts( data, phDB)
-    
-    for problem_key, problem_data in data.items() :
-        # TODO: Expand sets in lists: components, problems, signals
-        pass
     
     return result
 
@@ -110,12 +105,8 @@ if __name__ == "__main__" :
     ensure_dir(dir_output)
     print_ind(f'Saving files to: {dir_output}')
 
-    batch_dicts = ( 'components_', 'problems_')
-    batch_conns = ( 'connections',)
-    batch_signs = ( 'signals_',)
-    batch_msgs  = ( 'messages_',)
-    exceptions    = ( 'placeholders',)
-    batch_full = batch_dicts + batch_conns + batch_signs + batch_msgs
+    batch      = ( 'components_', 'connections', 'messages_', 'problems_', 'signals_')
+    exceptions = ( 'placeholders',)
 
     # Load the placeholder database
     path_placeholders = os.path.join( dir_input, 'placeholders.json')
@@ -136,7 +127,7 @@ if __name__ == "__main__" :
             continue
         
         # If file is not in batch and not in exceptions then copy
-        if not filename.startswith(batch_full) :
+        if not filename.startswith(batch) :
             if not filename.startswith(exceptions) :
                 shutil.copy (path_input, path_output)
                 print_ind( f'File is neither expandable nor in exceptions. Copied.', 1)
@@ -149,17 +140,21 @@ if __name__ == "__main__" :
         parsed_data = None
         
         # Parse according to batch type
-        if filename.startswith(batch_dicts) :
-            parsed_data = parse_dict_of_dicts( file_data, placeholderDB)
-        elif filename.startswith(batch_conns) :
-            parsed_data = parse_list_of_lists( file_data, placeholderDB)
-        elif filename.startswith(batch_signs) :
-            parsed_data = parse_signals( file_data, placeholderDB)
-        elif filename.startswith(batch_msgs) :
+        if filename.startswith(('components_','problems_')) :
+            parsed_data = parse_dict( file_data, placeholderDB)
+        elif filename.startswith('connections') :
+            parsed_data = parse_connections( file_data, placeholderDB)
+        elif filename.startswith('messages_') :
             parsed_data = parse_messages( file_data, placeholderDB)
+        elif filename.startswith('signals_') :
+            parsed_data = parse_signals( file_data, placeholderDB)
         else :
             raise ValueError( f'Unknown batch: {filename}')
         
         # Write the parsed data as JSON to the output directory
         save_to_json_file( parsed_data, path_output)
         print_ind( f'File data expanded.', 1)
+        
+        # Warn of leftover placeholders
+        if contains_placeholders(parsed_data) :
+            print_ind(f'⚠️ WARNING: Post-processing found leftover placeholders!')

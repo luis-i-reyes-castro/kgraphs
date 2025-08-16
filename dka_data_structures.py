@@ -73,9 +73,9 @@ class PlaceHolderDatabase:
         
         return result
     
-    def eval_apply_funs( self,
-                         data : str | list | dict, 
-                         argument : str) -> str | list | dict :
+    def apply_funs( self,
+                    data : str | list | dict, 
+                    argument : str) -> str | list | dict :
         
         result = None
         if isinstance( data, str) :
@@ -89,18 +89,35 @@ class PlaceHolderDatabase:
         elif isinstance( data, list) :
             result = []
             for item in data :
-                result.append( self.eval_apply_funs( item, argument))
+                result.append( self.apply_funs( item, argument))
         
         elif isinstance( data, dict) :
             result = OrderedDict()
             for key, val in data.items() :
-                res_key = self.eval_apply_funs( key, argument)
-                res_val = self.eval_apply_funs( val, argument)
+                res_key = self.apply_funs( key, argument)
+                res_val = self.apply_funs( val, argument)
                 result[res_key] = res_val
         
         else:
             raise ValueError(f"In eval_apply_funs: Invalid argument type: {type(data)}")
         
+        return result
+    
+    def extend_list( self, data : list) -> list :
+        
+        result = []
+        if isinstance( data, list) :
+            for item in data :
+                item_set_ph = self.get_first_placeholder( item, 'set')
+                if item_set_ph and ( item_set_ph in self.set_map ) :
+                    for set_element in self.set_map[item_set_ph] :
+                        new_item = self.apply_ph( item, item_set_ph, set_element)
+                        result.append(new_item)
+                else :
+                    result.append(item)
+        else:
+            raise ValueError(f"In eval_apply_funs: Invalid argument type: {type(data)}")
+
         return result
     
     def get_arg_set( self, fun_call : str) -> str | None :
@@ -150,7 +167,7 @@ class PlaceHolderDatabase:
         """
         Get all placeholder sets in keyval
         """
-        ph_sets = findall( phrx.RX_SET_, keyval)
+        ph_sets = findall( phrx.RX_SET, keyval)
         for ph in ph_sets :
             if ph not in self.set_map :
                 print(f"Error: Set '{ph}' not found in signatures")
@@ -160,7 +177,7 @@ class PlaceHolderDatabase:
         """
         Get all placeholder functions in keyval
         """
-        ph_funs = findall( phrx.RX_FUN_, keyval)
+        ph_funs = findall( phrx.RX_FUN, keyval)
         ph_funs_full = [f"{func_name}[{arg_name}]" for func_name, arg_name in ph_funs]
         for ph in ph_funs_full :
             if ph not in self.fun_map :
@@ -268,3 +285,24 @@ def load_placeholders( placeholder_path : str) -> PlaceHolderDatabase:
 
     # Return placeholder data
     return phDB
+
+def contains_placeholders( data : str | list | dict) -> bool :
+    if isinstance( data, str) :
+        match = search( phrx.RX_SET, data)
+        if match :
+            if match.group(1) not in phrx.IGNORE :
+                return True
+        match = search( phrx.RX_FUN, data)
+        if match :
+            return True
+    elif isinstance( data, list) :
+        for item in data :
+            if contains_placeholders(item) :
+                return True
+    elif isinstance( data, dict) :
+        for key, val in data.items() :
+            if contains_placeholders(key) or contains_placeholders(val) :
+                return True
+    else :
+        raise ValueError(f"Invalid argument type: {type(data)}")
+    return False
