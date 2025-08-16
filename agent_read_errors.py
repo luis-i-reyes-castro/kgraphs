@@ -1,5 +1,5 @@
 import os
-from abc_project_vars import DIR_AGENT_PROMPTS
+from abc_project_vars import DIR_PROMPTS
 from abc_project_vars import PROMPTS
 from base64 import b64encode
 from mistralai import Mistral
@@ -38,7 +38,7 @@ def read_errors( image_path : str) -> str | None :
         # Load agent prompts
         prompt = ''
         for p in PROMPTS :
-            prompt_path = os.path.join( DIR_AGENT_PROMPTS, p)
+            prompt_path = os.path.join( DIR_PROMPTS, p)
             prompt += load_file_as_string(prompt_path) + '\n'
         # Encode image as base64
         base64_image = encode_image(image_path)

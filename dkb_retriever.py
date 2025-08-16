@@ -3,14 +3,14 @@
 Domain Knowledge Retriever
 """
 
-from abc_project_vars import DIR_DKNOWLEDGE_B
+from abc_project_vars import DIR_DKB
 from utilities_dkb import load_domain_knowledge
 
 class DomainKnowledgeRetriever :
     
     def __init__( self, language : str = 'English') -> None :
         
-        self.data = load_domain_knowledge(DIR_DKNOWLEDGE_B)
+        self.data = load_domain_knowledge(DIR_DKB)
         
         if language not in ( 'English', 'Spanish') :
             raise ValueError( f"Invalid language: {language}")

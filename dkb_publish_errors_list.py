@@ -4,17 +4,17 @@ Publishes lists of errors as Markdown file to directory of agent prompts
 """
 
 import os
-from abc_project_vars import DIR_DKNOWLEDGE_B
+from abc_project_vars import DIR_DKB
 from dkb_retriever import DomainKnowledgeRetriever
 from utilities_io import save_to_file
 from utilities_printing import print_ind
 
 if __name__ == '__main__' :
     
-    print_ind(f'Collecting all error messages from: {DIR_DKNOWLEDGE_B}')
+    print_ind(f'Collecting all error messages from: {DIR_DKB}')
     
     output_file = 'messages_all.md'
-    output_path = os.path.join( DIR_DKNOWLEDGE_B, output_file)
+    output_path = os.path.join( DIR_DKB, output_file)
     retriever   = DomainKnowledgeRetriever('English')
     list_errors = retriever.list_message_names
     

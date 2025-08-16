@@ -7,7 +7,7 @@ import tkinter as tk
 from tkinter import ttk
 
 import os
-from abc_project_vars import DIR_DKNOWLEDGE_B
+from abc_project_vars import DIR_DKB
 from abc_project_vars import DIR_S1_OUTPUT
 from abc_project_vars import FORMAT_DATA
 from agent_read_errors import write_errors_summary
@@ -91,7 +91,7 @@ class EvaluatorAppS2 :
         self.root.bind( "<Shift-Right>", lambda e: self.error_load_next())
         
         # Load errors database
-        self.errors_db = load_json_files_starting_with( DIR_DKNOWLEDGE_B, 'errors_')
+        self.errors_db = load_json_files_starting_with( DIR_DKB, 'errors_')
         
         # Initialize list of data filenames
         self.data_filenames = []

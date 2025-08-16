@@ -5,7 +5,7 @@ Compute paths between components
 
 import networkx as nx
 import os
-from abc_project_vars import DIR_DKNOWLEDGE_B
+from abc_project_vars import DIR_DKB
 from utilities_io import load_json_file
 from utilities_io import save_to_json_file
 from utilities_printing import print_ind
@@ -120,7 +120,7 @@ def compute_paths( dir_data : str):
 
 if __name__ == '__main__':
     
-    dir_data = DIR_DKNOWLEDGE_B
+    dir_data = DIR_DKB
     print_ind(f'Computing component paths from: {dir_data}')
     compute_paths(dir_data)
     print_ind( f'Saved component paths to:', 1)

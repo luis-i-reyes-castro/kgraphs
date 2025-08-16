@@ -5,7 +5,7 @@ Check error mappings for consistency
 
 import sys
 import os
-from abc_project_vars import DIR_DKNOWLEDGE_B
+from abc_project_vars import DIR_DKB
 from abc_project_vars import SUBSYSTEMS
 from utilities_dkb import load_domain_knowledge
 
@@ -147,7 +147,7 @@ def check_diagnoses_components_problems( directory : str, system_type : str) -> 
 
 if __name__ == "__main__" :
 
-    dir_input = DIR_DKNOWLEDGE_B
+    dir_input = DIR_DKB
     usage_msg = f"Usage: python check_errors_diagnoses.py [{'|'.join(SUBSYSTEMS)}]"
 
     if not os.path.isdir(dir_input) :

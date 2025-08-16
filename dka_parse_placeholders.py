@@ -5,8 +5,8 @@ Parsing functions for placeholder substitution
 
 import os
 import shutil
-from abc_project_vars import DIR_DKNOWLEDGE_A
-from abc_project_vars import DIR_DKNOWLEDGE_B
+from abc_project_vars import DIR_DKA
+from abc_project_vars import DIR_DKB
 from collections import OrderedDict
 from dka_data_structures import PlaceHolderDatabase
 from dka_data_structures import contains_placeholders
@@ -98,8 +98,8 @@ def parse_signals( data : list,
 
 if __name__ == "__main__" :
     
-    dir_input  = DIR_DKNOWLEDGE_A
-    dir_output = DIR_DKNOWLEDGE_B
+    dir_input  = DIR_DKA
+    dir_output = DIR_DKB
 
     print_ind(f'Expanding domain knowledge from: {dir_input}')
     ensure_dir(dir_output)
