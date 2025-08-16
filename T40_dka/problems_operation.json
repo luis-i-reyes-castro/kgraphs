@@ -2,7 +2,12 @@
 "ambient_light":
 {
     "name": "Ambient Light is Too Low",
-    "note": "You are trying to operate either before dawn or after sunset. Getting this warning at night is totally normal."
+    "note": "You are trying to operate either before dawn or after sunset. Getting this warning at night is totally normal.",
+    "solutions":
+    [
+    "Avoid flying at night.",
+    "If flying at night, avoid flying the drone at speeds above 7 meters per second or 25.2 kilometers per hour."
+    ]
 },
 "arm_(ARM)_not_secured":
 {

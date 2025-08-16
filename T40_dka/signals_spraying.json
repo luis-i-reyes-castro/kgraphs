@@ -5,7 +5,7 @@
     "motor_centrifugal_(NOZZLE)_esc_data",
     "motor_centrifugal_(NOZZLE)_esc_power",
     "motor_centrifugal_(NOZZLE)_esc_self_check",
-    "motor_centrifugal_(NOZZLE)_throttle"
+    "motor_centrifugal_(NOZZLE)_esc_throttle"
     ],
 "path":
     [
@@ -23,7 +23,7 @@
     "motor_pump_(PUMP)_esc_data",
     "motor_pump_(PUMP)_esc_power",
     "motor_pump_(PUMP)_esc_self_check",
-    "motor_pump_(PUMP)_throttle"
+    "motor_pump_(PUMP)_esc_throttle"
     ],
 "path":
     [
